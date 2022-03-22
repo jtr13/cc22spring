@@ -73,35 +73,50 @@ Your job for this pull request is done for now. Once contributors fix their requ
 
 <br/> 
 
-## Merge the pull request
+## Steps to Merge the PR
+<!-- - Open the `_bookdown.yml` file. -->
+- Go to the main branch of our project (jtr13/cc21fall1) and open the `_bookdown.yml` file
 
-If all is good to go, it's time to merge the pull request. There are several steps. 
+- Copy the entire rmd_files section. It would look something like this
+`rmd_files: [
+'index.Rmd', # must be first chapter
+'assignment.Rmd',
+....,
+....,
+]`
 
-### Add chapter filename to `_bookdown.yml` in PR's `branch`
+<!-- - Open the branch of the submitted PR and open their _bookdown.yml file. -->
+- Open the branch of the submitted PR by following these steps:
 
-- To access the PR branch:
+  + To access the PR branch:
 
-<img src="resources/tutorial_pull_request_mergers/3.png" width="700">
+  <img src="resources/tutorial_pull_request_mergers/3.png" width="700">
 
-- Make sure you are on the PR branch by checking that the PR branch name is shown (not `main`):
+  + Make sure you are on the PR branch by checking that the PR branch name is shown (not `main`):
 
-<img src="resources/tutorial_pull_request_mergers/4.png" width="700">
+  <img src="resources/tutorial_pull_request_mergers/4.png" width="700">
 
-- Open the `_bookdown.yml` file.
+- Remove their rmd_files: [] section and paste the one which we copied from the main branch of our project.
 
-- **delete everything in the file beginning with `rmd_files: [` and then add the name of the new file in single quotes followed by a comma:**
-
-<img src="resources/tutorial_pull_request_mergers/delete_most_of_bookdown_yml.png" width="700">
-
-Why? Because it will be easier to fix the merge conflicts this way. (A better way to do this is to merge main into the PR branch *before* adding the new file but this can't be done on GitHub. If there's interest I will explain how to do this locally.)
+- Add the name of the new file in single quotes followed by a comma under the labelled section (eg. Cheatsheets, Tutorials etc).
 
 - Save the edited version.
 
+- Come back to the PR.
+
+- Merge the PR.
+
+- Click on the Actions tabs and check whether the build has been successful (A successful build will have a green dot in front of the actions). PLEASE NOTE that the actions take a while to complete (approximately 5-6 mins depending on the number of files to be rendered), so you might need to wait for some time to finally check whether the build was successful or not.
+
+- In case the build fail and you are not able to understand or rectify it please tag one of the PR Assigners so that they can review it. PLEASE DO NOT `revert merge` as it would create new branches in the workflow.
+
+<!-- - **delete everything in the file beginning with `rmd_files: [` and then add the name of the new file in single quotes followed by a comma:**
+<img src="resources/tutorial_pull_request_mergers/delete_most_of_bookdown_yml.png" width="700">
+Why? Because it will be easier to fix the merge conflicts this way. (A better way to do this is to merge main into the PR branch *before* adding the new file but this can't be done on GitHub. If there's interest I will explain how to do this locally.)
+- Save the edited version.
 - Click the resolve conflicts button:
-
 <img src="resources/tutorial_pull_request_mergers/resolve_conflicts.png" width="700">
-
-- Cut the new filename and paste it into the proper location. Then delete the lines with `<<<<<<< xxxx`, `=======` and `>>>>>>>> main`. In short, the file should look correct when you're done. Click the "Marked as resolved" button and then the green "Commit merge" button.
+- Cut the new filename and paste it into the proper location. Then delete the lines with `<<<<<<< xxxx`, `=======` and `>>>>>>>> main`. In short, the file should look correct when you're done. Click the "Marked as resolved" button and then the green "Commit merge" button. -->
 
 ### PR Leaders only: Add part names to `.Rmd` for every first article in part
 
@@ -111,7 +126,7 @@ For every first article of each part, add the chapter name on the top of the `.R
 <img src="resources/tutorial_pull_request_mergers/chap_1.png" width="700">
 <br/><br/>
 
-### Merge PR and leave a comment
+## Merge PR and leave a comment
 
 Now comes the final step.
 
@@ -124,6 +139,6 @@ https://github.com/jtr13/cc20/pull/23#issuecomment-728506101
 Leave comments for congratulations 🎉 (type `:tada:`) and then click on the green button for merge.
 <br/> 
 
-### Check updated version
+## Check updated version
 
-A successful merge means that the addition file or files were added to the project with no merge conflicts. It does not mean that the book will render and deploy to GitHub pages without issues. After the merge, it will take about 5-10 minutes for GitHub Actions to render the book and deploy the updated version. If there's a problem I will be notified by email and will address it. In other words, your job is done. However if you're interested, you can check the progress by clicking Actions at the top of the repo.
+A successful merge means that the addition file or files were added to the project with no merge conflicts. It does not mean that the book will render and deploy to GitHub pages without issues. After the merge, it will take about 5-10 minutes for GitHub Actions to render the book and deploy the updated version. Please check that the Action ran successfully and if it didn't, open up an issue with a link to the failed run.
