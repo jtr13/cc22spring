@@ -1,10 +1,4 @@
-This is a template for setting up a repo for community bookdown projects.
 
-### Copy this template
-
-- [ ] 1. Click the green "Use this template" button above.  DO NOT FORK THE REPO. 
-
-- [ ] 2. In the Description field, write: "Bookdown source files for [your project name here]".
 
 ### Edit some key files
 
@@ -22,10 +16,10 @@ This is a template for setting up a repo for community bookdown projects.
 
 # [REPO NAME]
 
-Community contributions for [STAT GR 5702 (EDAV) Fall 2021 Tues/Thurs]
+Community contributions for STAT GR 5293 Statistical Graphics Spring 2022
 
-The class projects will be collected as `.Rmd` files and rendered into a bookdown book: [ADD LINK]
+The class projects will be collected as `.Rmd` files and rendered into a bookdown book: https://jtr13.github.io/cc22spring/
 
-Contributors, see: [Submission Instructions] [ADD LINK]
+Contributors, see: [Submission Instructions](https://jtr13.github.io/cc22spring/github-submission-instructions.html)
 
-Collaborators, see: [Tutorial for Pull Request Mergers] [ADD LINK]
+Collaborators, see: [Tutorial for Pull Request Mergers](https://jtr13.github.io/cc22spring/tutorial-for-pull-request-mergers.html)
