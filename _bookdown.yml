@@ -16,7 +16,8 @@ rmd_files: [
 
   # Part: Cheatsheets
   'whatwedid.Rmd',  # tmap -- contains PART header 
- 
+  'ggplot2_graphics_cheatsheet.Rmd',
+
   # Part: Tutorials
   
   # Part: Workshops
