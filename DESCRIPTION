@@ -3,12 +3,24 @@ Type: Book
 Title: Does not matter
 Version: 0.0.0.9000
 Imports:
-    emo
+    broom,
+    dplyr,
+    emo,
+    gcookbook,
+    GGally,
+    ggalluvial,
+    ggmosaic,
+    ggplot2,
+    ggridges,
+    gridExtra,
+    Lock5withR,
+    MASS,
+    parcoords,
+    plotly,
 Suggests:
     bookdown,
     bslib,
     downlit,
-    ggplot2,
     withr,
     xml2
 Remotes:
