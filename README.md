@@ -1,17 +1,3 @@
-
-
-### Edit some key files
-
-- [ ] 1. `index.Rmd`
-
-- [ ] 2. `_bookdown.yml`
-
-- [ ] 3. `_output.yml`
-
-- [ ] 4. `assignment.Rmd`
-
-- [ ] 5. `instructions.Rmd`
-
 ---
 
 # cc22spring
