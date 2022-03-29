@@ -137,7 +137,7 @@ tmap_last()
 ### Comment
 `tmap` is based on the idea of a ‘grammar of graphics’, just like `ggplot2`. This involves a separation between the input data and the aesthetics. Therefore, it is not difficult for users who are familiar with `ggplot2` to learn it.
 
-# References
+## References
 [ggmap](link:https://github.com/dkahle/ggmap): The original github page for ggmap
 
 [Geocomputation with R, Chapter 9, by Robin Lovelace, et al.](https://geocompr.robinlovelace.net/adv-map.html): A great introduction and tutorial to tmap and leaflet
