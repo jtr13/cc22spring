@@ -4,7 +4,7 @@
 
 Sihui Liang and Yuxuan Fu
 
-### What we did 
+## What we did 
 
 Our purpose of the tmap cheatsheet is to provide a comprehensive and practical display of the usage of tmap R package, one of the main geographic visualiation toolkits in R platform. 
 
