@@ -8,6 +8,7 @@ Suggests:
     bookdown,
     bslib,
     downlit,
+    ggplot2,
     withr,
     xml2
 Remotes:
