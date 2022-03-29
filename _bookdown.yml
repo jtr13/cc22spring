@@ -16,7 +16,8 @@ rmd_files: [
   'sample_project.Rmd',
 
   # Part: Cheatsheets
- 
+  'ggplot2_graphics_cheatsheet.Rmd',
+  
   # Part: Tutorials
   
   # Part: Workshops
