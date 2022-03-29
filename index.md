@@ -1,5 +1,5 @@
 ---
-title: "Community Contributions for ..."
+title: "Community Contributions STAT GR 5293"
 date: "2022-03-29"
 site: bookdown::bookdown_site
 github-repo: jtr13/cc22spring
