@@ -7,7 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-# Chapter ordering
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -16,8 +15,9 @@ rmd_files: [
   'sample_project.Rmd',
 
   # Part: Cheatsheets
+  'whatwedid.Rmd',  # tmap -- contains PART header 
   'ggplot2_graphics_cheatsheet.Rmd',
-  
+
   # Part: Tutorials
   
   # Part: Workshops
