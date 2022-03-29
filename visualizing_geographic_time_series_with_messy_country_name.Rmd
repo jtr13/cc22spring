@@ -22,7 +22,7 @@ In this tutorial, we start with data downloading directly from [**The Internatio
 
 ```{r, warning= FALSE, message=FALSE}
 # read in the dataset downloaded from the International Disaster Data Center
-raw_data <- readxl::read_xlsx("resources/data/emdat_public_2022_03_19_query_uid-LV4CQy.xlsx")
+raw_data <- readxl::read_xlsx("resources/visualizing_geographic_time_series/emdat_public_2022_03_19_query_uid-LV4CQy.xlsx")
 ```
 
 ```{r}
@@ -72,7 +72,7 @@ Based on the above three situation, we did some manual adjustment(splitting) on 
 Our splited countries are："Czechoslovakia"， "Yugoslavia"，and “Serbia Montenegro”.
 ```{r, warning=FALSE, message=FALSE}
 # data after splitting certain countries
-datamap <- readxl::read_xlsx("resources/data/cleared_data.xlsx") 
+datamap <- readxl::read_xlsx("resources/visualizing_geographic_time_series/cleared_data.xlsx") 
 data_temp <- map_data("world")
 
 # some manual adjustments
