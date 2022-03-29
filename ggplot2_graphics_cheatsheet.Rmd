@@ -10,6 +10,7 @@ Motivation: My main purpose to create this cheat sheet is organizing statistical
 library(ggplot2)
 library(gridExtra)
 library(dplyr)
+library(forcats)
 library(Lock5withR)
 library(ggridges)
 library(broom)
