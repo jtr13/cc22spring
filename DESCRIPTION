@@ -6,6 +6,7 @@ Imports:
     broom,
     dplyr,
     emo,
+    forcats,
     gcookbook,
     GGally,
     ggalluvial,
