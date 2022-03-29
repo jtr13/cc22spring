@@ -14,7 +14,7 @@
 
 ---
 
-# [REPO NAME]
+# cc22spring
 
 Community contributions for STAT GR 5293 Statistical Graphics Spring 2022
 
