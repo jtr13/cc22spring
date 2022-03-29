@@ -16,6 +16,8 @@ what-if-i-catch-mistakes-before-my-pull-request-is-merged
 what-if-i-catch-mistakes-after-my-pull-request-is-merged
 other-questions
 sample-project
+tmap-package
+what-we-did
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
