@@ -9,6 +9,7 @@ Motivation: My main purpose to create this cheat sheet is organizing statistical
 ```{r,warning=FALSE}
 library(ggplot2)
 library(gridExtra)
+library(d3r)
 library(dplyr)
 library(forcats)
 library(Lock5withR)
