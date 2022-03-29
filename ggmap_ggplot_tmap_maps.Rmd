@@ -7,11 +7,12 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.align =
 ```
 
 ```{r}
-library("ggmap")
+library(ggmap)
 library(tmap)
 library(spData)
 library(usdata)
-library("tidyverse")
+library(plotly)
+library(tidyverse)
 ```
 
 
@@ -64,7 +65,7 @@ g1
 ### Make it Interactive
 And of course, you can also make it interactive very easily since it is still an ggplot object
 ```{r}
-plotly::ggplotly(g1, tooltip = c("offense", "lon", "lat"))
+ggplotly(g1, tooltip = c("offense", "lon", "lat"))
 ```
 
 ### Comments
