@@ -52,7 +52,7 @@ If PR was submitted from the **main** branch, provide these instructions on how 
 - Other hashtag headers should **not** be followed by numbers since the hashtags will create numbered subheadings. Correct: `## Subheading`. Incorrect: `## 3. Subheading`.
 - If the file contains a setup chunk in `.Rmd` file, it should **not** contain a `setup` label. (The bookdown render will fail if there are duplicate chunk labels.)
 <br/>i.e. use `{r, include=FALSE}` instead of `{r setup, include=FALSE}`.
-<br/>[See sample `.Rmd`](https://github.com/jtr13/cc21/blob/main/sample_project.Rmd)
+<br/>[See sample `.Rmd`](https://github.com/jtr13/cc22spring/blob/main/sample_project.Rmd)
 - Links to internal files must contain `resources/<project_name>/` in the path, such as: `![Test Photo](resources/sample_project/election.jpg)`
 - The file should not contain any `install.packages()`, `write` functions, `setwd()`, or `getwd()`. 
 - If there's anything else that looks odd but you're not sure, assign `jtr13` to review and explain the issue.
@@ -75,7 +75,7 @@ Your job for this pull request is done for now. Once contributors fix their requ
 
 ## Steps to Merge the PR
 <!-- - Open the `_bookdown.yml` file. -->
-- Go to the main branch of our project (jtr13/cc21fall1) and open the `_bookdown.yml` file
+- Go to the main branch of our project (jtr13/cc22spring) and open the `_bookdown.yml` file
 
 - Copy the entire rmd_files section. It would look something like this
 `rmd_files: [
