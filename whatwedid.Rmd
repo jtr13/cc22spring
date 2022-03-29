@@ -1,4 +1,6 @@
-# Group 4 contribution: `tmap` package Cheatsheet
+# (PART) Cheatsheets {-}
+
+# `tmap` package
 
 Sihui Liang and Yuxuan Fu
 
