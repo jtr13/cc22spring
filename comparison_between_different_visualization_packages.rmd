@@ -1,4 +1,4 @@
-# Descriptions and summaries of several visualization packages
+# Comparison between different visualization packages
 
 Yudong Zhou and Yanbo Wang
 
