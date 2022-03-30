@@ -80,6 +80,10 @@ basic-animation
 mulitple-trace-animations
 configuration-options-in-animation
 references
+web-scraping-using-beautifulsoup-in-python
+descrition
+link
+references-1
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
