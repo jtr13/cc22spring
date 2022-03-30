@@ -1,0 +1,315 @@
+# Plotly package
+
+Eris Chai and Juntian Zhang
+
+```{r, include=FALSE}
+# this prevents package loading message from appearing in the rendered version of your problem set 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(plotly)
+library(gapminder)
+library(quantmod)
+```
+
+## Motivation  
+<font size="4">
+In the lecture, we mentioned the package plotly and we see plotly can create interactive plots in R. We have learned a lot of ways to create static plots before, but we did not explore too much on how to create interactive plots. We are interested in exploring more about the plotly package and providing this information for people who are also interested in learning more about the plotly package.  
+In this project, we learned about how to plot basic interactive plots such as scatter plot, line plot, boxplot, bar charts, and histogram. We also learned about how to add custom controls such as adding buttons and range sliders. Furthermore, we also explored the animation feature in the plotly package. What I might do differently next time is probably try to learn other packages that can create interactive plots such as htmlwidgets, Shiny, D3, collapsibleTree, visNetwork.
+</font>
+
+## Creating Interactive plot using plotly
+We have learned a lot of basic plots such as scatter plot, line plot, boxplot, bar charts, and histogram in previous lectures, we now can use `plotly` to make them into interactive plots.
+<p>&nbsp;</p>
+The most fundamental interactive plot using `plotly` is the scatter plot, with the interactive feature added to the plot, we can move our mouse to see the specific values of each point.
+
+```{r}
+plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species)
+```
+`Plot_ly` is a user-friendly function as from the most basic scatter plot above we can quickly extend this to create other basic plots. By doing this we will use the `type` and `mode` arguments.  
+1. `scatter plot`: type = ‘scatter’ , mode = ‘markers’  
+2. `line plot`: type = ‘scatter’ , mode = ‘lines’  
+3. `bar chart`: type = ‘bar’ , mode = ‘markers’  
+4. `histogram`: type = ‘histogram’  
+5. `boxplot`: type = ‘box’  
+As the following examples, we just simply change the `type` and `mode`, we can alter among the basic plots.
+```{r}
+trace_0 <- rnorm(100, mean = 5)
+trace_1 <- rnorm(100, mean = 0)
+trace_2 <- rnorm(100, mean = -5)
+x <- c(1:100)
+
+data <- data.frame(x, trace_0, trace_1, trace_2)
+
+fig_basic <- plot_ly(data, x = ~x, y = ~trace_0, name = 'trace 0', 
+                     type = 'scatter',
+                     mode = 'lines') 
+fig_basic <- fig_basic %>% 
+  add_trace(y = ~trace_1, name = 'trace 1',
+            type = 'scatter',
+            mode = 'markers') 
+fig_basic <- fig_basic %>% add_trace(y = ~trace_2, name = 'trace 2',
+                         type = 'scatter',
+                         mode = 'lines+markers')
+fig_basic
+
+```
+<p>&nbsp;</p>
+Sometimes, one kinds of plot cannot satisfy our needs, we want to combine several plots sharing same axis, which can show the several perspective of the data together.  
+We can firstly create several plots, then useing `subplot()` to combine them by inserting the those plots into the function and specify the axis that they share.
+```{r}
+scatter_plot <- plot_ly(iris, y = ~Petal.Length,
+                        type = "scatter" , mode = "markers") 
+box_plot<-plot_ly(iris,y = ~Petal.Length,type = "box") 
+bar_plot<-plot_ly(iris,y = ~Petal.Length,type = "bar",mode = "markers") 
+
+subplot(box_plot,bar_plot,scatter_plot,shareY = TRUE)
+```
+
+
+## Add Custom Control in Plotly
+After knowing the basic knowledge of `plot_ly`, we can start to add some custom control, and such change will be helpful when we analysis the data.
+```{r}
+#The basic plot
+df_Japan<-gapminder[gapminder$country=="Japan",]
+gdpPercap_Japan<-data.frame(df_Japan$year,df_Japan$gdpPercap)
+fig_Japan<-plot_ly(gdpPercap_Japan, type = "scatter" , mode = "lines")
+fig_Japan_b0 <-fig_Japan %>%
+  add_trace(x = ~df_Japan.year, y = ~df_Japan.gdpPercap, name = 'Japan')
+fig_Japan_b0
+```
+### Add Buttons
+1）restyle methods：modify the data  
+
+In this example, we show how the modify the types of the plot through the `buttons`. After choosing the methods, we can use `"args = list("type", "scatter", "lines")"` to set different chart types, the second position insied the`list`is about the attributed of `type`, the third position is about the `mode`. Then we can use `"updatemenus = list(chart_types)"` in the `layout` parts.
+```{r}
+#restlye the chart type
+chart_types <- list(
+  type = "buttons",
+  direction = "right",
+  xanchor = 'center',
+  yanchor = "top",
+  pad = list('r'= 0, 't'= 10, 'b' = 10),
+  x = 0.5,
+  y = 1.27,
+  buttons = list(
+    list(method = "restyle",
+         args = list("type", "scatter", "lines"),
+         label = "scatter-line"),
+    list(method = "restyle",
+         args = list("type", "bar"),
+         label = "bar")
+  ))
+fig_Japan_b1 <- fig_Japan_b0 %>% layout(
+  xaxis = list(domain = c(0.1, 1)),
+  yaxis = list(title = "y"),
+  updatemenus = list(chart_types))
+fig_Japan_b1
+```
+<p>&nbsp;</p >
+
+Other than changing the types of plot, we can also change the color of the plot by using `"args = list("line.color", "blue")"` insides `buttons` function to set different colors. 
+```{r}
+#restlye the color
+color_types <- list(
+  type = "buttons",
+  direction = "right",
+  xanchor = 'center',
+  yanchor = "top",
+  pad = list('r'= 0, 't'= 10, 'b' = 10),
+  x = 0.5,
+  y = 1.17,
+  buttons = list(
+    list(method = "restyle",
+         args = list("line.color", "blue"),
+         label ="blue" ),
+    list(method = "restyle",
+         args = list("line.color", "red"),
+         label = "red" )
+  ))
+fig_Japan_b2 <- fig_Japan_b0 %>% layout(
+  xaxis = list(domain = c(0.1, 1)),
+  yaxis = list(title = "y"),
+  updatemenus = list(color_types))
+fig_Japan_b2
+```
+<p>&nbsp;</p >
+
+2）Update Methods: update which traces of data are diplayed  
+
+In the next example, we can choose to show different columns of the data by selecting different buttons. We need to carefully set the `args`.  
+`"list(visible = c(FALSE, TRUE))"`  
+`"list(annotationslist(c(),df_J_I$gdpPercap_Japan)"`  
+The two parts need to be consistent with each other, the "FALSE" corresponds to the "c()", and the "TRUE" corresponds to the column appears in the plot. 
+```{r}
+##set the dataframe
+df_Italy<-gapminder[gapminder$country=="Italy",]
+gdpPercap_Italy<-df_Italy$gdpPercap
+df_J_I<-cbind(gdpPercap_Japan,gdpPercap_Italy)
+colnames(df_J_I) <- c("year","gdpPercap_Japan","gdpPercap_Italy")
+```
+```{r}
+fig_J_I <- plot_ly(df_J_I, type = "scatter" , mode = "lines")
+fig_J_I<- fig_J_I %>% add_lines(x=~year, y=~gdpPercap_Japan, name="Japan",
+            line=list(color="red")) 
+fig_J_I<- fig_J_I%>% add_lines(x=~year, y=~gdpPercap_Italy, name="Italy",
+            line=list(color="blue")) 
+
+update_trace <- list(list(active = -1,type= 'buttons',
+    buttons = list(list(label = "Japan",
+                        method = "update",
+                        args = list(
+                          list(visible = c(FALSE, TRUE)),
+                          list(title = "gdpPercap_Japan",
+                               annotations = 
+                                 list(c(),df_J_I$gdpPercap_Japan )))),
+                   list(label = "Italy",method = "update",
+                        args = list(
+                          list(visible = c(TRUE, FALSE)),
+                          list(title = "gdpPercap_Italy",
+                               annotations = 
+                                 list(df_J_I$gdpPercap_Italy, c())))),
+                   list(label = "Both",method = "update",
+                        args = list(list(visible = c(TRUE, TRUE)),
+                                    list(title = "gdpPercap",
+                                         annotations = 
+                                           list(df_J_I$gdpPercap_Japan,
+                                                df_J_I$gdpPercap_Italy)))))))
+fig_J_I_update <- fig_J_I %>% layout(title = "gdpPercap", showlegend=FALSE,
+                                     xaxis=list(title="YEAR"),
+                                     yaxis=list(title="gdpPercap"),
+                                     updatemenus=update_trace)
+fig_J_I_update
+```
+<p>&nbsp;</p >
+
+### Add Range Slider
+This example shows how to add `rangeslider` to the basic plot. Except adding the `rangeslider` in the `layout()` function, we can simply use `rangeslider()`function after "%>%".  
+For the data set with the multiple time point, this function can help us how the data change within different range of time in two direction by moving the each side of the slider.
+```{r}
+fig_Japan1<-fig_Japan_b0 %>% 
+  layout(xaxis = list(rangeslider = list(visible = T)))
+fig_Japan1
+```
+<p>&nbsp;</p >
+ 
+### Add Range Selectors
+In this example, we choose to use the data set with multiple and complex time point to show how these custom control can help analysis the data with clearly and useful graphs.
+```{r}
+##chose the adjusted price,get the dataframe we need
+getSymbols(Symbols = "AAPL", from = '2017-01-01', to = '2019-01-01')
+df_AAPL <- data.frame(Date = index(AAPL), AAPL[,6])
+fig_APPL<-plot_ly(df_AAPL,x=df_AAPL$Date,
+                  y=df_AAPL$AAPL.Adjusted, type= "scatter" , mode = "lines")
+##initial plot
+fig_APPL
+```
+<p>&nbsp;</p >
+The initial plot just show how the data change related to time, but if we want to see how they change with each specific time range, we should use the `rangeselector`.  
+To set the range of the time, we can add `rangeselector` inside the `layout()` and use `buttons` to create the time buttons which include four parts. 
+The `step` shows how the time move, and there are three options ("year","month","day"); The `count` can be used to set how many steps we want to set. With the two part, the time range is set. For the `stepmode`, we can choose "backward" and "todate". Finally, we can use the `label`to set the name of the buttons.
+```{r}
+fig_APPL1 <- fig_APPL %>% layout(
+    title = "Stock Prices",
+    xaxis = list(
+      rangeselector = list(
+        buttons = list(
+          list(
+            count = 3,
+            label = "3 mo",
+            step = "month",
+            stepmode = "backward"),
+          list(
+            count = 1,
+            label = "1 yr",
+            step = "year",
+            stepmode = "backward"),
+          list(
+            count = 1,
+            label = "YTD",
+            step = "year",
+            stepmode = "todate"),
+          list(step = "all")))))
+
+fig_APPL1
+```
+
+
+## Animation in Plotly
+Since `plot_ly()` maps R objects to plotly.js, a web-based JavaScript interactive charting library, `plot_ly` gives us an option to do animations for our data.
+
+### Basic Animation
+Animations can be created by using the `frame` argument in `plot_ly()`. By assigning discrete values to `frame`, we can create animation frames. In the animation frame, a play button and slider component for controlling the state of the animation will be created by default. We can play the animation by simply clicking the play button or dragging the slider. To pause an animation, just click on a relevant location on the slider bar.
+
+<p>&nbsp;</p>
+
+Here we can try to create an animation of a basic example using the Iris data. By inputting Species in `frame`, each species will be cycled through in the plot.
+```{r}
+iris %>%
+  plot_ly(
+    x = ~Sepal.Length,
+    y = ~Petal.Length,
+    frame = ~Species,
+    type = 'scatter',
+    mode = 'markers',
+    showlegend = F
+    )
+
+```
+From the above plot, we can see the scatter plot of Petal Length vs Sepal Length is now able to animate by species including `setosa`, `versicolor` and `virginica`.
+<p>&nbsp;</p>
+
+### Mulitple Trace Animations
+With the basic knowledge of `frame`, we can now apply it to a more useful scenario. For example, if we want to see the relationship between GDP per capita and life expectancy changing over time, it is a clear way to show it in animation where we can directly see how does the data move over time. Since this is done in `plotly`, we can utilize the interactive feature and use color to fill for the continents. This will allow us to select and view specific continents in the animation.
+```{r}
+fig_animation <- gapminder %>%
+  plot_ly(
+    x = ~gdpPercap, 
+    y = ~lifeExp, 
+    size = ~pop, 
+    color = ~continent, 
+    frame = ~year,
+    text = ~country, 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  )
+fig_animation
+```
+
+From the above plot we can see the country Kuwait is an outlier, as before in the assignment, in order to see most of our data clearly, we usually just delete this outlier, but here with the animation feature, we can keep this outlier and see how does it change through time. And by playing this animation, we can see Kuwait change back and forth in GDP per capita, then finally join the big cluster.
+
+<p>&nbsp;</p>
+If we still prefer to see all our data clearly without deleting the outlier, we can do a log-transformation to GDP per capita. To do this we use the `layout()` to modify `xaxis` and change the type to `type = "log"`. The default of xaxis type is "-", but there are more options than "log". We can choose one of the following based on out needs `"-"`, `"linear"`, `"log"` `"date"`,`"category"`,`"multicategory"`.
+```{r}
+fig_animation %>% layout(
+    xaxis = list(
+      type = "log")
+  )
+```
+
+### Configuration Options in Animation
+To fit for different needs, we can change the configuration options in animation by `animation_opts()`.  
+<p>&nbsp;</p>
+`frame`	allows us to change the amount of time between frames by inputting a number variable and the unit is in milliseconds. The default for frame duration is 500. Since this is in time, so the minimum for the frame is 0. If we want to play the animation slowly for audiences to have a longer time to view, we can set it to 1000 or more.
+<p>&nbsp;</p>
+`transition` allows us to change the duration of the smooth transition between frames by inputting a number variable and the unit is in milliseconds. The default for transition is also 500 and it can not be larger than the frame duration. 
+<p>&nbsp;</p>
+`easing` allows us to change the type of transition easing. The default here is "cubic-in-out". We do have more options such as "linear","quad","cubic","sin",
+"exp","circle","elastic","back","bounce".
+<p>&nbsp;</p>
+```{r}
+fig_animation %>%
+  animation_opts(
+    frame=1000, 
+    transition=0,
+    easing = "sin"
+  )
+```
+
+
+## References
+https://plotly.com/r/
+
+<p>&nbsp;</p>
