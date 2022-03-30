@@ -1,4 +1,6 @@
-# Visualizing Geographical Time Series data With Messy Country Name
+# (PART) Tutorials {-}
+
+# Visualizing Geographical Time Series Data With Messy Country Name
 
 Jiachen Liu, Hao Chang and Yihui Xie
 
