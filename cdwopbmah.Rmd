@@ -101,9 +101,6 @@ ggbiplot(pca)
 ```
 
 Here, we can know that the default biplot of biplot(), ggbiplot() and draw_biplot() is very similar. 
-```{r,echo = FALSE}
-knitr::include_graphics("1.jpeg")
-```
 The difference are biplot() axis do not count the percentage of PCs. ggbiplot() do not give us the name of each point.
 
 Here the thing that ggbiplot do is you can easily get not only the first two components but also any components you are interested in(argument choice), to adjust the details of the variable we can adjust to argument varname.abbrev(whether or not to abbreviate the variable names), varname.adjust(the distance between varname and arrow), var.scale(scale factor for variables),var.axes(if FALSE all the arrows are gonna disappear)
