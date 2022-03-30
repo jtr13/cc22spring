@@ -36,7 +36,6 @@ evolution
 line-plotarea-chart
 flow
 alluvial-diagram
-data-preprocessing-cheat-sheet-in-r
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
