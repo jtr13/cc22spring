@@ -3,7 +3,7 @@ Type: Book
 Title: Does not matter
 Version: 0.0.0.9000
 Imports:
-    AMORE,
+    AMORE (== 0.2-11),
     babynames,
     broom,
     calendR,
@@ -96,4 +96,6 @@ Suggests:
     withr,
     xml2
 Remotes:
-    hadley/emo
+    hadley/emo,
+    madlogos/recharts,
+    jtr13/redav
