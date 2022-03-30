@@ -19,7 +19,7 @@ rmd_files: [
   'ggplot2_graphics_cheatsheet.Rmd',
 
   # Part: Tutorials
-  'visualizing_geographic_time_series_with_messy_country_name.Rmd'  # contains PART header
+  'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
   
   # Part: Workshops
   
