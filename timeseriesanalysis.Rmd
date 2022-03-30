@@ -45,7 +45,7 @@ In this example, we examine the maximum temperature in Boston per month. The fir
 
 ```{r}
 
-BosTemp = read.csv("resources/timeseries/boston_monthly_tmax_1998_2019.csv")
+BosTemp = read.csv("resources/timeseriesanalysis/boston_monthly_tmax_1998_2019.csv")
 
 BosTemp$DateTime = as.Date(BosTemp$Date, "%m/%d/%Y")
 ts(BosTemp[,2], frequency = 12, start = c(1998,1)) %>% decompose %>% autoplot
