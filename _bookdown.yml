@@ -21,6 +21,7 @@ rmd_files: [
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
   'plotly_package.Rmd',
+
   
   # Part: Workshops
   
