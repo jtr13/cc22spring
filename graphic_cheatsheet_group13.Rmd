@@ -1,0 +1,105 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+cheatsheet for classes or other resources
+
+comparison for Python and R in Graphing
+As a statistic tool, R is more common used in statistical learning, however, for most people, they are not statistic experts so that they do not have strong ability and motivation to use R. 
+So how to help people who know Python to learn R is an important topic, espacially in statistical graphing.
+
+Introduce the rule for R graphing:
+
+first we have to determine which type of graphs we want, there are several majority plots that we usually draw, scatterplot, histogram, barplot, boxplot, heatmap, etc... 
+for R, people usually use package "ggplot2" to get their graphs,
+but first of all, we need to do data preprocessing. 
+
+-------------------------------------------------------------
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, color = "class")) + geom_point()
+-------------------------------------------------------------
+from above, we get scatter plot
+
+There are two parts we need to care about, which are ggplot() and geom_point().
+by ggplot(), we are able to set up dataset parameters for graph that we are making, aes() shows aesthetics, which should include data for x axis, and data for y axis. 
+By adjusting the words after "geom_", for example, "bar","line","point","boxplot","histogram", etc..., we can transform type of graphs easily.
+# if want to create labels or title or theme for your graph, we can by using "+" to combine our command, which is a common rule for R graphing, for example
+-------------------------------------------------------------
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, color = "class")) + geom_point() + 
+xlab() + ylab() + theme_classic(legend.title = element_text(face = "bold"))
+-------------------------------------------------------------
+if want to show the data in some orders, people can do preprocessing to generate some levels for categorical data, and change the x and y in aes() with some orders, there are some functions that we can show x or y with some order in graphing, like fct_reorder(), fct_inorder(), fct_relevel(), fct_infreq(), fct_rev(), etc...
+
+-------------------------------------------------------------
+ggplot(df, aes(x = fct_inorder(x), y = y)) +
+  geom_col(color = mycolor, fill = myfill) + 
+  theme_grey()
+-------------------------------------------------------------
+
+If people want to generate multiply graphs by some criterias, in other word, facet by multiple variables. People can use facet_warp() and facet_grid() to make several graphs in some criterias. let's explore details about the difference between facet_warp() and facet_grid(), where the description for the difference of these two functions is not well documented. 
+for details, give example as following: 
+```{r}
+# cite the examples from documentation from function.
+p <- ggplot(mpg, aes(displ, cty)) + geom_point()
+p + facet_grid(rows = vars(drv))
+p + facet_grid(cols = vars(cyl))
+p + facet_grid(vars(drv), vars(cyl))
+# it will generate 12 labels
+```
+we see facet_grid() can generate columns and rows seperately or simultaneously, which facet in a 2d grid of panels.
+
+compared to facet_warp() with same parameters:
+```{r}
+p <- ggplot(mpg, aes(displ, cty)) + geom_point()
+p + facet_wrap(vars(drv))
+p + facet_wrap(vars(cyl))
+# You can facet by multiple variables
+ggplot(mpg, aes(displ, cyl)) +
+  geom_point() +
+  facet_wrap(vars(cyl, drv))
+# it only generate 9 labels 
+```
+From above, we see facet_warp() can return less labels, even though they have same parameters, but does not loss any information.
+
+cited from link: 
+https://statisticsglobe.com/difference-between-facet_grid-and-facet_wrap-ggplot2-r
+" Figure three consists of fewer panels. Group combinations that do not exist in our data are not shown in the plot.
+Furthermore, the facet labels are different. While facet_grid shows the labels at the margins of the facet plot, facet_wrap creates a label for each plot panel."
+
+so we can say facet_warp() and facet_grid() are quite similar functions, which can represent the same data, but with different labels or panels. Consequently If people want to determine which graph has what criterias directly instead of spending on matching the cols and rows, use facet_warp().
+
+for python:
+the predominant package for graphing called "matplotlib.pyplot", which includes many functions to help graphing.
+There are two options that we can show a graph:
+1) plt.show()
+2) %matplotlib inline 
+which is a magical function to generate plot in python console
+The following two grammers/sentences can show a graph
+-----------------------------------------------------------------
+import matplotlib.pyplot as plt 
+%matplotlib inline
+....
+or -------------------------------------------------------------
+import matplotlib.pyplot as plt 
+...
+plt.show()
+-----------------------------------------------------------------
+
+Actually, Python has similar function for graphing, compared to R. specially,for goal to graph a line plot,people can use build-in function like plot(), bar(), hist(), scatter(), pie()...
+to setup xlab and ylab, Python can use plt.xlabels(), plt.ylabels()
+to setup title, use plt.title()
+-------------------------------------------------------------
+import matplotlib.pyplot as plt 
+plt.plot(a,b)
+plt.bar(a,b)
+plt.hist(a,b)
+plt.scatter(a,b)
+plt.pie(data,labels)
+plt.title("I like ggplot2")
+plt.show()
+-----------------------------------------------------------------
+
+So for R, people can execute same operations in Python to R. 
+for data preprocessing, R use package "tidyverse","dplyr","tidyr".. 
+Python use "numpy","Pandas","sklearn"(for ML)...
