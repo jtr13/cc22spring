@@ -24,6 +24,7 @@ rmd_files: [
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
   'plotly_package.Rmd',
   'web_scraping.Rmd',
+  'guide_through_ggplot_via_example_plots.Rmd',
 
   
   # Part: Workshops
