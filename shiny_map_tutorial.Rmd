@@ -526,7 +526,7 @@ Firstly you can import shape files into R using `readOGR()` from the **rgdal** p
 
 ```{r read_data}
 # map shape file
-nycd <- "../data/nycd/nycd.shp"
+nycd <- "resources/shiny_map_tutorial/data/nycd/nycd.shp"
 nycd_shp <- readOGR(dsn = nycd, stringsAsFactors = F)
 ```
 
@@ -615,7 +615,7 @@ Firstly, you can import our data set. Please note that the data is preprocessed 
 
 ```{r data processing}
 # import homeless data
-homeless_tidy <- read.csv("../data/homeless_tidy.csv")
+homeless_tidy <- read.csv("https://raw.githubusercontent.com/HaozhongZheng/Shiny-Map-Tutorial/main/data/homeless_tidy.csv")
 
 # factor the date
 covid_date <- factor(homeless_tidy$date)
@@ -749,8 +749,7 @@ Finally, the fourth tab allows the user to choose a specific time period, so tha
 
 With the settings done properly, we could see two plots in the right panel. The first one visualizes the distribution of events by a barchart, which could clearly reveal the abundance of events within and among each borough. The map below shows the detailed distribution of events, and when you put the mouse on one label, it will reveal the detail of this event, so that the user could plan the trip accordingly.
 ```{r,echo=FALSE}
-shp = readOGR(dsn = file.path("../data/nybb/nybb.shp"), stringsAsFactors = F)
-events = read.csv("../data/Events.csv")
+events = read.csv("https://raw.githubusercontent.com/HaozhongZheng/Shiny-Map-Tutorial/main/data/Events.csv")
 events = events[!is.na(events$lon) & !is.na(events$lat),]
 fluidPage(
   sidebarLayout(
