@@ -72,12 +72,9 @@ fluidPage(
     plotOutput("plot")
   )
 ))
-                                    '))
+    '))
   )
 )
-
-
-
 
 ```
 </br>
