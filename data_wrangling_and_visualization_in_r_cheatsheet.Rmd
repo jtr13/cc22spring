@@ -12,10 +12,10 @@ Referred to Prof's lecture notes and online material to create a cheatsheet for 
 https://hbctraining.github.io/Intro-to-R-flipped/cheatsheets/data-visualization-2.1.pdf
 http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization#one-variable-discrete 
 
-# 1. Introduction
+## 1. Introduction
 
 R is a good tool to apply data cleaning and data visualization.
-## Prerequisites:
+### Prerequisites:
 Useful packages inside R may include:
 ```{r eval=FALSE}
 library(tidyverse) 
@@ -24,13 +24,13 @@ library(dplyr)
 # 'ggplot2' is included in tidyverse
 ```
 
-## Import data:
+### Import data:
 ```{r eval=FALSE}
 flights_data <- nycflights13::flights #dataset in package
 data_set <- read.csv("filepath/filename.csv") #outer source
 #head(flights_data)
 ```
-## Data Wrangling:
+### Data Wrangling:
 
 It is important to keep dataset 'clean' when visualizing data, which can be done before the visualization or adjusted in the process of visualization.
 
@@ -51,9 +51,9 @@ It is important to keep dataset 'clean' when visualizing data, which can be done
   + pivot_longer(): increase number of rows, which can be used to tidy datasets optimized for data entry rather than analysis
   + pivot_wider(): increase number of column, which is useful to create summary tables for presentation data
 
-# 2. Data Visualization:
+## 2. Data Visualization:
 
-## Grammar of Graphics:
+### Grammar of Graphics:
 Formula of building a graph:
 
 ```{r eval=FALSE}
@@ -93,13 +93,13 @@ ggplot(data = df)+
   + theme_minimal(): a minimalistic theme with no background annotations
   + theme_void(): completely empty theme
 
-## Continuous Variables:
+### Continuous Variables:
 
 * Types of categorical data:
   + nominal: no fixed category order
   + ordinal: fixed category order
 
-### One variable:
+#### One variable:
 
 1. Histogram:
 Show the frequency of values of a variable
@@ -148,7 +148,7 @@ ggplot(df,aes(x=x,y=fct_reorder(y,x),color = z))+
   # sapce: determine whether all panels have the same size
 ```
 
-### Two Variables:
+#### Two Variables:
 
 1. Scatterplot (Continuous X, Coutinuous Y):
 
@@ -240,7 +240,7 @@ ggplot(df, aes(x=x,y=y))+
   geom_density_2d()
 ```
 
-## Additional Interesting plots:
+### Additional Interesting plots:
 
 1. Principal Components Analysis & Biplot:
 Goal: explain most of the variability in a dataset with fewer variables than the original dataset
