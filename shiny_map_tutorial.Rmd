@@ -711,7 +711,7 @@ ggplot() +
 )
 
 # save files
-ggsave(filename = paste0(stringr::str_pad(i, 3, pad = "0"), ".png"), path = "../figs/homeless/")
+ggsave(filename = paste0(stringr::str_pad(i, 3, pad = "0"), ".png"), path = "resources/shiny_map_tutorial/figs/homeless/")
 }
 ```
 
@@ -720,14 +720,14 @@ ggsave(filename = paste0(stringr::str_pad(i, 3, pad = "0"), ".png"), path = "../
 
 Finally you can generate the gif file using `image_animate()` from **magick** package:
 ```{r gif}
-imgs <- list.files("../figs/homeless", full.names = TRUE)
+imgs <- list.files("resources/shiny_map_tutorial/figs/homeless", full.names = TRUE)
 lapply(imgs, image_read) %>%
   image_join() %>%
   image_animate(fps = 5) %>%  # can change speed of gif
-  image_write("../figs/homeless.gif")
+  image_write("resources/shiny_map_tutorial/figs/homeless.gif")
 ```
 
-![Alt Text](../figs/homeless.gif)
+![Alt Text](resources/shiny_map_tutorial/figs/homeless.gif)
 
 ## Create interactive map
 ***
