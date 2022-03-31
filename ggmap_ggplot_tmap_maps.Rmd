@@ -15,7 +15,6 @@ library(plotly)
 library(tidyverse)
 ```
 
-
 ## Introduction
 
 Data can express information to the audience but if we only use the table to view the data, we may miss some important information and misunderstand data. Therefore, we can turn to maps especially when the data has the columns of geographical characteristics like States, longitude and latitude, etc. Maps are used in a variety of fields to express data in an appealing and interpretive way. Maps can add vital context by incorporating many variables into an easy to read and applicable context.  
@@ -23,7 +22,6 @@ There are a lot of packages in R that can draw geographical maps. Let's explore 
 
 ## Package ggmap
 ### Interpretation and Examples
-
 
 When trying to make customized maps, we can use the `ggmap` package. It provides a way to download static data from Google map or an open-source map called stamen (open street map is not supported currently). We can simply use `ggmap::get_map` and `ggmap::ggmap` to plot a map of any given location. Notice that the Google Maps Platform now requires a registered API key, so we need to register our own api key before using `ggmap` functions which use Google's services. After acquiring your own api key and using `ggmap::register_google` to register your key, you can start to plot maps. For example:
 ```{r}
@@ -74,7 +72,6 @@ If you want to use ggmap, you will have to register with Google Cloud to get an 
 ## Package ggplot
 ### Interpretation and Example
 Of course, ggplot also provides its own function to plot maps, we can use `ggplot::geom_map`. But, the data needed to plot these maps are relatively hard to find. Package called `maps` provides some maps but the smallest granularity is states, meaning we cannot get more detailed information within each state.
- 
 ```{r}
 us_states.map <- map_data("state")
 ggplot(us_states.map, aes(map_id = region)) +
@@ -107,7 +104,6 @@ states_selected %>%
 maps::map("state")
 ```
 
-
 ## Package tmap
 ### Interpretation and Example
 The basic building block is `tmap::tm_shape` (which defines input data), followed by one or more layer elements such as `tmap::tm_fill` and `tmap::tm_borders`. The data it uses are objects from a class defined by the sf, stars, sp or raster package. Luckily, package called `spData` provides some maps that we can use, but similar to `maps`, the number of maps is limited and the smallest granularity is states.
@@ -115,6 +111,7 @@ The basic building block is `tmap::tm_shape` (which defines input data), followe
 tm_shape(us_states) +
   tm_borders()
 ```
+
 ### Combine With Other Plots
 Similarly, we can also plot heatmap using tmap very easily.
 ```{r}
@@ -133,7 +130,6 @@ And it is very easily to switch the generated map to an interactive mode using j
 tmap_mode("view")
 tmap_last()
 ```
-
 
 ### Comment
 `tmap` is based on the idea of a ‘grammar of graphics’, just like `ggplot2`. This involves a separation between the input data and the aesthetics. Therefore, it is not difficult for users who are familiar with `ggplot2` to learn it.
