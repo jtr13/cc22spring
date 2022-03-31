@@ -12,7 +12,7 @@ Referred to Prof's lecture notes and online material to create a cheatsheet for 
 https://hbctraining.github.io/Intro-to-R-flipped/cheatsheets/data-visualization-2.1.pdf
 http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization#one-variable-discrete 
 
-## 1. Introduction
+## Introduction
 
 R is a good tool to apply data cleaning and data visualization.
 ### Prerequisites:
