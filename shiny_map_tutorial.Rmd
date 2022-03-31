@@ -1,0 +1,929 @@
+# R Shiny Map Tutorial
+
+Haozhong Zheng and Weixun Qian
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(shiny)
+library(leaflet)
+library(dtplyr)
+library(dplyr)
+library(DT)
+library(lubridate)
+library(stringr)
+library(shinythemes)
+library(broom)
+library(rgdal)
+library(ggplot2)
+library(ggspatial)
+library(viridis)
+library(magick)
+```
+
+
+## To Start with
+*** 
+
+</br>
+
+In this tutorial, we want to introduce how to build an APP that incorporates a map that is built on shapefiles. Main packages used would be shiny and ggspatial. Basically we would first give a quick introduction of shiny, and then introduce the preprocessing work of shapefiles to produce plots about maps, then we would build an advanced shiny app widget with what we introduced in the previous part.
+
+Shiny apps have two basic components:
+
+* a user-interface script (ui.R)
+
+* a server script (server.R)
+
+</br>
+
+### Create an app
+***
+
+#### Initialize a pair of ui.R and server.R in the same folder.
+
+As an example, we plot a histogram with a fitted line, and what's different from ggplot is that the users could tune the parameters of the plot
+```{r,echo=FALSE}
+fluidPage(
+  tabsetPanel(
+    tabPanel('server.R',
+             code('library(shiny)
+shinyServer(function(input, output) {
+  output$plot=renderPlot({
+    hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
+         xlab = "Duration (minutes)", main = "toy plot")
+    
+    dens <- density(faithful$eruptions, adjust = input$bw_adjust)
+    lines(dens, col = "blue")
+  })
+})')),
+    tabPanel('ui.R',
+             code('
+shinyUI(
+fluidPage(
+  sidebarPanel(
+    selectInput("n_breaks", label = "Count of bins:",
+                choices = c(5, 20, 50, 60), selected = 20),
+    
+    sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+                min = 0, max = 2, value = 1, step = 0.2)
+  ),
+  mainPanel(
+    plotOutput("plot")
+  )
+))
+                                    '))
+  )
+)
+
+
+
+
+```
+</br>
+</br>
+
+#### Run App
+  
+__Option 1__
+```{r,eval=FALSE}
+runApp(getwd()) # the working directory where you stored the two files
+```
+
+
+__Option 2__
+    
+Press the 'run App' button
+
+
+#### Publish
+  
+
+__Option 1__
+    
+Create an accoount in [website](http://shiny.rstudio.com/). Get the name, token and secret information. Then deploy the App
+```{r,eval=FALSE}
+library(rsconnect)
+rsconnect::setAccountInfo(name='abc',
+                          token='def',
+                          secret='ghi')
+deployApp(account='dss')
+```
+
+
+__Option 2__
+    
+
+
+Press the 'publish' button and a window would pop up. Follow the instruction and deploy the app.
+
+</br>
+</br>
+
+
+### A Simple Example
+***
+
+```{r,echo=FALSE}
+# ui.R
+inputPanel(
+  selectInput("n_breaks", label = "Number of bins:",
+              choices = c(10, 20, 30, 40), selected = 20),
+  
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+              min = 0.4, max = 2, value = 1, step = 0.2)
+)
+
+#server.R
+renderPlot({
+  hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
+       xlab = "Time (minutes)", main = "toy plot")
+  
+  dens <- density(faithful$eruptions, adjust = input$bw_adjust)
+  lines(dens, col = "red")
+})
+
+```
+</br>
+</br>
+
+### Detailed Codes
+***
+
+```{r,eval=FALSE}
+# ui.R
+shinyUI(
+fluidPage(
+  sidebarPanel(
+    selectInput("n_breaks", label = "Number of bins:",
+                choices = c(10, 20, 30, 40), selected = 20),
+    
+    sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+                min = 0.4, max = 2, value = 1, step = 0.2)
+  ),
+  mainPanel(
+    plotOutput('plot')
+  )
+))
+  
+#server.R
+library(shiny)
+shinyServer(function(input, output) {
+  output$plot=renderPlot({
+    hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
+         xlab = "Time (minutes)", main = "toy plot")
+    
+    dens <- density(faithful$eruptions, adjust = input$bw_adjust)
+    lines(dens, col = "blue")
+  })
+})
+
+```
+</br>
+</br>
+
+
+## Learn from Scratch 
+***
+
+### Empty App
+__ui.R__
+```{r,eval=FALSE}
+shinyUI(fluidPage(
+))
+```
+
+__server.R__
+```{r,eval=FALSE}
+shinyServer(function(input, output) {
+})
+```  
+First we create an empty shiny app, which consists of an ui.R and an server.R file, they collectively form the whole app. Next, we are going to put into some building blocks of the app to enrich it.
+
+### Layout
+Shiny `ui.R` scripts use the function `fluidPage` to create a display that automatically adjusts to the dimensions of your user's browser window. You lay out your app by placing elements in the `fluidPage` function. Basically you partition the whole page into several blocks and place the desired widget into each block.
+
+__ui.R__
+```{r,eval=FALSE}
+shinyUI(fluidPage(
+  titlePanel("title panel"),
+  
+  sidebarLayout(
+    sidebarPanel( "sidebar panel"),
+    mainPanel("main panel")
+  )
+))
+```
+
+
+### Add Control Widgets
+What's a [widget](http://shiny.rstudio.com/gallery/widget-gallery.html)? A web element that your users can interact with. Widgets provide a way for your users to send messages to the Shiny app. Shiny widgets collect a value from your user. When a user changes the widget, the value will change as well. We could combine the use of controlling widgets and data filters to produce interactive plots that makes updation each time the user changes the parameters of the plot.
+
+
+Each widget function requires several arguments. The first two arguments for each widget are
+
+-A **Name for the widget**. The user will not see this name, but you can use it to access the widget's value. The name should be a character string.
+
+-A **label**. This label will appear with the widget in your app. It should be a character string, but it can be an empty string "".
+
+For instance, the name is “action” and the label is “Action”: `actionButton("action", label = "Action")`.
+
+In the next part we introduce some of the most common widgets in shiny, and you could definitely find out more in the official documents that satisfies advanced implementation needs.
+
+#### Action button
+***
+The action button updates the value as the user wishes each time you click on the button.
+```{r,echo=FALSE}
+# ui
+fluidPage(
+ sidebarPanel(
+    h3("Action button"),
+    actionButton("actionB", label = "Action"),
+    hr(),
+    p("Current Value:", style = "color:#888888;"), 
+    verbatimTextOutput("actionO")
+  ),
+ mainPanel(
+   tabsetPanel(type = "tabs", 
+        tabPanel("server.R", 
+                 code('library(shiny)
+
+shinyServer(function(input, output) {
+
+    output$actionO=renderPrint({ input$action[1] })
+
+})')
+                 ), 
+        tabPanel("ui.R", 
+                 code('shinyUI(
+
+fluidPage(
+  wellPanel(
+    h3("Action button"),
+    actionButton("actionB", label = "Action"),
+    hr(),
+    p("Current Value:", style = "color:#888888;"),
+    verbatimTextOutput("actionO")
+    )
+  )
+)')
+                 ))
+ )
+)
+
+#server
+output$actionO=renderPrint({ input$actionB[1] })
+
+
+
+```
+</br>
+</br>
+
+#### Single checkbox
+***
+You could use checkbox to decide if you need a specific feature/filter in your plot.
+```{r,echo=FALSE}
+
+fluidPage(
+  sidebarPanel(
+        h3("Single checkbox"),
+        checkboxInput("checkbox", label = "Choice A", 
+                      value = TRUE),
+        hr(),
+        p("Current Value:", style = "color:#888888;"), 
+        verbatimTextOutput("checkbox")
+      ),
+  mainPanel(
+    tabsetPanel(
+      tabPanel('server.R',
+              code('library(shiny)
+
+shinyServer(function(input, output) {
+
+    output$checkbox <- renderPrint({ input$checkbox })
+
+})')),
+      tabPanel('ui.R',
+               code('shinyUI(
+
+fluidPage(
+  wellPanel(
+        h3("Single checkbox"),
+        
+        checkboxInput("checkbox", label = "Choice A", 
+                      value = TRUE),
+        hr(),
+       
+        verbatimTextOutput("checkbox"),
+       
+      )
+  )
+)')
+               )
+    )
+  )
+)
+
+output$checkbox <- renderPrint({ input$checkbox })
+```
+</br>
+</br>
+
+
+
+
+#### Select box
+***
+You could also select from a bunch of values that are pre-defined, choices may be single or multiple.
+```{r,echo=FALSE}
+fluidPage(
+  sidebarPanel(
+        selectInput("select", label = h3("Select box"), 
+        choices = list("Choice 1" = 1, "Choice 2" = 2,
+                       "Choice 3" = 3), selected = 1),
+        hr(),
+        p("Current Value:", style = "color:#888888;"), 
+        verbatimTextOutput("select")
+      ),
+  mainPanel(
+    tabsetPanel(
+      tabPanel('server.R',
+               code('library(shiny)
+
+shinyServer(function(input, output) {
+
+    output$select <- renderPrint({ input$select })
+
+})')
+               ),
+      tabPanel('ui.R',
+               code('shinyUI(
+
+fluidPage(
+ wellPanel(
+        selectInput("select", label = h3("Select box"), 
+        p("Current Value:", style = "color:#888888;"),
+        choices = list("Choice 1" = 1, "Choice 2" = 2,
+                       "Choice 3" = 3), selected = 1),
+        hr(),
+       
+        verbatimTextOutput("select")
+        
+      )
+  )
+)')
+               )
+    )
+  )
+)
+
+
+output$select <- renderPrint({ input$select })
+```
+</br>
+</br>
+
+#### Slider
+***
+You could also implement a slider to enable a larger range of values for choice.
+```{r,echo=FALSE}
+
+fluidPage(
+  sidebarPanel(
+        sliderInput("slider1", label = h3("Slider"), min = 0, max = 100, 
+                    value = 50),
+        hr(),
+        p("Current Value:", style = "color:#888888;"), 
+        verbatimTextOutput("slider1")),
+  mainPanel(
+    tabsetPanel(
+      tabPanel('server.R',
+                code('library(shiny)
+
+shinyServer(function(input, output) {
+
+    output$slider1 <- renderPrint({ input$slider1 })
+
+})')
+               ),
+      tabPanel('ui.R',
+               code('shinyUI(
+
+fluidPage(
+wellPanel(
+        sliderInput("slider1", label = h3("Slider"), min = 0, max = 100, 
+                    value = 50),
+        hr(),
+        p("Current Value:", style = "color:#888888;"), 
+        verbatimTextOutput("slider1")
+      )
+  )
+)')
+               )
+    )
+  )
+      )
+output$slider1 <- renderPrint({ input$slider1 })
+
+```
+</br>
+</br>
+
+### Display reactive output
+***
+
+You can create reactive output with a two step process.
+
+1. Add an R object to your user-interface with `ui.R`.
+
+Shiny provides a family of functions that turn R objects into output for your user-interface. Each function creates a specific type of output.
+
+-`imageOutput` for image
+
+-`plotOutput` for plot
+
+-`tableOutput` for table
+
+-`textOutput`	for text
+
+-`uiOutput` for raw HTML
+
+-`verbatimTextOutput`	for text
+
+
+2. Tell Shiny how to build the object in `server.R`. The object will be reactive if the code that builds it calls a widget value.
+
+-`renderImage` for	images (saved as a link to a source file)
+
+-`renderPlot`	for plots
+
+-`renderPrint`	for any printed output
+
+-`renderTable`	for data frame, matrix, other table like structures
+
+-`renderText`	for character strings
+
+-`renderUI`	for a Shiny tag object or HTML
+
+__ui.R__
+```{r, eval=FALSE}
+library(shiny)
+
+# Define UI for application that draws a histogram
+shinyUI(fluidPage(
+  
+  # Application title
+  titlePanel("Old Toy Data"),
+  
+  # Sidebar with a slider input for number of bins 
+  sidebarLayout(
+    sidebarPanel(
+       sliderInput("bins",
+                   "Number of bins:",
+                   min = 1,
+                   max = 50,
+                   value = 30)
+    ),
+    
+    # Show a plot of the generated distribution
+    mainPanel(
+       plotOutput("distPlot")
+    )
+  )
+))
+
+```
+
+__server.R__
+```{r, eval=FALSE}
+library(shiny)
+
+# Define server logic required to draw a histogram
+shinyServer(function(input, output) {
+   
+  output$distPlot <- renderPlot({
+    
+    # generate bins based on input$bins from ui.R
+    x    <- faithful[, 2] 
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    
+    # draw the histogram with the specified number of bins
+    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    
+  })
+  
+})
+```
+
+## Create static map
+***
+
+### Import shape files
+***
+
+Firstly you can import shape files into R using `readOGR()` from the **rgdal** package. The example here is the shape file of [New York City by community district (Clipped to Shoreline)](https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page).
+
+```{r read_data}
+# map shape file
+nycd <- "../data/nycd/nycd.shp"
+nycd_shp <- readOGR(dsn = nycd, stringsAsFactors = F)
+```
+
+### Shape files in R
+***
+
+The data frame of the shape files in R divides into 2 parts: the **data** and **polygons**.
+```{r data}
+summary(nycd_shp)
+```
+
+#### Data part
+***
+
+Usually the data part of the shape files contains 3 main geographical information:
+
+* ID (In our example the ID is number of [community district of New York](https://www1.nyc.gov/site/planning/community/community-portal.page))
+* Length of the shape
+* Area of the shape
+
+### Theme of the map
+***
+
+Here are list of some common theme setting of the map:
+
+```{r function}
+theme_map <- function(...) {
+  theme_minimal() +
+  theme(
+    text = element_text(color = "#22211d"),
+    axis.line = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.grid.major = element_line(color = "#ebebe5", size = 0.2),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "grey", color = NA), 
+    panel.background = element_rect(fill = "grey", color = NA), 
+    legend.background = element_rect(fill = "grey", color = NA),
+    panel.border = element_blank(),
+    ...
+  )
+}
+```
+
+### Draw the raw map
+***
+
+Finally you can draw the map using `geom_polygon()` from the **ggplot** package without filling any data. The **x** variable here is **longitude** and **y** variable is **latitude**, which are contains in the shape file.
+```{r draw map}
+ggplot() +
+  geom_polygon(data = nycd_shp, aes(x = long, y = lat, group = group)) +
+  theme_map() +
+  labs(title = "Map of New York city by community district")
+```
+
+As a result, we can only see the raw contour map of New York. Therefore, we need to add some spatial lines to separate each community district. 
+
+
+### Add some spatial lines to the map
+***
+
+In this part we add spatial lines to the map using `annotation_spatial()` from the **ggspatial** package:
+```{r Add spatial}
+ggplot() +
+  geom_polygon(data = nycd_shp, aes(x = long, y = lat, group = group)) +
+  annotation_spatial(data = nycd_shp) +
+  theme_map() +
+  labs(title = "Map of New York city by community district")
+```
+
+### Fill the map with data
+***
+
+The ultimate goal of our project is to visualize data, for example, the population of NYC. Here we use the example of [homelessness of New York during covid-19 pandenmic](https://data.cityofnewyork.us/Social-Services/Associated-Address-by-Borough-and-Community-Distri/ur7y-ziyb).
+
+#### Import data
+Firstly, you can import our data set. Please note that the data is preprocessed by adding [community district code](https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/selfac_datainfo.pdf) by using the NYC government document. This is because all the cd code in the shape file starts with borough code. The details are listed as follows:
+
+| | | | | | |
+|--- |--- |--- |--- |--- |--- |
+|Borough| Manhattan | Bronx | Brooklyn | Queens | Staten Island |
+|Borough Code| 1 | 2 | 3 | 4 | 5 |
+
+```{r data processing}
+# import homeless data
+homeless_tidy <- read.csv("../data/homeless_tidy.csv")
+
+# factor the date
+covid_date <- factor(homeless_tidy$date)
+```
+
+#### Join data set
+***
+
+Secondly, you can join the data set by community district information:
+```{r join data}
+# join the data
+homeless_tidy %>%
+  select(date, count, BoroCD) %>%
+  filter(date == as.Date(levels(covid_date)[1])) %>%
+  merge(x = nycd_shp, by.x = "BoroCD", by.y = "BoroCD") -> df  # join data set
+```
+
+#### Fill data
+***
+
+Finally, you can plot the data with homeless people using `layer_spatial()` from **ggspatial** package:
+```{r plot map}
+# plot map
+ggplot() +
+  geom_polygon(data = df, aes(x = long, y = lat, group = group)) +
+  annotation_spatial(data = df) +
+  layer_spatial(data = df, aes(fill = desc(count))) +
+  theme_map() +
+  labs(title = paste0("Homeless people in New York City " , as.character(levels(covid_date)[1])),
+       fill = "homeless people")
+```
+
+
+#### Viridis style
+***
+
+In this part you can add some viridis style to the map to make it more clear. You can use `scale_fill_viridis()` from **viridis** package. 
+```{r viridis}
+ggplot() +
+  geom_polygon(data = df, aes(x = long, y = lat, group = group)) +
+  annotation_spatial(data = df) +
+  layer_spatial(data = df, aes(fill = count)) +
+  theme_map() +
+    scale_fill_viridis(
+    option = "magma",
+    name = "homeless people",
+    discrete = F,
+    direction = -1,
+    limits = c(0, 2500),
+    na.value="white",
+    guide = guide_legend( # we use guide_legend instead of guide_colourbar
+     keyheight = unit(5, units = "mm"),
+     title.position = 'top',
+     reverse = T)) +
+  labs(title = paste0("Homeless people in New York City " , as.character(levels(covid_date)[1])))
+```
+
+### Produce GIF file
+***
+
+You can generate a gif file that shows the animation of NYC homelessness in this section.
+
+#### Generate multiple files
+***
+
+You firstly generate multiple files using for loop. Then we save these imgages by using `ggsave()` from the **ggplot** package:
+```{r generate multiple files, results="markup", echo=FALSE}
+for (i in 1:3) {
+homeless_tidy %>%
+  select(date, count, BoroCD) %>%
+  filter(date == as.Date(levels(covid_date)[i])) %>%
+  merge(x = nycd_shp, by.x = "BoroCD", by.y = "BoroCD") -> df  # join data set
+
+print(
+ggplot() +
+  geom_polygon(data = df, aes(x = long, y = lat, group = group)) +
+  annotation_spatial(data = df) +
+  layer_spatial(data = df, aes(fill = count)) +
+  theme_map() +
+  # and we use guide_legend instead of guide_colourbar
+    scale_fill_viridis(
+    option = "magma",
+    name = "homeless people",
+    discrete = F,
+    direction = -1,
+    limits = c(0, 2500),
+    na.value="white",
+    guide = guide_legend(
+     keyheight = unit(5, units = "mm"),
+     title.position = 'top',
+     reverse = T)) +
+  labs(title = paste0("Homeless people in New York City " , as.character(levels(covid_date)[i])))
+)
+
+# save files
+ggsave(filename = paste0(stringr::str_pad(i, 3, pad = "0"), ".png"), path = "../figs/homeless/")
+}
+```
+
+#### Produce gif file
+***
+
+Finally you can generate the gif file using `image_animate()` from **magick** package:
+```{r gif}
+imgs <- list.files("../figs/homeless", full.names = TRUE)
+lapply(imgs, image_read) %>%
+  image_join() %>%
+  image_animate(fps = 5) %>%  # can change speed of gif
+  image_write("../figs/homeless.gif")
+```
+
+![Alt Text](../figs/homeless.gif)
+
+## Create interactive map
+***
+
+### Overview of the APP
+***
+
+First, let's take a look at the app and get an overview of each tab, and then we will break it down and introduce how it's coded.
+
+The panel in left allows the user to customize the plot in four dimensions: Region, event type, detailed metric and time period.
+
+The first tab is for the users to select regions, pick the region which you potentially want to visit and see how the events distribute in the specific region!
+
+The second tab is to select event categories, the event type generally reveals its nature, and you can pick categories that you are interested to see where to participate!
+
+The third tab allows the users to visualize one of the two specific metrics: Total space or number of events. Users could click the total space button to see the availability of events, and click number of events button to see the total amount and abundance of events!
+
+Finally, the fourth tab allows the user to choose a specific time period, so that they could plan the trip according to their schedule.
+
+With the settings done properly, we could see two plots in the right panel. The first one visualizes the distribution of events by a barchart, which could clearly reveal the abundance of events within and among each borough. The map below shows the detailed distribution of events, and when you put the mouse on one label, it will reveal the detail of this event, so that the user could plan the trip accordingly.
+```{r,echo=FALSE}
+shp = readOGR(dsn = file.path("../data/nybb/nybb.shp"), stringsAsFactors = F)
+events = read.csv("../data/Events.csv")
+events = events[!is.na(events$lon) & !is.na(events$lat),]
+fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput(inputId = "RegionFinder",
+                         label = "Select Regions(s):",
+                         choices = c("Manhattan" = "Manhattan", "Brooklyn" = "Brooklyn", "Queens" = "Queens", "Staten Island" = "Staten Island", "Bronx" = "Bronx"),
+                         selected = c("Manhattan","Brooklyn","Queens","Staten Island", "Bronx")),
+      checkboxGroupInput(inputId = "CategoryFinder",
+                         label = "Select Event Categories(s):",
+                         choices = c("Fitness" = "Fitness", "Nature" = "Nature", "Arts/Culture" = "Arts/Culture", "Academic" = "Academic/Out of School time", "Performance" = "Performance", "Family Festival" = "Family Festival", "Sport" = "Sport", "Mobile Unit" = "Mobile Unit", "KIM" = "KIM"),
+                         selected = c("Fitness")),
+      radioButtons(inputId="metricChoice", label="Select a metric you want to see", 
+                   choices=c("Total Space" = "Attendance", "Number of Events" = "Num")),
+      fluidRow(column(5,
+                      textInput(inputId = "TimeFinderMin",
+                                label = "From:",
+                                value = "1:00",
+                                width = "100px")
+      ),
+      column(5, ofset = 3,
+             textInput(inputId = "TimeFinderMax",
+                       label = "To:",
+                       value = "23:00",
+                       width = "100px")
+      )),
+      helpText("Please enter time 00:00-23:59"),
+    ),
+    mainPanel(
+      plotOutput("plot1"),
+      leafletOutput("mymap")
+    )
+  )
+)
+
+Event_filter <- reactive({
+  req(input$RegionFinder)
+  req(input$CategoryFinder)
+  req(input$metricChoice)
+  req(input$TimeFinderMin)
+  req(input$TimeFinderMax)
+  
+  startTime = strftime(as.POSIXct(paste(input$TimeFinderMin,":00",sep = ""),format="%H:%M:%S"),"%H:%M:%S")
+  endTime = strftime(as.POSIXct(paste(input$TimeFinderMax,":00",sep = ""),format="%H:%M:%S"),"%H:%M:%S")
+  
+  filter(events, Borough %in% input$RegionFinder) %>%
+    filter(Category %in% input$CategoryFinder) %>%
+    filter(strftime(time,"%H:%M:%S") > startTime) %>%
+    filter(strftime(time,"%H:%M:%S") < endTime)
+})
+
+output$plot1 <- renderPlot({
+  input$RegionFinder
+  input$CategoryFinder
+  input$metricChoice
+  if(input$metricChoice == "Attendance"){
+    ggplot()+
+      geom_bar(data = Event_filter(),aes(y = Attendance, x = Borough, fill = Category), stat = "summary", fun = "sum")+
+      ggtitle("Total Space in Each Borough")+
+      theme(plot.title = element_text(hjust = 0.5))
+  }else if(input$metricChoice == "Num"){
+    ggplot(data = Event_filter(), aes(x = Borough, fill = Category))+
+      geom_bar()+
+      ggtitle("Number of Events in Each Borough")+
+      theme(plot.title = element_text(hjust = 0.5))
+  }
+})
+
+#Plot the subway station map
+output$mymap <- renderLeaflet({
+  leaflet(data = Event_filter()) %>%
+    addTiles() %>%
+    addMarkers(~lon, ~lat, label = ~Location)
+})
+```
+
+### Code breakdown of the app 
+***
+
+For the server part, first we have to deal with the data. The `reactive` class encloses a dataset that's subjected to user actions. It reacts to several buttons and sliders of users' need, and will update the filtered dataset once the user performs a new action, we need it so that we could update the graph accordingly. Next, we introduce the `renderplot` function, which is basically just a plot that changes as the `reactive` dataset updates. Finally, the `renderleaflet` plot is a function in the `leaflet` package that enables an interactive plot, and has functions to add labels, markers, etc. 
+
+For the ui part, you could easily find that all the basic building blocks are introduced in the previous part, and you could reproduce or reorganize the structure of the web page as you wish.
+```{r,echo=FALSE}
+
+fluidPage(
+  mainPanel(
+    tabsetPanel(
+      tabPanel('server.R',
+                code('Event_filter <- reactive({
+  req(input$RegionFinder)
+  req(input$CategoryFinder)
+  req(input$metricChoice)
+  req(input$TimeFinderMin)
+  req(input$TimeFinderMax)
+  
+  startTime = strftime(as.POSIXct(paste(input$TimeFinderMin,":00",sep = ""),format="%H:%M:%S"),"%H:%M:%S")
+  endTime = strftime(as.POSIXct(paste(input$TimeFinderMax,":00",sep = ""),format="%H:%M:%S"),"%H:%M:%S")
+  
+  filter(events, Borough %in% input$RegionFinder) %>%
+    filter(Category %in% input$CategoryFinder) %>%
+    filter(strftime(time,"%H:%M:%S") > startTime) %>%
+    filter(strftime(time,"%H:%M:%S") < endTime)
+})
+
+output$plot1 <- renderPlot({
+  input$RegionFinder
+  input$CategoryFinder
+  input$metricChoice
+  if(input$metricChoice == "Attendance"){
+    ggplot()+
+      geom_bar(data = Event_filter(),aes(y = Attendance, x = Borough, fill = Category), stat = "summary", fun = "sum")+
+      ggtitle("Total Space in Each Borough")+
+      theme(plot.title = element_text(hjust = 0.5))
+  }else if(input$metricChoice == "Num"){
+    ggplot(data = Event_filter(), aes(x = Borough, fill = Category))+
+      geom_bar()+
+      ggtitle("Number of Events in Each Borough")+
+      theme(plot.title = element_text(hjust = 0.5))
+  }
+})
+
+#Plot the subway station map
+output$mymap <- renderLeaflet({
+  leaflet(data = Event_filter()) %>%
+    addTiles() %>%
+    addMarkers(~lon, ~lat, label = ~Location)
+})')
+               ),
+      tabPanel('ui.R',
+               code('fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput(inputId = "RegionFinder",
+                         label = "Select Regions(s):",
+                         choices = c("Manhattan" = "Manhattan", "Brooklyn" = "Brooklyn", "Queens" = "Queens", "Staten Island" = "Staten Island", "Bronx" = "Bronx"),
+                         selected = c("Manhattan","Brooklyn","Queens","Staten Island", "Bronx")),
+      checkboxGroupInput(inputId = "CategoryFinder",
+                         label = "Select Event Categories(s):",
+                         choices = c("Fitness" = "Fitness", "Nature" = "Nature", "Arts/Culture" = "Arts/Culture", "Academic" = "Academic/Out of School time", "Performance" = "Performance", "Family Festival" = "Family Festival", "Sport" = "Sport", "Mobile Unit" = "Mobile Unit", "KIM" = "KIM"),
+                         selected = c("Fitness")),
+      radioButtons(inputId="metricChoice", label="Select a metric you want to see", 
+                   choices=c("Total Space" = "Attendance", "Number of Events" = "Num")),
+      fluidRow(column(5,
+                      textInput(inputId = "TimeFinderMin",
+                                label = "From:",
+                                value = "1:00",
+                                width = "100px")
+      ),
+      column(5, ofset = 3,
+             textInput(inputId = "TimeFinderMax",
+                       label = "To:",
+                       value = "23:00",
+                       width = "100px")
+      )),
+      helpText("Please enter time 00:00-23:59"),
+    ),
+    mainPanel(
+      plotOutput("plot1"),
+      leafletOutput("mymap")
+    )
+  )
+)')
+               )
+    )
+  )
+      )
+```
+
+## References
+
+* [ggspatial](https://cran.r-project.org/web/packages/ggspatial/index.html)
+* [leaflet](https://rstudio.github.io/leaflet/)
+* [magick](https://cran.r-project.org/web/packages/magick/index.html)
+* [R shiny](http://shiny.rstudio.com/)
+* [viridis](https://cran.r-project.org/web/packages/viridis/index.html)
+
