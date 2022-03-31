@@ -14,10 +14,10 @@ library(quantmod)
 ```
 
 ## Motivation  
-<font size="4">
+
 In the lecture, we mentioned the package plotly and we see plotly can create interactive plots in R. We have learned a lot of ways to create static plots before, but we did not explore too much on how to create interactive plots. We are interested in exploring more about the plotly package and providing this information for people who are also interested in learning more about the plotly package.  
 In this project, we learned about how to plot basic interactive plots such as scatter plot, line plot, boxplot, bar charts, and histogram. We also learned about how to add custom controls such as adding buttons and range sliders. Furthermore, we also explored the animation feature in the plotly package. What I might do differently next time is probably try to learn other packages that can create interactive plots such as htmlwidgets, Shiny, D3, collapsibleTree, visNetwork.
-</font>
+
 
 ## Creating Interactive plot using plotly
 We have learned a lot of basic plots such as scatter plot, line plot, boxplot, bar charts, and histogram in previous lectures, we now can use `plotly` to make them into interactive plots.
@@ -311,5 +311,6 @@ fig_animation %>%
 
 ## References
 https://plotly.com/r/
+https://medium.com/analytics-vidhya/time-buttons-in-plotly-for-line-charts-5c4817cfbcb8
 
 <p>&nbsp;</p>
