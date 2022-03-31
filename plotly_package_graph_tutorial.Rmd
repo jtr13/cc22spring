@@ -1,0 +1,318 @@
+# Plotly package tutorial
+
+Fan Wu and Yiming Li
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(plotly)
+```
+
+## Abstract:
+
+In this community contribution project, we are going to introduce the Plotly package. Plotly is a data visualization tool just like ggplot2 and base R graphics, which we are pretty familiar with.But it extends the functionality of ggplot2 package by creating more engaging and visually appealing data models, and it also has more advanced features that ggplot2 does not have. <br> <br>
+
+
+#### Usage
+
+<br>Supported visual formats:
+
+**-Basic Charts:** Scatter and Line Plots,Bar Charts,Pie Charts etc.
+
+**-Statistical Charts:** Histograms,Box Plots etc.
+
+**-Scientific Charts:** Contour Plots,Heatmaps,Network Graphs etc.
+
+**-Financial Charts:** Time Series and Date Axes,Candlestick Charts,OHLC Charts etc.
+
+**-Maps:** Choropleth Maps,Mapbox Density,Lines on Maps etc.
+
+**-Animations**
+
+<br>
+
+#### Pros and Cons of Plotly
+
+<br> **Pros:**
+
+1.Binding to popular languages like Python,R,Node etc.
+
+2.Powerful out-of-the-box featureset
+
+3.Integrated zoom and filter-out tools in charts and maps.
+
+4.Beautiful visualizations.
+
+**Cons:**
+
+1.The number of color palettes is limited.
+
+2.Everyone can view them because plotly is public.
+
+<br>
+
+#### Examples of Usage
+
+<br>
+
+In this section, we will show some graphic examples using plotly package. The main dataset used is mtcars in R. 
+
+##### Scatter Plot
+
+Scatter plot is a basic plot to show dependency relationship between two continuous variables. If you find a particular pattern between the two variables, you can make further analysis by building models, etc. Besides, you can see outliers and distributional features in scatter plot.  
+
+```{r}
+
+scatter1 <- plot_ly(data = mtcars, x = ~disp, y = ~mpg, type = "scatter", mode = 'markers') 
+scatter1 <-scatter1 %>% layout(xaxis = list(title = "\n Displacement"), 
+         yaxis = list(title = "Miles/(US) gallon \n"),
+         title = "Scatterplot \n")
+
+scatter1
+```
+
+
+You can make more advanced scatter plot by changing the style and add qualitative colorscales. 
+
+You can change the size and color of the points:
+
+```{r}
+scatter2 <- plot_ly(data = mtcars, x = ~disp, y = ~mpg, type = "scatter", marker = list(size = 11,
+                         color = "red"                      
+)) %>%
+  layout(xaxis = list(title = "\n Displacement"), 
+         yaxis = list(title = "Miles/(US) gallon \n"),
+         title = "Scatterplot (red larger point)\n")
+
+scatter2
+```
+
+Also, you can show the distribution of different groups by using color to see if there is any difference. In this eample, you can see the green group(gear number equals 3) is distributed on the right side while the orange group(gear number equals 4) is distributed on the left side. 
+
+
+```{r}
+scatter3 <- plot_ly(data = mtcars, x = ~disp, y = ~mpg, type = "scatter", color = ~factor(gear)) %>%
+  layout(xaxis = list(title = "\n Displacement"), 
+         yaxis = list(title = "Miles/(US) gallon \n"),
+         title = "Scatterplot by gear number \n")
+
+scatter3
+```
+
+##### Line PLot
+
+Line plot is like scatter plot but uses a line to display data. We can see the changes of data over time. 
+
+We generate 200 standard normal random variables and plot the result. 
+
+```{r}
+line_x <- c(1:200)
+line_y <- rnorm(200)
+line_plot <- data.frame(line_x, line_y)
+
+line <- plot_ly(line_plot, x = ~line_x, y = ~line_y, type = 'scatter', mode = 'lines')
+
+line
+```
+
+##### Bar Chart
+
+A bar chart is used to show a distribution of a variable or display a comparison of different groups in the data. You can use it on categorical variables. 
+
+```{r}
+bar1 <- plot_ly(data = mtcars, x = ~factor(gear), y = ~disp, type = 'bar', color = I("black")) %>% 
+  layout(title = "displacement by gear number",
+         xaxis = list(title = "gear number"),
+         yaxis = list(title = "displacement"))
+
+bar1
+```
+
+
+It can also displayed horizontally. You can use the horizontal version when there are a lot of data(bars) as it can present in a more clear way. 
+
+```{r}
+bar2 <- plot_ly(data = mtcars, x = ~disp, y = ~factor(gear), type = 'bar', orientation = "h", color = "red") %>% 
+  layout(title = "displacement by gear number",
+         xaxis = list(title = "displacement"),
+         yaxis = list(title = "gear number"))
+
+bar2
+```
+
+
+##### Pie Chart
+
+Pie chart can be used to show percentage of a variable. The exact percentages are shown in the graph so you can distiguish the distribution. 
+
+
+```{r}
+pie <- plot_ly(data = mtcars, labels = ~gear, values = ~disp, type = 'pie') %>%
+  layout(title = "displacement by gear number",
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
+pie
+```
+
+##### Histogram
+
+Histogram is used to summarize a variable by showing the frequency distribution.
+You can use it on both continuous variables and categorical variables.  
+
+```{r}
+hist_x <- rnorm(1000)
+hist1 <- plot_ly(x = hist_x, type = "histogram")
+
+hist1
+```
+
+Adding the density line: In this example we find it is close to normal distribution.
+
+```{r}
+hist_fit <- density(hist_x)
+
+hist2 <- plot_ly(x = ~hist_x, type = "histogram", name = "Histogram with density line") %>%
+  add_trace(x = hist_fit$x, y = hist_fit$y, mode = "lines",  type = 'scatter', fill = "tozeroy", yaxis = "y2", name = "Density LIne") %>%
+  layout(yaxis2 = list(overlaying = "y", side = "right"))
+
+hist2
+```
+
+We can also specify the bin in histogram. 
+
+```{r}
+hist3 <- plot_ly(data = mtcars, x = ~factor(gear), type = "histogram") %>%
+  layout(xaxis = list(title = "\n  gear number",
+         yaxis=list(type='linear')))
+
+hist3
+```
+
+##### Boxplot
+
+Boxplot is a visual representation to show the statistical fvie numbers of a data including minimum, first quartile, median, third quartile, maximum.You can find the skewness and ourliers by using boxplot. 
+ 
+
+```{r}
+box <- plot_ly(data = mtcars, y = ~mpg, color = ~factor(gear), type = "box")%>%
+  layout(xaxis = list(title = "\n  gear number",
+         yaxis = list(title = "Miles/(US) gallon \n"),
+         title = "boxplot \n"))
+
+box
+```
+
+
+
+
+##### Bubble Charts
+
+When we want to depict the relationship more than two variables, at least
+three numerical variables, we can use bubble charts. One thing is different from scatter plot is that in a bubble chart, a third numeric field controls the size 
+of the data points. 
+
+In this example, we are going to use the built-in dataset "mtcars".
+
+```{r}
+
+mtcars$cyl <-factor(mtcars$cyl, labels=c("4 cyl","6 cyl","8 cyl"))
+#assign colors based on the factor variable cyl.   
+
+bubbleplot<-plot_ly(mtcars, x=~wt, y=~mpg, size=~hp, color=~cyl,
+        type="scatter",mode="markers",marker=list(opacity=0.5, sizemode="diameter"),
+        text=~paste(row.names(mtcars),"<br>horsepower:",hp))
+
+
+
+#size: column name to determine the size of the bubble
+#opacity allows overlapping symbols to be visible, value=0~1, kind like alpha.
+#"opacity" argument is better than "alpha" when everything is in a different color
+#we prefer to use "alpha" when they are in the same color to adjust the transparency.
+#text: sets the text on the hover labels.
+#sizemode can be diameter or area.
+
+bubbleplot <-bubbleplot %>% layout(title ="Auto mileage by weight, horsepower, and number of cylinders", xaxis= list(title ="Weight"), yaxis =list(title ="Miles/gallon"))
+
+# use "%>%" to pipe from one section of plot attributes to another.
+# code to generate the layout
+#specifying the title,x-axis and y-axis
+
+bubbleplot
+#show the plot
+
+```
+
+
+##### Map
+
+When we want to analyze and display the geographically related data and to see 
+the underlying patterns behind the data in the global range, we can create a map.
+
+In this example, we are going to use the COVID-19 dataset from Kaggle.
+
+https://www.kaggle.com/datasets/imdevskp/corona-virus-report?select=worldometer_data.csv
+
+```{r}
+
+cv.data <-read.csv("~/cc22spring/worldometer_data.csv")
+cv.data <-read.csv("~/cc22spring/resources/dataset/worldometer_data.csv")
+map<-plot_ly(data=cv.data, 
+        type="choropleth", #change the graph type to get a map
+        locations =~Country.Region,
+        locationmode="country names", #specifies what labels to look for in our data
+        z=~TotalCases, #determine the color gradient based on how many cases of coronavirus have occured in each country
+        colors="Reds") 
+
+map<-map %>% 
+  layout(geo=list(scope="world"), #change the scope of map to the global level.
+         title="Total Coronavirus Cases across the globe ")
+map #show the map
+
+
+```
+
+##### Heatmap
+
+Heatmap is a very good visualization tool when we got a very huge amount and 
+complex dataset, because in the heatmap, the color represents different values,
+so it will be easier for us to make sense of the dataset.
+
+In this example, we are going to use a built-in dataset called volcano.
+
+```{r}
+data("volcano")
+plot_ly(z=~volcano, type='heatmap')
+#create a heatmap by using the type='heatmap' argument
+
+```
+
+##### 3D Scatter Plots
+
+If we want to build a 3d scatterplot, we will need a dataset with 3 numeric
+variables, each of these three variables will be on each axis. 
+
+In this example, we are going to use the built-in dataset iris.
+
+```{r}
+
+iris$Species <-factor(iris$Species)
+plot_ly(data=iris,x=~Sepal.Length,y=~Sepal.Width, z=~Petal.Length, type="scatter3d",
+        mode="markers",size=~Petal.Length, color=~Species)
+
+#create a 3D scatter plots by using the type= "scatter3d" argument
+```
+
+##### References
+1.https://plotly.com/r/bubble-charts/
+
+2.https://plotly.com/r/
+
+3.https://rpubs.com/RajveerMaharaul/631872
+
+4.https://www.analyticsvidhya.com/blog/2017/01/beginners-guide-to-create-beautiful-interactive-data-visualizations-using-plotly-in-r-and-python/
+
+
+
