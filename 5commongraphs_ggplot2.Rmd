@@ -223,7 +223,7 @@ p3+
   facet_grid(Year~Award, scales='free')
 ```
 
-## Way2: Representing multiple charts on a single page
+### Way2: Representing multiple charts on a single page
 Using Data: *bad_drivers* with syntaxes grid.arrange()
 ```{r}
 # Make 3 simple graphics:
