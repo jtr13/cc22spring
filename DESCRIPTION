@@ -18,6 +18,7 @@ Imports:
     dtplyr,
     dygraphs,
     emo,
+    FactoMineR,
     fivethirtyeight,
     forcats,
     forecast,
