@@ -51,7 +51,7 @@ It is important to keep dataset 'clean' when visualizing data, which can be done
   + pivot_longer(): increase number of rows, which can be used to tidy datasets optimized for data entry rather than analysis
   + pivot_wider(): increase number of column, which is useful to create summary tables for presentation data
 
-## 2. Data Visualization:
+## Data Visualization:
 
 ### Grammar of Graphics:
 Formula of building a graph:
