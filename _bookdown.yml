@@ -6,7 +6,6 @@ language:
   ui:
     chapter_name: "Chapter "
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -26,7 +25,7 @@ rmd_files: [
   'web_scraping.Rmd',
   'guide_through_ggplot_via_example_plots.Rmd',
   'ggmap_ggplot_tmap_maps.Rmd',
-
+  'cdwopbmah.Rmd',
   
   # Part: Workshops
   
