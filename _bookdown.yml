@@ -27,7 +27,6 @@ rmd_files: [
   'plotly_package.Rmd',
   'web_scraping.Rmd',
   'guide_through_ggplot_via_example_plots.Rmd',
-  'cdwopbmah.Rmd',
   '5commongraphs_ggplot2.Rmd',
   'twitter_api_in_r.Rmd',
 
