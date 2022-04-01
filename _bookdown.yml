@@ -18,6 +18,8 @@ rmd_files: [
   'ggplot2_graphics_cheatsheet.Rmd',
   'ggplot2_cheatsheet_group16.Rmd',
   'data_preprocessing_cheat_sheet_in_r.Rmd',
+  'ggplot_cheatsheet.Rmd',
+
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
