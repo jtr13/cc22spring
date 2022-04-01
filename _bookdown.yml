@@ -28,6 +28,7 @@ rmd_files: [
   'web_scraping.Rmd',
   'guide_through_ggplot_via_example_plots.Rmd',
   '5commongraphs_ggplot2.Rmd',
+  'cdwopbmah.Rmd',
   'twitter_api_in_r.Rmd',
 
   
