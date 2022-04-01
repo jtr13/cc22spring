@@ -60,6 +60,7 @@ Imports:
     neuralnet,
     NLP,
     nnet,
+    openintro,
     parcoords,
     plotly,
     prettydoc,
