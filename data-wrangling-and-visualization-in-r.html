@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Data Wrangling and Visualization in R | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Weilin Zhou Referred to Prof’s lecture notes and online material to create a cheatsheet for G5293 course, which is mainly aimed at introducing useful plots...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Data Wrangling and Visualization in R | Community Contributions STAT GR 5293">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Weilin Zhou Referred to Prof’s lecture notes and online material to create a cheatsheet for G5293 course, which is mainly aimed at introducing useful plots...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Data Wrangling and Visualization in R | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Weilin Zhou Referred to Prof’s lecture notes and online material to create a cheatsheet for G5293 course, which is mainly aimed at introducing useful plots...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet">
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script><script src="libs/d3-5.16.0/d3.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Community Contributions STAT GR 5293</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
+<li><a class="" href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">7</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="data-preprocessing-cheat-sheet-in-r.html"><span class="header-section-number">8</span> Data preprocessing cheat sheet in R</a></li>
+<li><a class="active" href="data-wrangling-and-visualization-in-r.html"><span class="header-section-number">9</span> Data Wrangling and Visualization in R</a></li>
+<li><a class="" href="ggplot2-cheatsheet-1.html"><span class="header-section-number">10</span> GGplot2 cheatsheet</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">11</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">12</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">13</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">14</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">15</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">16</span> Twitter API guide in R</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">17</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">18</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc22spring">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-wrangling-and-visualization-in-r" class="section level1">
+<h1>
+<span class="header-section-number">9</span> Data Wrangling and Visualization in R<a class="anchor" aria-label="anchor" href="#data-wrangling-and-visualization-in-r"><i class="fas fa-link"></i></a>
+</h1>
+<p>Weilin Zhou</p>
+<p>Referred to Prof’s lecture notes and online material to create a cheatsheet for G5293 course, which is mainly aimed at introducing useful plots</p>
+<p><a href="https://hbctraining.github.io/Intro-to-R-flipped/cheatsheets/data-visualization-2.1.pdf" class="uri">https://hbctraining.github.io/Intro-to-R-flipped/cheatsheets/data-visualization-2.1.pdf</a>
+<a href="http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization#one-variable-discrete" class="uri">http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization#one-variable-discrete</a></p>
+<div id="introduction" class="section level2">
+<h2>
+<span class="header-section-number">9.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+</h2>
+<p>R is a good tool to apply data cleaning and data visualization.
+### Prerequisites:
+Useful packages inside R may include:</p>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> 
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="co"># provide simple functions to the most common data manipulation tasks</span>
+<span class="co"># 'ggplot2' is included in tidyverse</span></code></pre></div>
+<div id="import-data" class="section level3">
+<h3>
+<span class="header-section-number">9.1.1</span> Import data:<a class="anchor" aria-label="anchor" href="#import-data"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">flights_data</span> <span class="op">&lt;-</span> <span class="fu">nycflights13</span><span class="fu">::</span><span class="va">flights</span> <span class="co">#dataset in package</span>
+<span class="va">data_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"filepath/filename.csv"</span><span class="op">)</span> <span class="co">#outer source</span>
+<span class="co">#head(flights_data)</span></code></pre></div>
+</div>
+<div id="data-wrangling" class="section level3">
+<h3>
+<span class="header-section-number">9.1.2</span> Data Wrangling:<a class="anchor" aria-label="anchor" href="#data-wrangling"><i class="fas fa-link"></i></a>
+</h3>
+<p>It is important to keep dataset ‘clean’ when visualizing data, which can be done before the visualization or adjusted in the process of visualization.</p>
+<ul>
+<li>Useful functions to solve data cleaning:
+<ul>
+<li>filter(): select observations based on their values</li>
+<li>arrange(): reorder observations</li>
+<li>select(): select variables based on names</li>
+<li>mutate(): add variables as functions of existing variables</li>
+<li>group_by(): operate groupwise by names</li>
+<li>summarize(): collapse many values down to a single</li>
+<li>drop_na(): drop off NA values</li>
+<li>top_n(): select and order top n entries</li>
+<li>distinct(): remove duplicate rows</li>
+<li>left/right/inner/full_join(): types of joining data</li>
+</ul>
+</li>
+<li>Two more useful steps of tidying:
+<ul>
+<li>pivot_longer(): increase number of rows, which can be used to tidy datasets optimized for data entry rather than analysis</li>
+<li>pivot_wider(): increase number of column, which is useful to create summary tables for presentation data</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="data-visualization" class="section level2">
+<h2>
+<span class="header-section-number">9.2</span> Data Visualization:<a class="anchor" aria-label="anchor" href="#data-visualization"><i class="fas fa-link"></i></a>
+</h2>
+<div id="grammar-of-graphics" class="section level3">
+<h3>
+<span class="header-section-number">9.2.1</span> Grammar of Graphics:<a class="anchor" aria-label="anchor" href="#grammar-of-graphics"><i class="fas fa-link"></i></a>
+</h3>
+<p>Formula of building a graph:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-wrangling-and-visualization-in-r.html#cb52-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> df)<span class="op">+</span></span>
+<span id="cb52-2"><a href="data-wrangling-and-visualization-in-r.html#cb52-2"></a><span class="st">  </span><span class="kw">geom_function</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=x=</span>,y,y),<span class="dt">stat=</span>,<span class="dt">Position=</span>)<span class="op">+</span></span>
+<span id="cb52-3"><a href="data-wrangling-and-visualization-in-r.html#cb52-3"></a><span class="st">  </span>coordinate_function<span class="op">+</span></span>
+<span id="cb52-4"><a href="data-wrangling-and-visualization-in-r.html#cb52-4"></a><span class="st">  </span>facet_function<span class="op">+</span></span>
+<span id="cb52-5"><a href="data-wrangling-and-visualization-in-r.html#cb52-5"></a><span class="st">  </span>scale_function<span class="op">+</span></span>
+<span id="cb52-6"><a href="data-wrangling-and-visualization-in-r.html#cb52-6"></a><span class="st">  </span>theme_function<span class="op">+</span></span>
+<span id="cb52-7"><a href="data-wrangling-and-visualization-in-r.html#cb52-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">"Graph title"</span>,</span>
+<span id="cb52-8"><a href="data-wrangling-and-visualization-in-r.html#cb52-8"></a>       <span class="dt">x=</span><span class="st">"X-axis name"</span>,</span>
+<span id="cb52-9"><a href="data-wrangling-and-visualization-in-r.html#cb52-9"></a>       <span class="dt">y=</span><span class="st">"Y-axis name"</span>)</span></code></pre></div>
+<ul>
+<li>Layers:
+<ul>
+<li>Dataset</li>
+<li>Aesthetic mapping: x-loc/y-loc/shape/size/fill/color/alpha/group</li>
+<li>Geom: point/bar/boxplot/histogram/density/hex</li>
+<li>Stat: bin/boxplot/identity/density</li>
+<li>Position: identity/jitter/dodge/stack</li>
+</ul>
+</li>
+<li>Scale:
+<ul>
+<li>scale_*_date()</li>
+<li>scale_*_continuous()</li>
+<li>scale_*_identity()</li>
+<li>scale_color_manual()</li>
+<li>scale_fill_viridis_c()</li>
+</ul>
+</li>
+<li>Coord (Only 1 can be used):
+<ul>
+<li>coord_polar(): use polar coordinate system</li>
+<li>coord_fixed(): fixed scale coordinate system, ratio = y-axis/x-axis</li>
+</ul>
+</li>
+<li>Facet (Only 1 can be used):
+<ul>
+<li>facet_grid(): form a matrix of panels defined by row and column</li>
+<li>facet_wrap(): wrap 1d sequence of panels into 2d</li>
+</ul>
+</li>
+<li>Theme (Only 1 can be used):
+<ul>
+<li>theme_grey(): default theme and have a grey plot background</li>
+<li>theme_bw(): use a white background and thin grey grid lines</li>
+<li>theme_linedraw(): with only black lines of various widths on white backgrounds</li>
+<li>theme_minimal(): a minimalistic theme with no background annotations</li>
+<li>theme_void(): completely empty theme</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="continuous-variables" class="section level3">
+<h3>
+<span class="header-section-number">9.2.2</span> Continuous Variables:<a class="anchor" aria-label="anchor" href="#continuous-variables"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Types of categorical data:
+<ul>
+<li>nominal: no fixed category order</li>
+<li>ordinal: fixed category order</li>
+</ul>
+</li>
+</ul>
+<div id="one-variable" class="section level4">
+<h4>
+<span class="header-section-number">9.2.2.1</span> One variable:<a class="anchor" aria-label="anchor" href="#one-variable"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>Histogram:
+Show the frequency of values of a variable</li>
+</ol>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-wrangling-and-visualization-in-r.html#cb53-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>x))<span class="op">+</span></span>
+<span id="cb53-2"><a href="data-wrangling-and-visualization-in-r.html#cb53-2"></a><span class="st">    </span><span class="kw">geom_histogram</span>()  <span class="co"># Basic histogram</span></span>
+<span id="cb53-3"><a href="data-wrangling-and-visualization-in-r.html#cb53-3"></a>or  <span class="kw">geom_histogram</span>(<span class="dt">binwidth=</span><span class="dv">1</span>) <span class="co"># Change the width of bins</span></span>
+<span id="cb53-4"><a href="data-wrangling-and-visualization-in-r.html#cb53-4"></a>or  <span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">30</span>,<span class="dv">110</span>,<span class="dv">10</span>)) </span>
+<span id="cb53-5"><a href="data-wrangling-and-visualization-in-r.html#cb53-5"></a><span class="co"># Another way to change width of bins</span></span>
+<span id="cb53-6"><a href="data-wrangling-and-visualization-in-r.html#cb53-6"></a>or  <span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">"black"</span>,<span class="dt">fill=</span><span class="st">"white"</span>,<span class="dt">linetype=</span><span class="st">"dashed"</span>) </span>
+<span id="cb53-7"><a href="data-wrangling-and-visualization-in-r.html#cb53-7"></a><span class="co"># Change colors/fills/linetypes</span></span>
+<span id="cb53-8"><a href="data-wrangling-and-visualization-in-r.html#cb53-8"></a>or  <span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">cumsum</span>(..count..))) </span>
+<span id="cb53-9"><a href="data-wrangling-and-visualization-in-r.html#cb53-9"></a><span class="co"># create cumulative frequency histogram</span></span>
+<span id="cb53-10"><a href="data-wrangling-and-visualization-in-r.html#cb53-10"></a></span>
+<span id="cb53-11"><a href="data-wrangling-and-visualization-in-r.html#cb53-11"></a>Additions<span class="op">:</span></span>
+<span id="cb53-12"><a href="data-wrangling-and-visualization-in-r.html#cb53-12"></a><span class="st">    </span><span class="op">+</span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">"red"</span>) <span class="co"># Add density curve </span></span>
+<span id="cb53-13"><a href="data-wrangling-and-visualization-in-r.html#cb53-13"></a>    <span class="op">+</span><span class="kw">stat_function</span>(<span class="dt">fun=</span>dnorm,<span class="dt">args=</span><span class="kw">list</span>(<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">1</span>),<span class="dt">color=</span><span class="st">"red"</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>) </span>
+<span id="cb53-14"><a href="data-wrangling-and-visualization-in-r.html#cb53-14"></a>    <span class="co">#Add normal curve    </span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Area Plot:
+Represnet the evolution of a numeric variable</li>
+</ol>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_area</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">y</span><span class="op">)</span>,stat<span class="op">=</span><span class="st">"bin"</span>,alpha<span class="op">=</span><span class="fl">0.6</span><span class="op">)</span> 
+<span class="co">#fill color by y-var</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Dot Plot:</li>
+</ol>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html">geom_dotplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">y</span><span class="op">)</span><span class="op">)</span> 
+<span class="co">#fill color by y-var</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Cleveland dot plot:</li>
+</ol>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>,y<span class="op">=</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">x</span><span class="op">)</span>,color <span class="op">=</span> <span class="va">z</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> 
+  <span class="co"># color is used for large number of categories</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">.</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">y</span>,<span class="op">-</span><span class="va">x</span>,<span class="va">median</span><span class="op">)</span>,scales <span class="op">=</span> <span class="st">"free_y"</span>,space<span class="op">=</span><span class="st">"free_y"</span><span class="op">)</span> 
+  <span class="co"># used for faceting</span>
+  <span class="co"># scales: determine whether the scales are shared across all facets</span>
+  <span class="co"># sapce: determine whether all panels have the same size</span></code></pre></div>
+</div>
+<div id="two-variables" class="section level4">
+<h4>
+<span class="header-section-number">9.2.2.2</span> Two Variables:<a class="anchor" aria-label="anchor" href="#two-variables"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>Scatterplot (Continuous X, Coutinuous Y):</li>
+</ol>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">ddf</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">0.5</span>,size<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span><span class="op">)</span> 
+<span class="co">#add a regression line on a scatterplot</span>
+
+<span class="co">#alpha: adjust transparency of point</span>
+<span class="co">#size: adjust size of point</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Boxplots (Discrete X, Continuous Y):</li>
+</ol>
+<p>A measure of how well distributed is the data in a dataset</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-wrangling-and-visualization-in-r.html#cb58-1"></a><span class="kw">ggplot</span>(df,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y))<span class="op">+</span></span>
+<span id="cb58-2"><a href="data-wrangling-and-visualization-in-r.html#cb58-2"></a><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="co"># Basic boxplot</span></span>
+<span id="cb58-3"><a href="data-wrangling-and-visualization-in-r.html#cb58-3"></a>or  <span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>() <span class="co"># Rotate the boxplot</span></span>
+<span id="cb58-4"><a href="data-wrangling-and-visualization-in-r.html#cb58-4"></a>or  <span class="kw">geom_boxplot</span>(<span class="dt">outlier.color=</span><span class="st">"red"</span>,<span class="dt">outlier.shape=</span><span class="dv">5</span>) </span>
+<span id="cb58-5"><a href="data-wrangling-and-visualization-in-r.html#cb58-5"></a>  <span class="co"># Make adjustments of outliers</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Violin plot (Discrete X, Continuous Y):</li>
+</ol>
+<p>Similar to boxplot, but show the kerneal probability density of data</p>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>,y<span class="op">=</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span>trim<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span><span class="op">(</span>fun.data<span class="op">=</span><span class="st">"mean_sdl"</span>,fun.args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mult<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,geom<span class="op">=</span><span class="st">"pointrange"</span>,color<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span>
+<span class="co">#add mean points (+/- SD)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Ridgeline plot:</li>
+</ol>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/">ggridges</a></span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>,y<span class="op">=</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://wilkelab.org/ggridges/reference/geom_density_ridges.html">geom_density_ridges</a></span><span class="op">(</span>fill<span class="op">=</span><span class="st">"blue"</span>,alpha<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>
+<span class="co"># fill: change inside color</span>
+<span class="co"># alpha: specify the level of transparency</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Parallel Coordinates:</li>
+</ol>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span>
+<span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggparcoord.html">ggparcoord</a></span><span class="op">(</span><span class="va">df</span>,columns<span class="op">=</span><span class="va">num</span><span class="op">:</span><span class="va">num</span>,groupColumn<span class="op">=</span><span class="va">num</span>,
+           scale<span class="op">=</span><span class="st">'globalminmax/uniminmax/std/center'</span>,
+           showPoints <span class="op">=</span> <span class="cn">TRUE</span><span class="op">/</span><span class="cn">FALSE</span>,
+           title<span class="op">=</span><span class="st">"Title"</span>,
+           alphaLines <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>
+  <span class="co">#Showpoints: add dots</span>
+  <span class="co">#Alphalines: add transparency</span></code></pre></div>
+<ul>
+<li>Scale Options:
+<ul>
+<li>globalminmax: No scaling</li>
+<li>uniminmax: Stadardize to min=0 and max=1</li>
+<li>std: Normalize univariately (Subtract mean &amp; divide by sd)</li>
+<li>center: Standardize and center variables</li>
+</ul>
+</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Bar plot:</li>
+</ol>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill<span class="op">=</span><span class="st">"color"</span><span class="op">)</span></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>Heatmaps (Continuous bivariate distribution):</li>
+</ol>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-wrangling-and-visualization-in-r.html#cb63-1"></a><span class="kw">ggplot</span>(df,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y))<span class="op">+</span></span>
+<span id="cb63-2"><a href="data-wrangling-and-visualization-in-r.html#cb63-2"></a><span class="st">  </span><span class="kw">geom_bin2d</span>(<span class="dt">binwidth=</span><span class="kw">c</span>(num,num))</span>
+<span id="cb63-3"><a href="data-wrangling-and-visualization-in-r.html#cb63-3"></a>  <span class="co"># Square heatmap</span></span>
+<span id="cb63-4"><a href="data-wrangling-and-visualization-in-r.html#cb63-4"></a>  </span>
+<span id="cb63-5"><a href="data-wrangling-and-visualization-in-r.html#cb63-5"></a>or <span class="kw">geom_hex</span>(<span class="dt">binwidth=</span><span class="kw">c</span>(num,num))</span>
+<span id="cb63-6"><a href="data-wrangling-and-visualization-in-r.html#cb63-6"></a>  <span class="co"># Hex heatmap</span></span></code></pre></div>
+<ol start="8" style="list-style-type: decimal">
+<li>2d density estimate (Continuous bivariate distribution):</li>
+</ol>
+<p>Used to add 2d density estimate to a scatter plot</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>,y<span class="op">=</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">geom_density_2d</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="additional-interesting-plots" class="section level3">
+<h3>
+<span class="header-section-number">9.2.3</span> Additional Interesting plots:<a class="anchor" aria-label="anchor" href="#additional-interesting-plots"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Principal Components Analysis &amp; Biplot:
+Goal: explain most of the variability in a dataset with fewer variables than the original dataset</li>
+</ol>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">redav</span><span class="op">)</span>
+<span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span><span class="op">(</span><span class="va">df</span><span class="op">[</span><span class="va">num</span><span class="op">:</span><span class="va">num</span><span class="op">]</span>,scale.<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span><span class="op">(</span><span class="va">results</span>,scale<span class="op">=</span><span class="fl">0</span><span class="op">)</span> <span class="co">#Basic biplot</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/redav/man/draw_biplot.html">draw_biplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="st">"var"</span>,project<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#Biplot with calibrated axis</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Calculate total variance explained by each principal component</span>
+<span class="va">var_explained</span> <span class="op">&lt;-</span> <span class="va">results</span><span class="op">$</span><span class="va">sdev</span><span class="op">^</span><span class="fl">2</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">sdev</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Mosaic Plots:
+A visual representation of the association between two or more categorical variables.</li>
+</ol>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-wrangling-and-visualization-in-r.html#cb67-1"></a><span class="kw">library</span>(vcd)</span>
+<span id="cb67-2"><a href="data-wrangling-and-visualization-in-r.html#cb67-2"></a><span class="kw">mosaic</span>(<span class="op">~</span>Var1<span class="op">+</span>Var2<span class="op">+</span>..<span class="op">+</span>Varn, <span class="dt">data=</span>df,</span>
+<span id="cb67-3"><a href="data-wrangling-and-visualization-in-r.html#cb67-3"></a>       <span class="dt">direction =</span> <span class="kw">c</span>(<span class="st">"v/h"</span>,<span class="st">"h/v"</span>)  </span>
+<span id="cb67-4"><a href="data-wrangling-and-visualization-in-r.html#cb67-4"></a>       <span class="dt">main =</span> <span class="st">"Title name"</span>,</span>
+<span id="cb67-5"><a href="data-wrangling-and-visualization-in-r.html#cb67-5"></a>       <span class="dt">shade =</span> <span class="ot">TRUE</span><span class="op">/</span><span class="ot">FALSE</span>, </span>
+<span id="cb67-6"><a href="data-wrangling-and-visualization-in-r.html#cb67-6"></a>       <span class="dt">legend =</span> <span class="ot">TRUE</span><span class="op">/</span><span class="ot">FALSE</span>)</span>
+<span id="cb67-7"><a href="data-wrangling-and-visualization-in-r.html#cb67-7"></a><span class="co">#direction: layout direction of each variable</span></span>
+<span id="cb67-8"><a href="data-wrangling-and-visualization-in-r.html#cb67-8"></a><span class="co">#shade: whether to color the figure</span></span>
+<span id="cb67-9"><a href="data-wrangling-and-visualization-in-r.html#cb67-9"></a><span class="co">#legend: whether to display a legend for data</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Interactive plot:</li>
+</ol>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span>
+
+<span class="fu">plotly</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html">plot_ly</a></span><span class="op">(</span><span class="va">df</span>,x<span class="op">=</span><span class="va">x</span>,y<span class="op">=</span><span class="va">y</span>,color<span class="op">=</span><span class="va">z</span>,text<span class="op">=</span><span class="va">w</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/add_trace.html">add_markers</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Alluvial Plot:
+Group categorical data into flows that can easily be traced in the diagram.</li>
+</ol>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://corybrunson.github.io/ggalluvial/">ggalluvial</a></span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>axis1<span class="op">=</span><span class="va">Class1</span>,axis2<span class="op">=</span><span class="va">Class2</span>,y<span class="op">=</span><span class="va">Freq</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/geom_alluvium.html">geom_alluvium</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/geom_stratum.html">geom_stratum</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"stratum"</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">)</span>,<span class="st">"\n"</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Class1"</span>,<span class="st">"Class2"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="data-preprocessing-cheat-sheet-in-r.html"><span class="header-section-number">8</span> Data preprocessing cheat sheet in R</a></div>
+<div class="next"><a href="ggplot2-cheatsheet-1.html"><span class="header-section-number">10</span> GGplot2 cheatsheet</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-wrangling-and-visualization-in-r"><span class="header-section-number">9</span> Data Wrangling and Visualization in R</a></li>
+<li>
+<a class="nav-link" href="#introduction"><span class="header-section-number">9.1</span> Introduction</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#import-data"><span class="header-section-number">9.1.1</span> Import data:</a></li>
+<li><a class="nav-link" href="#data-wrangling"><span class="header-section-number">9.1.2</span> Data Wrangling:</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-visualization"><span class="header-section-number">9.2</span> Data Visualization:</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#grammar-of-graphics"><span class="header-section-number">9.2.1</span> Grammar of Graphics:</a></li>
+<li><a class="nav-link" href="#continuous-variables"><span class="header-section-number">9.2.2</span> Continuous Variables:</a></li>
+<li><a class="nav-link" href="#additional-interesting-plots"><span class="header-section-number">9.2.3</span> Additional Interesting plots:</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/data_wrangling_and_visualization_in_r_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/data_wrangling_and_visualization_in_r_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-01.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

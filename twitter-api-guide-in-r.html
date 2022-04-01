@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Page not found | Community Contributions STAT GR 5293</title>
-<meta name="description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<title>Chapter 16 Twitter API guide in R | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Jiayi Yuan API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Page not found | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 16 Twitter API guide in R | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta property="og:description" content="Jiayi Yuan API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Page not found | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="twitter:title" content="Chapter 16 Twitter API guide in R | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Jiayi Yuan API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 <li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">13</span> Web Scraping Using BeautifulSoup in Python</a></li>
 <li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">14</span> A Brief Guide Through ggplot via Examples</a></li>
 <li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">15</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">16</span> Twitter API guide in R</a></li>
+<li><a class="active" href="twitter-api-guide-in-r.html"><span class="header-section-number">16</span> Twitter API guide in R</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="github-initial-setup.html"><span class="header-section-number">17</span> Github initial setup</a></li>
 <li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">18</span> Tutorial for pull request mergers</a></li>
@@ -72,21 +72,43 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="page-not-found" class="section level1">
-<h1>Page not found<a class="anchor" aria-label="anchor" href="#page-not-found"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="twitter-api-guide-in-r" class="section level1">
+<h1>
+<span class="header-section-number">16</span> Twitter API guide in R<a class="anchor" aria-label="anchor" href="#twitter-api-guide-in-r"><i class="fas fa-link"></i></a>
 </h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
-</div>
-  <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    </div>
+<p>Jiayi Yuan</p>
+<p>API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer programs, etc. I tried to collect data using Twitter API for my final project, and I noticed that even though the tool is helpful, not so many of my classmates are familiar with it or used it before, and many of the guides online are outdated. Therefore, in this community contribution, I would like to provide a comprehensive guide on using Twitter API to search tweets or gather some other information, such as followers or favorited tweets, in R. Using the Twitter API should be an easy thing, but there could still be many problems for those who are totally new to such a tool. Therefore, I would like to introduce different setup methods to make sure that everyone who reads this guide can successfully link the interface to R. I will also include some examples of R codes and the output data in this guide to show more directly how the interface works.</p>
+<p>As a beginner, it took me a long time to set up the interface. I got many problems and tried to search the solutions online, but I found that not many people had those problems. Even though, for now, I still have many errors that are hard to find an answer online. Therefore, I believe an up-to-date guide on using Twitter API is necessary, and I would also like to introduce such a tool to more people who would like to gather data from webs and would not be freaked out by potential problems at the very beginning stage.</p>
+<p>Although I have not tried other APIs, I think the underlying logic is the same. By learning Twitter API, I believe I can also take advantage of getting familiar with other user APIs quickly. Therefore, learning how to use an API can be really helpful to me in my future study and I will also try more APIs or developer tools provided by other platforms.</p>
+<p>Here is the link for the guide:
+<a href="https://github.com/MiraYuan/Community_CON/blob/master/2022springcc.md" class="uri">https://github.com/MiraYuan/Community_CON/blob/master/2022springcc.md</a></p>
 
 </div>
-</div> <!-- .container -->
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">15</span> Drawing Five Common Plots by ggplot2</a></div>
+<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">17</span> Github initial setup</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#twitter-api-guide-in-r"><span class="header-section-number">16</span> Twitter API guide in R</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/twitter_api_in_r.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/twitter_api_in_r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+</div>
+  
+
+  
+
+</div>
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 

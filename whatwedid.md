@@ -12,7 +12,7 @@ Our purpose of the tmap cheatsheet is to provide a comprehensive and practical d
 
 - Structure of cheat sheet includes the purposes of each single functions and arguments, the most simple map including mere geograghy, the map adding colors and cuts, interactive maps and maps working with facets.
 
-[Download cheatsheet](resources/tmap_cheatsheet/cheatsheet-tmap-2.pdf)
+[Enlarge/download cheatsheet](resources/tmap_cheatsheet/cheatsheet-tmap-2.pdf)
 
 ![](resources/tmap_cheatsheet/cheatsheet-tmap-2.pdf)
 

@@ -1,4 +1,4 @@
-# ggplot2_cheatsheet_group16
+# ggplot2 cheatsheet
 
 Haoyuan Sun, Zhongtian Qiao
 
