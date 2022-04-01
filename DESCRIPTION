@@ -29,7 +29,6 @@ Imports:
     ggalluvial,
     GGally,
     gganimate,
-    ggbiplot,
     ggdark,
     ggforce,
     ggfortify,
@@ -104,4 +103,5 @@ Remotes:
     cran/AMORE,
     hadley/emo,
     madlogos/recharts,
+    vqv/ggbiplot,
     jtr13/redav
