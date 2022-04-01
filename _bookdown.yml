@@ -29,7 +29,7 @@ rmd_files: [
   'guide_through_ggplot_via_example_plots.Rmd',
   'cdwopbmah.Rmd',
   '5commongraphs_ggplot2.Rmd',
-  'MiraYuan:twitter_api_in_r',
+  'twitter_api_in_r.Rmd',
 
   
   # Part: Workshops
