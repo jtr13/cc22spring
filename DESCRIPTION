@@ -29,6 +29,7 @@ Imports:
     ggalluvial,
     GGally,
     gganimate,
+    ggbiplot,
     ggdark,
     ggforce,
     ggfortify,
