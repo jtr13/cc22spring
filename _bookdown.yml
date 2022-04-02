@@ -20,7 +20,8 @@ rmd_files: [
   'data_preprocessing_cheat_sheet_in_r.Rmd',
   'data_wrangling_and_visualization_in_r_cheatsheet.Rmd',
   'ggplot_cheatsheet.Rmd',
-  'cheatsheet-for-tidyverse.Rmd'
+  'cheatsheet-for-tidyverse.Rmd',
+  
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
