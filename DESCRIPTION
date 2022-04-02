@@ -29,6 +29,7 @@ Imports:
     ggalluvial,
     GGally,
     gganimate,
+    ggbiplot,
     ggdark,
     ggforce,
     ggfortify,
@@ -59,6 +60,7 @@ Imports:
     neuralnet,
     NLP,
     nnet,
+    openintro,
     parcoords,
     plotly,
     prettydoc,
@@ -103,4 +105,5 @@ Remotes:
     cran/AMORE,
     hadley/emo,
     madlogos/recharts,
+    vqv/ggbiplot,
     jtr13/redav
