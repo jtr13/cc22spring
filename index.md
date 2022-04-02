@@ -1,6 +1,6 @@
 ---
 title: "Community Contributions STAT GR 5293"
-date: "2022-04-01"
+date: "2022-04-02"
 site: bookdown::bookdown_site
 github-repo: jtr13/cc22spring
 description: "This book contains community contributions for STAT GR 5293 Statistical Graphics Spring 2022"
