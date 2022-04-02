@@ -31,6 +31,7 @@ rmd_files: [
   '5commongraphs_ggplot2.Rmd',
   'cdwopbmah.Rmd',
   'twitter_api_in_r.Rmd',
+  'ggmap_ggplot_tmap_maps.Rmd',
 
   
   # Part: Workshops
