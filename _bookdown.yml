@@ -6,7 +6,6 @@ language:
   ui:
     chapter_name: "Chapter "
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
