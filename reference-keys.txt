@@ -72,6 +72,7 @@ two-variables
 additional-interesting-plots
 ggplot2-cheatsheet-1
 cheat-sheet-for-tidyverse
+memos-checklist-and-usful-links-experience-of-statistical-graphic
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
@@ -174,7 +175,6 @@ keep-only-three-names-for-female
 interactive-plotone-categorical-variable-one-continuous-variable-over-time
 animation-plot-using-plotlyone-categorical-variable-one-continuous-variable-over-time
 animation-plot-using-gganimateone-categorical-variable-one-continuous-variable-over-time
-memos-checklist-and-usful-links-experience-of-statistical-graphic
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
