@@ -15,12 +15,11 @@ library(forestplot)
 - A vertical reference line is typically plotted at the null hypothesis, with the statistical significance of an individual point and whiskers compared to that reference line. 
 - In cases where the data being compared are difference between means, the null is zero (0) and the x scales are normal. When a ratio (e.g., odds ratio) is being compared, the null has a value of 1 and the scales are logarithmic.
 
-<br>
-**Example 1:** <br>
-<img src="images/SA_Cognitive.JPG" style="width:470px;height:450px"/><br style = “line-height:2;”>
+**Example 1:**
+![](resources/forest_plot/SA_Cognitive.JPG)
 
-**Example 2:** <br>
-<img src="images/wiki.PNG" style="width:200px;height:100px"/><br style = “line-height:4;”>
+**Example 2:** 
+![](resources/forest_plot/wiki.PNG)
 
 
 ## Data 
@@ -193,7 +192,7 @@ forestplot(plot.data, labeltext = c(study, or, confint),
 
 ## Understanding forestplot() better
 
-<img src="images/visual.JPG" style="width:720px;height:380px"/><br style = “line-height:3;”>
+![](resources/forest_plot/visual.JPG)
 
 ## References
 
