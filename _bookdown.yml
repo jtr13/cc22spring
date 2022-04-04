@@ -32,6 +32,8 @@ rmd_files: [
   'cdwopbmah.Rmd',
   'twitter_api_in_r.Rmd',
   'ggmap_ggplot_tmap_maps.Rmd',
+  'timeseriesanalysis.Rmd',
+  
 
   
   # Part: Workshops
