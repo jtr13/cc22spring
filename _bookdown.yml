@@ -28,7 +28,8 @@ rmd_files: [
   'plotly_package.Rmd',
   'web_scraping.Rmd',
   'guide_through_ggplot_via_example_plots.Rmd',
-  '5commongraphs_ggplot2.Rmd', # 'cdwopbmah.Rmd', with the package ''
+  '5commongraphs_ggplot2.Rmd', 
+  'cdwopbmah.Rmd','
   'twitter_api_in_r.Rmd',
   'ggmap_ggplot_tmap_maps.Rmd', # 'timeseriesanalysis.Rmd', with the package 'bayesforecast'
   
