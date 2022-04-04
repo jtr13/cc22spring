@@ -3,7 +3,7 @@
 Yujie Tu, Yuchen Meng
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.align = "center", cache = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.align = "center")
 ```
 
 ```{r}
