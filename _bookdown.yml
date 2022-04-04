@@ -21,7 +21,7 @@ rmd_files: [
   'data_wrangling_and_visualization_in_r_cheatsheet.Rmd',
   'ggplot_cheatsheet.Rmd',
   'cheatsheet-for-tidyverse.Rmd',
-  
+  'ccgitsubmit.Rmd',
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
@@ -32,7 +32,7 @@ rmd_files: [
   'cdwopbmah.Rmd',
   'twitter_api_in_r.Rmd', # 'ggmap_ggplot_tmap_maps.Rmd', 'timeseriesanalysis.Rmd', with the package 'bayesforecast'
   'animation_graph.Rmd',
-  'ccgitsubmit.Rmd',
+  
   
 
   
