@@ -5,6 +5,7 @@ Version: 0.0.0.9000
 Imports:
     AMORE,
     babynames,
+    bayesforecast,
     broom,
     calendR,
     carData,
@@ -81,6 +82,7 @@ Imports:
     shinythemes,
     SnowballC,
     spData,
+    stats,
     stringr,
     tidyr,
     tidytext,
