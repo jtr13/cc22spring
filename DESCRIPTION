@@ -23,6 +23,7 @@ Imports:
     fivethirtyeight,
     forcats,
     forecast,
+    forestplot,
     gapminder,
     gcookbook,
     GDAdata,
