@@ -82,7 +82,6 @@ Imports:
     shinythemes,
     SnowballC,
     spData,
-    stats,
     stringr,
     tidyr,
     tidytext,
