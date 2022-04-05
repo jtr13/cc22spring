@@ -127,8 +127,9 @@ us_states %>%
 ### Make it Interactive
 And it is very easily to switch the generated map to an interactive mode using just one line of code. By default, the hover text is the first column of the input data. 
 ```{r}
-tmap_mode("view")
-tmap_last()
+# not run
+#tmap_mode("view")
+#tmap_last()
 ```
 
 ### Comment
