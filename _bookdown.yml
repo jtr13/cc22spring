@@ -34,7 +34,7 @@ rmd_files: [
   'ggmap_ggplot_tmap_maps.Rmd', 
   'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
   'animation_graph.Rmd',
-  
+  'forest_plots.Rmd',
   
 
   
