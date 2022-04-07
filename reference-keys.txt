@@ -192,6 +192,13 @@ keep-only-three-names-for-female
 interactive-plotone-categorical-variable-one-continuous-variable-over-time
 animation-plot-using-plotlyone-categorical-variable-one-continuous-variable-over-time
 animation-plot-using-gganimateone-categorical-variable-one-continuous-variable-over-time
+forest-plots
+introduction-3
+data
+formatting
+forest-plot
+understanding-forestplot-better
+references-3
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
