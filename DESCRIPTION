@@ -64,7 +64,6 @@ Imports:
     nnet,
     openintro,
     parcoords,
-    placeholder，
     plotly,
     prettydoc,
     purrr,
@@ -97,7 +96,7 @@ Imports:
     viridis,
     wordcloud,
     wordcloud2,
-    zoo,
+    zoo
 Suggests:
     bookdown,
     bslib,
