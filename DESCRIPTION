@@ -64,6 +64,7 @@ Imports:
     nnet,
     openintro,
     parcoords,
+    placeholder，
     plotly,
     prettydoc,
     purrr,
