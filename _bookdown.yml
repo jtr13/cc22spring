@@ -35,9 +35,9 @@ rmd_files: [
  # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
   'animation_graph.Rmd',
   'forest_plots.Rmd',
+  'differences_between_some_packages_of_visualization.Rmd',
   
 
-  
   # Part: Workshops
   
   # Part: Appendices
