@@ -106,6 +106,6 @@ Suggests:
 Remotes:
     cran/AMORE,
     hadley/emo,
-    madlogos/recharts,
+    taiyun/recharts,
     vqv/ggbiplot,
     jtr13/redav
