@@ -36,6 +36,7 @@ rmd_files: [
   'animation_graph.Rmd',
   'forest_plots.Rmd',
   'differences_between_some_packages_of_visualization.Rmd',
+  'lecture_helper.Rmd',
   
 
   # Part: Workshops
