@@ -19,12 +19,28 @@ rmd_files: [
   'ggplot2_graphics_cheatsheet.Rmd',
   'ggplot2_cheatsheet_group16.Rmd',
   'data_preprocessing_cheat_sheet_in_r.Rmd',
+  'data_wrangling_and_visualization_in_r_cheatsheet.Rmd',
+  'ggplot_cheatsheet.Rmd',
+  'cheatsheet-for-tidyverse.Rmd',
+  'ccgitsubmit.Rmd',
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
   'plotly_package.Rmd',
-
+  'web_scraping.Rmd',
+  'guide_through_ggplot_via_example_plots.Rmd',
+  '5commongraphs_ggplot2.Rmd', 
+  'cdwopbmah.Rmd',
+  'twitter_api_in_r.Rmd', 
+  'ggmap_ggplot_tmap_maps.Rmd', 
+ # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
+  'animation_graph.Rmd',
+  'forest_plots.Rmd',
+  'differences_between_some_packages_of_visualization.Rmd',
+  'lecture_helper.Rmd',
+  'basic_introduction_to_tidyverse.Rmd',
   
+
   # Part: Workshops
   
   # Part: Appendices
