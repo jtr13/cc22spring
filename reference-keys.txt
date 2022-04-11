@@ -224,6 +224,13 @@ change-the-order-by-alphabet
 change-the-method-by-shade
 recharts
 summary
+lecture-helper
+motivation-2
+how-it-works
+challenge
+example
+download
+copyright
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
