@@ -16,7 +16,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet">
 <script src="libs/parcoords-binding-1.0.0/parcoords.js"></script><script src="libs/d3-5.16.0/d3.min.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
@@ -83,7 +83,7 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ggplot2-cheatsheet" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ggplot2-cheatsheet" class="section level1" number="7">
 <h1>
 <span class="header-section-number">7</span> ggplot2 cheatsheet<a class="anchor" aria-label="anchor" href="#ggplot2-cheatsheet"><i class="fas fa-link"></i></a>
 </h1>
@@ -91,13 +91,13 @@
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
-<div id="overview" class="section level2">
+<div id="overview" class="section level2" number="7.1">
 <h2>
 <span class="header-section-number">7.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggplot2 is a system for declaratively creating graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. This cheatsheet shows code options for commonly used graphs by using ggplot2.</p>
 </div>
-<div id="scatter-plot" class="section level2">
+<div id="scatter-plot" class="section level2" number="7.2">
 <h2>
 <span class="header-section-number">7.2</span> scatter plot<a class="anchor" aria-label="anchor" href="#scatter-plot"><i class="fas fa-link"></i></a>
 </h2>
@@ -106,7 +106,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can get a scatter plot by using <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>.</p>
-<div id="setting-color" class="section level3">
+<div id="setting-color" class="section level3" number="7.2.1">
 <h3>
 <span class="header-section-number">7.2.1</span> Setting color<a class="anchor" aria-label="anchor" href="#setting-color"><i class="fas fa-link"></i></a>
 </h3>
@@ -116,7 +116,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can change the color of the poionts by using <code>color =</code>.</p>
 </div>
-<div id="color-by-groups" class="section level3">
+<div id="color-by-groups" class="section level3" number="7.2.2">
 <h3>
 <span class="header-section-number">7.2.2</span> Color by groups<a class="anchor" aria-label="anchor" href="#color-by-groups"><i class="fas fa-link"></i></a>
 </h3>
@@ -126,7 +126,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>If X-variable is a categorical variable, such as variable “class”, we can set points of different classes to have different colors.</p>
 </div>
-<div id="identify-overlapping-points" class="section level3">
+<div id="identify-overlapping-points" class="section level3" number="7.2.3">
 <h3>
 <span class="header-section-number">7.2.3</span> Identify overlapping points<a class="anchor" aria-label="anchor" href="#identify-overlapping-points"><i class="fas fa-link"></i></a>
 </h3>
@@ -137,7 +137,7 @@
 <p>We can get a scatter plot by using <code>geom_count</code>. The size of the points shows if the point is overlap.</p>
 </div>
 </div>
-<div id="line-plot" class="section level2">
+<div id="line-plot" class="section level2" number="7.3">
 <h2>
 <span class="header-section-number">7.3</span> Line plot<a class="anchor" aria-label="anchor" href="#line-plot"><i class="fas fa-link"></i></a>
 </h2>
@@ -155,7 +155,7 @@
 <dd>Use <code>col =</code> to change the color of line.
 </dd>
 </dl>
-<div id="adding-an-arbitrary-line" class="section level3">
+<div id="adding-an-arbitrary-line" class="section level3" number="7.3.1">
 <h3>
 <span class="header-section-number">7.3.1</span> Adding an arbitrary line<a class="anchor" aria-label="anchor" href="#adding-an-arbitrary-line"><i class="fas fa-link"></i></a>
 </h3>
@@ -167,7 +167,7 @@
 <p>We can add arbitrary lines by using <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline()</a></code>.</p>
 </div>
 </div>
-<div id="box-plot" class="section level2">
+<div id="box-plot" class="section level2" number="7.4">
 <h2>
 <span class="header-section-number">7.4</span> Box plot<a class="anchor" aria-label="anchor" href="#box-plot"><i class="fas fa-link"></i></a>
 </h2>
@@ -176,7 +176,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can get a box plot by using <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code>.</p>
-<div id="horizontal-box-plot" class="section level3">
+<div id="horizontal-box-plot" class="section level3" number="7.4.1">
 <h3>
 <span class="header-section-number">7.4.1</span> Horizontal box plot<a class="anchor" aria-label="anchor" href="#horizontal-box-plot"><i class="fas fa-link"></i></a>
 </h3>
@@ -188,7 +188,7 @@
 <p>By using <code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code>, we will get a horizontal box plot.</p>
 </div>
 </div>
-<div id="histogram-1" class="section level2">
+<div id="histogram-1" class="section level2" number="7.5">
 <h2>
 <span class="header-section-number">7.5</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram-1"><i class="fas fa-link"></i></a>
 </h2>
@@ -197,7 +197,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can get a histogram by using <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>.</p>
-<div id="bins" class="section level3">
+<div id="bins" class="section level3" number="7.5.1">
 <h3>
 <span class="header-section-number">7.5.1</span> Bins<a class="anchor" aria-label="anchor" href="#bins"><i class="fas fa-link"></i></a>
 </h3>
@@ -208,7 +208,7 @@
 <p>The default value of bin is 30. By changing the value of <code>bins =</code>, we can get different width of bin.</p>
 </div>
 </div>
-<div id="bar-plot" class="section level2">
+<div id="bar-plot" class="section level2" number="7.6">
 <h2>
 <span class="header-section-number">7.6</span> Bar plot<a class="anchor" aria-label="anchor" href="#bar-plot"><i class="fas fa-link"></i></a>
 </h2>
@@ -218,7 +218,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can get a barplot which shows the relationship between of hwy and displ by using <code>geom_bar</code> with arguments <code>position="dodge"</code> and <code>stat = "identity"</code>.</p>
 </div>
-<div id="heatmap-1" class="section level2">
+<div id="heatmap-1" class="section level2" number="7.7">
 <h2>
 <span class="header-section-number">7.7</span> Heatmap<a class="anchor" aria-label="anchor" href="#heatmap-1"><i class="fas fa-link"></i></a>
 </h2>
@@ -231,7 +231,7 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_raster</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">z</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
-<div id="another-way-to-plot-heatmap" class="section level3">
+<div id="another-way-to-plot-heatmap" class="section level3" number="7.7.1">
 <h3>
 <span class="header-section-number">7.7.1</span> Another way to plot heatmap<a class="anchor" aria-label="anchor" href="#another-way-to-plot-heatmap"><i class="fas fa-link"></i></a>
 </h3>
@@ -241,7 +241,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="countour-plot" class="section level2">
+<div id="countour-plot" class="section level2" number="7.8">
 <h2>
 <span class="header-section-number">7.8</span> Countour plot<a class="anchor" aria-label="anchor" href="#countour-plot"><i class="fas fa-link"></i></a>
 </h2>
@@ -252,7 +252,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can get a contour plot by using <code><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">geom_density2d()</a></code>.</p>
 </div>
-<div id="area-plot" class="section level2">
+<div id="area-plot" class="section level2" number="7.9">
 <h2>
 <span class="header-section-number">7.9</span> Area plot<a class="anchor" aria-label="anchor" href="#area-plot"><i class="fas fa-link"></i></a>
 </h2>
@@ -262,11 +262,11 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>If we want to analyse 2 continuous variables, we can plot an area plot by using <code>geom_area</code>.</p>
 </div>
-<div id="adding-text" class="section level2">
+<div id="adding-text" class="section level2" number="7.10">
 <h2>
 <span class="header-section-number">7.10</span> Adding Text<a class="anchor" aria-label="anchor" href="#adding-text"><i class="fas fa-link"></i></a>
 </h2>
-<div id="title-and-xy-corrdinate" class="section level3">
+<div id="title-and-xy-corrdinate" class="section level3" number="7.10.1">
 <h3>
 <span class="header-section-number">7.10.1</span> title and xy-corrdinate<a class="anchor" aria-label="anchor" href="#title-and-xy-corrdinate"><i class="fas fa-link"></i></a>
 </h3>
@@ -281,7 +281,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>By using <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>, we can add more information for the plot, such as the title, subtitle, x-coordinate, y-coordinate, the class of color, the class of fill, etc.</p>
 </div>
-<div id="label" class="section level3">
+<div id="label" class="section level3" number="7.10.2">
 <h3>
 <span class="header-section-number">7.10.2</span> Label<a class="anchor" aria-label="anchor" href="#label"><i class="fas fa-link"></i></a>
 </h3>
@@ -311,11 +311,11 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="facet" class="section level2">
+<div id="facet" class="section level2" number="7.11">
 <h2>
 <span class="header-section-number">7.11</span> Facet<a class="anchor" aria-label="anchor" href="#facet"><i class="fas fa-link"></i></a>
 </h2>
-<div id="facet_wrap" class="section level3">
+<div id="facet_wrap" class="section level3" number="7.11.1">
 <h3>
 <span class="header-section-number">7.11.1</span> facet_wrap<a class="anchor" aria-label="anchor" href="#facet_wrap"><i class="fas fa-link"></i></a>
 </h3>
@@ -326,7 +326,7 @@
 <div class="inline-figure"><img src="ggplot2_cheatsheet_group16_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can get multiple plots group by class by using <code>facet_wrap</code>.</p>
 </div>
-<div id="facet_grid" class="section level3">
+<div id="facet_grid" class="section level3" number="7.11.2">
 <h3>
 <span class="header-section-number">7.11.2</span> facet_grid<a class="anchor" aria-label="anchor" href="#facet_grid"><i class="fas fa-link"></i></a>
 </h3>
@@ -399,7 +399,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-10.</p>
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
