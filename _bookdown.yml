@@ -47,6 +47,7 @@ rmd_files: [
   'class_material_code_throughout_this_semester.Rmd',
   'calendar_heat_map_tutorial.Rmd',
   'basic_time_series_analysis_and_prediction.Rmd',
+  'r_shiny_interactive_map.Rmd',
 
   # Part: Workshops
   
