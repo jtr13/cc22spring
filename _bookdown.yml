@@ -40,6 +40,7 @@ rmd_files: [
   'lecture_helper.Rmd',
   'basic_introduction_to_tidyverse.Rmd',
   'class_material_code_throughout_this_semester.Rmd',
+  'calendar_heat_map_tutorial.Rmd',
   
 
   # Part: Workshops
