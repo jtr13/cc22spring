@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 25 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Jing Wang and Peilin Jing  25.1 Explnation of our community contribution:  25.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 25 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Jing Wang and Peilin Jing  25.1 Explnation of our community contribution:  25.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 25 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Jing Wang and Peilin Jing  25.1 Explnation of our community contribution:  25.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet">
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script><script src="libs/d3-5.16.0/d3.min.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Community Contributions STAT GR 5293</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
+<li><a class="" href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">7</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="data-preprocessing-cheat-sheet-in-r.html"><span class="header-section-number">8</span> Data preprocessing cheat sheet in R</a></li>
+<li><a class="" href="data-wrangling-and-visualization-in-r.html"><span class="header-section-number">9</span> Data Wrangling and Visualization in R</a></li>
+<li><a class="" href="ggplot2-cheatsheet-1.html"><span class="header-section-number">10</span> GGplot2 cheatsheet</a></li>
+<li><a class="" href="cheat-sheet-for-tidyverse.html"><span class="header-section-number">11</span> Cheat Sheet for Tidyverse</a></li>
+<li><a class="" href="memos-checklist-and-usful-links-experience-of-statistical-graphic.html"><span class="header-section-number">12</span> Memos, checklist and usful links: experience of statistical graphic</a></li>
+<li><a class="" href="cheatsheet-for-multiple-graphics.html"><span class="header-section-number">13</span> Cheatsheet for multiple graphics</a></li>
+<li><a class="" href="useful-setting-of-ggplot2.html"><span class="header-section-number">14</span> Useful setting of ggplot2</a></li>
+<li><a class="" href="cheatsheet-for-circlize-package.html"><span class="header-section-number">15</span> Cheatsheet for ‘circlize’ package</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">16</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">17</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">18</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">19</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">20</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">21</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">22</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">23</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">24</span> R Shiny Map Tutorial</a></li>
+<li><a class="active" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">25</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">26</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">27</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">28</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">29</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">30</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">31</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">32</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">33</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">34</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">35</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">36</span> Tutorial for the r graph gallery</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">37</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">38</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc22spring">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="neural-network-ploting-with-bp-algorithm-and-without-algorithm" class="section level1" number="25">
+<h1>
+<span class="header-section-number">25</span> Neural Network Ploting with BP Algorithm and without Algorithm<a class="anchor" aria-label="anchor" href="#neural-network-ploting-with-bp-algorithm-and-without-algorithm"><i class="fas fa-link"></i></a>
+</h1>
+<p>Jing Wang and Peilin Jing</p>
+<div id="explnation-of-our-community-contribution" class="section level2" number="25.1">
+<h2>
+<span class="header-section-number">25.1</span> Explnation of our community contribution:<a class="anchor" aria-label="anchor" href="#explnation-of-our-community-contribution"><i class="fas fa-link"></i></a>
+</h2>
+<div id="since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting." class="section level3" number="25.1.1">
+<h3>
+<span class="header-section-number">25.1.1</span> Since we are learning data science as well as data visualization this semester, we get very interested in the data visualization in machine learning, and decide to do a tutorial for the Network plotting, which generally for the network visualization and bp neural network plotting.<a class="anchor" aria-label="anchor" href="#since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting."><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork." class="section level3" number="25.1.2">
+<h3>
+<span class="header-section-number">25.1.2</span> We learned a lot from the project, including the neural networks we never lerned before, the basic network plotting, and how to scale the data for better visualization. Also, there are a few things we want to improve for next time. We would like to visualize more complex neural network algorithm, and would like to learn more about the network plotting packages including ggraph and ggnetwork.<a class="anchor" aria-label="anchor" href="#we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork."><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="the-back-propagation-bp-neural-networks-algorithm" class="section level2" number="25.2">
+<h2>
+<span class="header-section-number">25.2</span> The Back Propagation (bp) Neural Networks algorithm<a class="anchor" aria-label="anchor" href="#the-back-propagation-bp-neural-networks-algorithm"><i class="fas fa-link"></i></a>
+</h2>
+<p>BP (Back Propagation) neural network was proposed by scientists headed by Rumelhart and McCelland in 1986. It is a multi-layer feed-forward network trained by error Back Propagation algorithm. It is one of the most widely used neural network models at present. BP network can learn and store a large number of input-output mode mappings without revealing the mathematical equations describing the mappings in advance. Its learning rule is to use the fastest descent method, through back propagation to constantly adjust the weight and threshold of the network, so as to minimize the sum of squares of error of the network. The topology of BP neural network model includes input layer, hide layer and output layer. It can effectively decrease data dimensionality. To do this, we need to pass the data through the “bottleneck” with lower dimension than source data.</p>
+<p>There are already many packages for bp neural networks in the R language, such as NNET, AMORE and Neuralnet.</p>
+<p>Nnet provides the most common feed-forward and back-propagation neural network algorithm.</p>
+<p>The AMORE package takes this one step further by providing richer control parameters and adding multiple hidden layers.</p>
+<p>The Neuralnet package is improved by providing elastic backpropagation algorithms and more forms of activation functions.</p>
+<p>The RSNNS package not only contains the bp algorithm but also other types of algorithm, such as DDA and etc.</p>
+<p>Backpropagation neural networks can be very helpful whem we want to compress and visuallized multi_dimensional data, and it is more clear than some other well-known methods.</p>
+<p>(<a href="https://link.springer.com/chapter/10.1007/978-3-642-30223-7_87" class="uri">https://link.springer.com/chapter/10.1007/978-3-642-30223-7_87</a>; <a href="https://rpubs.com/alexv71/237757" class="uri">https://rpubs.com/alexv71/237757</a>)</p>
+<div id="nnet" class="section level3" number="25.2.1">
+<h3>
+<span class="header-section-number">25.2.1</span> NNET<a class="anchor" aria-label="anchor" href="#nnet"><i class="fas fa-link"></i></a>
+</h3>
+<p>Feed-Forward Neural Networks and Multinomial Log-Linear Models</p>
+<p>nnet uses the C code for BFGS from optim (converted earlier from Pascal) directly instead of calling optim from R. This may be what allows it to be faster, but limits the optimization to the single method. nnet is only beaten by the Extreme Learning Machine (ELM) algorithms in terms of speed. However, there is a larger variation when using nnet. We believe the different default starting values are the cause of this. For instance, nnet uses a range of initial random weights of 0.7 In spite of these results, the real reason most authors or users are likely to choose nnet is because it is included in the distributed base R and is even mentioned as the very first package in CRAN’s task view for machine learning.</p>
+<p>(<a href="https://cran.r-project.org/web/packages/nnet/nnet.pdf" class="uri">https://cran.r-project.org/web/packages/nnet/nnet.pdf</a>)</p>
+<div id="usage" class="section level4" number="25.2.1.1">
+<h4>
+<span class="header-section-number">25.2.1.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage"><i class="fas fa-link"></i></a>
+</h4>
+<p>nnet(x, …)</p>
+<p>S3 method for formula</p>
+<pre><code>nnet(formula, data, weights, …,
+
+subset, na.action, contrasts = NULL)</code></pre>
+<p>S3 method for default</p>
+<pre><code>nnet(x, y, weights, size, Wts, mask,
+
+linout = FALSE, entropy = FALSE, softmax = FALSE,
+ 
+censored = FALSE, skip = FALSE, rang = 0.7, decay = 0,
+ 
+maxit = 100, Hess = FALSE, trace = TRUE, MaxNWts = 1000,
+ 
+abstol = 1.0e-4, reltol = 1.0e-8, …)</code></pre>
+</div>
+<div id="arguments" class="section level4" number="25.2.1.2">
+<h4>
+<span class="header-section-number">25.2.1.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
+</h4>
+<p>formula: A formula of the form class ~ x1 + x2 + …</p>
+<p>x: matrix or data frame of x values for examples.</p>
+<p>y: matrix or data frame of target values for examples.</p>
+<p>weights: (case) weights for each example – if missing defaults to 1.</p>
+<p>size: number of units in the hidden layer. Can be zero if there are skip-layer units.</p>
+<p>data: Data frame from which variables specified in formula are preferentially to be taken.</p>
+<p>subset: An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
+<p>na.action: A function to specify the action to be taken if NAs are found. The default action is for the procedure to fail. An alternative is na.omit, which leads to rejection of cases with missing values on any required variable. (NOTE: If given, this argument must be named.)</p>
+<p>contrasts: a list of contrasts to be used for some or all of the factors appearing as variables in the model formula.</p>
+<p>Wts: initial parameter vector. If missing chosen at random.</p>
+<p>mask: logical vector indicating which parameters should be optimized (default all).</p>
+<p>linout: switch for linear output units. Default logistic output units.</p>
+<p>entropy: switch for entropy (= maximum conditional likelihood) fitting. Default by least-squares.</p>
+<p>softmax: switch for softmax (log-linear model) and maximum conditional likelihood fitting. linout, entropy, softmax and censored are mutually exclusive.</p>
+<p>censored: A variant on softmax, in which non-zero targets mean possible classes. Thus for softmax a row of (0, 1, 1) means one example each of classes 2 and 3, but for censored it means one example whose class is only known to be 2 or 3.</p>
+<p>skip: switch to add skip-layer connections from input to output.</p>
+<p>rang: Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1.</p>
+<p>decay: parameter for weight decay. Default 0.</p>
+<p>maxit: maximum number of iterations. Default 100.</p>
+<p>Hess: If true, the Hessian of the measure of fit at the best set of weights found is returned as component Hessian.</p>
+<p>trace: switch for tracing optimization. Default TRUE.</p>
+<p>MaxNWts: The maximum allowable number of weights. There is no intrinsic limit in the code, but increasing MaxNWts will probably allow fits that are very slow and time-consuming.</p>
+<p>abstol: Stop if the fit criterion falls below abstol, indicating an essentially perfect fit.</p>
+<p>reltol: Stop if the optimizer is unable to reduce the fit criterion by a factor of at least 1 - reltol.</p>
+<p>…</p>
+<p>arguments passed to or from other methods.</p>
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#load package and data</span>
+<span class="co"># install.packages("DMwR2")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ltorgo/DMwR2">DMwR2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">nnet</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">algae</span><span class="op">)</span>
+
+<span class="co">#drop NAs</span>
+<span class="va">algae</span> <span class="op">&lt;-</span> <span class="va">algae</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/DMwR2/man/manyNAs.html">manyNAs</a></span><span class="op">(</span><span class="va">algae</span><span class="op">)</span>, <span class="op">]</span>
+<span class="va">clean.algae</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DMwR2/man/knnImputation.html">knnImputation</a></span><span class="op">(</span><span class="va">algae</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span>,k<span class="op">=</span><span class="fl">10</span><span class="op">)</span> 
+
+<span class="co">#approaching the value of NAs by finding the median of K neigbors</span>
+<span class="va">algae</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/DMwR2/man/knnImputation.html">knnImputation</a></span><span class="op">(</span><span class="va">algae</span>,k<span class="op">=</span><span class="fl">10</span>,meth<span class="op">=</span><span class="st">'median'</span><span class="op">)</span>
+
+<span class="co"># standardized data</span>
+<span class="va">norm.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">[</span>,<span class="fl">4</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span><span class="op">)</span>  
+
+<span class="co">#use nnet to fit the model  </span>
+<span class="va">nn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">a1</span><span class="op">~</span><span class="va">.</span>, <span class="va">norm.data</span>, size <span class="op">=</span> <span class="fl">10</span>, decay <span class="op">=</span> <span class="fl">0.01</span>,  
+ maxit <span class="op">=</span> <span class="fl">1000</span>, linout <span class="op">=</span> <span class="cn">T</span>, trace <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>  
+
+<span class="co">#use the model above to make prediction</span>
+<span class="va">norm.preds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">nn</span>, <span class="va">norm.data</span><span class="op">)</span> 
+
+<span class="co">#plot predict value and true value</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">norm.preds</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#calculate the error  </span>
+<span class="op">(</span><span class="va">nmse2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">norm.preds</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span>  
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<pre><code>## [1] 0.1452598</code></pre>
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#plot model</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span>
+<span class="fu"><a href="https://devtools.r-lib.org/reference/source_url.html">source_url</a></span><span class="op">(</span><span class="st">'https://gist.githubusercontent.com/Peque/41a9e20d6687f2f3108d/raw/85e14f3a292e126f1454864427e3a189c2fe33f3/nnet_plot_update.r'</span><span class="op">)</span>
+<span class="fu">plot.nnet</span><span class="op">(</span><span class="va">nn</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+<div id="amore" class="section level3" number="25.2.2">
+<h3>
+<span class="header-section-number">25.2.2</span> AMORE<a class="anchor" aria-label="anchor" href="#amore"><i class="fas fa-link"></i></a>
+</h3>
+<p>AMORE is A MORE flexible neural network package, which was born to release the TAO robust neural network algorithem to the R users. It’s kind of out dated and hard to data visualization so that people generally will not use this one to do the bp neural network.</p>
+<div id="newff-usage" class="section level4" number="25.2.2.1">
+<h4>
+<span class="header-section-number">25.2.2.1</span> newff() Usage<a class="anchor" aria-label="anchor" href="#newff-usage"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>newff(n.neurons, learning.rate.global, momentum.global, 
+error.criterium, Stao,hidden.layer, output.layer, method)</code></pre>
+</div>
+<div id="arguments-1" class="section level4" number="25.2.2.2">
+<h4>
+<span class="header-section-number">25.2.2.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>n.neurons: Numeric vector containing the number of neurons of each layer. The first element of the vector is the number of input neurons, the last is the number of output neurons and the rest are the number of neuron of the different hidden layers.</p>
+<p>learning.rate.global: Learning rate at which every neuron is trained.</p>
+<p>momentum.global: Momentum for every neuron. Needed by several training methods</p>
+<p>The mostly used arguments for newff() are listed above. For the further information, you can check on the cran website I posted below.</p>
+</div>
+<div id="train-usage" class="section level4" number="25.2.2.3">
+<h4>
+<span class="header-section-number">25.2.2.3</span> train() Usage<a class="anchor" aria-label="anchor" href="#train-usage"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>train(net, P, T, Pval=NULL, Tval=NULL, error.criterium="LMS",
+report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
+</div>
+<div id="arguments-2" class="section level4" number="25.2.2.4">
+<h4>
+<span class="header-section-number">25.2.2.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>net: Neural Network to train.</p>
+<p>error.criterium: Criterium used to measure the goodness of fit:“LMS”, “LMLS”, “TAO”.</p>
+<p>n.shows: Number of times to report (if report is TRUE). The total number of training epochs is n.shows times show.step.</p>
+<p>show.step: Number of epochs to train non-stop until the training function is allow to report.</p>
+<p>The mostly used arguments for train() are listed above. For the further information, you can check on the cran website I posted below.</p>
+<p>（<a href="http://cran.nexr.com/web/packages/AMORE/AMORE.pdf" class="uri">http://cran.nexr.com/web/packages/AMORE/AMORE.pdf</a>）</p>
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#load package and data</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
+<span class="co">#install_version("AMORE", "0.2-11")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AMORE</span><span class="op">)</span>
+
+<span class="co"># Generate input data</span>
+<span class="va">P</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span>,length<span class="op">=</span><span class="fl">1000</span><span class="op">)</span>,<span class="fl">1000</span>,replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
+
+<span class="co"># Generate output data</span>
+<span class="va">target</span> <span class="op">&lt;-</span> <span class="va">P</span><span class="op">^</span><span class="fl">2</span>
+
+<span class="co"># Generate 2 hidden layers</span>
+<span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/AMORE/man/newff.html">newff</a></span><span class="op">(</span>n.neurons<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>,
+             learning.rate.global <span class="op">=</span> <span class="fl">1e-2</span>, momentum.global <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>
+
+<span class="co"># Train the neutral network</span>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/AMORE/man/train.html">train</a></span><span class="op">(</span><span class="va">net</span>,<span class="va">P</span>,<span class="va">target</span>,error.criterium <span class="op">=</span> <span class="st">"LMS"</span>, report <span class="op">=</span> <span class="cn">TRUE</span>,
+                show.step <span class="op">=</span> <span class="fl">100</span>,n.shows <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>## index.show: 1 LMS 0.0894144335797345 
+## index.show: 2 LMS 0.0893664649835284 
+## index.show: 3 LMS 0.0886648893419836 
+## index.show: 4 LMS 2.87892981034031e-05 
+## index.show: 5 LMS 2.130723629117e-05</code></pre>
+<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Predict for the result</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/AMORE/man/sim.MLPnet.html">sim</a></span><span class="op">(</span><span class="va">result</span><span class="op">$</span><span class="va">net</span>,<span class="va">P</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">P</span>,<span class="va">y</span>,col<span class="op">=</span><span class="st">"blue"</span>,pch<span class="op">=</span><span class="st">"+"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="va">P</span>,<span class="va">target</span>,col<span class="op">=</span><span class="st">"red"</span>,pch<span class="op">=</span><span class="st">"x"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+<div id="neuralnet" class="section level3" number="25.2.3">
+<h3>
+<span class="header-section-number">25.2.3</span> Neuralnet<a class="anchor" aria-label="anchor" href="#neuralnet"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is a package that train the neural networks using back propagation,resilient back propagation with or without wright backtracking or the modified globally convergent. It alloes flexible settings through custom_choice of error and activation function. Furthermore, the calculation of generalized weights is imlemented. This one is generally used by many people, and is one of the most popular package for bp neural network.</p>
+<div id="neuralnet-usage" class="section level4" number="25.2.3.1">
+<h4>
+<span class="header-section-number">25.2.3.1</span> neuralnet() Usage<a class="anchor" aria-label="anchor" href="#neuralnet-usage"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>neuralnet(formula, data, hidden = 1, threshold = 0.01,
+ stepmax = 1e+05, rep = 1, startweights = NULL，
+ learningrate.limit = NULL, learningrate.factor = list(minus = 0.5,
+ plus = 1.2), learningrate = NULL, lifesign = "none",
+ lifesign.step = 1000, algorithm = "rprop+", err.fct = "sse",
+ act.fct = "logistic", linear.output = TRUE, exclude = NULL,
+ constant.weights = NULL, likelihood = FALSE)</code></pre>
+</div>
+<div id="arguments-3" class="section level4" number="25.2.3.2">
+<h4>
+<span class="header-section-number">25.2.3.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"><i class="fas fa-link"></i></a>
+</h4>
+<p>formula: a symbolic description of the model to be fitted.</p>
+<p>data: a data frame containing the variables specified in formula.</p>
+<p>hidden: a vector of integers specifying the number of hidden neurons (vertices) in each layer.</p>
+<p>threshold: a numeric value specifying the threshold for the partial derivatives of the error function as stopping criteria.</p>
+<p>etc.</p>
+<p>The mostly used arguments for neuralnet() are listed above. For the futher information, you can check on the cran website I posted below.</p>
+</div>
+<div id="compute-usage" class="section level4" number="25.2.3.3">
+<h4>
+<span class="header-section-number">25.2.3.3</span> compute() Usage<a class="anchor" aria-label="anchor" href="#compute-usage"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>compute(x, covariate, rep = 1)</code></pre>
+</div>
+<div id="arguments-4" class="section level4" number="25.2.3.4">
+<h4>
+<span class="header-section-number">25.2.3.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"><i class="fas fa-link"></i></a>
+</h4>
+<p>x: an object of class nn.</p>
+<p>covariate: a dataframe or matrix containing the variables that had been used to train the neural network.</p>
+<p>rep: an integer indicating the neural network’s repetition which should be used.</p>
+<p>(<a href="https://cran.r-project.org/web/packages/neuralnet/neuralnet.pdf" class="uri">https://cran.r-project.org/web/packages/neuralnet/neuralnet.pdf</a>)</p>
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#load package and data</span>
+<span class="co"># install.packages("neuralnet")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bips-hb/neuralnet">neuralnet</a></span><span class="op">)</span>
+
+<span class="co"># Generate 50 data from 0 to 100 and turn it into input and output</span>
+<span class="va">traininginput</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">50</span>,min<span class="op">=</span><span class="fl">0</span>,max<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span>
+<span class="va">trainingoutput</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">traininginput</span><span class="op">)</span>
+
+<span class="co"># Combine input and output</span>
+<span class="va">trainingdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">traininginput</span>,<span class="va">trainingoutput</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">trainingdata</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Input"</span>, <span class="st">"Output"</span><span class="op">)</span>
+
+<span class="co"># Train 10 hiddens for neural network</span>
+<span class="va">net.sqrt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/neuralnet.html">neuralnet</a></span><span class="op">(</span><span class="va">Output</span> <span class="op">~</span> <span class="va">Input</span>, <span class="va">trainingdata</span>, hidden<span class="op">=</span><span class="fl">10</span>,threshold<span class="op">=</span><span class="fl">0.001</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">net.sqrt</span><span class="op">)</span></code></pre></div>
+<pre><code>##                     Length Class      Mode    
+## call                 5     -none-     call    
+## response            50     -none-     numeric 
+## covariate           50     -none-     numeric 
+## model.list           2     -none-     list    
+## err.fct              1     -none-     function
+## act.fct              1     -none-     function
+## linear.output        1     -none-     logical 
+## data                 2     data.frame list    
+## exclude              0     -none-     NULL    
+## net.result           1     -none-     list    
+## weights              1     -none-     list    
+## generalized.weights  1     -none-     list    
+## startweights         1     -none-     list    
+## result.matrix       34     -none-     numeric</code></pre>
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Plot the neural network</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net.sqrt</span><span class="op">)</span>
+
+<span class="co"># Compute for the neutons</span>
+<span class="va">testdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/compute.html">compute</a></span><span class="op">(</span><span class="va">net.sqrt</span>,<span class="va">testdata</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "net.result" "neurons"</code></pre>
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">$</span><span class="va">net.result</span><span class="op">)</span></code></pre></div>
+<pre><code>##           [,1]
+##  [1,] 1.001483
+##  [2,] 1.967301
+##  [3,] 3.009390
+##  [4,] 3.998934
+##  [5,] 5.002556
+##  [6,] 5.999033
+##  [7,] 6.999842
+##  [8,] 8.000364
+##  [9,] 8.999183
+## [10,] 9.994979</code></pre>
+</div>
+</div>
+<div id="rsnss" class="section level3" number="25.2.4">
+<h3>
+<span class="header-section-number">25.2.4</span> RSNSS<a class="anchor" aria-label="anchor" href="#rsnss"><i class="fas fa-link"></i></a>
+</h3>
+<p>RSNSS is a new package for neural network, and it’s originally ceom for the SNNS library which wraps the SNNS functionality to make it available in R. Also, RSNSS expand the functionality and flexibility of SNNS which it contains more algorithms and topologies.</p>
+<p>(<a href="https://cran.r-project.org/web/packages/RSNNS/RSNNS.pdf" class="uri">https://cran.r-project.org/web/packages/RSNNS/RSNNS.pdf</a>;
+<a href="https://rdrr.io/cran/RSNNS/man/mlp.html" class="uri">https://rdrr.io/cran/RSNNS/man/mlp.html</a>)</p>
+<div id="usage-1" class="section level4" number="25.2.4.1">
+<h4>
+<span class="header-section-number">25.2.4.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-1"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>analyzeClassification(y, method = "WTA", l = 0, h = 0)</code></pre>
+</div>
+<div id="arguments-5" class="section level4" number="25.2.4.2">
+<h4>
+<span class="header-section-number">25.2.4.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"><i class="fas fa-link"></i></a>
+</h4>
+<p>y: inputs</p>
+<p>method: “WTA” or “402040”</p>
+<p>l: lower bound, e.g. in 402040: l=0.4 h upper bound, e.g. in 402040: h=0.6</p>
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#load package and data</span>
+
+<span class="co"># install.packages("RSNNS")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.rcpp.org">Rcpp</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cbergmeir/RSNNS">RSNNS</a></span><span class="op">)</span>
+
+<span class="co">#load data</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>
+
+<span class="co">#use sample function to get random sample data set </span>
+ <span class="va">iris</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,<span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">]</span>
+ 
+<span class="co">#define net input </span>
+ <span class="va">irisValues</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>
+ 
+<span class="co">#define net output, and transform the data format </span>
+ <span class="va">irisTargets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/decodeClassLabels.html">decodeClassLabels</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span>
+ 
+<span class="co">#select training set and testing set  </span>
+ <span class="va">iris</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/splitForTrainingAndTest.html">splitForTrainingAndTest</a></span><span class="op">(</span><span class="va">irisValues</span>, <span class="va">irisTargets</span>, ratio<span class="op">=</span><span class="fl">0.15</span><span class="op">)</span>
+ 
+<span class="co">#standardized data</span>
+ <span class="va">iris</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/normTrainingAndTestSet.html">normTrainingAndTestSet</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>
+ 
+<span class="co">#use mlp to do the neural network algorithm (feed-forward)  </span>
+<span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">inputsTrain</span>, <span class="va">iris</span><span class="op">$</span><span class="va">targetsTrain</span>, size<span class="op">=</span><span class="fl">5</span>, learnFuncParams<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span>, maxit<span class="op">=</span><span class="fl">50</span>, inputsTest<span class="op">=</span><span class="va">iris</span><span class="op">$</span><span class="va">inputsTest</span>, targetsTest<span class="op">=</span><span class="va">iris</span><span class="op">$</span><span class="va">targetsTest</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></code></pre></div>
+<pre><code>## SNNS network definition file V1.4-3D
+## generated at Tue Apr 12 21:44:45 2022
+## 
+## network name : RSNNS_untitled
+## source files :
+## no. of units : 12
+## no. of connections : 35
+## no. of unit types : 0
+## no. of site types : 0
+## 
+## 
+## learning function : Std_Backpropagation
+## update function   : Topological_Order
+## 
+## 
+## unit default section :
+## 
+## act      | bias     | st | subnet | layer | act func     | out func
+## ---------|----------|----|--------|-------|--------------|-------------
+##  0.00000 |  0.00000 | i  |      0 |     1 | Act_Logistic | Out_Identity 
+## ---------|----------|----|--------|-------|--------------|-------------
+## 
+## 
+## unit definition section :
+## 
+## no. | typeName | unitName          | act      | bias     | st | position | act func     | out func | sites
+## ----|----------|-------------------|----------|----------|----|----------|--------------|----------|-------
+##   1 |          | Input_1           | -0.29143 |  0.13084 | i  | 1,0,0    | Act_Identity |          | 
+##   2 |          | Input_2           | -0.13387 | -0.00879 | i  | 2,0,0    | Act_Identity |          | 
+##   3 |          | Input_3           |  0.19442 | -0.29257 | i  | 3,0,0    | Act_Identity |          | 
+##   4 |          | Input_4           |  0.11948 |  0.00347 | i  | 4,0,0    | Act_Identity |          | 
+##   5 |          | Hidden_2_1        |  0.83784 |  1.33418 | h  | 1,2,0    |||
+##   6 |          | Hidden_2_2        |  0.22736 | -0.92067 | h  | 2,2,0    |||
+##   7 |          | Hidden_2_3        |  0.12808 | -2.82738 | h  | 3,2,0    |||
+##   8 |          | Hidden_2_4        |  0.39944 |  0.06052 | h  | 4,2,0    |||
+##   9 |          | Hidden_2_5        |  0.31358 | -1.16370 | h  | 5,2,0    |||
+##  10 |          | Output_setosa     |  0.11700 | -0.60774 | o  | 1,4,0    |||
+##  11 |          | Output_versicolor |  0.68134 |  0.50483 | o  | 2,4,0    |||
+##  12 |          | Output_virginica  |  0.07557 | -2.22674 | o  | 3,4,0    |||
+## ----|----------|-------------------|----------|----------|----|----------|--------------|----------|-------
+## 
+## 
+## connection definition section :
+## 
+## target | site | source:weight
+## -------|------|---------------------------------------------------------------------------------------------------------------------
+##      5 |      |  4: 1.23525,  3: 1.32506,  2:-1.28824,  1: 0.92506
+##      6 |      |  4:-0.21415,  3:-1.29071,  2: 1.66811,  1:-0.67684
+##      7 |      |  4: 2.98342,  3: 2.10284,  2:-0.21317,  1:-0.39641
+##      8 |      |  4:-1.36627,  3:-1.16256,  2: 0.79454,  1:-0.09370
+##      9 |      |  4: 1.51683,  3: 1.03424,  2:-0.12963,  1: 0.06655
+##     10 |      |  9:-2.10872,  8: 2.42271,  7:-1.11247,  6: 1.36118,  5:-2.25204
+##     11 |      |  9:-0.89046,  8:-0.96601,  7:-3.94641,  6:-1.99330,  5: 2.24251
+##     12 |      |  9: 1.75366,  8:-3.31889,  7: 3.03418,  6:-0.56827,  5: 0.28522
+## -------|------|---------------------------------------------------------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#use the model above to make prediction</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotIterativeError.html">plotIterativeError</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
+<span class="va">predictions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>,<span class="va">iris</span><span class="op">$</span><span class="va">inputsTest</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotRegressionError.html">plotRegressionError</a></span><span class="op">(</span><span class="va">predictions</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, <span class="va">iris</span><span class="op">$</span><span class="va">targetsTest</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span>
+
+<span class="co"># Generate confusion matrix and plot ROC curve</span>
+<span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">targetsTrain</span>,<span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted.values</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>##        predictions
+## targets  1  2  3
+##       1 43  0  0
+##       2  0 37  3
+##       3  0  1 43</code></pre>
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">targetsTest</span>,<span class="va">predictions</span><span class="op">)</span></code></pre></div>
+<pre><code>##        predictions
+## targets  1  2  3
+##       1  7  0  0
+##       2  0 10  0
+##       3  0  0  6</code></pre>
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotROC.html">plotROC</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted.values</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, <span class="va">iris</span><span class="op">$</span><span class="va">targetsTrain</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotROC.html">plotROC</a></span><span class="op">(</span><span class="va">predictions</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, <span class="va">iris</span><span class="op">$</span><span class="va">targetsTest</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+</div>
+<div id="general-plotting-for-neural-network" class="section level2" number="25.3">
+<h2>
+<span class="header-section-number">25.3</span> General plotting for Neural network<a class="anchor" aria-label="anchor" href="#general-plotting-for-neural-network"><i class="fas fa-link"></i></a>
+</h2>
+<p>Network visualization allows administrators to quickly and intuitively understand a lot of information about the state of the network at a glance. If we are not sure about the algorithm, it’s better for us to visualize the network for our data. From the network visualization, we would like to find the key actors and links, the relationship strength, the structural properties and diffusion patterns, etc.</p>
+<p>We would like to introduce two basic package for network visualizetion which are network and igraph. network can represent a range of relational data types, and supports arbitrary vertex/edge/graph attributes. igraph can handle large graphs very well and provides functions for generating random and regular graphs, graph visualization, centrality methods and much more.</p>
+<p>(<a href="https://www.auvik.com/franklyit/blog/what-is-network-visualization/" class="uri">https://www.auvik.com/franklyit/blog/what-is-network-visualization/</a>;
+<a href="https://kateto.net/network-visualization" class="uri">https://kateto.net/network-visualization</a>;
+<a href="https://cran.r-project.org/web/packages/igraph/igraph.pdf" class="uri">https://cran.r-project.org/web/packages/igraph/igraph.pdf</a>;
+<a href="https://cran.r-project.org/web/packages/network/network.pdf" class="uri">https://cran.r-project.org/web/packages/network/network.pdf</a>)</p>
+<div id="network" class="section level3" number="25.3.1">
+<h3>
+<span class="header-section-number">25.3.1</span> network<a class="anchor" aria-label="anchor" href="#network"><i class="fas fa-link"></i></a>
+</h3>
+<div id="usage-2" class="section level4" number="25.3.1.1">
+<h4>
+<span class="header-section-number">25.3.1.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-2"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>add.edge( x,
+  tail,
+  head,
+  names.eval = NULL,
+  vals.eval = NULL,
+  edge.check = FALSE,
+  ...
+)
+add.edges(x, tail, head, names.eval = NULL, vals.eval = NULL, ...)</code></pre>
+</div>
+<div id="arguments-6" class="section level4" number="25.3.1.2">
+<h4>
+<span class="header-section-number">25.3.1.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-6"><i class="fas fa-link"></i></a>
+</h4>
+<p>x: an object of class network</p>
+<p>tail: for add.edge, a vector of vertex IDs reflecting the tail set for the edge to be added; for add.edges, a list of such vectors</p>
+<p>head: for add.edge, a vector of vertex IDs reflecting the head set for the edge to be added; for add.edges, a list of such vectors</p>
+<p>names.eval: for add.edge, an optional list of names for edge attributes; for add.edges, a list of length equal to the number of edges, with each element containing a list of names for the attributes of the corresponding edge</p>
+<p>vals.eval: for add.edge, an optional list of edge attribute values (matching names.eval); for add.edges, a list of such lists</p>
+<p>edge.check: logical; should we perform (computationally expensive) tests to check for the legality of submitted edges?</p>
+<p>…
+additional arguments</p>
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://statnet.org/">network</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># generate a three dots graph</span>
+<span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/network/man/network.initialize.html">network.initialize</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span>,vertex.cex<span class="op">=</span><span class="fl">10</span><span class="op">)</span>
+<span class="co"># add one edge</span>
+<span class="fu"><a href="https://rdrr.io/pkg/network/man/add.edges.html">add.edge</a></span><span class="op">(</span><span class="va">net</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span>,vertex.cex<span class="op">=</span><span class="fl">10</span>, displaylabels<span class="op">=</span><span class="cn">T</span><span class="op">)</span>
+<span class="co"># add two more dots</span>
+<span class="fu"><a href="https://rdrr.io/pkg/network/man/add.vertices.html">add.vertices</a></span><span class="op">(</span><span class="va">net</span>,<span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span>,vertex.cex<span class="op">=</span><span class="fl">10</span>, displaylabels<span class="op">=</span><span class="cn">T</span><span class="op">)</span>
+<span class="co"># generate a 5*12 dataframe</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">60</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>
+<span class="co"># use covariance matrix to generate network</span>
+<span class="va">dfcor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="co"># remove the low correlation</span>
+<span class="va">dfcor</span><span class="op">[</span><span class="va">dfcor</span><span class="op">&lt;</span><span class="fl">0.5</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+<span class="va">netcor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/network/man/network.html">as.network</a></span><span class="op">(</span><span class="va">dfcor</span>,matrix.type <span class="op">=</span> <span class="st">'adjacency'</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">netcor</span><span class="op">)</span>
+<span class="co"># add property to dots and edges</span>
+<span class="fu"><a href="https://rdrr.io/pkg/network/man/attribute.methods.html">set.vertex.attribute</a></span><span class="op">(</span><span class="va">netcor</span>, <span class="st">"class"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">netcor</span><span class="op">$</span><span class="va">val</span><span class="op">)</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/network/man/attribute.methods.html">set.edge.attribute</a></span><span class="op">(</span><span class="va">netcor</span>,<span class="st">"color"</span>,<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">netcor</span><span class="op">$</span><span class="va">mel</span><span class="op">)</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>
+<span class="co"># more visual</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">netcor</span>,vertex.cex<span class="op">=</span><span class="fl">5</span>,vertex.col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/network/man/attribute.methods.html">get.vertex.attribute</a></span><span class="op">(</span><span class="va">netcor</span>,<span class="st">"class"</span><span class="op">)</span>,edge.col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/network/man/attribute.methods.html">get.edge.attribute</a></span><span class="op">(</span><span class="va">netcor</span>,<span class="st">'color'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+<div id="igraph" class="section level3" number="25.3.2">
+<h3>
+<span class="header-section-number">25.3.2</span> igraph<a class="anchor" aria-label="anchor" href="#igraph"><i class="fas fa-link"></i></a>
+</h3>
+<div id="usage-3" class="section level4" number="25.3.2.1">
+<h4>
+<span class="header-section-number">25.3.2.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-3"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>## S3 method for class 'igraph'
+e1 + e2</code></pre>
+</div>
+<div id="arguments-7" class="section level4" number="25.3.2.2">
+<h4>
+<span class="header-section-number">25.3.2.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"><i class="fas fa-link"></i></a>
+</h4>
+<p>e1: First argument, probably an igraph graph.</p>
+<p>e2: Second argument.</p>
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org">igraph</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># generate a three dots graph</span>
+<span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/make_empty_graph.html">graph.empty</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">3</span>, directed<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span><span class="op">)</span>
+<span class="co"># add two edges</span>
+<span class="va">new_edges</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>, <span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
+<span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/add_edges.html">add.edges</a></span><span class="op">(</span><span class="va">net</span>, <span class="va">new_edges</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span><span class="op">)</span>
+<span class="co"># add two more dots</span>
+<span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/add_vertices.html">add.vertices</a></span><span class="op">(</span><span class="va">net</span>, <span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span><span class="op">)</span>
+<span class="co"># generate a 5*12 dataframe</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">60</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>
+<span class="co"># use covariance matrix to generate network</span>
+<span class="va">dfcor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="co"># remove the low correlation</span>
+<span class="va">dfcor</span><span class="op">[</span><span class="va">dfcor</span><span class="op">&lt;</span><span class="fl">0.5</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+<span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_adjacency_matrix.html">graph.adjacency</a></span><span class="op">(</span><span class="va">dfcor</span>,weighted<span class="op">=</span><span class="cn">TRUE</span>,diag<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="r-shiny-map-tutorial.html"><span class="header-section-number">24</span> R Shiny Map Tutorial</a></div>
+<div class="next"><a href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">26</span> Animation graphs in plot_ly and gganimate</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#neural-network-ploting-with-bp-algorithm-and-without-algorithm"><span class="header-section-number">25</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li>
+<a class="nav-link" href="#explnation-of-our-community-contribution"><span class="header-section-number">25.1</span> Explnation of our community contribution:</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting."><span class="header-section-number">25.1.1</span> Since we are learning data science as well as data visualization this semester, we get very interested in the data visualization in machine learning, and decide to do a tutorial for the Network plotting, which generally for the network visualization and bp neural network plotting.</a></li>
+<li><a class="nav-link" href="#we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork."><span class="header-section-number">25.1.2</span> We learned a lot from the project, including the neural networks we never lerned before, the basic network plotting, and how to scale the data for better visualization. Also, there are a few things we want to improve for next time. We would like to visualize more complex neural network algorithm, and would like to learn more about the network plotting packages including ggraph and ggnetwork.</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#the-back-propagation-bp-neural-networks-algorithm"><span class="header-section-number">25.2</span> The Back Propagation (bp) Neural Networks algorithm</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#nnet"><span class="header-section-number">25.2.1</span> NNET</a></li>
+<li><a class="nav-link" href="#amore"><span class="header-section-number">25.2.2</span> AMORE</a></li>
+<li><a class="nav-link" href="#neuralnet"><span class="header-section-number">25.2.3</span> Neuralnet</a></li>
+<li><a class="nav-link" href="#rsnss"><span class="header-section-number">25.2.4</span> RSNSS</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#general-plotting-for-neural-network"><span class="header-section-number">25.3</span> General plotting for Neural network</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#network"><span class="header-section-number">25.3.1</span> network</a></li>
+<li><a class="nav-link" href="#igraph"><span class="header-section-number">25.3.2</span> igraph</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/neural_network_ploting_with_bp_algorithm_and_without_algorithm.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/neural_network_ploting_with_bp_algorithm_and_without_algorithm.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-12.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
