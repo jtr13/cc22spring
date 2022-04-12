@@ -8,6 +8,7 @@ Imports:
     broom,
     calendR,
     carData,
+    circlize,
     countrycode,
     corrplot,
     devtools,
@@ -23,12 +24,14 @@ Imports:
     fivethirtyeight,
     forcats,
     forecast,
+    forestplot,
     gapminder,
     gcookbook,
     GDAdata,
     ggalluvial,
     GGally,
     gganimate,
+    ggbiplot,
     ggdark,
     ggforce,
     ggfortify,
@@ -45,6 +48,7 @@ Imports:
     hexbin,
     hrbrthemes,
     igraph,
+    image2data,
     itsmr,
     knitr,
     lattice,
@@ -59,6 +63,7 @@ Imports:
     neuralnet,
     NLP,
     nnet,
+    openintro,
     parcoords,
     plotly,
     prettydoc,
@@ -92,7 +97,7 @@ Imports:
     viridis,
     wordcloud,
     wordcloud2,
-    zoo,
+    zoo
 Suggests:
     bookdown,
     bslib,
@@ -102,5 +107,8 @@ Suggests:
 Remotes:
     cran/AMORE,
     hadley/emo,
-    madlogos/recharts,
+    Shawn-Lian/image2data,
+    taiyun/recharts,
+    vqv/ggbiplot,
     jtr13/redav
+    
