@@ -24,6 +24,7 @@ rmd_files: [
   'ccgitsubmit.Rmd',
   'cheatsheet_for_multiple_graphics.Rmd',
   'ggplot_useful_settings.Rmd',
+  'circlize_cheatsheet.Rmd',
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
@@ -46,7 +47,6 @@ rmd_files: [
   'class_material_code_throughout_this_semester.Rmd',
   'calendar_heat_map_tutorial.Rmd',
   'basic_time_series_analysis_and_prediction.Rmd',
-  'circlize_cheatsheet.Rmd',
 
   # Part: Workshops
   
