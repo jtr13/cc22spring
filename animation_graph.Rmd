@@ -1,0 +1,179 @@
+# Animation graphs in plot_ly and gganimate
+
+Yingtong Peng and Xiaoran Hu
+
+Motivation:
+In classes, we have seen many data graphs that change over time, finding changes over time costs lots of graphing work since we need to draw one plot for each time, however, using animation plot, changes over time/groups can be seen in one plot easily and clearly. One of the advantages of animation is that it expands the number of variables we can visualize, and we can let the variables in the data set "drive" the animation.In this project, we learned two ways to draw animation plots: 1.Using plot_ly() function with 'frame' argument. 2.Using animate() function from ggplot. We also learned how to use animation options to make our graphic transitions smoother.
+Next time, we can further improve the animation plots: Change slider appearance, glyph color,shape,size, axis labels. We can also do other animation plots, such as dynamic box plot, dynamic map.
+
+## Types of graphics
+* Static(Permanently fixed after it is created)
+* Interactive(Changes based on the action performed by user)
+* Dynamic(Changes periodically without user input)
+
+```{r}
+library(ggplot2)
+library(gganimate)
+library(ggpubr)
+library(gapminder)
+library(gifski)
+library(plotly) 
+library(babynames)
+library(tidyverse)
+library(hrbrthemes)
+library(dplyr)
+library(purrr)
+library(tidyr)
+```
+
+
+## Self-created data
+```{r,warning=FALSE}
+theme_set(theme_pubr())
+# Make 2 basic states and concatenate them:
+dat1 <- data.frame(group=c("A","B","C"), values=c(3,5,9), frame=rep('a',3))
+dat2 <- data.frame(group=c("A","B","C"), values=c(6,4,8), frame=rep('b',3))
+data <- rbind(dat1,dat2)
+head(data)
+```
+
+
+### Static Barplots(One categorical variable, One discrete variable over group)
+```{r,warning=FALSE}
+# Static barplots:
+g1<-ggplot(dat1, aes(x=group, y=values, fill=group)) + 
+  geom_bar(stat='identity')
+g2<-ggplot(dat2, aes(x=group, y=values, fill=group)) + 
+  geom_bar(stat='identity')
+figure<-ggarrange(g1,g2,labels=c("dat1","dat2"),legend="bottom",common.legend=TRUE)
+figure
+```
+
+### Dynamic Barplot(One categorical variable, One discrete variable over group)
+
+```{r,warning=FALSE}
+# Make a dynamic ggplot,add frame=group
+g3<-ggplot(data, aes(x=group, y=values, fill=group)) + 
+  geom_bar(stat='identity') +
+  theme_bw() +
+  # gganimate specific bits:
+  transition_states(
+    frame,
+    transition_length = 2,
+    state_length = 1
+  ) +
+  ease_aes('sine-in-out')
+animate(g3,renderer=gifski_renderer())
+```
+
+*Using dynamic plot, changes between two data sets can be seen and understood easily in one single plot.*
+
+## GDP data
+```{r,warning=FALSE}
+# Get data:
+head(gapminder)
+```
+
+
+### Animation Plot using gganimate(Two Continuous Variables Over Time)
+```{r,warning=FALSE}
+# Make a dynamic ggplot, add frame=year: one image per year
+g3<-ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  theme_bw() +
+  # gganimate specific bits:
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+animate(g3,renderer=gifski_renderer())
+```
+### Animation Plot using plotly(Two Continuous Variables Over Time)
+```{r,warning=FALSE}
+fig<-gapminder %>% 
+  plot_ly(x = ~gdpPercap, y = ~lifeExp, size = ~pop, color = ~continent, frame = ~year, text=~country, hoverinfo = "text", type = 'scatter', mode = 'markers' )  %>%
+  add_text(x = 6500, y = 50, text = ~year, frame = ~year, textfont = list(size=150,color=toRGB("gray80")))
+fig<-fig %>% 
+  layout( xaxis = list( type = "log" ) ) 
+fig
+```
+
+### Add Animation Options
+```{r,warning=FALSE}
+fig<-fig %>%
+  animation_opts(1000, easing = "elastic", redraw = FALSE)
+fig
+```
+
+
+*There are more easing options for animation:"linear","quad","cubic","sin","exp","circle","back","bounce"*
+
+### Animation Plot facet by continent(Two Continuous Variables Over Time)
+```{r,warning=FALSE}
+# Make a ggplot, but add frame=year: one image per year
+g4<-ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+animate(g4,renderer=gifski_renderer())
+```
+
+## Babynames Data
+```{r,warning=FALSE}
+head(babynames)
+```
+
+### Keep only three names for female
+```{r,warning=FALSE}
+(dim(babynames))
+don<-babynames %>% 
+  filter(name %in% c("Ashley", "Patricia", "Helen")) %>%
+  filter(sex=="F")
+```
+
+
+### Interactive Plot(One categorical variable, one continuous variable over time)
+```{r,warning=FALSE}
+baby<- don %>%
+  plot_ly(x= ~year,y= ~n, color= ~name) %>%
+  add_lines()
+baby
+```
+
+
+
+### Animation Plot using plotly(One categorical variable, one continuous variable over time)
+```{r,warning=FALSE}
+complete_don = don %>% complete(name, year, fill = list(n = 0))
+babyani<-complete_don %>%
+  split(f = .$year) %>%
+  accumulate(.,~bind_rows(.x,.y)) %>%
+  set_names(1880:2017) %>%
+  bind_rows(.id = "frame") %>%
+  plot_ly(x= ~year,y= ~n)%>%
+  add_lines(color = ~name, frame= ~frame, ids= ~frame)
+babyani
+```
+
+
+### Animation Plot using gganimate(One categorical variable, one continuous variable over time)
+```{r,warning=FALSE}
+# Plot
+g5<-don %>%
+  ggplot( aes(x=year, y=n, group=name, color=name)) +
+    geom_line() +
+    geom_point() +
+    ggtitle("Popularity of American names in the previous 30 years") +
+    theme_ipsum() +
+    ylab("Number of babies born") +
+    transition_reveal(year)
+animate(g5,renderer=gifski_renderer())
+```
+
+
