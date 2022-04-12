@@ -363,6 +363,8 @@ description-1
 link-1
 references-5
 extract-data-from-scatterplot
+tutorial-for-the-r-graph-gallery
+motivation-6
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
