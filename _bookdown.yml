@@ -49,6 +49,7 @@ rmd_files: [
   'basic_time_series_analysis_and_prediction.Rmd',
   'r_shiny_interactive_map.Rmd',
   'image2data.Rmd',
+  'Tutorial_for_the_R_Graph_Gallery.Rmd',
 
   # Part: Workshops
   
