@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 1 Welcome! | Community Contributions STAT GR 5293</title>
-<meta name="description" content="This book contains community contributions for STAT GR 5293 Statistical Graphics Spring 2022">
+<title>Chapter 14 Useful setting of ggplot2 | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Yixuan Zhang  14.1 Motivation ggplot2 is the most common package that I used for plotting. Besides the ability to draw different kinds of plots, it also contains a lot of useful settings to make...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 1 Welcome! | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 14 Useful setting of ggplot2 | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="This book contains community contributions for STAT GR 5293 Statistical Graphics Spring 2022">
+<meta property="og:description" content="Yixuan Zhang  14.1 Motivation ggplot2 is the most common package that I used for plotting. Besides the ability to draw different kinds of plots, it also contains a lot of useful settings to make...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 1 Welcome! | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="This book contains community contributions for STAT GR 5293 Statistical Graphics Spring 2022">
+<meta name="twitter:title" content="Chapter 14 Useful setting of ggplot2 | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Yixuan Zhang  14.1 Motivation ggplot2 is the most common package that I used for plotting. Besides the ability to draw different kinds of plots, it also contains a lot of useful settings to make...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -48,7 +48,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
 <li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
 <li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
 <li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
@@ -62,7 +62,7 @@
 <li><a class="" href="cheat-sheet-for-tidyverse.html"><span class="header-section-number">11</span> Cheat Sheet for Tidyverse</a></li>
 <li><a class="" href="memos-checklist-and-usful-links-experience-of-statistical-graphic.html"><span class="header-section-number">12</span> Memos, checklist and usful links: experience of statistical graphic</a></li>
 <li><a class="" href="cheatsheet-for-multiple-graphics.html"><span class="header-section-number">13</span> Cheatsheet for multiple graphics</a></li>
-<li><a class="" href="useful-setting-of-ggplot2.html"><span class="header-section-number">14</span> Useful setting of ggplot2</a></li>
+<li><a class="active" href="useful-setting-of-ggplot2.html"><span class="header-section-number">14</span> Useful setting of ggplot2</a></li>
 <li class="book-part">Tutorials</li>
 <li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">15</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
 <li><a class="" href="plotly-package.html"><span class="header-section-number">16</span> Plotly package</a></li>
@@ -90,28 +90,43 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="welcome" class="section level1" number="1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="useful-setting-of-ggplot2" class="section level1" number="14">
 <h1>
-<span class="header-section-number">1</span> Welcome!<a class="anchor" aria-label="anchor" href="#welcome"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> Useful setting of ggplot2<a class="anchor" aria-label="anchor" href="#useful-setting-of-ggplot2"><i class="fas fa-link"></i></a>
 </h1>
-<p>Let’s add some content to the welcome page.</p>
-<p>Submit a pull request to do so.</p>
-<div class="figure">
-<img src="under_construction.jpg" alt=""><p class="caption">Under construction</p>
+<p>Yixuan Zhang</p>
+<div id="motivation" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+</h2>
+<p>ggplot2 is the most common package that I used for plotting. Besides the ability to draw different kinds of plots, it also contains a lot of useful settings to make the plot more beautiful and informative. For example, transposing x and y axis, changing the location of the legend, changing the angle of the text of axis, etc. Therefore, I made this cheat sheet help people check those useful settings. Intentionally, I made it on Rshiny. Therefore, people can interact with the setting and there is a text box designed to show the code where people can do copy&amp;paste to use the code.</p>
 </div>
+<div id="the-link-to-the-cheatsheet" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> The Link to the cheatsheet<a class="anchor" aria-label="anchor" href="#the-link-to-the-cheatsheet"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="https://codingellena.shinyapps.io/cheatsheet/" class="uri">https://codingellena.shinyapps.io/cheatsheet/</a></p>
 
 </div>
+</div>
+
+
+
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="next"><a href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></div>
+<div class="prev"><a href="cheatsheet-for-multiple-graphics.html"><span class="header-section-number">13</span> Cheatsheet for multiple graphics</a></div>
+<div class="next"><a href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">15</span> Visualizing Geographical Time Series Data With Messy Country Name</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#welcome"><span class="header-section-number">1</span> Welcome!</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#useful-setting-of-ggplot2"><span class="header-section-number">14</span> Useful setting of ggplot2</a></li>
+<li><a class="nav-link" href="#motivation"><span class="header-section-number">14.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#the-link-to-the-cheatsheet"><span class="header-section-number">14.2</span> The Link to the cheatsheet</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/index.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/ggplot_useful_settings.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/ggplot_useful_settings.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

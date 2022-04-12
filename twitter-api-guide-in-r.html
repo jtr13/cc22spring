@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 20 Twitter API guide in R | Community Contributions STAT GR 5293</title>
+<title>Chapter 21 Twitter API guide in R | Community Contributions STAT GR 5293</title>
 <meta name="description" content="Jiayi Yuan API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 20 Twitter API guide in R | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 21 Twitter API guide in R | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Jiayi Yuan API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 20 Twitter API guide in R | Community Contributions STAT GR 5293">
+<meta name="twitter:title" content="Chapter 21 Twitter API guide in R | Community Contributions STAT GR 5293">
 <meta name="twitter:description" content="Jiayi Yuan API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -62,26 +62,27 @@
 <li><a class="" href="cheat-sheet-for-tidyverse.html"><span class="header-section-number">11</span> Cheat Sheet for Tidyverse</a></li>
 <li><a class="" href="memos-checklist-and-usful-links-experience-of-statistical-graphic.html"><span class="header-section-number">12</span> Memos, checklist and usful links: experience of statistical graphic</a></li>
 <li><a class="" href="cheatsheet-for-multiple-graphics.html"><span class="header-section-number">13</span> Cheatsheet for multiple graphics</a></li>
+<li><a class="" href="useful-setting-of-ggplot2.html"><span class="header-section-number">14</span> Useful setting of ggplot2</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">14</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">15</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">16</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">17</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">18</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">19</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="active" href="twitter-api-guide-in-r.html"><span class="header-section-number">20</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">21</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">22</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">23</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">24</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">25</span> Lecture Helper</a></li>
-<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">26</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">27</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">28</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">29</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">15</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">16</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">17</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">18</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">19</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">20</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="active" href="twitter-api-guide-in-r.html"><span class="header-section-number">21</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">22</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">23</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">24</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">25</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">26</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">27</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">28</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">29</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">30</span> Basic time series analysis and prediction</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">30</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">31</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">31</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">32</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -89,9 +90,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="twitter-api-guide-in-r" class="section level1" number="20">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="twitter-api-guide-in-r" class="section level1" number="21">
 <h1>
-<span class="header-section-number">20</span> Twitter API guide in R<a class="anchor" aria-label="anchor" href="#twitter-api-guide-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21</span> Twitter API guide in R<a class="anchor" aria-label="anchor" href="#twitter-api-guide-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Jiayi Yuan</p>
 <p>API, known as application programming interface, is always a strong tool for data scientists or statisticians to gain useful data or information from different websites, computer programs, etc. I tried to collect data using Twitter API for my final project, and I noticed that even though the tool is helpful, not so many of my classmates are familiar with it or used it before, and many of the guides online are outdated. Therefore, in this community contribution, I would like to provide a comprehensive guide on using Twitter API to search tweets or gather some other information, such as followers or favorited tweets, in R. Using the Twitter API should be an easy thing, but there could still be many problems for those who are totally new to such a tool. Therefore, I would like to introduce different setup methods to make sure that everyone who reads this guide can successfully link the interface to R. I will also include some examples of R codes and the output data in this guide to show more directly how the interface works.</p>
@@ -102,11 +103,11 @@
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">19</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></div>
-<div class="next"><a href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">21</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></div>
+<div class="prev"><a href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">20</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></div>
+<div class="next"><a href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">22</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#twitter-api-guide-in-r"><span class="header-section-number">20</span> Twitter API guide in R</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#twitter-api-guide-in-r"><span class="header-section-number">21</span> Twitter API guide in R</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

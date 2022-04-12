@@ -118,6 +118,9 @@ heatmap-2
 hexagonal-heatmap
 square-heatmap
 heatmap-with-facets
+useful-setting-of-ggplot2
+motivation
+the-link-to-the-cheatsheet
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
@@ -127,7 +130,7 @@ merge-data
 mapping
 time-series-data
 plotly-package
-motivation
+motivation-1
 creating-interactive-plot-using-plotly
 add-custom-control-in-plotly
 add-buttons
@@ -183,7 +186,7 @@ multiple-time-series
 add-a-loess-smoother
 facet-by-day-of-the-week
 drawing-five-common-plots-by-ggplot2
-motivation-1
+motivation-2
 graph5-heatmap-geom_tile
 effective-ways-for-showing-more-information
 way1-faceting
@@ -270,14 +273,14 @@ change-the-method-by-shade
 recharts
 summary
 lecture-helper
-motivation-2
+motivation-3
 how-it-works
 challenge
 example
 download
 copyright
 basic-introduction-to-tidyverse
-motivation-3
+motivation-4
 data-visualization-1
 scatterplot-4
 bar-plot-1
@@ -343,7 +346,7 @@ base-r-functions
 missing-data
 calendar-heat-map-tutorial
 basic-time-series-analysis-and-prediction
-motivation-4
+motivation-5
 data-input
 time-series-plot
 differencing
