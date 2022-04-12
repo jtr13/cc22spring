@@ -8,6 +8,7 @@ Imports:
     broom,
     calendR,
     carData,
+    circlize,
     countrycode,
     corrplot,
     devtools,
