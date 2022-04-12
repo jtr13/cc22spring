@@ -35,7 +35,7 @@ rmd_files: [
   'twitter_api_in_r.Rmd', 
   'ggmap_ggplot_tmap_maps.Rmd', 
   'shiny_map_tutorial.Rmd', 
-  'plotly_package_graph_tutorial.Rmd', 
+  'plotly_package.Rmd', 
 
  # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
   'animation_graph.Rmd',
