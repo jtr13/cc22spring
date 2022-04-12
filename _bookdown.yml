@@ -48,6 +48,7 @@ rmd_files: [
   'calendar_heat_map_tutorial.Rmd',
   'basic_time_series_analysis_and_prediction.Rmd',
   'r_shiny_interactive_map.Rmd',
+  'image2data.Rmd',
 
   # Part: Workshops
   
