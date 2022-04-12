@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 26 class_material_code_throughout_this_semester | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Weijia Wang Parameters: shape: changes the shape of points into squares, triangles according to the category of variable color: changes colors, specify types. size: changes the size of shapes?...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 26 class_material_code_throughout_this_semester | Community Contributions STAT GR 5293">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Weijia Wang Parameters: shape: changes the shape of points into squares, triangles according to the category of variable color: changes colors, specify types. size: changes the size of shapes?...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 26 class_material_code_throughout_this_semester | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Weijia Wang Parameters: shape: changes the shape of points into squares, triangles according to the category of variable color: changes colors, specify types. size: changes the size of shapes?...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet">
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script><script src="libs/d3-5.16.0/d3.min.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Community Contributions STAT GR 5293</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
+<li><a class="" href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">7</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="data-preprocessing-cheat-sheet-in-r.html"><span class="header-section-number">8</span> Data preprocessing cheat sheet in R</a></li>
+<li><a class="" href="data-wrangling-and-visualization-in-r.html"><span class="header-section-number">9</span> Data Wrangling and Visualization in R</a></li>
+<li><a class="" href="ggplot2-cheatsheet-1.html"><span class="header-section-number">10</span> GGplot2 cheatsheet</a></li>
+<li><a class="" href="cheat-sheet-for-tidyverse.html"><span class="header-section-number">11</span> Cheat Sheet for Tidyverse</a></li>
+<li><a class="" href="memos-checklist-and-usful-links-experience-of-statistical-graphic.html"><span class="header-section-number">12</span> Memos, checklist and usful links: experience of statistical graphic</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">13</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">14</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">15</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">16</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">17</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">18</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">19</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">20</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">21</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">22</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">23</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">24</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">25</span> Basic introduction to tidyverse</a></li>
+<li><a class="active" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">26</span> class_material_code_throughout_this_semester</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">27</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">28</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc22spring">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="class_material_code_throughout_this_semester" class="section level1" number="26">
+<h1>
+<span class="header-section-number">26</span> class_material_code_throughout_this_semester<a class="anchor" aria-label="anchor" href="#class_material_code_throughout_this_semester"><i class="fas fa-link"></i></a>
+</h1>
+<p>Weijia Wang</p>
+<p>Parameters:</p>
+<p>shape: changes the shape of points into squares, triangles according to the category of variable</p>
+<p>color: changes colors, specify types.</p>
+<p>size: changes the size of shapes?</p>
+<p>scale_fill_manual(values = c(“#ff99ff”, “#cc9966”)) # fill color into bar chart</p>
+<p>span: geom_smooth(method = “loess”, span = .1, se = FALSE)</p>
+<hr>
+<div id="continuous-variables-1" class="section level2" number="26.1">
+<h2>
+<span class="header-section-number">26.1</span> Continuous variables<a class="anchor" aria-label="anchor" href="#continuous-variables-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>### Histograms
+1) base r: hist(x, col = “color”)
+2) ggplot2: geom_histogram(color = “blue”, fill = “lightblue”, binwidth = 5, center = 52.5) + theme_grey(14))</p>
+<p>### Bindwidth
+1) bin boundaries
+right closed (55, 60] or right open [55, 60)
+code: right = TRUE or FALSE
+hist(x, right = FALSE, ylim = c(0, 4), xlab = “right open ex. [55, 60)”, font.lab = 2)
+2) set bin boundaries by hand:
+code: breaks = seq(start, stop, gap)
+hist(x, breaks = seq(47.5, 72.5, 5), col = “lightblue”, axes = FALSE)
+3) Frequency (count) histogram
+hist(prices, breaks = seq(300, 800, 100), col = “lightblue”, las = 1)
+4) Density histogram: freq = FALSE
+hist(prices, breaks = c(300, 400, 500, 600, 700, 800),
+freq = FALSE, col = “lightblue”, ylab = ““,
+main =”Density Histogram”, las = 1)
+5) Calculate: Density histogram with unequal bin widths
+g2 &lt;- ggplot(df, aes(x = center, y = percent/(100*binwidth),
+width = binwidth)) +
+geom_col(color = “blue”, fill = “lightblue”) +
+ylab(“density”) + xlab(“age”) +
+scale_x_continuous(breaks = c(0, df$breaks)) +
+ggtitle(“Census 2000: Zip Code 10027”)
+6) Cumulative frequency histogram:
+geom_histogram(aes(y = cumsum(..count..)), color = “blue”, fill = “lightblue”)
+7) Change bindwidth interactively: ggvis
+df %&gt;% ggvis(~GDP) %&gt;%
+layer_histograms(fill := “green”,
+width = input_slider(500, 10000,
+value = 5000,
+step = 500,
+label = “width”))</p>
+</div>
+<div id="boxplots-1" class="section level2" number="26.2">
+<h2>
+<span class="header-section-number">26.2</span> Boxplots<a class="anchor" aria-label="anchor" href="#boxplots-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>### How to draw:
+ggplot(tidySavings, aes(person, amount)) +
+geom_boxplot()
+### Add number to quantiles:
+boxplot(D, horizontal = TRUE, ylim=c(-250, 200))
+text(fivenum(D)[c(1,3,5)], 1.25, round(fivenum(D)[c(1,3,5)],1), col = “red”)
+text(fivenum(D)[c(2,4)], .75, round(fivenum(D),1)[c(2,4)], col = “red”)
+### Outliers:
+if the observation is 2.5 times further than the lower hinge, then it should be an outlier
+### Variable width boxplots:
+geom_boxplot(varwidth = TRUE)
+### Multiple density histograms, ordered by median
+gh &lt;- ggplot(world, aes(x = TFR, y = ..density..)) +
+geom_histogram(color = “blue”, fill = “lightblue”) +
+facet_wrap(~reorder(CONTINENT, -TFR, median), nrow = 6, strip.position = “right”) +
+theme(strip.placement = “outside”,
+strip.background = element_blank(),
+strip.text = element_text(face = “bold”))
+### Density curve
+geom_density(color = “red”)
+### Violin plot
+geom_violin(adjust = 6) # change bandwidth
+### Ridgeline plot
+gr &lt;- ggplot(world, aes(x = GDP, y = reorder(CONTINENT, -GDP,
+median))) +
+geom_density_ridges(fill = “blue”, alpha = .5)</p>
+</div>
+<div id="chapter-6-rounding-noraml-distrubution" class="section level2" number="26.3">
+<h2>
+<span class="header-section-number">26.3</span> Chapter 6 Rounding noraml distrubution<a class="anchor" aria-label="anchor" href="#chapter-6-rounding-noraml-distrubution"><i class="fas fa-link"></i></a>
+</h2>
+<div id="q-q-plot" class="section level3" number="26.3.1">
+<h3>
+<span class="header-section-number">26.3.1</span> Q-Q plot<a class="anchor" aria-label="anchor" href="#q-q-plot"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>3.1.1 What is a Q-Q plot?
+If the line is not 45 degrees, then it is not normally distrubtted
+
+3.1.2 How to draw
+qqnorm(x)
+
+3.1.3 DIY Q-Q plot
+ qx &lt;- quantile(x) 
+ qn &lt;- quantile(n)
+ plot(qn, qx, pch = 16)
+ mod &lt;- lm(c(qx[2], qx[4])~c(qn[2], qn[4]))
+ abline(mod, col = "red")
+ </code></pre>
+</div>
+<div id="density-curve-noraml-curve" class="section level3" number="26.3.2">
+<h3>
+<span class="header-section-number">26.3.2</span> Density Curve + Noraml Curve<a class="anchor" aria-label="anchor" href="#density-curve-noraml-curve"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>3.2.1 How to draw
+      library(tidyverse)
+      df &lt;- data.frame(x = rnorm(1000, 50, 10))
+      ggplot(df, aes(x)) + geom_histogram(aes(y = ..density..),
+                                          fill = "lightblue",
+                                          color = "black") +
+        geom_density(lwd = 1.5) +
+        stat_function(fun = dnorm, args = list(mean = 50, sd = 10), color = "red", lwd = 1.5)</code></pre>
+</div>
+<div id="shapiro-wilk-test" class="section level3" number="26.3.3">
+<h3>
+<span class="header-section-number">26.3.3</span> Shapiro Wilk test<a class="anchor" aria-label="anchor" href="#shapiro-wilk-test"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>3.3.1 What is this
+Null hypothesis: data is normally distributed
+Alternative hypothesis: data is not normally distributed
+
+3.3.2 How 
+&gt; shapiro.test(x)
+if P-value is very small, then the null hypothesis could be rejected.</code></pre>
+</div>
+</div>
+<div id="chapter-7-grammar-of-graphics" class="section level2" number="26.4">
+<h2>
+<span class="header-section-number">26.4</span> Chapter 7 Grammar of Graphics<a class="anchor" aria-label="anchor" href="#chapter-7-grammar-of-graphics"><i class="fas fa-link"></i></a>
+</h2>
+<div id="layers" class="section level3" number="26.4.1">
+<h3>
+<span class="header-section-number">26.4.1</span> Layers<a class="anchor" aria-label="anchor" href="#layers"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    g &lt;- ggplot() + geom_point(data = df1, aes(x,y)) +
+             geom_col(data = df2, aes(num, height),
+             fill = "green") + 
+             geom_boxplot(data = df3, aes(1, score)) +
+             geom_line(data = df4, aes(time, dist),
+             color = "red")</code></pre>
+</div>
+<div id="coord" class="section level3" number="26.4.2">
+<h3>
+<span class="header-section-number">26.4.2</span> Coord<a class="anchor" aria-label="anchor" href="#coord"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>g+coord_polar()</code></pre>
+</div>
+<div id="facet-1" class="section level3" number="26.4.3">
+<h3>
+<span class="header-section-number">26.4.3</span> Facet<a class="anchor" aria-label="anchor" href="#facet-1"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>g + facet_grid(num~height)</code></pre>
+</div>
+<div id="theme" class="section level3" number="26.4.4">
+<h3>
+<span class="header-section-number">26.4.4</span> Theme<a class="anchor" aria-label="anchor" href="#theme"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>g+theme_wsj()</code></pre>
+</div>
+<div id="mapping-1" class="section level3" number="26.4.5">
+<h3>
+<span class="header-section-number">26.4.5</span> Mapping<a class="anchor" aria-label="anchor" href="#mapping-1"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>aes(x = x, y = y, color = "color", fill = "fill")</code></pre>
+</div>
+<div id="scale" class="section level3" number="26.4.6">
+<h3>
+<span class="header-section-number">26.4.6</span> Scale<a class="anchor" aria-label="anchor" href="#scale"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">    scale_x_reverse()
+    scale_x_date()
+    scale_y_continuous()
+    scale_color_manual()
+    scale_fill_viridis_c() 
+    </a></code></pre>
+</div>
+<div id="code-style" class="section level3" number="26.4.7">
+<h3>
+<span class="header-section-number">26.4.7</span> Code style<a class="anchor" aria-label="anchor" href="#code-style"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    ggplot (data =  &lt;DATA&gt; ) +  
+        &lt;GEOM_FUNCTION&gt; (mapping = aes( &lt;MAPPINGS&gt; ),  
+        stat = &lt;STAT&gt; , position = &lt;POSITION&gt; ) +      
+        &lt;COORDINATE_FUNCTION&gt; + 
+        &lt;FACET_FUNCTION&gt;  + 
+        &lt;SCALE_FUNCTION&gt;  + 
+        &lt;THEME_FUNCTION&gt;</code></pre>
+</div>
+</div>
+<div id="chapter-8-categorical-variables" class="section level2" number="26.5">
+<h2>
+<span class="header-section-number">26.5</span> Chapter 8 Categorical Variables<a class="anchor" aria-label="anchor" href="#chapter-8-categorical-variables"><i class="fas fa-link"></i></a>
+</h2>
+<div id="types-of-data" class="section level3" number="26.5.1">
+<h3>
+<span class="header-section-number">26.5.1</span> Types of data<a class="anchor" aria-label="anchor" href="#types-of-data"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    nominal – no fixed category order
+    ordinal – fixed category order
+    (“real”) discrete, small # of possibilities
+    Not always clearcut: nominal vs. ordinal, ordinal vs. discrete, and...
+    Sometimes numbers = nominal, not discrete
+    
+    5.1.1 Ordinal data
+          Sort in logical order of the categories (left to right, starting at bottom or top, etc.)
+    5.1.2 Nominal data
+          Sort from highest to lowest count (left to right, or top to bottom, etc.)
+    
+    5.1.3 Discrete data
+          * Cleveland dot plot:
+            ggplot(africa, aes(x = GDP, y = fct_reorder(COUNTRY, GDP))) +
+              geom_point(color = "blue")
+            hint: Set x and y axis different: scales = "free_y", space = "free_y"</code></pre>
+</div>
+<div id="plotting-categorical-data" class="section level3" number="26.5.2">
+<h3>
+<span class="header-section-number">26.5.2</span> Plotting Categorical data<a class="anchor" aria-label="anchor" href="#plotting-categorical-data"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    5.2.1 Recoding factor levels: 
+          
+          1) setting levels by hand:
+          levels(x) &lt;- c("Physics", "Math", "Chemistry")
+          
+          2) fct_recode: change names of levels
+          x &lt;- factor(c("G234", "G452", "G136"))  
+          y &lt;- fct_recode(x, Physics = "G234", Math = "G452", Chemistry = "G136")  
+          
+          3) fct_inorder: set level order of x to row order
+          ggplot(df, aes(x = fct_inorder(temperature), y = count))
+          
+          4) fct_relevel: manually set the order of levels of x
+          x &lt;- c("A", "B", "C", "move1", "D", "E", "move2", "F")  
+          fct_relevel(x, "move1", "move2")
+          
+          5) fct_reorder: reorder x by y
+          ggplot(pack1, aes(fct_reorder(color, count), count)) +   
+          geom_col() 
+          
+          6) fct_infreq: order the levels of x by decreasing frequency
+          ggplot(df, aes(fct_infreq(mmcolor))) +   
+          geom_bar() 
+          
+          7) fct_rev: reverse the order of factor levels of x
+          ggplot(df, aes(fct_rev(fct_infreq(mmcolor)))) +   
+          geom_bar()
+          
+          8) fct_explicit_na: turn NAs into a real factor level
+          
+    5.2.2 Binning and rebinning data
+          df %&gt;%   
+            group_by(Class) %&gt;%   
+            summarize(Freq = sum(Freq)) %&gt;%   
+            ggplot(aes(Class, Freq)) +   
+            geom_col(color = "grey50", fill = "lightblue") +  
+            theme_grey(16)
+          
+    5.2.3 Percentages
+          df %&gt;%   
+            gro up_by(Class) %&gt;%   
+            summarize(Freq = sum(Freq)) %&gt;%   
+            mutate(prop = Freq/sum(Freq))
+    </code></pre>
+</div>
+</div>
+<div id="chapter-10-tidying-data" class="section level2" number="26.6">
+<h2>
+<span class="header-section-number">26.6</span> Chapter 10 Tidying data<a class="anchor" aria-label="anchor" href="#chapter-10-tidying-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Tidy: 1 variable per column, 1 observation per row</p>
+</div>
+<div id="chapter-11-dependency-relationships" class="section level2" number="26.7">
+<h2>
+<span class="header-section-number">26.7</span> Chapter 11 Dependency relationships<a class="anchor" aria-label="anchor" href="#chapter-11-dependency-relationships"><i class="fas fa-link"></i></a>
+</h2>
+<div id="interactive-plot" class="section level3" number="26.7.1">
+<h3>
+<span class="header-section-number">26.7.1</span> Interactive plot<a class="anchor" aria-label="anchor" href="#interactive-plot"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    1) ggplot
+    library(plotly)
+    ggplotly(g)
+    
+    2) base r
+    plot_ly(world, x = ~GDP, y = ~TFR, color = ~CONTINENT, text = ~COUNTRY, hoverinfo = 'text') </code></pre>
+</div>
+<div id="dealing-with-overplotting" class="section level3" number="26.7.2">
+<h3>
+<span class="header-section-number">26.7.2</span> Dealing with overplotting<a class="anchor" aria-label="anchor" href="#dealing-with-overplotting"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    7.2.1 Open circles:
+    geom_point(pch = 21)
+    
+    7.2.2 Alpha blending: 
+    geom_point(alpha = .05, stroke = 0) 
+    
+    7.2.3 Smaller dots:
+    size = .05
+    shape = "."
+    
+    7.2.4 Subset:
+    ggplot(binnedmovies, aes(votes, rating)) + 
+    geom_point(alpha = .1) +
+      facet_wrap(~mybin, scales = "free_x")
+      
+    7.2.5 10% highest number:
+    bin10 &lt;- binnedmovies %&gt;% filter(mybin == 10)
+    ggplot(bin10, aes(votes, rating)) + geom_point()
+    </code></pre>
+</div>
+<div id="heatmap-4" class="section level3" number="26.7.3">
+<h3>
+<span class="header-section-number">26.7.3</span> Heatmap<a class="anchor" aria-label="anchor" href="#heatmap-4"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    7.3.1 Parameters:
+    bindwidth = c(10, 10) changes large or small of the shape
+    alpha - 0.4 changes color dark or light
+    size = 2 changes large or small of the dots
+    scale_fill_gradient(low = "grey", high = "purple") changes color
+   
+    7.3.2 Square heatmap:
+    g1 + geom_bin2d(binwidth = c(5, 5)) # no dots, dark color
+    g1 + geom_bin2d(binwidth = c(5, 5), alpha = .4) + geom_point(size = 2)
+    
+    7.3.3 Hex heatmap:
+    g1 + geom_hex(binwidth = c(5, 5)) 
+ </code></pre>
+</div>
+<div id="density-estimate-contour" class="section level3" number="26.7.4">
+<h3>
+<span class="header-section-number">26.7.4</span> Density estimate contour<a class="anchor" aria-label="anchor" href="#density-estimate-contour"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>     g +  geom_density_2d(bins = 5)
+     
+     contour lines: 
+     contour(f1, add = T)
+     g + geom_contour(aes(z = z))
+     </code></pre>
+</div>
+</div>
+<div id="chapter-12-continuous-categorical" class="section level2" number="26.8">
+<h2>
+<span class="header-section-number">26.8</span> Chapter 12 Continuous + Categorical<a class="anchor" aria-label="anchor" href="#chapter-12-continuous-categorical"><i class="fas fa-link"></i></a>
+</h2>
+<div id="graphiical-data-analysis-with-r" class="section level3" number="26.8.1">
+<h3>
+<span class="header-section-number">26.8.1</span> Graphiical data analysis with R<a class="anchor" aria-label="anchor" href="#graphiical-data-analysis-with-r"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>   Examining Continuous Variables
+   Displaying Categorical Data
+   Looking for Structure: Dependency Relationships and Associations
+   Combining Continuous and Categorical Data
+   Investingating Multivariate Continuous Data
+   Studying Multivariate Categorical Data
+   </code></pre>
+</div>
+<div id="factes" class="section level3" number="26.8.2">
+<h3>
+<span class="header-section-number">26.8.2</span> Factes<a class="anchor" aria-label="anchor" href="#factes"><i class="fas fa-link"></i></a>
+</h3>
+<p>facet_wrap(~categorical variable, scales = “free_x”) “free_x” means x axises are not the same</p>
+</div>
+<div id="mapping-options" class="section level3" number="26.8.3">
+<h3>
+<span class="header-section-number">26.8.3</span> Mapping options<a class="anchor" aria-label="anchor" href="#mapping-options"><i class="fas fa-link"></i></a>
+</h3>
+<p>Continuous: x-axis, y-axis, color (not so great), size (not so great)
+Categorical: color, facets (rows, columns), shape (maybe)</p>
+</div>
+</div>
+<div id="parallel-coordinates-multivariate-continuous-data" class="section level2" number="26.9">
+<h2>
+<span class="header-section-number">26.9</span> Parallel Coordinates (Multivariate continuous data)<a class="anchor" aria-label="anchor" href="#parallel-coordinates-multivariate-continuous-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>9.1 3D scatterplot
+3D scatterplot:
+library(scatterplot3d)<br>
+scatterplot3d(df<span class="math inline">\(x, df\)</span>y, df$z, pch = 16, color = “blue”)</p>
+<p>interactive 3D:
+library(plotly)<br>
+plot_ly(df, x = ~x, y = ~y, z = ~z, mode = “markers”,<br>
+marker = list(size = 4)) %&gt;% add_markers()</p>
+<div id="slope-graph-ggplot2geom_line" class="section level3" number="26.9.1">
+<h3>
+<span class="header-section-number">26.9.1</span> Slope graph: ggplot2::geom_line()<a class="anchor" aria-label="anchor" href="#slope-graph-ggplot2geom_line"><i class="fas fa-link"></i></a>
+</h3>
+<p>ggplot(tidydf, aes(x = var, y = value, group = ID)) +<br>
+geom_line()</p>
+<pre><code>   9.2.1 Standardize data
+         mutate(value = standardize(value)) %&gt;% ungroup()
+   9.2.2 Rescale data to [0,1]
+         mutate(value = scales::rescale(value)) 
+   9.2.3 Parameters: GGally::ggparcoord() (static, ggplot2)
+         1. Scale: ggparcoord(mystates, columns = 2:9, scale = " ")
+            1) scale = "globalminmax"
+            2) scale = “std” (default)
+            3) scale = "uniminmax"
+         
+         2. Reorder:
+            ggparcoord(mystates, columns = c(2, 4, 6, 8, 3, 5, 7, 9))
+         
+         3. alpha: changes color light or dark
+         
+         4. vline: add vertical lines
+            geom_vline(xintercept = 1:4, color = "lightblue")
+            
+         5. splines: make lines softer
+            gparcoord(df, columns = 1:4, scale = "globalminmax",  
+            splineFactor = 10) 
+         
+         6. group: add color to different groups
+            ggparcoord(mystates, columns = 2:9, groupColumn = 10)
+         
+         7. parcoords:
+         MASS:: parcoord() (static, base)
+         parcoords::parcoords() (interactive)  
+         
+            # See: http://www.buildingwidgets.com/blog/2015/1/30/week-04-interactive-parallel-coordinates-1 
+            # devtools::install_github("timelyportfolio/parcoords")  
+            library(parcoords)  
+            mystates  %&gt;% arrange(Region) %&gt;%  
+              parcoords(  
+                rownames = F   
+                , brushMode = "1D-axes"  
+                , reorderable = T  
+                , queue = T  
+                , alpha = .5
+                )  
+                
+         8. color:
+             parcoords(mystates  
+                , rownames = F   
+                , brushMode = "1D-axes"  
+                , reorderable = T  
+                , queue = T  
+                , color = list(  
+                  colorBy = "Region"  
+                  ,colorScale = "scaleOrdinal"  
+                  ,colorScheme = "schemeCategory10"  
+                  )  
+                , withD3 = TRUE  
+                )    
+            
+         9. highlighting a tred: Murder&gt;11 is highlighted here:
+         mystates &lt;- mystates %&gt;%  
+             mutate(color = factor(ifelse(Murder &gt; 11, 1, 0))) %&gt;%   
+             arrange(color)  
+         ggparcoord(mystates, columns = 2:9, groupColumn = "color") + 
+             scale_color_manual(values = c("grey70", "red")) +
+             coord_flip() + guides(color = FALSE) +  
+             ggtitle("States with Murder Rate &gt; 11 (per 100000) in red")</code></pre>
+</div>
+</div>
+<div id="biplots-1" class="section level2" number="26.10">
+<h2>
+<span class="header-section-number">26.10</span> Biplots<a class="anchor" aria-label="anchor" href="#biplots-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="principal-components-analysis" class="section level3" number="26.10.1">
+<h3>
+<span class="header-section-number">26.10.1</span> Principal components analysis<a class="anchor" aria-label="anchor" href="#principal-components-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>     pca &lt;- prcomp(ratings[,2:7], scale. = TRUE)</code></pre>
+</div>
+<div id="biplot-1" class="section level3" number="26.10.2">
+<h3>
+<span class="header-section-number">26.10.2</span> Biplot<a class="anchor" aria-label="anchor" href="#biplot-1"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>     1) ggplot
+     ggplot(df_pca, aes(PC1, PC2, label = country)) +
+     geom_point() +
+     geom_text(nudge_y = .2) +
+     coord_fixed()
+     
+     2) base r
+     draw_biplot(ratings, "living_standard")</code></pre>
+</div>
+<div id="scatterplot-of-scaled-data" class="section level3" number="26.10.3">
+<h3>
+<span class="header-section-number">26.10.3</span> Scatterplot of scaled data<a class="anchor" aria-label="anchor" href="#scatterplot-of-scaled-data"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="multivariate-categorical-data" class="section level2" number="26.11">
+<h2>
+<span class="header-section-number">26.11</span> Multivariate Categorical data<a class="anchor" aria-label="anchor" href="#multivariate-categorical-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="stacked-bar-chart" class="section level3" number="26.11.1">
+<h3>
+<span class="header-section-number">26.11.1</span> Stacked bar chart<a class="anchor" aria-label="anchor" href="#stacked-bar-chart"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>ggplot(cases, aes(x = Age, fill = Favorite)) + 
+  geom_bar() + 
+  scale_fill_manual(values = c("#ff99ff", "#cc9966"))</code></pre>
+</div>
+<div id="group-bar-chart" class="section level3" number="26.11.2">
+<h3>
+<span class="header-section-number">26.11.2</span> Group bar chart<a class="anchor" aria-label="anchor" href="#group-bar-chart"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>ggplot(cases, aes(x = Age, fill = Favorite)) +
+  geom_bar(position = "dodge") +</code></pre>
+</div>
+<div id="cleveland-dot-plot-1" class="section level3" number="26.11.3">
+<h3>
+<span class="header-section-number">26.11.3</span> Cleveland dot plot<a class="anchor" aria-label="anchor" href="#cleveland-dot-plot-1"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>1) Setting theme
+   theme_dotplot &lt;-
+     theme_bw(16) +
+     theme(axis.ticks.y = element_blank(), panel.grid.major.x = element_blank(),
+           panel.grid.major.y = element_line(size = 0.5), panel.grid.minor.x = element_blank())
+2) geom_point</code></pre>
+</div>
+<div id="mosaic-plot-2" class="section level3" number="26.11.4">
+<h3>
+<span class="header-section-number">26.11.4</span> Mosaic plot<a class="anchor" aria-label="anchor" href="#mosaic-plot-2"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>1) two variables
+   library(vcd)
+   tidyexp$Group &lt;- fct_rev(tidyexp$Group)
+   mosaic(Group ~ Age, direction = c("v", "h"), tidyexp,
+          highlighting_fill = c("grey80", "cornflowerblue"))
+2) three variables
+   vcd::mosaic(Favorite ~ Music + Age, counts3,
+   direction = c("v", "v", "h"), # &lt;- order: Music ("v"), Age ("v"), Favorite ("h")
+   highlighting_fill = icecreamcolors)
+   
+3) Mosaic pairs plot
+   pairs(table(cases[,2:4]), highlighting = 2)
+   
+4) Mosaic mobility plot
+   UKmob$mob &lt;- factor(UKmob$mob, levels = 4:-4)
+   UKmob$Father &lt;- factor(UKmob$Father, levels = levels(Yamaguchi87$Father))
+   vcd::mosaic(mob ~ Father, UKmob, 
+               direction = c("v", "h"),
+               tl_labels = c(FALSE, TRUE),  # move labels to bottom  
+               rot_labels = c(0,0,0,0),   # all horizontal
+               highlighting_fill = fills9,
+               main = "Downward mobility")
+ 5) Change of names:
+    library(vcd)
+    library(vcdExtra)
+    library(tidyverse)
+    
+    foodorder &lt;- Alligator %&gt;% group_by(food) %&gt;% summarize(Freq = sum(count)) %&gt;% 
+      arrange(Freq) %&gt;% pull(food)
+    
+    ally &lt;- Alligator %&gt;% 
+      rename(Freq = count) %&gt;% 
+      mutate(size = fct_relevel(size, "small"),
+             food = factor(food, levels = foodorder),
+             food = fct_relevel(food, "other"))
+    
+    vcd::mosaic(food ~ sex + size, ally,
+           direction = c("v", "v", "h"),
+           highlighting_fill= RColorBrewer::brewer.pal(5, "Accent"))
+  
+  6) Treemap
+     library(treemap)
+     # example from ?treemap
+     data(GNI2014)
+     treemap::treemap(GNI2014,
+            index=c("continent", "iso3"),
+            vSize="population",
+            vColor="GNI",
+            type="value",
+            format.legend = list(scientific = FALSE, big.mark = " "))
+   
+   7) Spine plot:  mosaic plot with straight, parallel cuts in one dimension (“spines”) and only one variable cutting in the other direction
+      vcd::mosaic(food ~ sex + size, ally,
+      direction = c("v", "v", "h"),
+      highlighting_fill= RColorBrewer::brewer.pal(5, "Accent"))
+   
+   8) ggplot
+      fillcolors &lt;- brewer.pal(3, "Blues")
+      h &lt;- housing %&gt;% group_by(Type, Infl, Cont) %&gt;% 
+        mutate(RelFreq = Freq/sum(Freq)) %&gt;% ungroup()
+      ggplot(h, aes(x = Infl, y = RelFreq, fill = Sat)) +
+        geom_col() +
+        facet_grid(Cont ~ Type) +
+        scale_fill_manual(values = fillcolors) +
+     theme_classic()</code></pre>
+</div>
+<div id="chi-square-test-of-independence" class="section level3" number="26.11.5">
+<h3>
+<span class="header-section-number">26.11.5</span> Chi-square test of independence<a class="anchor" aria-label="anchor" href="#chi-square-test-of-independence"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>   x&lt;- chisq.test(matrix, correct = F)
+   x$observed
+   x$expected
+   x</code></pre>
+</div>
+</div>
+<div id="alluvial-form" class="section level2" number="26.12">
+<h2>
+<span class="header-section-number">26.12</span> Alluvial form<a class="anchor" aria-label="anchor" href="#alluvial-form"><i class="fas fa-link"></i></a>
+</h2>
+<pre><code>1) Structure: stratum, load, alluvium
+2) Basic code:
+   library(ggalluvial)
+   ggplot(df, aes(axis1 = Class1, axis2 = Class2, y = Freq)) +
+     geom_alluvium(color = "black") +
+     geom_stratum() +
+     geom_text(stat = "stratum", aes(label = paste(after_stat(stratum), "\n", after_stat(count)))) +
+     scale_x_discrete(limits = c("Class1", "Class2"))
+3) Separate code:
+   3.1) Strata only:
+        ggplot(df, aes(axis1 = Class1, axis2 = Class2, y = Freq)) +
+        #  geom_alluvium(color = "black") +
+          geom_stratum() +
+          geom_text(stat = "stratum", aes(label = paste(after_stat(stratum), "\n", after_stat(count)))) +
+          scale_x_discrete(limits = c("Class1", "Class2"))
+   3.2) Alluvia only:
+         ggplot(df, aes(axis1 = Class1, axis2 = Class2, y = Freq)) +
+           geom_alluvium(color = "black") +
+         #  geom_stratum() +
+         #  geom_text(stat = "stratum", aes(label = paste(after_stat(stratum), "\n", after_stat(count)))) +
+           scale_x_discrete(limits = c("Class1", "Class2"))
+4) geom_flow:
+    df2 &lt;- data.frame(Class1 = c("Stats", "Math", "Stats", "Math", "Stats", "Math", "Stats", "Math"),
+              Class2 = c("French", "French", "Art", "Art", "French", "French", "Art", "Art"),
+              Class3 = c("Gym", "Gym", "Gym", "Gym", "Lunch", "Lunch", "Lunch", "Lunch"),
+              Freq = c(20, 3, 40, 5, 10, 2, 5, 15))
+    ggplot(df2, aes(axis1 = Class1, axis2 = Class2, axis3 = Class3, y = Freq)) +
+      geom_flow(color = "black") +
+      geom_stratum() +
+      geom_text(stat = "stratum", aes(label = paste(after_stat(stratum), "\n", after_stat(count)))) +
+      scale_x_discrete(limits = c("Class1", "Class2", "Class3"))
+5) color by first variable:
+    library(vcdExtra)
+    ggplot(Yamaguchi87, aes(y = Freq, axis1 = Father, axis2 = Son)) +
+      geom_flow(aes(fill = Father), width = 1/12) +
+      geom_stratum(width = 1/12, fill = "grey80", color = "black") +
+      geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+      scale_x_discrete(limit = c("Father", "Son"), expand = c(.05, .05)) +
+      scale_y_continuous(expand = c(.01, 0)) +
+      guides(fill = FALSE) +
+      theme_classic()</code></pre>
+</div>
+<div id="color" class="section level2" number="26.13">
+<h2>
+<span class="header-section-number">26.13</span> Color<a class="anchor" aria-label="anchor" href="#color"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<p>Continuous data:<br>
++scale_color_viridis_c() or <em>fill</em></p>
+<p>recolorbrewer:</p>
+<ul>
+<li>scale_color_distiller(palette = “PuBu”)</li>
+</ul>
+<p>reverse palette order with direction = 1</p>
+</li>
+<li><p>Continuous data:
+Create your own sequential: +scale_color_gradient(low = “white”, high = “red”)
+Create your own diverging: +scale_color_gradient2(low = “blue”, mid = “white”, high = “red”)</p></li>
+<li>
+<p>Discrete data:
++scale_color_viridis_d()</p>
+<p>recolor brewer:
++scale_color_brewer(palette = “PuBu”)</p>
+<p>Create your own:
++scale_color_manual(values = c(“red”, “yellow”, “blue”)</p>
+</li>
+</ol>
+<pre><code>4) Discrete ordinal data:
+   library(RColorBrewer)
+   colors&lt;- brewer.pal(4, "Reds)
+   barplot(1:4, col = colors)</code></pre>
+</div>
+<div id="time-series-1" class="section level2" number="26.14">
+<h2>
+<span class="header-section-number">26.14</span> Time Series<a class="anchor" aria-label="anchor" href="#time-series-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="multiple-time-series-line" class="section level3" number="26.14.1">
+<h3>
+<span class="header-section-number">26.14.1</span> Multiple time series: line<a class="anchor" aria-label="anchor" href="#multiple-time-series-line"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    df &lt;- df %&gt;% gather(key = TYPE, value = RATE, -DATE) %&gt;%
+      mutate(TYPE = forcats::fct_reorder2(TYPE, DATE, RATE))# puts legend incorrect order</code></pre>
+</div>
+<div id="filling" class="section level3" number="26.14.2">
+<h3>
+<span class="header-section-number">26.14.2</span> filling:<a class="anchor" aria-label="anchor" href="#filling"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>    ggplot(df, aes(DATE, RATE, fill = TYPE)) 
+    </code></pre>
+</div>
+<div id="plot-1" class="section level3" number="26.14.3">
+<h3>
+<span class="header-section-number">26.14.3</span> plot:<a class="anchor" aria-label="anchor" href="#plot-1"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code><a href="https://rdrr.io/r/graphics/plot.default.html">    plot()
+    monthplot()
+    </a></code></pre>
+</div>
+<div id="label-by-day-of-week" class="section level3" number="26.14.4">
+<h3>
+<span class="header-section-number">26.14.4</span> label by day of week<a class="anchor" aria-label="anchor" href="#label-by-day-of-week"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>      ggplot(christmas, aes(Date, Gross)) +
+       geom_label(aes(label = wday(Date, label = TRUE)))
+    label by day of month 
+      geom_label(data = christmas, 
+       aes(x = Date, y = Gross/1000000 + .06, 
+           label = day(Date)))
+  </code></pre>
+</div>
+<div id="highlight-the-abnormality" class="section level3" number="26.14.5">
+<h3>
+<span class="header-section-number">26.14.5</span> Highlight the abnormality<a class="anchor" aria-label="anchor" href="#highlight-the-abnormality"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>      g + annotate("rect", xmin = start, xmax = end,
+               ymin = -Inf, ymax = Inf, fill = "green",
+               alpha = .2) +
+      annotate("text", x = end + 2,
+               y = 1500000, label = "Dec 24 - Jan 2",
+               color = "green", hjust = 0)
+  </code></pre>
+</div>
+<div id="scale-the-data" class="section level3" number="26.14.6">
+<h3>
+<span class="header-section-number">26.14.6</span> Scale the data<a class="anchor" aria-label="anchor" href="#scale-the-data"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>      mutate(index = round(100*value/value[1], 2)) 
+ </code></pre>
+</div>
+<div id="gaps" class="section level3" number="26.14.7">
+<h3>
+<span class="header-section-number">26.14.7</span> Gaps<a class="anchor" aria-label="anchor" href="#gaps"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>      mydat$Date &lt;- as.Date(paste0(mydat$Year, "-", as.character(mydat$Q*3), "-30"))
+      scale_x_date(limits = c(as.Date("2012-02-01"), as.Date("2014-12-31")), date_breaks = "6 months", date_labels = "%b %Y")
+  </code></pre>
+</div>
+<div id="leave-gaps" class="section level3" number="26.14.8">
+<h3>
+<span class="header-section-number">26.14.8</span> Leave gaps<a class="anchor" aria-label="anchor" href="#leave-gaps"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>       geom_path(aes(group = `Order method type`)) +
+       scale_x_date(limits = c(as.Date("2012-02-01"), as.Date("2014-12-31")),
+           date_breaks = "6 months", date_labels = "%b %Y") 
+  
+  </code></pre>
+</div>
+</div>
+<div id="dates" class="section level2" number="26.15">
+<h2>
+<span class="header-section-number">26.15</span> Dates<a class="anchor" aria-label="anchor" href="#dates"><i class="fas fa-link"></i></a>
+</h2>
+<div id="convert-to-date-class" class="section level3" number="26.15.1">
+<h3>
+<span class="header-section-number">26.15.1</span> Convert to date class<a class="anchor" aria-label="anchor" href="#convert-to-date-class"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>     1) Convert
+        date&lt;- as.Date(character)
+        # class(date) &gt;&gt; Date
+     2) Specifying the format
+        as.Date("Thursday, January 6, 2005", format = "%A, %B %d, %Y")
+        ## "2005-01-06"
+     3) Parse_date
+        as.Date("1/12/2019", format="%m/%d/%y")
+        ## "2020-01-12"
+        readr::parse_date("1/12/2019", format="%m/%d/%y")
+        ## NA
+       
+        as.Date("Thursday, January 6, 2005", format = "%A, %B %d, %Y")
+        ## "2005-01-06"
+        readr::parse_date("Thursday, January 6, 2005", format = "%A, %B %d, %Y")
+        ## Error: Invalid %A auto parser</code></pre>
+</div>
+<div id="lubridate-ymd-ydm-mdy-myd-dmy-dym" class="section level3" number="26.15.2">
+<h3>
+<span class="header-section-number">26.15.2</span> Lubridate: ymd(), ydm(), mdy(), myd(), dmy(), dym()<a class="anchor" aria-label="anchor" href="#lubridate-ymd-ydm-mdy-myd-dmy-dym"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>     1) mdy
+        lubridate::mdy("April 13, 1907")
+        ## "1907-04-13"
+     2) as.Date
+        as.Date("2017-11-02") - as.Date("2017-01-01")
+        ## Time difference of 305 days
+     3) Sys.Date()
+        ## "2021-10-25"
+        class(Sys.Date())
+        ## "Date"
+     4) today &lt;- Sys.Date()
+        lubridate::year(today)
+        ## 2021
+        
+        lubridate::yday(today)
+        ## 298
+        
+        lubridate::month(today, label = TRUE)
+        ## Oct
+        ## 12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec  
+        </code></pre>
+</div>
+<div id="base-r-functions" class="section level3" number="26.15.3">
+<h3>
+<span class="header-section-number">26.15.3</span> Base R functions<a class="anchor" aria-label="anchor" href="#base-r-functions"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>     1) today &lt;- Sys.Date()
+        weekdays(today, abbreviate = TRUE)
+        ## "Mon
+     2) months(today, abbreviate = TRUE)
+        ## "Oct"
+     3) quarters(today)
+        ## "Q4"
+     </code></pre>
+</div>
+</div>
+<div id="missing-data" class="section level2" number="26.16">
+<h2>
+<span class="header-section-number">26.16</span> Missing data<a class="anchor" aria-label="anchor" href="#missing-data"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li><p>Missing values by column
+colSums(is.na(mycars)) %&gt;%
+sort(decreasing = TRUE)</p></li>
+<li><p>Missing values by row
+rowSums(is.na(mycars)) %&gt;%
+sort(decreasing = TRUE)</p></li>
+<li><p>Plotting missing data
+ggplot(tidycars, aes(x = key, y = fct_rev(id), fill = missing))</p></li>
+<li><p>Heatmap
+missing_data.frame(mycars)</p></li>
+<li><p>Missing values by variable
+ggplot(tidycars, aes(x = key, y = fct_rev(id), fill = value)) +
+geom_tile(color = “white”) +
+scale_fill_gradient(low = “grey80”, high = “red”, na.value = “black”)</p></li>
+<li><p>Missing values by variable
+mi::missing_data.frame(mycars)</p></li>
+<li><p>Aggregate missing patterns
+plot_missing(mycars, percent = FALSE)</p></li>
+<li>
+<p>Number missing by day of month
+· add day of week info
+missing &lt;- missing %&gt;%
+mutate(dayofweek = weekdays(as.Date(key),
+abbreviate = FALSE))
+· correct day order
+daysinorder &lt;- c(“Monday”, “Tuesday”, “Wednesday”,
+“Thursday”, “Friday”, “Saturday”,
+“Sunday”)</p>
+<p>· reorder dayofweek
+missing<span class="math inline">\(dayofweek &lt;- factor(missing\)</span>dayofweek,
+levels = daysinorder)
+· choose colors
+daycolors &lt;- c(rep(“#cbc9e2”, 5), rep(“#2b8cbe”, 2))</p>
+<p>· plot missing values by day, weekday/weekend colors
+ggplot(missing, aes(x = key, y = sum.na, fill = dayofweek)) +
+geom_col() +
+ggtitle(“Number of missing values by day”) +
+scale_fill_manual(values = daycolors) +
+xlab(““) +
+ylab(”Number of missing station values (out of 349)“) +
+theme_classic() +
+theme(axis.text.x = element_text(angle = 90))</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="basic-introduction-to-tidyverse.html"><span class="header-section-number">25</span> Basic introduction to tidyverse</a></div>
+<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">27</span> Github initial setup</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#class_material_code_throughout_this_semester"><span class="header-section-number">26</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="nav-link" href="#continuous-variables-1"><span class="header-section-number">26.1</span> Continuous variables</a></li>
+<li><a class="nav-link" href="#boxplots-1"><span class="header-section-number">26.2</span> Boxplots</a></li>
+<li>
+<a class="nav-link" href="#chapter-6-rounding-noraml-distrubution"><span class="header-section-number">26.3</span> Chapter 6 Rounding noraml distrubution</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#q-q-plot"><span class="header-section-number">26.3.1</span> Q-Q plot</a></li>
+<li><a class="nav-link" href="#density-curve-noraml-curve"><span class="header-section-number">26.3.2</span> Density Curve + Noraml Curve</a></li>
+<li><a class="nav-link" href="#shapiro-wilk-test"><span class="header-section-number">26.3.3</span> Shapiro Wilk test</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#chapter-7-grammar-of-graphics"><span class="header-section-number">26.4</span> Chapter 7 Grammar of Graphics</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#layers"><span class="header-section-number">26.4.1</span> Layers</a></li>
+<li><a class="nav-link" href="#coord"><span class="header-section-number">26.4.2</span> Coord</a></li>
+<li><a class="nav-link" href="#facet-1"><span class="header-section-number">26.4.3</span> Facet</a></li>
+<li><a class="nav-link" href="#theme"><span class="header-section-number">26.4.4</span> Theme</a></li>
+<li><a class="nav-link" href="#mapping-1"><span class="header-section-number">26.4.5</span> Mapping</a></li>
+<li><a class="nav-link" href="#scale"><span class="header-section-number">26.4.6</span> Scale</a></li>
+<li><a class="nav-link" href="#code-style"><span class="header-section-number">26.4.7</span> Code style</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#chapter-8-categorical-variables"><span class="header-section-number">26.5</span> Chapter 8 Categorical Variables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#types-of-data"><span class="header-section-number">26.5.1</span> Types of data</a></li>
+<li><a class="nav-link" href="#plotting-categorical-data"><span class="header-section-number">26.5.2</span> Plotting Categorical data</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#chapter-10-tidying-data"><span class="header-section-number">26.6</span> Chapter 10 Tidying data</a></li>
+<li>
+<a class="nav-link" href="#chapter-11-dependency-relationships"><span class="header-section-number">26.7</span> Chapter 11 Dependency relationships</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#interactive-plot"><span class="header-section-number">26.7.1</span> Interactive plot</a></li>
+<li><a class="nav-link" href="#dealing-with-overplotting"><span class="header-section-number">26.7.2</span> Dealing with overplotting</a></li>
+<li><a class="nav-link" href="#heatmap-4"><span class="header-section-number">26.7.3</span> Heatmap</a></li>
+<li><a class="nav-link" href="#density-estimate-contour"><span class="header-section-number">26.7.4</span> Density estimate contour</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#chapter-12-continuous-categorical"><span class="header-section-number">26.8</span> Chapter 12 Continuous + Categorical</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#graphiical-data-analysis-with-r"><span class="header-section-number">26.8.1</span> Graphiical data analysis with R</a></li>
+<li><a class="nav-link" href="#factes"><span class="header-section-number">26.8.2</span> Factes</a></li>
+<li><a class="nav-link" href="#mapping-options"><span class="header-section-number">26.8.3</span> Mapping options</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#parallel-coordinates-multivariate-continuous-data"><span class="header-section-number">26.9</span> Parallel Coordinates (Multivariate continuous data)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#slope-graph-ggplot2geom_line"><span class="header-section-number">26.9.1</span> Slope graph: ggplot2::geom_line()</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#biplots-1"><span class="header-section-number">26.10</span> Biplots</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#principal-components-analysis"><span class="header-section-number">26.10.1</span> Principal components analysis</a></li>
+<li><a class="nav-link" href="#biplot-1"><span class="header-section-number">26.10.2</span> Biplot</a></li>
+<li><a class="nav-link" href="#scatterplot-of-scaled-data"><span class="header-section-number">26.10.3</span> Scatterplot of scaled data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#multivariate-categorical-data"><span class="header-section-number">26.11</span> Multivariate Categorical data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#stacked-bar-chart"><span class="header-section-number">26.11.1</span> Stacked bar chart</a></li>
+<li><a class="nav-link" href="#group-bar-chart"><span class="header-section-number">26.11.2</span> Group bar chart</a></li>
+<li><a class="nav-link" href="#cleveland-dot-plot-1"><span class="header-section-number">26.11.3</span> Cleveland dot plot</a></li>
+<li><a class="nav-link" href="#mosaic-plot-2"><span class="header-section-number">26.11.4</span> Mosaic plot</a></li>
+<li><a class="nav-link" href="#chi-square-test-of-independence"><span class="header-section-number">26.11.5</span> Chi-square test of independence</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#alluvial-form"><span class="header-section-number">26.12</span> Alluvial form</a></li>
+<li><a class="nav-link" href="#color"><span class="header-section-number">26.13</span> Color</a></li>
+<li>
+<a class="nav-link" href="#time-series-1"><span class="header-section-number">26.14</span> Time Series</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiple-time-series-line"><span class="header-section-number">26.14.1</span> Multiple time series: line</a></li>
+<li><a class="nav-link" href="#filling"><span class="header-section-number">26.14.2</span> filling:</a></li>
+<li><a class="nav-link" href="#plot-1"><span class="header-section-number">26.14.3</span> plot:</a></li>
+<li><a class="nav-link" href="#label-by-day-of-week"><span class="header-section-number">26.14.4</span> label by day of week</a></li>
+<li><a class="nav-link" href="#highlight-the-abnormality"><span class="header-section-number">26.14.5</span> Highlight the abnormality</a></li>
+<li><a class="nav-link" href="#scale-the-data"><span class="header-section-number">26.14.6</span> Scale the data</a></li>
+<li><a class="nav-link" href="#gaps"><span class="header-section-number">26.14.7</span> Gaps</a></li>
+<li><a class="nav-link" href="#leave-gaps"><span class="header-section-number">26.14.8</span> Leave gaps</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#dates"><span class="header-section-number">26.15</span> Dates</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#convert-to-date-class"><span class="header-section-number">26.15.1</span> Convert to date class</a></li>
+<li><a class="nav-link" href="#lubridate-ymd-ydm-mdy-myd-dmy-dym"><span class="header-section-number">26.15.2</span> Lubridate: ymd(), ydm(), mdy(), myd(), dmy(), dym()</a></li>
+<li><a class="nav-link" href="#base-r-functions"><span class="header-section-number">26.15.3</span> Base R functions</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#missing-data"><span class="header-section-number">26.16</span> Missing data</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/class_material_code_throughout_this_semester.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/class_material_code_throughout_this_semester.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+</div>
+  
+
+  
+
+</div>
+ <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-12.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
