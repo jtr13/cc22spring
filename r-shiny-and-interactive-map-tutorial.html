@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Sample project | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Joe Biden and Donald Trump This chapter gives a sample layout of your Rmd file. Test Photo">
+<title>Chapter 33 R Shiny and Interactive Map Tutorial | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Yarong Wang and Qian Zhang  33.1 Description This is an R shiny and its interactive map tutorial that includes a brief introduction to R shiny, the basic steps and components to make an R shiny...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Sample project | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 33 R Shiny and Interactive Map Tutorial | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Joe Biden and Donald Trump This chapter gives a sample layout of your Rmd file. Test Photo">
+<meta property="og:description" content="Yarong Wang and Qian Zhang  33.1 Description This is an R shiny and its interactive map tutorial that includes a brief introduction to R shiny, the basic steps and components to make an R shiny...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Sample project | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Joe Biden and Donald Trump This chapter gives a sample layout of your Rmd file. Test Photo">
+<meta name="twitter:title" content="Chapter 33 R Shiny and Interactive Map Tutorial | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Yarong Wang and Qian Zhang  33.1 Description This is an R shiny and its interactive map tutorial that includes a brief introduction to R shiny, the basic steps and components to make an R shiny...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 <li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
 <li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
 <li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
-<li><a class="active" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
 <li class="book-part">Cheatsheets</li>
 <li><a class="" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
 <li><a class="" href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></li>
@@ -82,7 +82,7 @@
 <li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">30</span> class_material_code_throughout_this_semester</a></li>
 <li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">31</span> Calendar heat map tutorial</a></li>
 <li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">32</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">33</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="active" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">33</span> R Shiny and Interactive Map Tutorial</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="github-initial-setup.html"><span class="header-section-number">34</span> Github initial setup</a></li>
 <li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">35</span> Tutorial for pull request mergers</a></li>
@@ -93,38 +93,68 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sample-project" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-shiny-and-interactive-map-tutorial" class="section level1" number="33">
 <h1>
-<span class="header-section-number">4</span> Sample project<a class="anchor" aria-label="anchor" href="#sample-project"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33</span> R Shiny and Interactive Map Tutorial<a class="anchor" aria-label="anchor" href="#r-shiny-and-interactive-map-tutorial"><i class="fas fa-link"></i></a>
 </h1>
-<p>Joe Biden and Donald Trump</p>
-<p>This chapter gives a sample layout of your <code>Rmd</code> file.</p>
-<div class="figure">
-<img src="resources/sample_project/election.jpg" alt=""><p class="caption">Test Photo</p>
+<p>Yarong Wang and Qian Zhang</p>
+<div id="description-1" class="section level2" number="33.1">
+<h2>
+<span class="header-section-number">33.1</span> Description<a class="anchor" aria-label="anchor" href="#description-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>This is an R shiny and its interactive map tutorial that includes a brief introduction to R shiny, the basic steps and components to make an R shiny app, step-by-step instructions for making an interactive map using the package <code>leaflet</code> as well as adding certain features to the map, and finally the integration of the <code>leaflet</code> package with R shiny.</p>
+<p>To see the details of this tutorial, please go to the link provided below.</p>
+</div>
+<div id="link-1" class="section level2" number="33.2">
+<h2>
+<span class="header-section-number">33.2</span> Link<a class="anchor" aria-label="anchor" href="#link-1"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="https://github.com/yrwang1/GR5293-Statistical-Graphics-Community-Contribution">Please click the link to access the tutorial.</a></p>
+</div>
+<div id="references-5" class="section level2" number="33.3">
+<h2>
+<span class="header-section-number">33.3</span> References<a class="anchor" aria-label="anchor" href="#references-5"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://shiny.rstudio.com/articles/layout-guide.html">Application layout guide</a></p></li>
+<li><p><a href="https://shiny.rstudio.com/gallery/widget-gallery.html">Shiny Widgets Gallery</a></p></li>
+<li><p><a href="https://shiny.rstudio.com/images/shiny-cheatsheet.pdf">R shiny cheatsheet</a></p></li>
+<li><p><a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-Year-To-Date-/5uac-w243/data">Dataset source for interactive map, complaint cases</a></p></li>
+<li><p><a href="https://data.beta.nyc/dataset/pediacities-nyc-neighborhoods/resource/35dd04fb-81b3-479b-a074-a27a37888ce7">Dataset source for interactive map, geographic information</a></p></li>
+<li><p><a href="https://github.com/QianZhang-Erica/5293-Contribution">The modified dataset about complaint cases and the geographic information uploaded to GitHub</a></p></li>
+</ol>
+</div>
 </div>
 
-</div>
 
 
-
-  <div class="chapter-nav">
-<div class="prev"><a href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></div>
-<div class="next"><a href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></div>
+<div class="chapter-nav">
+<div class="prev"><a href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">32</span> Basic time series analysis and prediction</a></div>
+<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">34</span> Github initial setup</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#sample-project"><span class="header-section-number">4</span> Sample project</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-shiny-and-interactive-map-tutorial"><span class="header-section-number">33</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="nav-link" href="#description-1"><span class="header-section-number">33.1</span> Description</a></li>
+<li><a class="nav-link" href="#link-1"><span class="header-section-number">33.2</span> Link</a></li>
+<li><a class="nav-link" href="#references-5"><span class="header-section-number">33.3</span> References</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/sample_project.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/sample_project.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/r_shiny_interactive_map.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/r_shiny_interactive_map.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
 </div>
+</div>
+  
+
+  
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
