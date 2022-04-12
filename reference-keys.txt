@@ -226,6 +226,9 @@ combine-with-other-plots-2
 make-it-interactive-1
 comment
 references-2
+r-shiny-map-tutorial
+shiny-page
+references-3
 animation-graphs-in-plot_ly-and-gganimate
 types-of-graphics
 self-created-data
@@ -246,7 +249,7 @@ data
 formatting
 forest-plot
 understanding-forestplot-better
-references-3
+references-4
 differences-between-some-packages-of-visualizaiton
 surface
 ggplot2

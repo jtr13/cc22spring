@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 5 tmap package | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Sihui Liang and Yuxuan Fu  5.1 What we did Our purpose of the tmap cheatsheet is to provide a comprehensive and practical display of the usage of tmap R package, one of the main geographic...">
+<title>Chapter 23 R Shiny Map Tutorial | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Haozhong Zheng and Weixun Qian In this tutorial, we want to introduce how to build an APP that incorporates a map that is built on shapefiles. Main packages used would be shiny and ggspatial....">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 5 tmap package | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 23 R Shiny Map Tutorial | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Sihui Liang and Yuxuan Fu  5.1 What we did Our purpose of the tmap cheatsheet is to provide a comprehensive and practical display of the usage of tmap R package, one of the main geographic...">
+<meta property="og:description" content="Haozhong Zheng and Weixun Qian In this tutorial, we want to introduce how to build an APP that incorporates a map that is built on shapefiles. Main packages used would be shiny and ggspatial....">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 5 tmap package | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Sihui Liang and Yuxuan Fu  5.1 What we did Our purpose of the tmap cheatsheet is to provide a comprehensive and practical display of the usage of tmap R package, one of the main geographic...">
+<meta name="twitter:title" content="Chapter 23 R Shiny Map Tutorial | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Haozhong Zheng and Weixun Qian In this tutorial, we want to introduce how to build an APP that incorporates a map that is built on shapefiles. Main packages used would be shiny and ggspatial....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -53,7 +53,7 @@
 <li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
 <li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
 <li class="book-part">Cheatsheets</li>
-<li><a class="active" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
+<li><a class="" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
 <li><a class="" href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></li>
 <li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">7</span> ggplot2 cheatsheet</a></li>
 <li><a class="" href="data-preprocessing-cheat-sheet-in-r.html"><span class="header-section-number">8</span> Data preprocessing cheat sheet in R</a></li>
@@ -72,7 +72,7 @@
 <li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">20</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
 <li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">21</span> Twitter API guide in R</a></li>
 <li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">22</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">23</span> R Shiny Map Tutorial</a></li>
+<li><a class="active" href="r-shiny-map-tutorial.html"><span class="header-section-number">23</span> R Shiny Map Tutorial</a></li>
 <li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">24</span> Animation graphs in plot_ly and gganimate</a></li>
 <li><a class="" href="forest-plots.html"><span class="header-section-number">25</span> Forest Plots</a></li>
 <li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">26</span> Differences between some packages of visualizaiton</a></li>
@@ -91,39 +91,45 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tmap-package" class="section level1" number="5">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-shiny-map-tutorial" class="section level1" number="23">
 <h1>
-<span class="header-section-number">5</span> <code>tmap</code> package<a class="anchor" aria-label="anchor" href="#tmap-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23</span> R Shiny Map Tutorial<a class="anchor" aria-label="anchor" href="#r-shiny-map-tutorial"><i class="fas fa-link"></i></a>
 </h1>
-<p>Sihui Liang and Yuxuan Fu</p>
-<div id="what-we-did" class="section level2" number="5.1">
+<p>Haozhong Zheng and Weixun Qian</p>
+<p>In this tutorial, we want to introduce how to build an APP that incorporates a map that is built on shapefiles. Main packages used would be shiny and ggspatial. Basically we would first give a quick introduction of shiny, and then introduce the preprocessing work of shapefiles to produce plots about maps, then we would build an advanced shiny app widget with what we introduced in the previous part.</p>
+<div id="shiny-page" class="section level2" number="23.1">
 <h2>
-<span class="header-section-number">5.1</span> What we did<a class="anchor" aria-label="anchor" href="#what-we-did"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.1</span> <a href="https://tonyz.shinyapps.io/shiny_map_tutorial/">Shiny Page</a><a class="anchor" aria-label="anchor" href="#shiny-page"><i class="fas fa-link"></i></a>
 </h2>
-<p>Our purpose of the tmap cheatsheet is to provide a comprehensive and practical display of the usage of tmap R package, one of the main geographic visualiation toolkits in R platform.</p>
+</div>
+<div id="references-3" class="section level2" number="23.2">
+<h2>
+<span class="header-section-number">23.2</span> References<a class="anchor" aria-label="anchor" href="#references-3"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
-<li><p>We explore through handbooks and literatures for different packages for spatial data presentation, including raster, ggmap, sf, sp and leaflet. We choose one of the most common packages and give out a consecutive example for <code>tmap</code> package.</p></li>
-<li><p>Structure of cheat sheet includes the purposes of each single functions and arguments, the most simple map including mere geograghy, the map adding colors and cuts, interactive maps and maps working with facets.</p></li>
+<li><a href="https://cran.r-project.org/web/packages/ggspatial/index.html">ggspatial</a></li>
+<li><a href="https://rstudio.github.io/leaflet/">leaflet</a></li>
+<li><a href="https://cran.r-project.org/web/packages/magick/index.html">magick</a></li>
+<li><a href="http://shiny.rstudio.com/">R shiny</a></li>
+<li><a href="https://cran.r-project.org/web/packages/viridis/index.html">viridis</a></li>
 </ul>
-<p><a href="resources/tmap_cheatsheet/cheatsheet-tmap-2.pdf">Enlarge/download cheatsheet</a></p>
-<p><embed src="resources/tmap_cheatsheet/cheatsheet-tmap-2.pdf"></embed></p>
-
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></div>
-<div class="next"><a href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></div>
+<div class="prev"><a href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">22</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></div>
+<div class="next"><a href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">24</span> Animation graphs in plot_ly and gganimate</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tmap-package"><span class="header-section-number">5</span> tmap package</a></li>
-<li><a class="nav-link" href="#what-we-did"><span class="header-section-number">5.1</span> What we did</a></li>
+<li><a class="nav-link" href="#r-shiny-map-tutorial"><span class="header-section-number">23</span> R Shiny Map Tutorial</a></li>
+<li><a class="nav-link" href="#shiny-page"><span class="header-section-number">23.1</span> Shiny Page</a></li>
+<li><a class="nav-link" href="#references-3"><span class="header-section-number">23.2</span> References</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/whatwedid.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/whatwedid.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/shiny_map_tutorial.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/shiny_map_tutorial.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
