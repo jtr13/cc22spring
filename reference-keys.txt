@@ -362,6 +362,7 @@ r-shiny-and-interactive-map-tutorial
 description-1
 link-1
 references-5
+extract-data-from-scatterplot
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
