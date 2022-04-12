@@ -37,6 +37,7 @@ rmd_files: [
   'forest_plots.Rmd',
   'differences_between_some_packages_of_visualization.Rmd',
   'lecture_helper.Rmd',
+  'basic_introduction_to_tidyverse.Rmd',
   
 
   # Part: Workshops
