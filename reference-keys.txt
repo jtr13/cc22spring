@@ -341,6 +341,7 @@ convert-to-date-class
 lubridate-ymd-ydm-mdy-myd-dmy-dym
 base-r-functions
 missing-data
+calendar-heat-map-tutorial
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
