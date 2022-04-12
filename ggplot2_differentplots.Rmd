@@ -1,0 +1,11 @@
+# Ggplot2_differentplots
+
+Lin Liu
+
+## Descrition:
+
+This cheatsheet is about the ggplot2. It contains various common diagrams and simple usages, such as histogram, boxplot, cleveland dot plot, etc.
+
+## Link:
+
+https://github.com/azzzzyt/5293.git
