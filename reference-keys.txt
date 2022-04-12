@@ -231,6 +231,15 @@ challenge
 example
 download
 copyright
+basic-introduction-to-tidyverse
+motivation-3
+data-visualization-1
+scatterplot-2
+bar-plot-1
+histogram-3
+data-transformation
+installation
+usage
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
