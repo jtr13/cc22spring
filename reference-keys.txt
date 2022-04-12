@@ -121,6 +121,7 @@ heatmap-with-facets
 useful-setting-of-ggplot2
 motivation
 the-link-to-the-cheatsheet
+cheatsheet-for-circlize-package
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
@@ -357,7 +358,6 @@ stationary-series-model
 testing
 prediction
 reference-1
-cheatsheet-for-circlize-package
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
