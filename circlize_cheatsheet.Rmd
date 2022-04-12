@@ -1,4 +1,4 @@
-# Cheatsheet for 'criclize' package
+# Cheatsheet for 'circlize' package
 
 Yanhao Ren
 
