@@ -37,6 +37,7 @@ rmd_files: [
   'ggmap_ggplot_tmap_maps.Rmd', 
   'shiny_map_tutorial.Rmd', 
   'plotly_package.Rmd', 
+  'neural_network_ploting_with_bp_algorithm_and_without_algorithm.Rmd', 
 
  # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
   'animation_graph.Rmd',
