@@ -342,6 +342,15 @@ lubridate-ymd-ydm-mdy-myd-dmy-dym
 base-r-functions
 missing-data
 calendar-heat-map-tutorial
+basic-time-series-analysis-and-prediction
+motivation-4
+data-input
+time-series-plot
+differencing
+stationary-series-model
+testing
+prediction
+reference-1
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
