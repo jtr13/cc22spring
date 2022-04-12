@@ -357,6 +357,7 @@ stationary-series-model
 testing
 prediction
 reference-1
+cheatsheet-for-criclize-package
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
