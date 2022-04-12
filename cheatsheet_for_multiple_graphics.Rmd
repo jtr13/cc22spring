@@ -1,0 +1,398 @@
+# Cheatsheet for multiple graphics
+
+Guo Pei
+
+## Description
+
+The cheatsheet includes a single formula sheet and a more detailed tutorial of implementing different plot types on several data sets. To be specific, it contains Histogram, Boxplot, Violin plot, Ridgeline plot, Q-Q plot, Bar chart, Cleveland dot plot, Scatterplot, Parallel coordinates plot, Biplot, Mosaic plot, Alluvial diagram and Heatmap.
+
+For the formula sheet part, it contains nearly all formulas professor introduced in class and we used and met in the previous problem sets.
+
+Link: https://github.com/gloria6661/5293_CC/blob/main/cheatsheet.pdf
+
+For the implementation part, each figure is attached with code on how to draw it. For some types of plots, it lists more than one methods to draw.
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+library(ggridges)
+library(carData)
+library(forcats)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(openintro)
+library(plotly)
+library(GGally)
+library(scales)
+library(parcoords) # devtools::install_github("timelyportfolio/parcoords")
+library(d3r)
+library(redav)
+library(grid)
+library(vcd)
+library(vcdExtra)
+library(ggalluvial)
+```
+
+## Histogram
+
+Data: `iris`
+```{r}
+head(iris)
+```
+
+### Frequency (count) histogram (ggplot2)
+```{r}
+ggplot(iris, aes(Sepal.Length)) +
+  geom_histogram(color = "blue", fill = "lightblue", binwidth = .3) +
+  theme_grey(14) +
+  labs(title = "Histogram of Sepal Length", x = "Sepal Length")
+```
+
+### Histograms with right closed / right open (base R)
+```{r}
+par(mfrow = c(1, 2))
+# histogram with right closed
+hist(iris$Sepal.Length, col = "lightblue", right = TRUE,
+     breaks = 4, ylim = c(0, 60),
+     main = "Histogram with right closed", xlab = "Sepal Length")
+# histogram with right open
+hist(iris$Sepal.Length, col = "lightblue", right = FALSE,
+     breaks = 4, ylim = c(0, 60),
+     main = "Histogram with right open", xlab = "Sepal Length")
+```
+
+### Density histogram with density curve overlaid (ggplot2)
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = ..density..)) + 
+  geom_histogram(binwidth = .5, color = "blue", fill = "lightblue", boundary = 0) +
+  geom_density(color = "red") +
+  labs(title = "Density Histogram", x = "Sepal Length")
+```
+
+### Density histogram with density curve and theoretical normal curve overlaid (base R)
+```{r}
+# draw the density histogram
+hist(iris$Sepal.Length, freq = FALSE, ylim = c(0, 0.5), 
+     main = "Density Histogram", xlab = "Sepal Length")
+# add density curve
+lines(density(iris$Sepal.Length), col = 2)
+# add normal curve
+x <- seq(3, 9, length = 100) # x-axis grid
+nc <- dnorm(x, mean = mean(iris$Sepal.Length), sd = sd(iris$Sepal.Length)) #normal curve
+lines(x, nc, col = 3)
+```
+
+### Cumulative frequency histogram
+```{r}
+g1 <- ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(color = "blue", fill = "lightblue") +
+  labs(title = "Frequency", x = "Sepal Length")
+g2 <- ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(aes(y = cumsum(..count..)),
+                 color = "blue", fill = "lightblue") +
+  labs(title = "Cumulative Frequency", x = "Sepal Length")
+grid.arrange(g1, g2, nrow = 1)
+```
+
+## Boxplot
+
+### Boxplot (base R)
+```{r}
+boxplot(Sepal.Length ~ Species, data = iris, horizontal = TRUE,
+        main = "Sepal Length vs Species", ylab = "Sepal Length")
+```
+
+### Boxplot (ggplot2)
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot(varwidth = TRUE) +
+  coord_flip() +
+  labs(title = "Sepal Length vs Species", y = "Sepal Length")
+```
+
+## Violin plot
+```{r}
+ggplot(iris, aes(x = Species,
+                  y = Sepal.Length)) +
+  geom_violin(adjust = 1.5) +
+  coord_flip() +
+  labs(title = "Violin Plot", y = "Sepal Length")
+```
+
+## Ridgeline plot
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = reorder(Species, Sepal.Length, median))) +
+  geom_density_ridges(fill = "blue", alpha = .5, scale = .95) +
+  labs(title = "Ridgeline Plot", x = "Sepal Length", y = "Species")
+```
+
+## Q-Q plot (quantile-quantile)
+
+```{r}
+qqnorm(iris$Sepal.Length)
+qqline(iris$Sepal.Length, col = 2)
+```
+
+## Bar chart
+
+Data: `TitanicSurvival`
+```{r}
+head(TitanicSurvival)
+```
+
+### Ordinal data (sort in logical order of the categories)
+```{r}
+ggplot(TitanicSurvival, aes(passengerClass)) +
+  geom_bar(fill = "cornflowerblue") +
+  ggtitle("Passenger Class") +
+  labs(title = "Passenger Class", x = "")
+```
+
+### Nominal data (sort from highest to lowest count)
+```{r}
+ggplot(TitanicSurvival, aes(fct_infreq(passengerClass))) +
+  geom_bar(fill = "cornflowerblue") +
+  ggtitle("Passenger Class") +
+  labs(title = "Passenger Class", x = "")
+```
+
+### Bar chart with facets
+```{r}
+ggplot(data = TitanicSurvival, aes(x = passengerClass)) +
+  geom_bar() +
+  facet_wrap(~survived, ncol = 1, scales = "free_y") +
+  labs(title = "Bar chart faceted by Survival Status",
+       x = "Passenger Class", y = "")
+```
+
+### Stacked bar chart
+```{r}
+ggplot(TitanicSurvival, aes(x = sex, fill = survived)) + 
+    geom_bar()
+```
+
+### Grouped bar chart
+```{r}
+ggplot(TitanicSurvival, aes(x = sex, fill = survived)) +
+  geom_bar(position = "dodge")
+```
+
+### Grouped bar chart with facets
+```{r}
+counts <- TitanicSurvival %>%
+  group_by(sex, survived, passengerClass) %>%
+  summarize(Freq = n()) %>%
+  ungroup() %>%
+  complete(sex, survived, passengerClass, fill = list(Freq = 0))
+# draw the grouped bar chart
+ggplot(counts, aes(x = sex, y = Freq, fill = survived)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~passengerClass)
+```
+
+## Cleveland dot plot
+```{r}
+TitanicSurvival1 <- TitanicSurvival %>%
+  rownames_to_column(var = "name")
+head(TitanicSurvival1)
+```
+
+### Cleveland dot plot
+```{r}
+ts1 <- TitanicSurvival1 %>%
+  filter(!is.na(age) & passengerClass == "1st" & survived == "yes" & sex == "female" &
+           age >= 30 & age <= 40)
+
+ggplot(ts1,aes(x = age, y = fct_reorder(name, age))) +
+  geom_point(color = "blue") +
+  ylab("")
+```
+
+### Cleveland dot plot with facets
+```{r fig.height=10}
+ts2 <- TitanicSurvival1 %>%
+  filter(!is.na(age) & survived == "yes" & sex == "female" & age >= 30 & age <= 40)
+
+ggplot(ts2, aes(x = age, y = reorder(name, age))) +
+  geom_point(color = "blue") +
+  facet_grid(.~reorder(passengerClass, -age, median)) +
+  ylab("")
+```
+
+## Scatterplot
+
+Data: `babies` in the openintro package
+```{r}
+head(babies)
+```
+
+### Scatterplot
+```{r}
+# draw the scatterplot
+g <- ggplot(babies, aes(x = gestation, y = bwt)) +
+  # adjust point size and add alpha blending
+  geom_point(size = 1, alpha = .5)
+g +
+  # add the density contour lines
+  geom_density_2d() +
+  # add the linear model
+  geom_smooth(method = 'lm', se = FALSE, col = 2)
+```
+
+### Interactive scatterplot
+```{r}
+g1 <- ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point()
+ggplotly(g1)
+```
+
+### Scatterplot matrix
+```{r}
+plot(iris[,1:4], col = "#00660030", pch = 19)
+```
+
+## Parallel coordinates plot
+
+Data: `state.x77`
+```{r}
+mystates <- data.frame(state.x77) %>%
+  rownames_to_column("State") %>%
+  mutate(Region = factor(state.region))
+head(mystates)
+```
+
+### Static parallel coordinates plot
+```{r}
+ggparcoord(mystates, columns = 2:9, alphaLines = .5, 
+           scale = "uniminmax", splineFactor = 10, groupColumn = 10) +
+  geom_vline(xintercept = 2:8, color = "lightblue")
+```
+
+### Interactive parallel coordinates plot
+```{r}
+mystates %>%
+  arrange(Region) %>%
+  parcoords(
+    rownames = FALSE,
+    brushMode = "1D-axes",
+    reorderable = TRUE,
+    queue = TRUE,
+    alpha = .5,
+    color = list(
+      colorBy = "Region",
+      colorScale = "scaleOrdinal",
+      colorScheme = "schemeCategory10"
+      ),
+    withD3 = TRUE,
+    width = 800,
+    height = 600
+    )
+```
+
+## Biplot
+
+Data: `attributes.xls`  
+(http://www.econ.upf.edu/~michael/attributes.xls)
+```{r}
+ratings <- data.frame(country = c("Italy","Spain","Croatia","Brazil","Russia",
+                                  "Germany","Turkey","Morocco","Peru","Nigeria",
+                                  "France","Mexico","SouthAfrica"),
+                      living_standard = c(7,7,5,5,6,8,5,4,5,2,8,2,4),
+                      climate = c(8,9,6,8,2,3,8,7,6,4,4,5,4),
+                      food = c(9,9,6,7,2,2,9,8,6,4,7,5,5),
+                      security = c(5,5,6,3,3,8,3,2,3,2,7,2,3),
+                      hospitality = c(3,2,5,2,7,7,1,1,4,3,9,3,3),
+                      infrastructure = c(7,8,6,3,6,9,3,2,4,2,8,3,3))
+head(ratings)
+```
+
+### Principal components analysis (PCA)
+```{r}
+pca <- prcomp(ratings[,2:7], scale. = TRUE)  
+summary(pca)
+```
+
+### Biplot
+```{r}
+draw_biplot(ratings, fix_sign = FALSE)
+```
+
+### Biplot with calibrated axis and projection lines
+```{r}
+draw_biplot(ratings, "climate",  project = TRUE)
+```
+
+## Mosaic plot
+
+### Mosaic plot with one variable
+```{r}
+counts1 <- TitanicSurvival %>%
+  group_by(sex, survived) %>%
+  summarize(Freq = n())
+mosaic(~sex, direction = "v", counts1)
+```
+
+### Mosaic plot with two variables
+```{r}
+mosaic(survived ~ sex, counts1, direction = c("v", "h"))
+```
+
+### Mosaic plot with three variables
+```{r}
+mosaic(survived ~ passengerClass + sex, counts, direction = c("v", "v", "h"),
+       rot_labels = c(0,0,0,90))
+```
+
+### Mosaic pairs plot
+```{r}
+pairs(table(TitanicSurvival[,c(1,2,4)]), highlighting = 2)
+```
+
+## Alluvial diagram
+
+Data: `Yamaguchi87` in the vcdExtra package
+```{r}
+head(Yamaguchi87)
+```
+
+```{r}
+ggplot(Yamaguchi87, aes(y = Freq, axis1 = Father, axis2 = Son)) +
+  geom_flow(aes(fill = Father), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "black") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limit = c("Father", "Son"), expand = c(.05, .05)) +
+  scale_y_continuous(expand = c(.01, 0)) +
+  guides(fill = FALSE)
+```
+
+## Heatmap
+
+### Hexagonal heatmap
+```{r}
+ggplot(babies, aes(x = gestation, y = bwt)) +
+  geom_hex()
+```
+
+### Square heatmap
+```{r}
+ggplot(babies, aes(x = gestation, y = bwt)) +
+  geom_bin_2d()
+```
+
+### Heatmap with facets
+```{r}
+mydata <- Yamaguchi87 %>%
+  group_by(Country, Father) %>% 
+  mutate(Total = sum(Freq)) %>%
+  ungroup()
+ggplot(mydata, aes(x = Father, y = Son)) +
+  geom_tile(aes(fill = Freq/Total), color = "white") +
+  coord_fixed() +
+  facet_wrap(~Country) +
+  scale_fill_distiller(palette = "RdBu")
+```
