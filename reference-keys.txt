@@ -123,6 +123,8 @@ motivation
 the-link-to-the-cheatsheet
 cheatsheet-for-circlize-package
 texts-in-r-graphs-cheat-sheet
+dygraphs-package
+what-i-did
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
