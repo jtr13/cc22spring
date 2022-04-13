@@ -43,7 +43,6 @@ rmd_files: [
   'neural_network_ploting_with_bp_algorithm_and_without_algorithm.Rmd', 
   'wordcloud.Rmd',
   'linear_models_soccer_example.Rmd',
-
   'timeseriesanalysis.Rmd', 
   'animation_graph.Rmd',
   'forest_plots.Rmd',
@@ -56,6 +55,7 @@ rmd_files: [
   'r_shiny_interactive_map.Rmd',
   'image2data.Rmd',
   'Tutorial_for_the_R_Graph_Gallery.Rmd',
+  'polar_line_plots.Rmd',
 
   # Part: Workshops
   
