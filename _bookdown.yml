@@ -39,7 +39,7 @@ rmd_files: [
   'plotly_package.Rmd', 
   'neural_network_ploting_with_bp_algorithm_and_without_algorithm.Rmd', 
 
- # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
+  'timeseriesanalysis.Rmd', 
   'animation_graph.Rmd',
   'forest_plots.Rmd',
   'differences_between_some_packages_of_visualization.Rmd',
