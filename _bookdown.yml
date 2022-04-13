@@ -27,7 +27,6 @@ rmd_files: [
   'circlize_cheatsheet.Rmd',
   'texts_in_graphs_cheatsheet.Rmd',
 
-
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
   'plotly_package.Rmd',
@@ -41,6 +40,7 @@ rmd_files: [
   'plotly_package.Rmd', 
   'neural_network_ploting_with_bp_algorithm_and_without_algorithm.Rmd', 
   'wordcloud.Rmd',
+  'linear_models_soccer_example.Rmd',
 
  # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
   'animation_graph.Rmd',
