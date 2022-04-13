@@ -35,7 +35,7 @@ library(readr)
 library(dplyr)
 ```
 
-## 1. worldCloud2 Method
+## worldCloud2 Method
 
 wordcloud2: this package provides an HTML5 interface to wordcloud for data visualization. 
 
@@ -138,7 +138,7 @@ fig = system.file("examples/t.png", package = "wordcloud2")
 wordcloud2(demoFreq, figPath = fig, size = 1.5)
 ```
 
-## 2.ggwordcloud Method
+## ggwordcloud Method
 
 
 ggwordcloud provides a word cloud text geom for ggplot2. The cloud can grow according to a shape and stay within a mask. The size aesthetic is used either to control the font size or the printed area of the words. ggwordcloud also supports arbitrary text rotation. The faceting scheme of ggplot2 can also be used. Two functions meant to be the equivalent of wordcloud and wordcloud2 are proposed.
@@ -271,7 +271,7 @@ ggplot(data,aes(label = name, size = size, color = factor(sample.int(10, nrow(da
 
 
 
-## 3.A complete example to show how to fulfil the word visual representation
+## A complete example to show how to fulfil the word visual representation
 Before doing the word visualization, it is important to cover a few terms:
 
 **Corpus** - A list of blocks of text (the column speechtext in the object sotu is our corpus).
@@ -325,7 +325,7 @@ df=df%>%
 wordcloud2(df)
 ```
 
-## 4.Reference
+## Reference
 1. https://cran.r-project.org/web/packages/ggwordcloud/ggwordcloud.pdf
 2. https://cran.r-project.org/web/packages/wordcloud2/wordcloud2.pdf
 3. https://www.kaggle.com/datasets/hsankesara/medium-articles
