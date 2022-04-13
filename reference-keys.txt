@@ -122,6 +122,7 @@ useful-setting-of-ggplot2
 motivation
 the-link-to-the-cheatsheet
 cheatsheet-for-circlize-package
+texts-in-r-graphs-cheat-sheet
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
