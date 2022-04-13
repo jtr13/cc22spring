@@ -44,7 +44,7 @@ rmd_files: [
   'wordcloud.Rmd',
   'linear_models_soccer_example.Rmd',
 
- # 'timeseriesanalysis.Rmd', # with the package 'bayesforecast'
+  'timeseriesanalysis.Rmd', 
   'animation_graph.Rmd',
   'forest_plots.Rmd',
   'differences_between_some_packages_of_visualization.Rmd',
