@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 28 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Fahad Alkhaja  28.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 28 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Fahad Alkhaja  28.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 28 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Fahad Alkhaja  28.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet">
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script><script src="libs/d3-5.16.0/d3.min.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Community Contributions STAT GR 5293</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="tmap-package.html"><span class="header-section-number">5</span> tmap package</a></li>
+<li><a class="" href="graphics-cheatsheet-in-ggplot2.html"><span class="header-section-number">6</span> Graphics cheatsheet in ggplot2</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">7</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="data-preprocessing-cheat-sheet-in-r.html"><span class="header-section-number">8</span> Data preprocessing cheat sheet in R</a></li>
+<li><a class="" href="data-wrangling-and-visualization-in-r.html"><span class="header-section-number">9</span> Data Wrangling and Visualization in R</a></li>
+<li><a class="" href="ggplot2-cheatsheet-1.html"><span class="header-section-number">10</span> GGplot2 cheatsheet</a></li>
+<li><a class="" href="cheat-sheet-for-tidyverse.html"><span class="header-section-number">11</span> Cheat Sheet for Tidyverse</a></li>
+<li><a class="" href="memos-checklist-and-usful-links-experience-of-statistical-graphic.html"><span class="header-section-number">12</span> Memos, checklist and usful links: experience of statistical graphic</a></li>
+<li><a class="" href="cheatsheet-for-multiple-graphics.html"><span class="header-section-number">13</span> Cheatsheet for multiple graphics</a></li>
+<li><a class="" href="useful-setting-of-ggplot2.html"><span class="header-section-number">14</span> Useful setting of ggplot2</a></li>
+<li><a class="" href="cheatsheet-for-circlize-package.html"><span class="header-section-number">15</span> Cheatsheet for ‘circlize’ package</a></li>
+<li><a class="" href="texts-in-r-graphs-cheat-sheet.html"><span class="header-section-number">16</span> Texts in R Graphs Cheat Sheet</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">17</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">18</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">19</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">20</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">21</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">22</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">23</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">24</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">25</span> R Shiny Map Tutorial</a></li>
+<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">26</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">27</span> wordcloud</a></li>
+<li><a class="active" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">28</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">29</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">30</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">31</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">32</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">33</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">34</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">35</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">36</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">37</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">38</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">39</span> Tutorial for the r graph gallery</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">40</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">41</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc22spring">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-modeling-using-r-via-a-soccer-example" class="section level1" number="28">
+<h1>
+<span class="header-section-number">28</span> Linear Modeling Using R via a Soccer Example<a class="anchor" aria-label="anchor" href="#linear-modeling-using-r-via-a-soccer-example"><i class="fas fa-link"></i></a>
+</h1>
+<p>Fahad Alkhaja</p>
+<div id="introduction-3" class="section level2" number="28.1">
+<h2>
+<span class="header-section-number">28.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>The goal of this assignment and tutorial is to show how one can use linear models
+in R to describe trends and be used as a predictive measure of future performance.</p>
+<p>A commonly used model in the soccer world is that of xG, which roughly translates to
+the Expectation of a Goal being scored. <span class="math inline">\(E(Goal) =\)</span>xG.</p>
+<p>It is based on a probabilistic measure being assigned to each shot taken where each
+shot has an xG value based on likelihood of scoring from where the shot was taken.
+The xG values are thus tallied for a team. Thus, comparing xG values for teams
+over the course of a game or year can serve as a good indication of team performance
+without results bias and excluding for the most part luck, which in a low
+scoring game such as soccer plays a big factor.</p>
+<p>Today, we will be exploring a more niche aspect of the expectations world in soccer.
+We will look to model the number of goals conceded based on some different parameters which include xGA expected goals against, or expected goals conceded, and some other defensive metrics such as Blocks, Tackles, and Pressures. This can help be a guide to see which factor is the most contributing to a team’s defensive record, in terms of goals conceded. Eventually this could be used to compare to that of the league table.</p>
+</div>
+<div id="data-loading" class="section level2" number="28.2">
+<h2>
+<span class="header-section-number">28.2</span> Data Loading<a class="anchor" aria-label="anchor" href="#data-loading"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Data used here is obtained directly from the FBref website under the Premier
+League 2021/22 season so far as of Mar 28, 2021 (1).</p>
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">league_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"resources/linear_models_soccer_example/PL21-22_Points.xlsx"</span>,
+                          skip <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> 
+<span class="co"># Squad Standard Stats 2021-22 Premier League Table on FBRef</span>
+
+<span class="va">defense</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"resources/linear_models_soccer_example/PL21-22_Defense.xlsx"</span>,skip <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="co"># Squad Defensive Actions 2021-22 Premier League Table on FBRef</span></code></pre></div>
+</div>
+<div id="data-wrangling-1" class="section level2" number="28.3">
+<h2>
+<span class="header-section-number">28.3</span> Data Wrangling<a class="anchor" aria-label="anchor" href="#data-wrangling-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>We have to then clean and prepare the relevant data so we can come up with appropriate models.</p>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">league_table_2</span> <span class="op">&lt;-</span> <span class="va">league_table</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Rk</span><span class="op">:</span><span class="va">`xGD/90`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>`xGA/90` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">xGA</span><span class="op">/</span><span class="va">MP</span>, <span class="fl">3</span><span class="op">)</span>,
+         PPG <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Pts</span><span class="op">/</span><span class="va">MP</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">W</span>,<span class="va">D</span>,<span class="va">L</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">defense_2</span> <span class="op">&lt;-</span> <span class="va">defense</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">`# Pl`</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">`TklW`</span><span class="op">:</span><span class="va">Past</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">Sh</span><span class="op">:</span><span class="va">Pass</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Tackles <span class="op">=</span> <span class="va">`Tkl...4`</span>,
+         Pressures <span class="op">=</span> <span class="va">Press</span>,
+         SuccPress <span class="op">=</span> <span class="va">Succ</span>,
+         `%SuccPress` <span class="op">=</span> <span class="va">`%`</span>,
+         Press_Def <span class="op">=</span> <span class="va">`Def 3rd...16`</span>,
+         Press_Mid <span class="op">=</span> <span class="va">`Mid 3rd...17`</span>,
+         Press_Att <span class="op">=</span> <span class="va">`Att 3rd...18`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">`Tkl+Int`</span><span class="op">)</span><span class="op">)</span>
+  
+<span class="va">defense_stats_cleaned</span> <span class="op">&lt;-</span> <span class="va">league_table_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">defense_2</span>, by <span class="op">=</span> <span class="st">"Squad"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">`90s`</span>, <span class="va">GF</span>, <span class="va">GD</span>, <span class="va">xG</span>, <span class="va">xGD</span>, <span class="va">`xGD/90`</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">defense_stats_cleaned</span></code></pre></div>
+<pre><code>## # A tibble: 20 × 19
+##       Rk Squad             MP    GA   Pts   xGA `xGA/90`   PPG Tackles Pressures
+##    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1 Manchester Ci…    29    18    70  21.2    0.731 2.41      387      3265
+##  2     2 Liverpool         29    20    69  27.6    0.952 2.38      422      4014
+##  3     3 Chelsea           28    19    59  24.8    0.886 2.11      480      3989
+##  4     4 Arsenal           28    31    54  34.2    1.22  1.93      430      3458
+##  5     5 Tottenham         29    36    51  32.5    1.12  1.76      532      4348
+##  6     6 Manchester Utd    29    40    50  41.3    1.42  1.72      481      3802
+##  7     7 West Ham          30    39    48  38.6    1.29  1.6       466      3881
+##  8     8 Wolves            30    26    46  42.9    1.43  1.53      579      4317
+##  9     9 Aston Villa       29    40    36  36.6    1.26  1.24      524      4036
+## 10    10 Leicester City    27    46    36  46.3    1.72  1.33      542      4234
+## 11    11 Southampton       29    45    35  41.4    1.43  1.21      506      4366
+## 12    12 Crystal Palace    29    38    34  34.2    1.18  1.17      567      4670
+## 13    13 Brighton          29    36    33  37.3    1.29  1.14      566      4313
+## 14    14 Newcastle Utd     29    49    31  42.5    1.47  1.07      532      4095
+## 15    15 Brentford         30    47    30  39.3    1.31  1         560      4372
+## 16    16 Leeds United      30    67    29  55      1.83  0.967     650      5224
+## 17    17 Everton           27    47    25  39.3    1.46  0.926     576      4477
+## 18    18 Watford           29    55    22  49.6    1.71  0.759     535      4422
+## 19    19 Burnley           27    38    21  39.2    1.45  0.778     465      3899
+## 20    20 Norwich City      29    63    17  55.5    1.91  0.586     528      4626
+## # … with 9 more variables: SuccPress &lt;dbl&gt;, `%SuccPress` &lt;dbl&gt;,
+## #   Press_Def &lt;dbl&gt;, Press_Mid &lt;dbl&gt;, Press_Att &lt;dbl&gt;, Blocks &lt;dbl&gt;, Int &lt;dbl&gt;,
+## #   Clr &lt;dbl&gt;, Err &lt;dbl&gt;</code></pre>
+</div>
+<div id="initial-model-fit-simple-linear-model-one-variable" class="section level2" number="28.4">
+<h2>
+<span class="header-section-number">28.4</span> Initial Model Fit: Simple Linear Model (one variable)<a class="anchor" aria-label="anchor" href="#initial-model-fit-simple-linear-model-one-variable"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now that we have cleaned the data to only the relevant defensive metrics that we
+will be exploring, we can get to work.</p>
+<p>First we will attempt to fit a linear model (lm) using only xGA to estimate xG.</p>
+<p>The “lm” function takes the “formula” argument in the form y~x such that it runs
+a linear regression with the equation <span class="math display">\[ y = \beta_0 + \beta_1x\]</span>.
+In the case of more parameters the equation takes the same linear form :
+<span class="math display">\[y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n\]</span>.</p>
+<p>As seen below, the lm(…) function serves to find the best estimates for each <span class="math inline">\(\beta\)</span>.
+Running the function summary(lm(…)) as such gives a much more detailed view
+including standard errors of such estimations.</p>
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># running lm on the model finds the best estimates for beta_0 (the intercept)</span>
+<span class="co"># and beta_1 in this case.</span>
+
+<span class="va">model_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">GA</span> <span class="op">~</span> <span class="va">xGA</span>, data <span class="op">=</span> <span class="va">defense_stats_cleaned</span><span class="op">)</span>
+
+<span class="va">model_1</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA, data = defense_stats_cleaned)
+## 
+## Coefficients:
+## (Intercept)          xGA  
+##      -13.00         1.36</code></pre>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">summary_model_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_1</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_1</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA, data = defense_stats_cleaned)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -19.3528  -2.3693   0.5201   4.2639   6.5443 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -13.005      6.143  -2.117   0.0485 *  
+## xGA            1.360      0.154   8.836 5.79e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.919 on 18 degrees of freedom
+## Multiple R-squared:  0.8126, Adjusted R-squared:  0.8022 
+## F-statistic: 78.07 on 1 and 18 DF,  p-value: 5.79e-08</code></pre>
+<p>We can see that the intercept has a large variation. Inherently also, the value does not make sense because teams starting with an xGA of 0 will have an estimated GA of around -13.</p>
+<p>We can also visualize this initial model with a simple scatter plot and a best fit line and an ideal model line, where GA = xGA, it is a perfect assumption.</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">defense_stats_cleaned</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">xGA</span>, <span class="va">GA</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="st">'lm'</span>, formula<span class="op">=</span> <span class="va">y</span><span class="op">~</span><span class="va">x</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"GA = -13.005 + 1.360 xGA"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>slope <span class="op">=</span> <span class="fl">1</span>, intercept <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Goals Conceded (GA) Estimated by xGA"</span>,
+       subtitle <span class="op">=</span> <span class="st">"There is a lot of variance around the estimated best fit line."</span>,
+       x <span class="op">=</span> <span class="st">"xGA: Expected Goals Against"</span>,
+       y <span class="op">=</span> <span class="st">"GA : Goals Against"</span>,
+       color <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="linear_models_soccer_example_files/figure-html/model1%20plot-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>It is immediately clear that the simple model we ran is not sufficient, so how can we improve it?</p>
+</div>
+<div id="linear-model-removing-intercept-term" class="section level2" number="28.5">
+<h2>
+<span class="header-section-number">28.5</span> Linear Model: Removing Intercept Term<a class="anchor" aria-label="anchor" href="#linear-model-removing-intercept-term"><i class="fas fa-link"></i></a>
+</h2>
+<p>First, we can get rid of the intercept because fundamentally in our problem here it does not make sense.</p>
+<p>Adding a -1 at the end of the formula gets rid of the intercept term.
+such that formula = y ~ x - 1.</p>
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">GA</span> <span class="op">~</span> <span class="va">xGA</span> <span class="op">-</span> <span class="fl">1</span>, data <span class="op">=</span> <span class="va">defense_stats_cleaned</span><span class="op">)</span>
+
+<span class="va">model_2</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA - 1, data = defense_stats_cleaned)
+## 
+## Coefficients:
+##   xGA  
+## 1.042</code></pre>
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">summary_model_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_2</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_2</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA - 1, data = defense_stats_cleaned)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18.7042  -3.3006   0.3178   3.6637   9.6870 
+## 
+## Coefficients:
+##     Estimate Std. Error t value Pr(&gt;|t|)    
+## xGA  1.04206    0.03608   28.88   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 6.439 on 19 degrees of freedom
+## Multiple R-squared:  0.9777, Adjusted R-squared:  0.9766 
+## F-statistic: 834.1 on 1 and 19 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">defense_stats_cleaned</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">xGA</span>, <span class="va">GA</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="st">'lm'</span>, formula<span class="op">=</span> <span class="va">y</span><span class="op">~</span><span class="va">x</span><span class="op">-</span><span class="fl">1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"GA = 1.042xGA"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>slope <span class="op">=</span> <span class="fl">1</span>, intercept <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Goals Conceded (GA) Estimated by xGA"</span>,
+       subtitle <span class="op">=</span> <span class="st">"The best-fit line (Red) and Perfect Model Line are now much closer."</span>,
+       x <span class="op">=</span> <span class="st">"xGA: Expected Goals Against"</span>,
+       y <span class="op">=</span> <span class="st">"GA : Goals Against"</span>,
+       color <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="linear_models_soccer_example_files/figure-html/model2-nointercept-1.png" width="672" style="display: block; margin: auto;">
+The line does seem to fit the ideal model line very well. However, there are still alot of data points quite spread it. So it is definitely worth exploring more parameters to see which one best fits our current data.</div>
+</div>
+<div id="additional-linear-parameters-and-interactions" class="section level2" number="28.6">
+<h2>
+<span class="header-section-number">28.6</span> Additional Linear Parameters and Interactions<a class="anchor" aria-label="anchor" href="#additional-linear-parameters-and-interactions"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are several methods to do this. We can add more linear terms and have our pick from any of the defensive metrics we narrowed down earlier. In addition to adding more linear terms we can also add interaction terms and even if necessary higher order powered terms. Outlined below is how to do such a thing.</p>
+<p>Additional Linear Terms follow the formula outline earlier.</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1x_1 + ... \beta_nx_n\]</span></p>
+<p>In R, this would be done by <code>lm(y ~ x1 + ... + xn)</code>.</p>
+<p>For interaction terms, there are two operators that can be used.</p>
+<p>The ” * ” operator or “:” can be used.</p>
+<p>y ~ x1 + x2*x3 means y~ x1 + x2 + x3 + x2:x3</p>
+<p>Mathematically, this translates to :</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_{2,3}x_2x_3\]</span>
+For the next model, we will look at the xGA in additional to the successful pressure percentages of teams, the number of pressures in the attacking third (Press_Att) and the interaction between the successful pressure percentage and Press_Att.</p>
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">defense_stats_cleaned</span>, formula <span class="op">=</span> <span class="va">GA</span> <span class="op">~</span> <span class="va">xGA</span> <span class="op">+</span> <span class="va">`%SuccPress`</span><span class="op">*</span><span class="va">Press_Att</span>  <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>
+
+<span class="va">model_3</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA + `%SuccPress` * Press_Att - 1, data = defense_stats_cleaned)
+## 
+## Coefficients:
+##                    xGA            `%SuccPress`               Press_Att  
+##               1.248226               -1.258805                0.060517  
+## `%SuccPress`:Press_Att  
+##              -0.001056</code></pre>
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">summary_model_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_3</span><span class="op">)</span>
+
+<span class="va">summary_model_3</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA + `%SuccPress` * Press_Att - 1, data = defense_stats_cleaned)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -11.8788  -3.0068   0.6778   3.2206   7.6546 
+## 
+## Coefficients:
+##                         Estimate Std. Error t value Pr(&gt;|t|)    
+## xGA                     1.248226   0.166155   7.512 1.24e-06 ***
+## `%SuccPress`           -1.258805   0.467899  -2.690   0.0161 *  
+## Press_Att               0.060517   0.037871   1.598   0.1296    
+## `%SuccPress`:Press_Att -0.001056   0.001019  -1.036   0.3156    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.465 on 16 degrees of freedom
+## Multiple R-squared:  0.9865, Adjusted R-squared:  0.9831 
+## F-statistic: 292.1 on 4 and 16 DF,  p-value: 9.871e-15</code></pre>
+<p><span class="math display">\[GA =  1.248226(xGA) -1.258805 (\%SuccPress) + 0.060517(Press_{Att}) - 0.001056(\%SuccPress)(Press_{Att}) \]</span>
+While this may not be as easy to interpret and understand it becomes easier after running through an example.</p>
+<p>First, a negative coefficient means that an increase in that variable results in a decrease in our interested variable, in this case Goals Against (GA). The higher the Successful Press % (%SuccPress) the lower the GA in general. However, we also have an interaction term to consider. Since our interaction term is negative it means that we can’t think of the Press_Att term as increasing to the estimated GA because it has a positive coefficient. We need to consider the interaction term between Press_Att and %SuccPress.</p>
+<p>To think of it in a simple manner, if we assume a %SuccPress of 0. Our model estimates the GA to be :
+GA = 1.248226(xGA) + 0.060517(Press_Att). This basically means that with a 0% success rate in pressing the number of goals you will concede (GA) is proportional to the number of Presses Attempted in the Attacking Third (assuming they were all unsuccessful). From this base model, we can observe that an increase in Pressure Success %, results in a decrease of our estimate of GA via the interaction term and the negative coefficient estimate for the %SuccPress parameter. From a soccer point of view, this makes sense because an increase in successful pressure% means the team wins the ball back more and thus a decrease in goals conceded (GA) when you win the ball back more often makes a lot of intuitive sense.</p>
+</div>
+<div id="grouped-parameters" class="section level2" number="28.7">
+<h2>
+<span class="header-section-number">28.7</span> Grouped Parameters<a class="anchor" aria-label="anchor" href="#grouped-parameters"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can also group some variables/parameters if we are interested in them as a grouped parameter.
+One method would be to create a new column in the table itself. The other method would be to use the formula as follows:</p>
+<p>Interested grouped variable: x1 + x2 + x3</p>
+<p>lm(formula = y ~ I(x1 + x2 + x3), data = data).</p>
+<p>Here we group Block, Interception(Int), Clearances (Clr), and Tackles which in the game of Soccer are all means of getting the ball back from the opponent and away from your goal which should decrease the Goals Against (GA).</p>
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">GA</span> <span class="op">~</span> <span class="va">xGA</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">Blocks</span> <span class="op">+</span> <span class="va">Int</span> <span class="op">+</span> <span class="va">Clr</span> <span class="op">+</span> <span class="va">Tackles</span> <span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>,
+              data <span class="op">=</span> <span class="va">defense_stats_cleaned</span><span class="op">)</span>
+
+<span class="va">model_4</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA + I(Blocks + Int + Clr + Tackles) - 1, 
+##     data = defense_stats_cleaned)
+## 
+## Coefficients:
+##                             xGA  I(Blocks + Int + Clr + Tackles)  
+##                         1.39904                         -0.00713</code></pre>
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">summary_model_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_4</span><span class="op">)</span>
+
+<span class="va">summary_model_4</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA + I(Blocks + Int + Clr + Tackles) - 1, 
+##     data = defense_stats_cleaned)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18.2617  -2.4262  -0.1194   4.7167   8.1955 
+## 
+## Coefficients:
+##                                  Estimate Std. Error t value Pr(&gt;|t|)    
+## xGA                              1.399041   0.216459   6.463 4.43e-06 ***
+## I(Blocks + Int + Clr + Tackles) -0.007130   0.004268  -1.671    0.112    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 6.155 on 18 degrees of freedom
+## Multiple R-squared:  0.9807, Adjusted R-squared:  0.9786 
+## F-statistic: 457.7 on 2 and 18 DF,  p-value: 3.686e-16</code></pre>
+<p>The model agreed with what we expected it to look like with the grouped variable having a negative coefficient meaning an increase in Defensive Activity (via these grouped values) results in lower Goals Against. While the coefficient seems very small the number of actions of this grouped variable is quite large that it does have an effect.</p>
+<p>It is important to note that this model does show xGA having a 1.399 which can result in an overestimation if we have (Blocks + Int + Clr + Tackles) = 0</p>
+</div>
+<div id="aic-akaike-information-criterion" class="section level2" number="28.8">
+<h2>
+<span class="header-section-number">28.8</span> AIC : Akaike Information Criterion<a class="anchor" aria-label="anchor" href="#aic-akaike-information-criterion"><i class="fas fa-link"></i></a>
+</h2>
+<p>Alexandre Zajic says:
+“In plain words, AIC is a single number score that can be used to determine which of multiple models is most likely to be the best model for a given dataset. It estimates models relatively, meaning that AIC scores are only useful in comparison with other AIC scores for the same dataset. A lower AIC score is better.” (2)</p>
+<div id="optimum-model-selection" class="section level3" number="28.8.1">
+<h3>
+<span class="header-section-number">28.8.1</span> Optimum Model Selection<a class="anchor" aria-label="anchor" href="#optimum-model-selection"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can use the AIC as a metric to determine which model is the best for our dataset.</p>
+<p>To find the model with the optimum AIC, we can use a forward selection or a backward elimination algorithm. Sometimes one method misses the method with the lower AIC, so it is not necessarily repetitive to do both.</p>
+<div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">GA</span> <span class="op">~</span> <span class="va">xGA</span> <span class="op">+</span> <span class="va">`%SuccPress`</span><span class="op">*</span><span class="va">Press_Def</span> <span class="op">+</span> <span class="va">`%SuccPress`</span><span class="op">*</span><span class="va">Press_Mid</span> <span class="op">+</span> <span class="va">`%SuccPress`</span><span class="op">*</span><span class="va">Press_Att</span>
+                <span class="op">+</span> <span class="va">Tackles</span> <span class="op">+</span> <span class="va">Blocks</span> <span class="op">+</span> <span class="va">Int</span> <span class="op">+</span> <span class="va">Clr</span> <span class="op">+</span> <span class="va">Err</span> <span class="op">-</span> <span class="fl">1</span>,
+                data<span class="op">=</span><span class="va">defense_stats_cleaned</span><span class="op">)</span>
+<span class="va">model_0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">GA</span> <span class="op">~</span> <span class="va">xGA</span> <span class="op">-</span> <span class="fl">1</span>, data<span class="op">=</span><span class="va">defense_stats_cleaned</span><span class="op">)</span>
+
+<span class="va">scope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>lower<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/formula.html">formula</a></span><span class="op">(</span><span class="va">model_0</span><span class="op">)</span>, upper<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/formula.html">formula</a></span><span class="op">(</span><span class="va">model_all</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">forward_selection</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/step.html">step</a></span><span class="op">(</span><span class="va">model_0</span>, direction<span class="op">=</span><span class="st">"forward"</span>, scope<span class="op">=</span><span class="va">scope</span><span class="op">)</span></code></pre></div>
+<pre><code>## Start:  AIC=75.47
+## GA ~ xGA - 1
+## 
+##                Df Sum of Sq    RSS    AIC
+## + `%SuccPress`  1   171.994 615.70 72.540
+## + Clr           1   126.464 661.23 73.967
+## + Blocks        1    91.880 695.81 74.987
+## + Int           1    86.381 701.31 75.144
+## &lt;none&gt;                      787.69 75.467
+## + Press_Att     1    73.245 714.44 75.515
+## + Tackles       1    61.365 726.32 75.845
+## + Press_Mid     1    60.582 727.11 75.867
+## + Err           1    44.706 742.98 76.299
+## + Press_Def     1     6.017 781.67 77.314
+## 
+## Step:  AIC=72.54
+## GA ~ xGA + `%SuccPress` - 1
+## 
+##             Df Sum of Sq    RSS    AIC
+## + Press_Att  1   105.835 509.86 70.768
+## + Press_Mid  1    65.553 550.14 72.289
+## &lt;none&gt;                   615.70 72.540
+## + Tackles    1    39.201 576.50 73.225
+## + Int        1    21.043 594.65 73.845
+## + Press_Def  1    14.922 600.77 74.050
+## + Clr        1     9.690 606.01 74.223
+## + Blocks     1     4.645 611.05 74.389
+## + Err        1     1.163 614.53 74.503
+## 
+## Step:  AIC=70.77
+## GA ~ xGA + `%SuccPress` + Press_Att - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## + Tackles                 1    83.695 426.17 69.182
+## + Press_Def               1    71.398 438.46 69.751
+## + Press_Mid               1    65.025 444.84 70.039
+## &lt;none&gt;                                509.86 70.768
+## + `%SuccPress`:Press_Att  1    32.052 477.81 71.470
+## + Int                     1    19.561 490.30 71.986
+## + Blocks                  1    19.342 490.52 71.995
+## + Err                     1    15.858 494.00 72.136
+## + Clr                     1     6.064 503.80 72.529
+## 
+## Step:  AIC=69.18
+## GA ~ xGA + `%SuccPress` + Press_Att + Tackles - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## &lt;none&gt;                                426.17 69.182
+## + `%SuccPress`:Press_Att  1   31.4030 394.76 69.651
+## + Err                     1   25.9118 400.25 69.927
+## + Press_Mid               1    4.6911 421.47 70.961
+## + Int                     1    1.3618 424.80 71.118
+## + Press_Def               1    0.7302 425.44 71.148
+## + Clr                     1    0.1589 426.01 71.174
+## + Blocks                  1    0.1086 426.06 71.177</code></pre>
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">backward_elimination</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/step.html">step</a></span><span class="op">(</span><span class="va">model_all</span>, direction<span class="op">=</span><span class="st">"backward"</span>, scope<span class="op">=</span><span class="va">scope</span><span class="op">)</span></code></pre></div>
+<pre><code>## Start:  AIC=81.11
+## GA ~ xGA + `%SuccPress` * Press_Def + `%SuccPress` * Press_Mid + 
+##     `%SuccPress` * Press_Att + Tackles + Blocks + Int + Clr + 
+##     Err - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - `%SuccPress`:Press_Mid  1     0.205 314.77 79.122
+## - Clr                     1     3.393 317.96 79.324
+## - `%SuccPress`:Press_Def  1     3.781 318.35 79.348
+## - Int                     1     5.643 320.21 79.465
+## - `%SuccPress`:Press_Att  1     7.587 322.16 79.586
+## - Blocks                  1    19.800 334.37 80.330
+## &lt;none&gt;                                314.57 81.109
+## - Err                     1    38.361 352.93 81.411
+## - Tackles                 1    59.057 373.62 82.550
+## 
+## Step:  AIC=79.12
+## GA ~ xGA + `%SuccPress` + Press_Def + Press_Mid + Press_Att + 
+##     Tackles + Blocks + Int + Clr + Err + `%SuccPress`:Press_Def + 
+##     `%SuccPress`:Press_Att - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - Clr                     1     3.987 318.76 77.374
+## - Int                     1     6.908 321.68 77.557
+## - Press_Mid               1     7.993 322.77 77.624
+## - `%SuccPress`:Press_Def  1     9.366 324.14 77.709
+## - Blocks                  1    20.872 335.64 78.406
+## - `%SuccPress`:Press_Att  1    23.388 338.16 78.556
+## &lt;none&gt;                                314.77 79.122
+## - Err                     1    43.548 358.32 79.714
+## - Tackles                 1    75.544 390.32 81.425
+## 
+## Step:  AIC=77.37
+## GA ~ xGA + `%SuccPress` + Press_Def + Press_Mid + Press_Att + 
+##     Tackles + Blocks + Int + Err + `%SuccPress`:Press_Def + `%SuccPress`:Press_Att - 
+##     1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - Int                     1     2.989 321.75 75.561
+## - Press_Mid               1     6.058 324.82 75.751
+## - `%SuccPress`:Press_Def  1     8.519 327.28 75.902
+## - Blocks                  1    17.631 336.39 76.451
+## - `%SuccPress`:Press_Att  1    21.724 340.48 76.693
+## &lt;none&gt;                                318.76 77.374
+## - Err                     1    41.208 359.97 77.806
+## - Tackles                 1    76.273 395.03 79.665
+## 
+## Step:  AIC=75.56
+## GA ~ xGA + `%SuccPress` + Press_Def + Press_Mid + Press_Att + 
+##     Tackles + Blocks + Err + `%SuccPress`:Press_Def + `%SuccPress`:Press_Att - 
+##     1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - Press_Mid               1     6.451 328.20 73.958
+## - `%SuccPress`:Press_Def  1     6.477 328.23 73.959
+## - `%SuccPress`:Press_Att  1    19.104 340.85 74.714
+## - Blocks                  1    23.566 345.31 74.974
+## &lt;none&gt;                                321.75 75.561
+## - Err                     1    40.402 362.15 75.927
+## - Tackles                 1    80.560 402.31 78.030
+## 
+## Step:  AIC=73.96
+## GA ~ xGA + `%SuccPress` + Press_Def + Press_Att + Tackles + Blocks + 
+##     Err + `%SuccPress`:Press_Def + `%SuccPress`:Press_Att - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - `%SuccPress`:Press_Def  1     2.123 330.32 72.087
+## - `%SuccPress`:Press_Att  1    12.723 340.92 72.719
+## - Blocks                  1    17.136 345.34 72.976
+## - Err                     1    34.113 362.31 73.936
+## &lt;none&gt;                                328.20 73.958
+## - Tackles                 1    74.131 402.33 76.031
+## 
+## Step:  AIC=72.09
+## GA ~ xGA + `%SuccPress` + Press_Def + Press_Att + Tackles + Blocks + 
+##     Err + `%SuccPress`:Press_Att - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - Blocks                  1    16.465 346.79 71.060
+## - Press_Def               1    23.534 353.86 71.463
+## - Err                     1    32.236 362.56 71.949
+## &lt;none&gt;                                330.32 72.087
+## - `%SuccPress`:Press_Att  1    62.065 392.39 73.530
+## - Tackles                 1    81.055 411.38 74.476
+## 
+## Step:  AIC=71.06
+## GA ~ xGA + `%SuccPress` + Press_Def + Press_Att + Tackles + Err + 
+##     `%SuccPress`:Press_Att - 1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - Press_Def               1    29.430 376.22 70.689
+## &lt;none&gt;                                346.79 71.060
+## - Err                     1    44.623 391.41 71.480
+## - `%SuccPress`:Press_Att  1    46.408 393.20 71.572
+## - Tackles                 1    71.900 418.69 72.828
+## 
+## Step:  AIC=70.69
+## GA ~ xGA + `%SuccPress` + Press_Att + Tackles + Err + `%SuccPress`:Press_Att - 
+##     1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - Err                     1    18.545 394.76 69.651
+## - `%SuccPress`:Press_Att  1    24.036 400.25 69.927
+## &lt;none&gt;                                376.22 70.689
+## - Tackles                 1    91.438 467.66 73.040
+## 
+## Step:  AIC=69.65
+## GA ~ xGA + `%SuccPress` + Press_Att + Tackles + `%SuccPress`:Press_Att - 
+##     1
+## 
+##                          Df Sum of Sq    RSS    AIC
+## - `%SuccPress`:Press_Att  1    31.403 426.17 69.182
+## &lt;none&gt;                                394.76 69.651
+## - Tackles                 1    83.047 477.81 71.470
+## 
+## Step:  AIC=69.18
+## GA ~ xGA + `%SuccPress` + Press_Att + Tackles - 1
+## 
+##                Df Sum of Sq    RSS    AIC
+## &lt;none&gt;                      426.17 69.182
+## - Tackles       1    83.695 509.86 70.768
+## - Press_Att     1   150.330 576.50 73.225
+## - `%SuccPress`  1   283.516 709.68 77.382</code></pre>
+<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Check if the AICs and models from both methods are the same</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/extractAIC.html">extractAIC</a></span><span class="op">(</span><span class="va">forward_selection</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/stats/extractAIC.html">extractAIC</a></span><span class="op">(</span><span class="va">backward_elimination</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] TRUE TRUE</code></pre>
+<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">backward_elimination</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = GA ~ xGA + `%SuccPress` + Press_Att + Tackles - 
+##     1, data = defense_stats_cleaned)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.201  -2.022   2.385   3.064   4.845 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## xGA           1.10645    0.18616   5.943 2.06e-05 ***
+## `%SuccPress` -1.87594    0.57499  -3.263  0.00489 ** 
+## Press_Att     0.02890    0.01217   2.376  0.03035 *  
+## Tackles       0.04641    0.02618   1.773  0.09532 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.161 on 16 degrees of freedom
+## Multiple R-squared:  0.9879, Adjusted R-squared:  0.9849 
+## F-statistic: 327.9 on 4 and 16 DF,  p-value: 3.958e-15</code></pre>
+</div>
+</div>
+<div id="final-model-choice" class="section level2" number="28.9">
+<h2>
+<span class="header-section-number">28.9</span> Final Model Choice<a class="anchor" aria-label="anchor" href="#final-model-choice"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Final Model that was determined via the minimizing AIC method gave us:</p>
+</div>
+<div id="ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles" class="section level2" number="28.10">
+<h2>
+<span class="header-section-number">28.10</span> GA = 1.10645(xGA) - 1.87594 (%SuccPress) + 0.02890(Press_Att) + 0.04641(Tackles)<a class="anchor" aria-label="anchor" href="#ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can now use the model to estimate GA and compare the accuracy of our model to that of the actual GA.</p>
+</div>
+<div id="our-model-in-action" class="section level2" number="28.11">
+<h2>
+<span class="header-section-number">28.11</span> Our Model in Action<a class="anchor" aria-label="anchor" href="#our-model-in-action"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">defense_stats_cleaned</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>modelGA <span class="op">=</span> <span class="fl">1.10645</span><span class="op">*</span><span class="op">(</span><span class="va">xGA</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1.87594</span><span class="op">*</span><span class="op">(</span><span class="va">`%SuccPress`</span><span class="op">)</span> <span class="op">+</span>  <span class="fl">0.02890</span><span class="op">*</span><span class="op">(</span><span class="va">Press_Att</span><span class="op">)</span> <span class="op">+</span> <span class="fl">0.04641</span><span class="op">*</span><span class="op">(</span><span class="va">Tackles</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Rk</span>, <span class="va">Squad</span>, <span class="va">MP</span>, <span class="va">GA</span>, <span class="va">xGA</span>, <span class="va">modelGA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model_xGA_diff <span class="op">=</span> <span class="va">modelGA</span><span class="op">-</span><span class="va">xGA</span>,
+         model_xGA_GA <span class="op">=</span> <span class="va">modelGA</span><span class="op">-</span><span class="va">GA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">modelGA</span>, y <span class="op">=</span> <span class="va">GA</span>, color <span class="op">=</span> <span class="st">"Model GA"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">xGA</span>, y <span class="op">=</span> <span class="va">GA</span>, color <span class="op">=</span> <span class="st">"xGA"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>slope <span class="op">=</span> <span class="fl">1</span>, intercept <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Goals Conceded (GA) Estimated by xGA and Our Model"</span>,
+       subtitle <span class="op">=</span> <span class="st">"Our Model mostly agrees with the xGA model in the middle sector."</span>,
+       x <span class="op">=</span> <span class="st">"Model GA or xGA"</span>,
+       y <span class="op">=</span> <span class="st">"GA : Goals Against"</span>,
+       color <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="linear_models_soccer_example_files/figure-html/new_GA_estimate-1.png" width="672" style="display: block; margin: auto;">
+Our Model GA mostly aligns with that of the xGA estimation. Our model’s points (red) are slightly more optimized around the perfect model line (xGA = GA) especially at the extremities where this is more discrepancy between our model’s points and the xGA points.</div>
+</div>
+<div id="references-4" class="section level2" number="28.12">
+<h2>
+<span class="header-section-number">28.12</span> References<a class="anchor" aria-label="anchor" href="#references-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>1 - <a href="https://fbref.com/en/comps/9/Premier-League-Stats" class="uri">https://fbref.com/en/comps/9/Premier-League-Stats</a>
+2 - <a href="https://towardsdatascience.com/introduction-to-aic-akaike-information-criterion-9c9ba1c96ced" class="uri">https://towardsdatascience.com/introduction-to-aic-akaike-information-criterion-9c9ba1c96ced</a></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="wordcloud.html"><span class="header-section-number">27</span> wordcloud</a></div>
+<div class="next"><a href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">29</span> Animation graphs in plot_ly and gganimate</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#linear-modeling-using-r-via-a-soccer-example"><span class="header-section-number">28</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="nav-link" href="#introduction-3"><span class="header-section-number">28.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#data-loading"><span class="header-section-number">28.2</span> Data Loading</a></li>
+<li><a class="nav-link" href="#data-wrangling-1"><span class="header-section-number">28.3</span> Data Wrangling</a></li>
+<li><a class="nav-link" href="#initial-model-fit-simple-linear-model-one-variable"><span class="header-section-number">28.4</span> Initial Model Fit: Simple Linear Model (one variable)</a></li>
+<li><a class="nav-link" href="#linear-model-removing-intercept-term"><span class="header-section-number">28.5</span> Linear Model: Removing Intercept Term</a></li>
+<li><a class="nav-link" href="#additional-linear-parameters-and-interactions"><span class="header-section-number">28.6</span> Additional Linear Parameters and Interactions</a></li>
+<li><a class="nav-link" href="#grouped-parameters"><span class="header-section-number">28.7</span> Grouped Parameters</a></li>
+<li>
+<a class="nav-link" href="#aic-akaike-information-criterion"><span class="header-section-number">28.8</span> AIC : Akaike Information Criterion</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#optimum-model-selection"><span class="header-section-number">28.8.1</span> Optimum Model Selection</a></li></ul>
+</li>
+<li><a class="nav-link" href="#final-model-choice"><span class="header-section-number">28.9</span> Final Model Choice</a></li>
+<li><a class="nav-link" href="#ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles"><span class="header-section-number">28.10</span> GA = 1.10645(xGA) - 1.87594 (%SuccPress) + 0.02890(Press_Att) + 0.04641(Tackles)</a></li>
+<li><a class="nav-link" href="#our-model-in-action"><span class="header-section-number">28.11</span> Our Model in Action</a></li>
+<li><a class="nav-link" href="#references-4"><span class="header-section-number">28.12</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc22spring/blob/main/linear_models_soccer_example.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc22spring/edit/main/linear_models_soccer_example.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
