@@ -28,6 +28,7 @@ rmd_files: [
   'texts_in_graphs_cheatsheet.Rmd',
   'dygraphs_intro.Rmd',
   'course_cheatsheet.Rmd',
+  'webscraping_table_xpath.Rmd', 
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
