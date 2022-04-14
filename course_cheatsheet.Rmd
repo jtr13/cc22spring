@@ -9,6 +9,3 @@ In the process of making this cheatsheet, we have solidified our understanding o
 
 The cheatsheet can be accessed through the link:
 https://github.com/AYPF/cheatsheet/blob/6ee0b394701f1f1ddce6a0644e605abcd4c0d7c0/Data_Visualization_Course_Cheatsheet.pdf
-
-[Download cheatsheet](/Users/arthuryan/Desktop/Data_Visualization_Course_Cheatsheet.pdf)
-![](/Users/arthuryan/Desktop/Data_Visualization_Course_Cheatsheet.pdf)
