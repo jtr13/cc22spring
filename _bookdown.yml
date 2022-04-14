@@ -59,6 +59,7 @@ rmd_files: [
   'polar_line_plots.Rmd',
 
   # Part: Workshops
+  'data_visualization_with_base_r_and_ggplot.Rmd', 
   
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
