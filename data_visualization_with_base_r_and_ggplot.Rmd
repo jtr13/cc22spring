@@ -50,7 +50,7 @@ In the 20 types of statistics graphs, 15 of them we have learned in class, and 5
 19. Sunflower Scatter Plot
 20. Interaction Plot
 
-### 1. Histogram
+## Histogram
 
 A histogram is an approximate representation of the distribution of numerical data.
 
@@ -67,7 +67,7 @@ ggplot(iris, aes(x=iris$Sepal.Width)) +
   geom_histogram()
 ```
 
-### 2. Box Plot
+## Box Plot
 
 A box and whisker plot—also called a box plot—displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum.
 In a box plot, we draw a box from the first quartile to the third quartile. A vertical line goes through the box at the median. The whiskers go from each quartile to the minimum or maximum.
@@ -86,7 +86,7 @@ ggplot(iris, aes(iris$Species, iris$Sepal.Length)) +
 
 source: https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/box-whisker-plots/a/box-plot-review
 
-### 3. Violin Plots
+## Violin Plots
 
 violin plots are similar to box plots, except that they also show the kernel probability density of the data at different values. Typically, violin plots will include a marker for the median of the data and a box indicating the interquartile range, as in standard box plots.
 
@@ -111,7 +111,7 @@ ggplot(iris, aes(iris$Species, iris$Sepal.Length)) +
 ```
 source :http://www.sthda.com/english/wiki/ggplot2-violin-plot-quick-start-guide-r-software-and-data-visualization
 
-### 4.Ridgeline Plot
+## Ridgeline Plot
 
 Ridgeline Plot or Joy Plot is a kind of chart that is used to visualize distributions of several groups of a category. Each category or group of a category produces a density curve overlapping with each other creating a beautiful piece of the plot.
 
@@ -124,7 +124,7 @@ ggplot(diamonds, aes(x = price, y = cut, fill = cut)) +
 ```
 source:https://www.analyticsvidhya.com/blog/2021/06/ridgeline-plots-visualize-data-with-a-joy/
 
-### 5.Q-Q plot
+## Q-Q plot
 
 In statistics, a Q–Q (quantile-quantile) plot is a probability plot, which is a graphical method for comparing two probability distributions by plotting their quantiles against each other.
 
@@ -139,7 +139,7 @@ abline(0, 1)
 
 source: https://en.wikipedia.org/wiki/Q–Q_plot
 
-### 6. Scatter Plot
+## Scatter Plot
 A scatter plot (aka scatter chart, scatter graph) uses dots to represent values for two different numeric variables. The position of each dot on the horizontal and vertical axis indicates values for an individual data point. Scatter plots are used to observe relationships between variables.
 
 Base R function: plot()
@@ -155,7 +155,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width)) + geom_point()
 
 source: https://chartio.com/learn/charts/what-is-a-scatter-plot/
 
-### 7. Interactive Plot
+## Interactive Plot
 
 An interactive charts allows the user to perform actions: zooming, hovering a marker to get a tooltip, choosing a variable to display and more.
 
@@ -174,7 +174,7 @@ ggplotly(p)
 source:https://r-graph-gallery.com/interactive-charts.html
 
 
-### 8.Heatmaps
+## Heatmaps
 
 A heat map (or heatmap) is a data visualization technique that shows magnitude of a phenomenon as color in two dimensions. The variation in color may be by hue or intensity, giving obvious visual cues to the reader about how the phenomenon is clustered or varies over space.
 
@@ -202,7 +202,7 @@ ggplot(data, aes(X, Y, fill= Z)) +
 source:https://en.wikipedia.org/wiki/Heat_map
 https://r-graph-gallery.com/79-levelplot-with-ggplot2.html
 
-### 9.Contour Plot and Contour Line
+## Contour Plot and Contour Line
 A contour plot is a graphical technique for representing a 3-dimensional surface by plotting constant z slices, called contours, on a 2-dimensional format. That is, given a value for z, lines are drawn for connecting the (x,y) coordinates where that z value occurs.
 A contour line is a line drawn on a topographic map to indicate ground elevation or depression. A contour interval is the vertical distance or difference in elevation between contour lines. Index contours are bold or thicker lines that appear at every fifth contour line.
 
@@ -244,7 +244,7 @@ https://www.nwcg.gov/course/ffm/mapping/55-contour-lines-and-intervals
 https://r-charts.com/correlation/contour-plot-ggplot2/
 
 
-###10. Cleveland dot plot
+## Cleveland dot plot
 
 Cleveland dot plots are an alternative to bar graphs that reduce visual clutter and can be easier to read.
 
@@ -266,7 +266,7 @@ source: https://r-graphics.org/recipe-bar-graph-dot-plot
 
 https://r-charts.com/distribution/cleveland-dot-plot/
 
-### 11. Scatterplot Matrix
+## Scatterplot Matrix
 
 A scatter plot matrix is a grid (or matrix) of scatter plots used to visualize bivariate relationships between combinations of variables. Each scatter plot in the matrix visualizes the relationship between a pair of variables, allowing many relationships to be explored in one chart.
 
@@ -305,7 +305,7 @@ source: https://pro.arcgis.com/zh-cn/pro-app/2.6/help/analysis/geoprocessing/cha
 
 https://plotly.com/ggplot2/splom/
 
-### 12. Bar Plot
+## Bar Plot
 A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent. The bars can be plotted vertically or horizontally.
 
 A bar graph shows comparisons among discrete categories. One axis of the chart shows the specific categories being compared, and the other axis represents a measured value.
@@ -329,7 +329,7 @@ source: https://www.statmethods.net/graphs/bar.html
 
 http://www.sthda.com/english/wiki/ggplot2-barplots-quick-start-guide-r-software-and-data-visualization
 
-### 13. Parallel Coordinate Plot
+## Parallel Coordinate Plot
 
 A parallel coordinate plot maps each row in the data table as a line, or profile. Each attribute of a row is represented by a point on the line. This makes parallel coordinate plots similar in appearance to line charts, but the way data is translated into a plot is substantially different.
 
@@ -342,7 +342,7 @@ ggparcoord(iris, columns = 1:4, groupColumn = 5, scale = "uniminmax") +
 
 source:https://docs.tibco.com/pub/spotfire/6.5.2/doc/html/para/para_what_is_a_parallel_coordinate_plot.html
 
-### 14. Biplot
+## Biplot
 
 Biplots are a type of exploratory graph used in statistics, a generalization of the simple two-variable scatterplot. A biplot allows information on both samples and variables of a data matrix to be displayed graphically. Samples are displayed as points while variables are displayed either as vectors, linear axes or nonlinear trajectories.
 
@@ -365,7 +365,7 @@ biplot(results,
 
 source: https://www.statology.org/biplot-r/
 
-### 15. Mosaic plots
+## Mosaic plots
 
 A mosaic plot (also known as a Marimekko diagram) is a graphical method for visualizing data from two or more qualitative variables. It is the multidimensional extension of spineplots, which graphically display the same information for only one variable.
 
@@ -376,7 +376,7 @@ mosaicplot(Titanic, shade = TRUE, main = "")
 ```
 source:https://en.wikipedia.org/wiki/Mosaic_plot
 
-### 16. chernoff face
+## chernoff face
 
 Chernoff faces, invented by applied mathematician, statistician and physicist Herman Chernoff in 1973, display multivariate data in the shape of a human face. The individual parts, such as eyes, ears, mouth and nose represent values of the variables by their shape, size, placement and orientation. 
 
@@ -389,7 +389,7 @@ which = c(14, 9, 11, 6, 5)
 
 source: https://en.wikipedia.org/wiki/Chernoff_face
 
-### 17. Rug Plot
+## Rug Plot
 
 A rug plot is a plot of data for a single quantitative variable, displayed as marks along an axis. It is used to visualise the distribution of the data. As such it is analogous to a histogram with zero-width bins, or a one-dimensional scatter plot.
 
@@ -414,7 +414,7 @@ source: https://en.wikipedia.org/wiki/Rug_plot
 
 https://r-graph-gallery.com/276-scatterplot-with-rug-ggplot2.html
 
-### 18. Survival Plot
+## Survival Plot
 
 We use the term survival plot to represent a group of plots that are constructed on time to event data. The most common survival plot is the Kaplan-Meier Curve. Others survival plots are the hazard function and hazard rate plots.
 
@@ -427,7 +427,7 @@ survminer::ggsurvplot(leukemia.surv, data = aml)
 
 source: https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/NCSS/Survival_Plots.pdf
 
-### 19. Sunflower Scatter Plot
+## Sunflower Scatter Plot
 A sunflower plot is a type of scatterplot which tries to reduce overplotting. When there are multiple points that have the same (x, y) values, sunflower plots plot just one point there, but has little edges (or “petals”) coming out from the point to indicate how many points are really there.
 
 Base R function: sunflowerplot()
@@ -437,7 +437,7 @@ sunflowerplot(mtcars$gear, mtcars$carb, main = "Plot of Carb vs. Gear")
 
 souce: https://statisticaloddsandends.wordpress.com/2021/02/05/what-is-a-sunflower-plot/
 
-### 20. Interaction Plot
+## Interaction Plot
 
 An interaction plot displays the levels of one variable on the X axis and has a separate line for the means of each level of the other variable. The Y axis is the dependent variable.
 
