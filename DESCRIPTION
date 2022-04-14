@@ -37,6 +37,7 @@ Imports:
     ggdark,
     ggforce,
     ggfortify,
+    ggiraph,
     ggmap,
     ggmosaic,
     ggplot2,
