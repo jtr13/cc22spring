@@ -1,0 +1,211 @@
+---
+title: "Interactive Presentation with xaringan and dygraphs"
+author: "Ziwen Ye"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: center, middle
+
+# Quick start for dygraphs
+---
+
+```{r, fig.align='center', message = FALSE}
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+
+```
+
+---
+class: center, middle
+# Modified graphs with different opition
+- Add options with dyOptions
+
+-- colors: add color for each line
+
+-- stepPlot: make line as step
+
+-- drawPoints: draw point in the line
+
+
+
+---
+Add colors
+
+```{r, fig.align='center', message = FALSE}
+
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dyOptions(colors = RColorBrewer::brewer.pal(3, "Set2"))
+
+```
+
+
+
+---
+Add stepPlot
+
+```{r, fig.align='center', message = FALSE}
+
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dyOptions(stepPlot = TRUE)
+
+```
+---
+
+
+Add fillGraph
+
+```{r, fig.align='center', message = FALSE}
+
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.5)
+
+```
+---
+Add Point
+
+```{r, fig.align='center', message = FALSE}
+
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dyOptions(drawPoints = TRUE, pointSize = 2)
+
+```
+
+---
+class: center, middle
+# Modified graph with Legends & Labels
+
+-- main: title
+
+-- xlab: label for x axis
+
+-- ylab: label for y axis
+
+---
+```{r, fig.align='center', message = FALSE}
+
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths, 
+        main = "Deaths from Lung Disease (UK)", 
+        ylab = "Death / Year",
+        xlab = "Year")
+
+```
+
+
+---
+
+class: center, middle
+# Per-Series method
+---
+Draw series line by line
+```{r, fig.align='center', message = FALSE}
+
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dySeries("fdeaths", color = "red")
+```
+
+----
+Add Highlight for series
+```{r, fig.align='center', message = FALSE}
+
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dySeries("fdeaths", color = "red") %>%
+  dyHighlight(highlightCircleSize = 5, 
+              highlightSeriesBackgroundAlpha = 0.2,
+              hideOnMouseOut = FALSE)
+```
+---
+Add two axis for series
+
+```{r, fig.align='center', message = FALSE}
+
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dyAxis("y", label = "mdeath") %>%
+  dyAxis("y2", label = "fdeaths", independentTicks = TRUE) %>%
+  dySeries("fdeaths", color = "red", axis = 'y2')
+```
+
+---
+class: center, middle
+# Annotation & Shading
+---
+class: center, middle
+# Annotation
+---
+Add Annotation
+
+```{r, fig.align='center', message = FALSE}
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dyAxis("y", label = "mdeath")  %>%
+  dyAnnotation("1976-02-01", text = "Highest", width = 60)
+
+```
+
+---
+class: center, middle
+# Shading
+
+---
+Add shade for region
+```{r, fig.align='center', message = FALSE}
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dyAxis("y", label = "mdeath")  %>%
+  dyAnnotation("1976-02-01", text = "Highest", width = 60) %>%
+  dyShading(from = "1975-11-1", to = "1976-8-1", color = "#FFE6E6")
+
+```
+
+---
+class: center, middle
+# Events & Limits
+## Similar to vline and hline
+
+---
+Events
+```{r, fig.align='center', message = FALSE}
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dyAxis("y", label = "mdeath") %>%
+  dyShading(from = "1975-11-1", to = "1976-8-1", color = "#FFE6E6") %>%
+  dyEvent("1975-11-1", "Event Start", labelLoc = "bottom") %>%
+  dyEvent("1976-8-1", "Event End", labelLoc = "bottom")
+```
+
+---
+Limits
+```{r, fig.align='center', message = FALSE}
+dygraph(lungDeaths, main = "Deaths from Lung Disease (UK)") %>%
+  dySeries("mdeaths", color = "blue") %>%
+  dyAxis("y", label = "mdeath") %>%
+  dyShading(from = "1975-11-1", to = "1976-8-1", color = "#FFE6E6") %>%
+  dyEvent("1975-11-1", "Event Start", labelLoc = "bottom") %>%
+  dyEvent("1976-8-1", "Event End", labelLoc = "bottom") %>%
+  dyLimit(as.numeric(lungDeaths[26,1]), color = "red", "Highest death")
+```
+
+---
+
+class: center, middle
+
+# Thanks!
