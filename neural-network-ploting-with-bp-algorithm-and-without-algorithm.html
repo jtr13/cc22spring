@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 27 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Jing Wang and Peilin Jing  27.1 Explnation of our community contribution:  27.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
+<title>Chapter 29 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Jing Wang and Peilin Jing  29.1 Explnation of our community contribution:  29.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 27 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 29 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Jing Wang and Peilin Jing  27.1 Explnation of our community contribution:  27.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
+<meta property="og:description" content="Jing Wang and Peilin Jing  29.1 Explnation of our community contribution:  29.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 27 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Jing Wang and Peilin Jing  27.1 Explnation of our community contribution:  27.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
+<meta name="twitter:title" content="Chapter 29 Neural Network Ploting with BP Algorithm and without Algorithm | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Jing Wang and Peilin Jing  29.1 Explnation of our community contribution:  29.1.1 Since we are learning data science as well as data visualization this semester, we get very interested in the data...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -24,7 +24,8 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
 <script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="libs/d3-bundle-5.16.0/d3-bundle.min.js"></script><script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script><script src="libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script><link href="libs/ggiraphjs-0.4.2/ggiraphjs.min.css" rel="stylesheet">
+<script src="libs/ggiraphjs-0.4.2/ggiraphjs.min.js"></script><script src="libs/girafe-binding-0.8.2/girafe.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -67,33 +68,37 @@
 <li><a class="" href="cheatsheet-for-circlize-package.html"><span class="header-section-number">15</span> Cheatsheet for ‘circlize’ package</a></li>
 <li><a class="" href="texts-in-r-graphs-cheat-sheet.html"><span class="header-section-number">16</span> Texts in R Graphs Cheat Sheet</a></li>
 <li><a class="" href="dygraphs-package.html"><span class="header-section-number">17</span> dygraphs package</a></li>
+<li><a class="" href="data-visualization-course-cheatsheet.html"><span class="header-section-number">18</span> Data visualization course cheatsheet</a></li>
+<li><a class="" href="web-scraping-tables-tutorial.html"><span class="header-section-number">19</span> Web scraping tables tutorial</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">18</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">19</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">20</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">21</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">22</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">23</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">24</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">25</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">26</span> R Shiny Map Tutorial</a></li>
-<li><a class="active" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">27</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
-<li><a class="" href="wordcloud.html"><span class="header-section-number">28</span> wordcloud</a></li>
-<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">29</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">30</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">31</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">32</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">33</span> Lecture Helper</a></li>
-<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">34</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">35</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">36</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">37</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">38</span> R Shiny and Interactive Map Tutorial</a></li>
-<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">39</span> Extract data from scatterplot</a></li>
-<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">40</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">20</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">21</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">22</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">23</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">24</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">25</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">26</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">27</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">28</span> R Shiny Map Tutorial</a></li>
+<li><a class="active" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">29</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">30</span> wordcloud</a></li>
+<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">31</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">32</span> Time Series Analysis in R</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">33</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">34</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">35</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">36</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">37</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">38</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">39</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">40</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">41</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">42</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">43</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="polar-line-plots.html"><span class="header-section-number">44</span> Polar Line Plots</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">41</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">42</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">45</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">46</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -101,29 +106,29 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="neural-network-ploting-with-bp-algorithm-and-without-algorithm" class="section level1" number="27">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="neural-network-ploting-with-bp-algorithm-and-without-algorithm" class="section level1" number="29">
 <h1>
-<span class="header-section-number">27</span> Neural Network Ploting with BP Algorithm and without Algorithm<a class="anchor" aria-label="anchor" href="#neural-network-ploting-with-bp-algorithm-and-without-algorithm"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29</span> Neural Network Ploting with BP Algorithm and without Algorithm<a class="anchor" aria-label="anchor" href="#neural-network-ploting-with-bp-algorithm-and-without-algorithm"><i class="fas fa-link"></i></a>
 </h1>
 <p>Jing Wang and Peilin Jing</p>
-<div id="explnation-of-our-community-contribution" class="section level2" number="27.1">
+<div id="explnation-of-our-community-contribution" class="section level2" number="29.1">
 <h2>
-<span class="header-section-number">27.1</span> Explnation of our community contribution:<a class="anchor" aria-label="anchor" href="#explnation-of-our-community-contribution"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.1</span> Explnation of our community contribution:<a class="anchor" aria-label="anchor" href="#explnation-of-our-community-contribution"><i class="fas fa-link"></i></a>
 </h2>
-<div id="since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting." class="section level3" number="27.1.1">
+<div id="since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting." class="section level3" number="29.1.1">
 <h3>
-<span class="header-section-number">27.1.1</span> Since we are learning data science as well as data visualization this semester, we get very interested in the data visualization in machine learning, and decide to do a tutorial for the Network plotting, which generally for the network visualization and bp neural network plotting.<a class="anchor" aria-label="anchor" href="#since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting."><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.1.1</span> Since we are learning data science as well as data visualization this semester, we get very interested in the data visualization in machine learning, and decide to do a tutorial for the Network plotting, which generally for the network visualization and bp neural network plotting.<a class="anchor" aria-label="anchor" href="#since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting."><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork." class="section level3" number="27.1.2">
+<div id="we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork." class="section level3" number="29.1.2">
 <h3>
-<span class="header-section-number">27.1.2</span> We learned a lot from the project, including the neural networks we never lerned before, the basic network plotting, and how to scale the data for better visualization. Also, there are a few things we want to improve for next time. We would like to visualize more complex neural network algorithm, and would like to learn more about the network plotting packages including ggraph and ggnetwork.<a class="anchor" aria-label="anchor" href="#we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork."><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.1.2</span> We learned a lot from the project, including the neural networks we never lerned before, the basic network plotting, and how to scale the data for better visualization. Also, there are a few things we want to improve for next time. We would like to visualize more complex neural network algorithm, and would like to learn more about the network plotting packages including ggraph and ggnetwork.<a class="anchor" aria-label="anchor" href="#we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork."><i class="fas fa-link"></i></a>
 </h3>
 </div>
 </div>
-<div id="the-back-propagation-bp-neural-networks-algorithm" class="section level2" number="27.2">
+<div id="the-back-propagation-bp-neural-networks-algorithm" class="section level2" number="29.2">
 <h2>
-<span class="header-section-number">27.2</span> The Back Propagation (bp) Neural Networks algorithm<a class="anchor" aria-label="anchor" href="#the-back-propagation-bp-neural-networks-algorithm"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2</span> The Back Propagation (bp) Neural Networks algorithm<a class="anchor" aria-label="anchor" href="#the-back-propagation-bp-neural-networks-algorithm"><i class="fas fa-link"></i></a>
 </h2>
 <p>BP (Back Propagation) neural network was proposed by scientists headed by Rumelhart and McCelland in 1986. It is a multi-layer feed-forward network trained by error Back Propagation algorithm. It is one of the most widely used neural network models at present. BP network can learn and store a large number of input-output mode mappings without revealing the mathematical equations describing the mappings in advance. Its learning rule is to use the fastest descent method, through back propagation to constantly adjust the weight and threshold of the network, so as to minimize the sum of squares of error of the network. The topology of BP neural network model includes input layer, hide layer and output layer. It can effectively decrease data dimensionality. To do this, we need to pass the data through the “bottleneck” with lower dimension than source data.</p>
 <p>There are already many packages for bp neural networks in the R language, such as NNET, AMORE and Neuralnet.</p>
@@ -133,16 +138,16 @@
 <p>The RSNNS package not only contains the bp algorithm but also other types of algorithm, such as DDA and etc.</p>
 <p>Backpropagation neural networks can be very helpful whem we want to compress and visuallized multi_dimensional data, and it is more clear than some other well-known methods.</p>
 <p>(<a href="https://link.springer.com/chapter/10.1007/978-3-642-30223-7_87" class="uri">https://link.springer.com/chapter/10.1007/978-3-642-30223-7_87</a>; <a href="https://rpubs.com/alexv71/237757" class="uri">https://rpubs.com/alexv71/237757</a>)</p>
-<div id="nnet" class="section level3" number="27.2.1">
+<div id="nnet" class="section level3" number="29.2.1">
 <h3>
-<span class="header-section-number">27.2.1</span> NNET<a class="anchor" aria-label="anchor" href="#nnet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.1</span> NNET<a class="anchor" aria-label="anchor" href="#nnet"><i class="fas fa-link"></i></a>
 </h3>
 <p>Feed-Forward Neural Networks and Multinomial Log-Linear Models</p>
 <p>nnet uses the C code for BFGS from optim (converted earlier from Pascal) directly instead of calling optim from R. This may be what allows it to be faster, but limits the optimization to the single method. nnet is only beaten by the Extreme Learning Machine (ELM) algorithms in terms of speed. However, there is a larger variation when using nnet. We believe the different default starting values are the cause of this. For instance, nnet uses a range of initial random weights of 0.7 In spite of these results, the real reason most authors or users are likely to choose nnet is because it is included in the distributed base R and is even mentioned as the very first package in CRAN’s task view for machine learning.</p>
 <p>(<a href="https://cran.r-project.org/web/packages/nnet/nnet.pdf" class="uri">https://cran.r-project.org/web/packages/nnet/nnet.pdf</a>)</p>
-<div id="usage" class="section level4" number="27.2.1.1">
+<div id="usage" class="section level4" number="29.2.1.1">
 <h4>
-<span class="header-section-number">27.2.1.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.1.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage"><i class="fas fa-link"></i></a>
 </h4>
 <p>nnet(x, …)</p>
 <p>S3 method for formula</p>
@@ -160,9 +165,9 @@ maxit = 100, Hess = FALSE, trace = TRUE, MaxNWts = 1000,
  
 abstol = 1.0e-4, reltol = 1.0e-8, …)</code></pre>
 </div>
-<div id="arguments" class="section level4" number="27.2.1.2">
+<div id="arguments" class="section level4" number="29.2.1.2">
 <h4>
-<span class="header-section-number">27.2.1.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.1.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
 </h4>
 <p>formula: A formula of the form class ~ x1 + x2 + …</p>
 <p>x: matrix or data frame of x values for examples.</p>
@@ -190,7 +195,7 @@ abstol = 1.0e-4, reltol = 1.0e-8, …)</code></pre>
 <p>reltol: Stop if the optimizer is unable to reduce the fit criterion by a factor of at least 1 - reltol.</p>
 <p>…</p>
 <p>arguments passed to or from other methods.</p>
-<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#load package and data</span>
 <span class="co"># install.packages("DMwR2")</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
@@ -219,12 +224,12 @@ abstol = 1.0e-4, reltol = 1.0e-8, …)</code></pre>
 <span class="co">#plot predict value and true value</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">norm.preds</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#calculate the error  </span>
 <span class="op">(</span><span class="va">nmse2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">norm.preds</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span>  
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">clean.algae</span><span class="op">$</span><span class="va">a1</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
 <pre><code>## [1] 0.1452598</code></pre>
-<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#plot model</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span>
 <span class="fu"><a href="https://devtools.r-lib.org/reference/source_url.html">source_url</a></span><span class="op">(</span><span class="st">'https://gist.githubusercontent.com/Peque/41a9e20d6687f2f3108d/raw/85e14f3a292e126f1454864427e3a189c2fe33f3/nnet_plot_update.r'</span><span class="op">)</span>
@@ -232,37 +237,37 @@ abstol = 1.0e-4, reltol = 1.0e-8, …)</code></pre>
 <div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="amore" class="section level3" number="27.2.2">
+<div id="amore" class="section level3" number="29.2.2">
 <h3>
-<span class="header-section-number">27.2.2</span> AMORE<a class="anchor" aria-label="anchor" href="#amore"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.2</span> AMORE<a class="anchor" aria-label="anchor" href="#amore"><i class="fas fa-link"></i></a>
 </h3>
 <p>AMORE is A MORE flexible neural network package, which was born to release the TAO robust neural network algorithem to the R users. It’s kind of out dated and hard to data visualization so that people generally will not use this one to do the bp neural network.</p>
-<div id="newff-usage" class="section level4" number="27.2.2.1">
+<div id="newff-usage" class="section level4" number="29.2.2.1">
 <h4>
-<span class="header-section-number">27.2.2.1</span> newff() Usage<a class="anchor" aria-label="anchor" href="#newff-usage"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.2.1</span> newff() Usage<a class="anchor" aria-label="anchor" href="#newff-usage"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>newff(n.neurons, learning.rate.global, momentum.global, 
 error.criterium, Stao,hidden.layer, output.layer, method)</code></pre>
 </div>
-<div id="arguments-1" class="section level4" number="27.2.2.2">
+<div id="arguments-1" class="section level4" number="29.2.2.2">
 <h4>
-<span class="header-section-number">27.2.2.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.2.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>n.neurons: Numeric vector containing the number of neurons of each layer. The first element of the vector is the number of input neurons, the last is the number of output neurons and the rest are the number of neuron of the different hidden layers.</p>
 <p>learning.rate.global: Learning rate at which every neuron is trained.</p>
 <p>momentum.global: Momentum for every neuron. Needed by several training methods</p>
 <p>The mostly used arguments for newff() are listed above. For the further information, you can check on the cran website I posted below.</p>
 </div>
-<div id="train-usage" class="section level4" number="27.2.2.3">
+<div id="train-usage" class="section level4" number="29.2.2.3">
 <h4>
-<span class="header-section-number">27.2.2.3</span> train() Usage<a class="anchor" aria-label="anchor" href="#train-usage"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.2.3</span> train() Usage<a class="anchor" aria-label="anchor" href="#train-usage"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>train(net, P, T, Pval=NULL, Tval=NULL, error.criterium="LMS",
 report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 </div>
-<div id="arguments-2" class="section level4" number="27.2.2.4">
+<div id="arguments-2" class="section level4" number="29.2.2.4">
 <h4>
-<span class="header-section-number">27.2.2.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.2.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>net: Neural Network to train.</p>
 <p>error.criterium: Criterium used to measure the goodness of fit:“LMS”, “LMLS”, “TAO”.</p>
@@ -270,7 +275,7 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 <p>show.step: Number of epochs to train non-stop until the training function is allow to report.</p>
 <p>The mostly used arguments for train() are listed above. For the further information, you can check on the cran website I posted below.</p>
 <p>（<a href="http://cran.nexr.com/web/packages/AMORE/AMORE.pdf" class="uri">http://cran.nexr.com/web/packages/AMORE/AMORE.pdf</a>）</p>
-<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#load package and data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
 <span class="co">#install_version("AMORE", "0.2-11")</span>
@@ -294,7 +299,7 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 ## index.show: 3 LMS 0.0886648893419836 
 ## index.show: 4 LMS 2.87892981034031e-05 
 ## index.show: 5 LMS 2.130723629117e-05</code></pre>
-<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Predict for the result</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/AMORE/man/sim.MLPnet.html">sim</a></span><span class="op">(</span><span class="va">result</span><span class="op">$</span><span class="va">net</span>,<span class="va">P</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">P</span>,<span class="va">y</span>,col<span class="op">=</span><span class="st">"blue"</span>,pch<span class="op">=</span><span class="st">"+"</span><span class="op">)</span>
@@ -302,14 +307,14 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 <div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="neuralnet" class="section level3" number="27.2.3">
+<div id="neuralnet" class="section level3" number="29.2.3">
 <h3>
-<span class="header-section-number">27.2.3</span> Neuralnet<a class="anchor" aria-label="anchor" href="#neuralnet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.3</span> Neuralnet<a class="anchor" aria-label="anchor" href="#neuralnet"><i class="fas fa-link"></i></a>
 </h3>
 <p>This is a package that train the neural networks using back propagation,resilient back propagation with or without wright backtracking or the modified globally convergent. It alloes flexible settings through custom_choice of error and activation function. Furthermore, the calculation of generalized weights is imlemented. This one is generally used by many people, and is one of the most popular package for bp neural network.</p>
-<div id="neuralnet-usage" class="section level4" number="27.2.3.1">
+<div id="neuralnet-usage" class="section level4" number="29.2.3.1">
 <h4>
-<span class="header-section-number">27.2.3.1</span> neuralnet() Usage<a class="anchor" aria-label="anchor" href="#neuralnet-usage"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.3.1</span> neuralnet() Usage<a class="anchor" aria-label="anchor" href="#neuralnet-usage"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>neuralnet(formula, data, hidden = 1, threshold = 0.01,
  stepmax = 1e+05, rep = 1, startweights = NULL，
@@ -319,9 +324,9 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
  act.fct = "logistic", linear.output = TRUE, exclude = NULL,
  constant.weights = NULL, likelihood = FALSE)</code></pre>
 </div>
-<div id="arguments-3" class="section level4" number="27.2.3.2">
+<div id="arguments-3" class="section level4" number="29.2.3.2">
 <h4>
-<span class="header-section-number">27.2.3.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.3.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"><i class="fas fa-link"></i></a>
 </h4>
 <p>formula: a symbolic description of the model to be fitted.</p>
 <p>data: a data frame containing the variables specified in formula.</p>
@@ -330,21 +335,21 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 <p>etc.</p>
 <p>The mostly used arguments for neuralnet() are listed above. For the futher information, you can check on the cran website I posted below.</p>
 </div>
-<div id="compute-usage" class="section level4" number="27.2.3.3">
+<div id="compute-usage" class="section level4" number="29.2.3.3">
 <h4>
-<span class="header-section-number">27.2.3.3</span> compute() Usage<a class="anchor" aria-label="anchor" href="#compute-usage"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.3.3</span> compute() Usage<a class="anchor" aria-label="anchor" href="#compute-usage"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>compute(x, covariate, rep = 1)</code></pre>
 </div>
-<div id="arguments-4" class="section level4" number="27.2.3.4">
+<div id="arguments-4" class="section level4" number="29.2.3.4">
 <h4>
-<span class="header-section-number">27.2.3.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.3.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"><i class="fas fa-link"></i></a>
 </h4>
 <p>x: an object of class nn.</p>
 <p>covariate: a dataframe or matrix containing the variables that had been used to train the neural network.</p>
 <p>rep: an integer indicating the neural network’s repetition which should be used.</p>
 <p>(<a href="https://cran.r-project.org/web/packages/neuralnet/neuralnet.pdf" class="uri">https://cran.r-project.org/web/packages/neuralnet/neuralnet.pdf</a>)</p>
-<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#load package and data</span>
 <span class="co"># install.packages("neuralnet")</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
@@ -377,7 +382,7 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 ## generalized.weights  1     -none-     list    
 ## startweights         1     -none-     list    
 ## result.matrix       34     -none-     numeric</code></pre>
-<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Plot the neural network</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">net.sqrt</span><span class="op">)</span>
 
@@ -386,7 +391,7 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/compute.html">compute</a></span><span class="op">(</span><span class="va">net.sqrt</span>,<span class="va">testdata</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "net.result" "neurons"</code></pre>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">$</span><span class="va">net.result</span><span class="op">)</span></code></pre></div>
 <pre><code>##           [,1]
 ##  [1,] 1.001483
@@ -401,27 +406,27 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 ## [10,] 9.994979</code></pre>
 </div>
 </div>
-<div id="rsnss" class="section level3" number="27.2.4">
+<div id="rsnss" class="section level3" number="29.2.4">
 <h3>
-<span class="header-section-number">27.2.4</span> RSNSS<a class="anchor" aria-label="anchor" href="#rsnss"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.4</span> RSNSS<a class="anchor" aria-label="anchor" href="#rsnss"><i class="fas fa-link"></i></a>
 </h3>
 <p>RSNSS is a new package for neural network, and it’s originally ceom for the SNNS library which wraps the SNNS functionality to make it available in R. Also, RSNSS expand the functionality and flexibility of SNNS which it contains more algorithms and topologies.</p>
 <p>(<a href="https://cran.r-project.org/web/packages/RSNNS/RSNNS.pdf" class="uri">https://cran.r-project.org/web/packages/RSNNS/RSNNS.pdf</a>;
 <a href="https://rdrr.io/cran/RSNNS/man/mlp.html" class="uri">https://rdrr.io/cran/RSNNS/man/mlp.html</a>)</p>
-<div id="usage-1" class="section level4" number="27.2.4.1">
+<div id="usage-1" class="section level4" number="29.2.4.1">
 <h4>
-<span class="header-section-number">27.2.4.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.4.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-1"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>analyzeClassification(y, method = "WTA", l = 0, h = 0)</code></pre>
 </div>
-<div id="arguments-5" class="section level4" number="27.2.4.2">
+<div id="arguments-5" class="section level4" number="29.2.4.2">
 <h4>
-<span class="header-section-number">27.2.4.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.2.4.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"><i class="fas fa-link"></i></a>
 </h4>
 <p>y: inputs</p>
 <p>method: “WTA” or “402040”</p>
 <p>l: lower bound, e.g. in 402040: l=0.4 h upper bound, e.g. in 402040: h=0.6</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#load package and data</span>
 
 <span class="co"># install.packages("RSNNS")</span>
@@ -504,7 +509,7 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 ##     11 |      |  9:-0.89046,  8:-0.96601,  7:-3.94641,  6:-1.99330,  5: 2.24251
 ##     12 |      |  9: 1.75366,  8:-3.31889,  7: 3.03418,  6:-0.56827,  5: 0.28522
 ## -------|------|---------------------------------------------------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#use the model above to make prediction</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotIterativeError.html">plotIterativeError</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
@@ -518,23 +523,23 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 ##       1 43  0  0
 ##       2  0 37  3
 ##       3  0  1 43</code></pre>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">targetsTest</span>,<span class="va">predictions</span><span class="op">)</span></code></pre></div>
 <pre><code>##        predictions
 ## targets  1  2  3
 ##       1  7  0  0
 ##       2  0 10  0
 ##       3  0  0  6</code></pre>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotROC.html">plotROC</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted.values</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, <span class="va">iris</span><span class="op">$</span><span class="va">targetsTrain</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/plotROC.html">plotROC</a></span><span class="op">(</span><span class="va">predictions</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, <span class="va">iris</span><span class="op">$</span><span class="va">targetsTest</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
 </div>
-<div id="general-plotting-for-neural-network" class="section level2" number="27.3">
+<div id="general-plotting-for-neural-network" class="section level2" number="29.3">
 <h2>
-<span class="header-section-number">27.3</span> General plotting for Neural network<a class="anchor" aria-label="anchor" href="#general-plotting-for-neural-network"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3</span> General plotting for Neural network<a class="anchor" aria-label="anchor" href="#general-plotting-for-neural-network"><i class="fas fa-link"></i></a>
 </h2>
 <p>Network visualization allows administrators to quickly and intuitively understand a lot of information about the state of the network at a glance. If we are not sure about the algorithm, it’s better for us to visualize the network for our data. From the network visualization, we would like to find the key actors and links, the relationship strength, the structural properties and diffusion patterns, etc.</p>
 <p>We would like to introduce two basic package for network visualizetion which are network and igraph. network can represent a range of relational data types, and supports arbitrary vertex/edge/graph attributes. igraph can handle large graphs very well and provides functions for generating random and regular graphs, graph visualization, centrality methods and much more.</p>
@@ -542,13 +547,13 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 <a href="https://kateto.net/network-visualization" class="uri">https://kateto.net/network-visualization</a>;
 <a href="https://cran.r-project.org/web/packages/igraph/igraph.pdf" class="uri">https://cran.r-project.org/web/packages/igraph/igraph.pdf</a>;
 <a href="https://cran.r-project.org/web/packages/network/network.pdf" class="uri">https://cran.r-project.org/web/packages/network/network.pdf</a>)</p>
-<div id="network" class="section level3" number="27.3.1">
+<div id="network" class="section level3" number="29.3.1">
 <h3>
-<span class="header-section-number">27.3.1</span> network<a class="anchor" aria-label="anchor" href="#network"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3.1</span> network<a class="anchor" aria-label="anchor" href="#network"><i class="fas fa-link"></i></a>
 </h3>
-<div id="usage-2" class="section level4" number="27.3.1.1">
+<div id="usage-2" class="section level4" number="29.3.1.1">
 <h4>
-<span class="header-section-number">27.3.1.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3.1.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-2"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>add.edge( x,
   tail,
@@ -560,9 +565,9 @@ report=TRUE,n.shows, show.step, Stao=NA,prob=NULL,n.threads=0L)</code></pre>
 )
 add.edges(x, tail, head, names.eval = NULL, vals.eval = NULL, ...)</code></pre>
 </div>
-<div id="arguments-6" class="section level4" number="27.3.1.2">
+<div id="arguments-6" class="section level4" number="29.3.1.2">
 <h4>
-<span class="header-section-number">27.3.1.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3.1.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-6"><i class="fas fa-link"></i></a>
 </h4>
 <p>x: an object of class network</p>
 <p>tail: for add.edge, a vector of vertex IDs reflecting the tail set for the edge to be added; for add.edges, a list of such vectors</p>
@@ -572,7 +577,7 @@ add.edges(x, tail, head, names.eval = NULL, vals.eval = NULL, ...)</code></pre>
 <p>edge.check: logical; should we perform (computationally expensive) tests to check for the legality of submitted edges?</p>
 <p>…
 additional arguments</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://statnet.org/">network</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
@@ -601,24 +606,24 @@ additional arguments</p>
 <div class="inline-figure"><img src="neural_network_ploting_with_bp_algorithm_and_without_algorithm_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="igraph" class="section level3" number="27.3.2">
+<div id="igraph" class="section level3" number="29.3.2">
 <h3>
-<span class="header-section-number">27.3.2</span> igraph<a class="anchor" aria-label="anchor" href="#igraph"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3.2</span> igraph<a class="anchor" aria-label="anchor" href="#igraph"><i class="fas fa-link"></i></a>
 </h3>
-<div id="usage-3" class="section level4" number="27.3.2.1">
+<div id="usage-3" class="section level4" number="29.3.2.1">
 <h4>
-<span class="header-section-number">27.3.2.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3.2.1</span> Usage<a class="anchor" aria-label="anchor" href="#usage-3"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>## S3 method for class 'igraph'
 e1 + e2</code></pre>
 </div>
-<div id="arguments-7" class="section level4" number="27.3.2.2">
+<div id="arguments-7" class="section level4" number="29.3.2.2">
 <h4>
-<span class="header-section-number">27.3.2.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.3.2.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"><i class="fas fa-link"></i></a>
 </h4>
 <p>e1: First argument, probably an igraph graph.</p>
 <p>e2: Second argument.</p>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org">igraph</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
@@ -647,30 +652,30 @@ e1 + e2</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="r-shiny-map-tutorial.html"><span class="header-section-number">26</span> R Shiny Map Tutorial</a></div>
-<div class="next"><a href="wordcloud.html"><span class="header-section-number">28</span> wordcloud</a></div>
+<div class="prev"><a href="r-shiny-map-tutorial.html"><span class="header-section-number">28</span> R Shiny Map Tutorial</a></div>
+<div class="next"><a href="wordcloud.html"><span class="header-section-number">30</span> wordcloud</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#neural-network-ploting-with-bp-algorithm-and-without-algorithm"><span class="header-section-number">27</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="nav-link" href="#neural-network-ploting-with-bp-algorithm-and-without-algorithm"><span class="header-section-number">29</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
 <li>
-<a class="nav-link" href="#explnation-of-our-community-contribution"><span class="header-section-number">27.1</span> Explnation of our community contribution:</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting."><span class="header-section-number">27.1.1</span> Since we are learning data science as well as data visualization this semester, we get very interested in the data visualization in machine learning, and decide to do a tutorial for the Network plotting, which generally for the network visualization and bp neural network plotting.</a></li>
-<li><a class="nav-link" href="#we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork."><span class="header-section-number">27.1.2</span> We learned a lot from the project, including the neural networks we never lerned before, the basic network plotting, and how to scale the data for better visualization. Also, there are a few things we want to improve for next time. We would like to visualize more complex neural network algorithm, and would like to learn more about the network plotting packages including ggraph and ggnetwork.</a></li>
+<a class="nav-link" href="#explnation-of-our-community-contribution"><span class="header-section-number">29.1</span> Explnation of our community contribution:</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#since-we-are-learning-data-science-as-well-as-data-visualization-this-semester-we-get-very-interested-in-the-data-visualization-in-machine-learning-and-decide-to-do-a-tutorial-for-the-network-plotting-which-generally-for-the-network-visualization-and-bp-neural-network-plotting."><span class="header-section-number">29.1.1</span> Since we are learning data science as well as data visualization this semester, we get very interested in the data visualization in machine learning, and decide to do a tutorial for the Network plotting, which generally for the network visualization and bp neural network plotting.</a></li>
+<li><a class="nav-link" href="#we-learned-a-lot-from-the-project-including-the-neural-networks-we-never-lerned-before-the-basic-network-plotting-and-how-to-scale-the-data-for-better-visualization.-also-there-are-a-few-things-we-want-to-improve-for-next-time.-we-would-like-to-visualize-more-complex-neural-network-algorithm-and-would-like-to-learn-more-about-the-network-plotting-packages-including-ggraph-and-ggnetwork."><span class="header-section-number">29.1.2</span> We learned a lot from the project, including the neural networks we never lerned before, the basic network plotting, and how to scale the data for better visualization. Also, there are a few things we want to improve for next time. We would like to visualize more complex neural network algorithm, and would like to learn more about the network plotting packages including ggraph and ggnetwork.</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#the-back-propagation-bp-neural-networks-algorithm"><span class="header-section-number">27.2</span> The Back Propagation (bp) Neural Networks algorithm</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#nnet"><span class="header-section-number">27.2.1</span> NNET</a></li>
-<li><a class="nav-link" href="#amore"><span class="header-section-number">27.2.2</span> AMORE</a></li>
-<li><a class="nav-link" href="#neuralnet"><span class="header-section-number">27.2.3</span> Neuralnet</a></li>
-<li><a class="nav-link" href="#rsnss"><span class="header-section-number">27.2.4</span> RSNSS</a></li>
+<a class="nav-link" href="#the-back-propagation-bp-neural-networks-algorithm"><span class="header-section-number">29.2</span> The Back Propagation (bp) Neural Networks algorithm</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#nnet"><span class="header-section-number">29.2.1</span> NNET</a></li>
+<li><a class="nav-link" href="#amore"><span class="header-section-number">29.2.2</span> AMORE</a></li>
+<li><a class="nav-link" href="#neuralnet"><span class="header-section-number">29.2.3</span> Neuralnet</a></li>
+<li><a class="nav-link" href="#rsnss"><span class="header-section-number">29.2.4</span> RSNSS</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#general-plotting-for-neural-network"><span class="header-section-number">27.3</span> General plotting for Neural network</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#network"><span class="header-section-number">27.3.1</span> network</a></li>
-<li><a class="nav-link" href="#igraph"><span class="header-section-number">27.3.2</span> igraph</a></li>
+<a class="nav-link" href="#general-plotting-for-neural-network"><span class="header-section-number">29.3</span> General plotting for Neural network</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#network"><span class="header-section-number">29.3.1</span> network</a></li>
+<li><a class="nav-link" href="#igraph"><span class="header-section-number">29.3.2</span> igraph</a></li>
 </ul>
 </li>
 </ul>
@@ -690,7 +695,7 @@ e1 + e2</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-13.</p>
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

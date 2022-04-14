@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 34 Basic introduction to tidyverse | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Xiaoyuan Ge and Hui Li library(ggplot2) library(dplyr)  34.1 Motivation In data science, good visualizations should give and provide more information than you can just see in the data itself. Good...">
+<title>Chapter 37 Basic introduction to tidyverse | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Xiaoyuan Ge and Hui Li library(ggplot2) library(dplyr)  37.1 Motivation In data science, good visualizations should give and provide more information than you can just see in the data itself. Good...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 34 Basic introduction to tidyverse | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 37 Basic introduction to tidyverse | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Xiaoyuan Ge and Hui Li library(ggplot2) library(dplyr)  34.1 Motivation In data science, good visualizations should give and provide more information than you can just see in the data itself. Good...">
+<meta property="og:description" content="Xiaoyuan Ge and Hui Li library(ggplot2) library(dplyr)  37.1 Motivation In data science, good visualizations should give and provide more information than you can just see in the data itself. Good...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 34 Basic introduction to tidyverse | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Xiaoyuan Ge and Hui Li library(ggplot2) library(dplyr)  34.1 Motivation In data science, good visualizations should give and provide more information than you can just see in the data itself. Good...">
+<meta name="twitter:title" content="Chapter 37 Basic introduction to tidyverse | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Xiaoyuan Ge and Hui Li library(ggplot2) library(dplyr)  37.1 Motivation In data science, good visualizations should give and provide more information than you can just see in the data itself. Good...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -24,7 +24,8 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
 <script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="libs/d3-bundle-5.16.0/d3-bundle.min.js"></script><script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script><script src="libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script><link href="libs/ggiraphjs-0.4.2/ggiraphjs.min.css" rel="stylesheet">
+<script src="libs/ggiraphjs-0.4.2/ggiraphjs.min.js"></script><script src="libs/girafe-binding-0.8.2/girafe.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -67,33 +68,37 @@
 <li><a class="" href="cheatsheet-for-circlize-package.html"><span class="header-section-number">15</span> Cheatsheet for ‘circlize’ package</a></li>
 <li><a class="" href="texts-in-r-graphs-cheat-sheet.html"><span class="header-section-number">16</span> Texts in R Graphs Cheat Sheet</a></li>
 <li><a class="" href="dygraphs-package.html"><span class="header-section-number">17</span> dygraphs package</a></li>
+<li><a class="" href="data-visualization-course-cheatsheet.html"><span class="header-section-number">18</span> Data visualization course cheatsheet</a></li>
+<li><a class="" href="web-scraping-tables-tutorial.html"><span class="header-section-number">19</span> Web scraping tables tutorial</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">18</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">19</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">20</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">21</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">22</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">23</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">24</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">25</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">26</span> R Shiny Map Tutorial</a></li>
-<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">27</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
-<li><a class="" href="wordcloud.html"><span class="header-section-number">28</span> wordcloud</a></li>
-<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">29</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">30</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">31</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">32</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">33</span> Lecture Helper</a></li>
-<li><a class="active" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">34</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">35</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">36</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">37</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">38</span> R Shiny and Interactive Map Tutorial</a></li>
-<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">39</span> Extract data from scatterplot</a></li>
-<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">40</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">20</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">21</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">22</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">23</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">24</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">25</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">26</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">27</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">28</span> R Shiny Map Tutorial</a></li>
+<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">29</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">30</span> wordcloud</a></li>
+<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">31</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">32</span> Time Series Analysis in R</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">33</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">34</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">35</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">36</span> Lecture Helper</a></li>
+<li><a class="active" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">37</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">38</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">39</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">40</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">41</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">42</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">43</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="polar-line-plots.html"><span class="header-section-number">44</span> Polar Line Plots</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">41</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">42</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">45</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">46</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -101,17 +106,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="basic-introduction-to-tidyverse" class="section level1" number="34">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="basic-introduction-to-tidyverse" class="section level1" number="37">
 <h1>
-<span class="header-section-number">34</span> Basic introduction to tidyverse<a class="anchor" aria-label="anchor" href="#basic-introduction-to-tidyverse"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37</span> Basic introduction to tidyverse<a class="anchor" aria-label="anchor" href="#basic-introduction-to-tidyverse"><i class="fas fa-link"></i></a>
 </h1>
 <p>Xiaoyuan Ge and Hui Li</p>
-<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
-<div id="motivation-5" class="section level2" number="34.1">
+<div id="motivation-5" class="section level2" number="37.1">
 <h2>
-<span class="header-section-number">34.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-5"><i class="fas fa-link"></i></a>
 </h2>
 <p>In data science, good visualizations should give and provide more information than you can just see in the data itself. Good visualizations should give us a more direct and clear sense of what is going on. However, bad data sometimes even worsen the situation and make us more confused on the data that on our hand.</p>
 <p>We have an additional cheatsheet on the separate file. The link is:
@@ -119,18 +124,18 @@
 <p>And the following is mainly about the use of “Tidyverse” in R. We focus on the data visualization with ggplot2 and data transformation with dplyr. Since there are many included inside Tidyverse package, this package could help people to transform data and plot data. And these are also 2 main goals that we want to showed on our cheat sheet. And firstly, because our class is named as data visualization and the mostly we learned on how to plotting different dataset with different properties. Also, under different situation and needs, we sometimes need to plot varies plots combined with accordingly explanation. Thus plotting accordingly based on the data set that we have would help us better see and explain and understanding the data.</p>
 <p>R has several packages faciliate us making different plots and graphs, “ggplot2” is one of the most widely-used and flexible one that people use a lot in practice. Let’s starting by using mtcars</p>
 </div>
-<div id="data-visualization-1" class="section level2" number="34.2">
+<div id="data-visualization-1" class="section level2" number="37.2">
 <h2>
-<span class="header-section-number">34.2</span> Data visualization<a class="anchor" aria-label="anchor" href="#data-visualization-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.2</span> Data visualization<a class="anchor" aria-label="anchor" href="#data-visualization-1"><i class="fas fa-link"></i></a>
 </h2>
-<div id="scatterplot-4" class="section level3" number="34.2.1">
+<div id="scatterplot-4" class="section level3" number="37.2.1">
 <h3>
-<span class="header-section-number">34.2.1</span> Scatterplot<a class="anchor" aria-label="anchor" href="#scatterplot-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.2.1</span> Scatterplot<a class="anchor" aria-label="anchor" href="#scatterplot-4"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 234  11</code></pre>
-<div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mpg</span>,<span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
 ##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
@@ -138,32 +143,32 @@
 ## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…
 ## 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…
 ## 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…</code></pre>
-<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="basic_introduction_to_tidyverse_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>By plotting scatter plot, we do see a relationship between hwy and cyl, however, no more additional information provided to us based on this graph. There are only 2 variables included in, we can then add a third one and use color to classify them.</p>
-<div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">displ</span>, y<span class="op">=</span><span class="va">hwy</span>, color<span class="op">=</span><span class="va">class</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="basic_introduction_to_tidyverse_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Colors of different dots help us to form a more comprehensive acknowledge as of the first graph on above. We could have a clear insight of knowing of different classes. However, this could be used as letting we know the constitution of class under this negative relationship. This could be used for discrete variables. When it comes to continuous variables, there is another way.</p>
-<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">class</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="basic_introduction_to_tidyverse_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We could map a continuous variable in the mpg dataset, like cty, to the alpha,shape, and size aesthetics. we could add categorical variables to plots and split them into facets.</p>
 </div>
-<div id="bar-plot-1" class="section level3" number="34.2.2">
+<div id="bar-plot-1" class="section level3" number="37.2.2">
 <h3>
-<span class="header-section-number">34.2.2</span> Bar plot<a class="anchor" aria-label="anchor" href="#bar-plot-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.2.2</span> Bar plot<a class="anchor" aria-label="anchor" href="#bar-plot-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span><span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">cut</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="basic_introduction_to_tidyverse_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
 <code class="sourceCode R"> <span class="va">upper</span> <span class="op">&lt;-</span> <span class="va">diamonds</span><span class="op">$</span><span class="va">price</span> <span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">price</span>,probs <span class="op">=</span> <span class="fl">.7</span><span class="op">)</span>
  <span class="va">diamonds</span><span class="op">$</span><span class="va">Expensive</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">upper</span>,<span class="st">"high"</span>,<span class="st">"not-high"</span><span class="op">)</span>
  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_update</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>
@@ -174,11 +179,11 @@
 <div class="inline-figure"><img src="basic_introduction_to_tidyverse_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We use bar plot for categorical data, I plotted 2 kinds of bar plot above. Stacked Bar chart could help us to observe the count values across to two categorical variables.The advantage of bar plot is Show each data category in a frequency distribution,Display relative numbers/proportions of multiple categories,Summarize a large amount of data in a visual, easily intepretable form,and Make trends easier to highlight than tables do . However, the main disadvantages of bar chart are: It cannot show sufficient detail to enable timely detection of schedule slippages. The bar chart does not show the dependency relationships among activities.</p>
 </div>
-<div id="histogram-4" class="section level3" number="34.2.3">
+<div id="histogram-4" class="section level3" number="37.2.3">
 <h3>
-<span class="header-section-number">34.2.3</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.2.3</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram-4"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>,<span class="fl">5</span>,by<span class="op">=</span><span class="fl">.01</span><span class="op">)</span>
  <span class="va">hist_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x.var<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span>
 <span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>,f<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
@@ -192,26 +197,26 @@
 <p>A histogram is a bar graph-like representation of data that buckets a range of outcomes into columns along the x-axis. The y-axis represents the number count or percentage of occurrences in the data for each column and can be used to visualize data distributions.And the purpose of a histogram (Chambers) is to graphically summarize the distribution of a univariate data set.The main advantages of a histogram are its simplicity and versatility. It can be used in many different situations to offer an insightful look at frequency distribution。</p>
 </div>
 </div>
-<div id="data-transformation" class="section level2" number="34.3">
+<div id="data-transformation" class="section level2" number="37.3">
 <h2>
-<span class="header-section-number">34.3</span> Data transformation<a class="anchor" aria-label="anchor" href="#data-transformation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.3</span> Data transformation<a class="anchor" aria-label="anchor" href="#data-transformation"><i class="fas fa-link"></i></a>
 </h2>
-<div id="installation" class="section level3" number="34.3.1">
+<div id="installation" class="section level3" number="37.3.1">
 <h3>
-<span class="header-section-number">34.3.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.3.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># The easiest way to get dplyr is to install the whole tidyverse:</span>
 <span class="co">#install.packages("tidyverse") - library(tidyverse)</span>
 
 <span class="co"># Alternatively, install just dplyr:</span>
 <span class="co"># install.packages("dplyr")</span></code></pre></div>
 </div>
-<div id="usage-4" class="section level3" number="34.3.2">
+<div id="usage-4" class="section level3" number="37.3.2">
 <h3>
-<span class="header-section-number">34.3.2</span> Usage<a class="anchor" aria-label="anchor" href="#usage-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.3.2</span> Usage<a class="anchor" aria-label="anchor" href="#usage-4"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mpg</span>,<span class="fl">6</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
 ##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
@@ -222,7 +227,7 @@
 ## 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…
 ## 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…
 ## 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</code></pre>
-<div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Filter rows with filter(). filter() allows you to subset observations based on their values. The first argument is the name of the data frame. The second and subsequent arguments are the expressions that filter the data frame. For example, we can select all manufacturer in 2008 year with 4 cyl, 21 cty:</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">year</span> <span class="op">==</span> <span class="fl">2008</span>, <span class="va">cyl</span> <span class="op">==</span> <span class="fl">4</span>, <span class="va">cty</span> <span class="op">==</span> <span class="fl">21</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
@@ -238,7 +243,7 @@
 ##  8 volkswagen   gti          2    2008     4 manu… f        21    29 p     comp…
 ##  9 volkswagen   jetta        2    2008     4 manu… f        21    29 p     comp…
 ## 10 volkswagen   passat       2    2008     4 manu… f        21    29 p     mids…</code></pre>
-<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb441"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Arrange rows with arrange().arrange() works similarly to filter() except that instead of selecting rows, it changes their order. It takes a data frame and a set of column names (or more complicated expressions) to order by. If you provide more than one column name, each additional column will be used to break ties in the values of preceding columns:</span>
 <span class="va">data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">year</span>, <span class="va">cyl</span>, <span class="va">cty</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data1</span>, <span class="fl">6</span><span class="op">)</span></code></pre></div>
@@ -251,7 +256,7 @@
 ## 4 toyota       4runner 4wd   2.7  1999     4 auto… 4        16    20 r     suv  
 ## 5 toyota       toyota tac…   2.7  1999     4 auto… 4        16    20 r     pick…
 ## 6 audi         a4            1.8  1999     4 auto… f        18    29 p     comp…</code></pre>
-<div class="sourceCode" id="cb421"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb443"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data2</span>, <span class="fl">6</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
@@ -263,7 +268,7 @@
 ## 4 audi         a4 quattro   2    2008     4 manua… 4        20    28 p     comp…
 ## 5 audi         a4 quattro   2    2008     4 auto(… 4        19    27 p     comp…
 ## 6 audi         a4 quattro   3.1  2008     6 auto(… 4        17    25 p     comp…</code></pre>
-<div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb445"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Select columns with select(). It’s not uncommon to get datasets with hundreds or even thousands of variables. In this case, the first challenge is often narrowing in on the variables you’re actually interested in. select() allows you to rapidly zoom in on a useful subset using operations based on the names of the variables.</span>
 <span class="va">data3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">drv</span>, <span class="va">cty</span>, <span class="va">hwy</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data3</span>, <span class="fl">6</span><span class="op">)</span></code></pre></div>
@@ -276,7 +281,7 @@
 ## 4 f        21    30
 ## 5 f        16    26
 ## 6 f        18    26</code></pre>
-<div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb447"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Or, you can use as below:</span>
 <span class="va">data4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">drv</span><span class="op">:</span><span class="va">hwy</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data4</span>,<span class="fl">6</span><span class="op">)</span></code></pre></div>
@@ -289,7 +294,7 @@
 ## 4 f        21    30
 ## 5 f        16    26
 ## 6 f        18    26</code></pre>
-<div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb449"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Select all columns except those from drv to hwy (inclusive)</span>
 <span class="va">data5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mpg</span>,<span class="op">-</span><span class="op">(</span><span class="va">drv</span><span class="op">:</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data5</span>,<span class="fl">6</span><span class="op">)</span></code></pre></div>
@@ -302,7 +307,7 @@
 ## 4 audi         a4      2    2008     4 auto(av)   p     compact
 ## 5 audi         a4      2.8  1999     6 auto(l5)   p     compact
 ## 6 audi         a4      2.8  1999     6 manual(m5) p     compact</code></pre>
-<div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb451"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Add new variables with mutate(). Besides selecting sets of existing columns, it’s often useful to add new columns that are functions of existing columns. That’s the job of mutate(). mutate() always adds new columns at the end of your dataset so we’ll start by creating a narrower dataset so we can see the new variables. </span>
 <span class="va">mpg_sml</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mpg</span>,
                   <span class="va">manufacturer</span>,
@@ -320,14 +325,14 @@
 ## 4 audi         a4      2    2008     4 f        21    30     9
 ## 5 audi         a4      2.8  1999     6 f        16    26    10
 ## 6 audi         a4      2.8  1999     6 f        18    26     8</code></pre>
-<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb453"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Grouped summaries with summarise(). summarise() is not terribly useful unless we pair it with group_by(). This changes the unit of analysis from the complete dataset to individual groups. Then, when you use the dplyr verbs on a grouped data frame they’ll be automatically applied “by group”.</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">mpg</span>, avg_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">year</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   avg_year
 ##      &lt;dbl&gt;
 ## 1    2004.</code></pre>
-<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amount</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">cty</span>, <span class="va">hwy</span><span class="op">)</span>
 <span class="va">data7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">amount</span>, avg_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">year</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data7</span>, <span class="fl">6</span><span class="op">)</span></code></pre></div>
@@ -341,7 +346,7 @@
 ## 4    11    16    1999 
 ## 5    11    17    2001.
 ## 6    12    16    2008</code></pre>
-<div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Ungrouping. If you need to remove grouping, and return to operations on ungrouped data, use ungroup().</span>
 <span class="va">ye</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">year</span><span class="op">)</span>
 <span class="va">ye</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -356,24 +361,24 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="lecture-helper.html"><span class="header-section-number">33</span> Lecture Helper</a></div>
-<div class="next"><a href="class_material_code_throughout_this_semester.html"><span class="header-section-number">35</span> class_material_code_throughout_this_semester</a></div>
+<div class="prev"><a href="lecture-helper.html"><span class="header-section-number">36</span> Lecture Helper</a></div>
+<div class="next"><a href="class_material_code_throughout_this_semester.html"><span class="header-section-number">38</span> class_material_code_throughout_this_semester</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#basic-introduction-to-tidyverse"><span class="header-section-number">34</span> Basic introduction to tidyverse</a></li>
-<li><a class="nav-link" href="#motivation-5"><span class="header-section-number">34.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#basic-introduction-to-tidyverse"><span class="header-section-number">37</span> Basic introduction to tidyverse</a></li>
+<li><a class="nav-link" href="#motivation-5"><span class="header-section-number">37.1</span> Motivation</a></li>
 <li>
-<a class="nav-link" href="#data-visualization-1"><span class="header-section-number">34.2</span> Data visualization</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#scatterplot-4"><span class="header-section-number">34.2.1</span> Scatterplot</a></li>
-<li><a class="nav-link" href="#bar-plot-1"><span class="header-section-number">34.2.2</span> Bar plot</a></li>
-<li><a class="nav-link" href="#histogram-4"><span class="header-section-number">34.2.3</span> Histogram</a></li>
+<a class="nav-link" href="#data-visualization-1"><span class="header-section-number">37.2</span> Data visualization</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#scatterplot-4"><span class="header-section-number">37.2.1</span> Scatterplot</a></li>
+<li><a class="nav-link" href="#bar-plot-1"><span class="header-section-number">37.2.2</span> Bar plot</a></li>
+<li><a class="nav-link" href="#histogram-4"><span class="header-section-number">37.2.3</span> Histogram</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#data-transformation"><span class="header-section-number">34.3</span> Data transformation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#installation"><span class="header-section-number">34.3.1</span> Installation</a></li>
-<li><a class="nav-link" href="#usage-4"><span class="header-section-number">34.3.2</span> Usage</a></li>
+<a class="nav-link" href="#data-transformation"><span class="header-section-number">37.3</span> Data transformation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#installation"><span class="header-section-number">37.3.1</span> Installation</a></li>
+<li><a class="nav-link" href="#usage-4"><span class="header-section-number">37.3.2</span> Usage</a></li>
 </ul>
 </li>
 </ul>
@@ -393,7 +398,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-13.</p>
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

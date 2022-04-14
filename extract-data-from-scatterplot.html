@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 39 Extract data from scatterplot | Community Contributions STAT GR 5293</title>
+<title>Chapter 42 Extract data from scatterplot | Community Contributions STAT GR 5293</title>
 <meta name="description" content="Xuan Lian There was a time in another class in Columbia University, one of the assignments is to perform KNN algorithms. The professor asked us to draw the boundary lines on the given data, which...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 39 Extract data from scatterplot | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 42 Extract data from scatterplot | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Xuan Lian There was a time in another class in Columbia University, one of the assignments is to perform KNN algorithms. The professor asked us to draw the boundary lines on the given data, which...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 39 Extract data from scatterplot | Community Contributions STAT GR 5293">
+<meta name="twitter:title" content="Chapter 42 Extract data from scatterplot | Community Contributions STAT GR 5293">
 <meta name="twitter:description" content="Xuan Lian There was a time in another class in Columbia University, one of the assignments is to perform KNN algorithms. The professor asked us to draw the boundary lines on the given data, which...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,8 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
 <script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script><script src="libs/echarts-4.0.0/echarts.min.js"></script><script src="libs/echarts-4.0.0/echarts-wordcloud.min.js"></script><script src="libs/echarts_shapeFile-3.2.2/china.js"></script><script src="libs/echarts_shapeFile-3.2.2/provinceShape.js"></script><script src="libs/echarts_shapeFile-3.2.2/world.js"></script><script src="libs/echarts-binding-0.0.4/echarts.js"></script><script src="libs/d3-bundle-5.16.0/d3-bundle.min.js"></script><script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script><script src="libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script><link href="libs/ggiraphjs-0.4.2/ggiraphjs.min.css" rel="stylesheet">
+<script src="libs/ggiraphjs-0.4.2/ggiraphjs.min.js"></script><script src="libs/girafe-binding-0.8.2/girafe.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -67,33 +68,37 @@
 <li><a class="" href="cheatsheet-for-circlize-package.html"><span class="header-section-number">15</span> Cheatsheet for ‘circlize’ package</a></li>
 <li><a class="" href="texts-in-r-graphs-cheat-sheet.html"><span class="header-section-number">16</span> Texts in R Graphs Cheat Sheet</a></li>
 <li><a class="" href="dygraphs-package.html"><span class="header-section-number">17</span> dygraphs package</a></li>
+<li><a class="" href="data-visualization-course-cheatsheet.html"><span class="header-section-number">18</span> Data visualization course cheatsheet</a></li>
+<li><a class="" href="web-scraping-tables-tutorial.html"><span class="header-section-number">19</span> Web scraping tables tutorial</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">18</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">19</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">20</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">21</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">22</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">23</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">24</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">25</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">26</span> R Shiny Map Tutorial</a></li>
-<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">27</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
-<li><a class="" href="wordcloud.html"><span class="header-section-number">28</span> wordcloud</a></li>
-<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">29</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">30</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">31</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">32</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">33</span> Lecture Helper</a></li>
-<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">34</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">35</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">36</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">37</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">38</span> R Shiny and Interactive Map Tutorial</a></li>
-<li><a class="active" href="extract-data-from-scatterplot.html"><span class="header-section-number">39</span> Extract data from scatterplot</a></li>
-<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">40</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">20</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">21</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">22</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">23</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">24</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">25</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">26</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">27</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">28</span> R Shiny Map Tutorial</a></li>
+<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">29</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">30</span> wordcloud</a></li>
+<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">31</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">32</span> Time Series Analysis in R</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">33</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">34</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">35</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">36</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">37</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">38</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">39</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">40</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">41</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="active" href="extract-data-from-scatterplot.html"><span class="header-section-number">42</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">43</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="polar-line-plots.html"><span class="header-section-number">44</span> Polar Line Plots</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">41</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">42</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">45</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">46</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -101,9 +106,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="extract-data-from-scatterplot" class="section level1" number="39">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="extract-data-from-scatterplot" class="section level1" number="42">
 <h1>
-<span class="header-section-number">39</span> Extract data from scatterplot<a class="anchor" aria-label="anchor" href="#extract-data-from-scatterplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">42</span> Extract data from scatterplot<a class="anchor" aria-label="anchor" href="#extract-data-from-scatterplot"><i class="fas fa-link"></i></a>
 </h1>
 <p>Xuan Lian</p>
 <p>There was a time in another class in Columbia University, one of the assignments is to perform KNN algorithms. The professor asked us to draw the boundary lines on the given data, which was showed on a scatter plot. However, as no data form is provided, we can not get the details of the data. So instead of solving it quantitatively by coding, we have to draw some ugly thresholds manually.</p>
@@ -111,27 +116,27 @@
 <p>So in this assignment, I created an R package, which included several functions, to extract data from standard scatter plot generated by ggplot. I was planned to use some computer vision method to detect the axis as well as the labels on that. However, the workload is much heavier than I thought and I just finished the part of detect label position and the point position. You need to input 4 parameters ymax,ymin,xmin and xmax, together with the plot_file into the function <code>scatter2data</code> to get the data extracted from the scatter plot image.</p>
 <p>There are still many problems with this function, firstly it only works with scatter plot but not applicable for other kinds of plot generated by ggplot yet. Secondly the accuracy is not 100%, meaning that it can still make progress on the point detect process.</p>
 <p>Here is the command to install the package:</p>
-<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># remotes::install_github("Shawn-Lian/image2data")</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">image2data</span><span class="op">)</span></code></pre></div>
 <p>The core function in the package is <code>scatter2data</code>, by calling this function you can extract dataset from a standard scatter plot generated by ggplot.</p>
 <p>Here is an example how to use it.</p>
 <p>We firstly generated several data points and get the scatter plot using <code>geom_point</code> and save the plot in a <code>.png</code> format.</p>
-<div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
 <span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="va">Y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span>,y<span class="op">=</span><span class="va">Y</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="image2data_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">'resources/image2data/test_plot.png'</span>,dpi <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></code></pre></div>
 <p>There are five parameters used in <code>scatter2data</code> function, first is the address of the plot that you want to extracted data from. Other four parameters are <code>ymax</code>, <code>ymin</code>, <code>xmin</code>, <code>xmax</code>, which is the maximum or minimum value of the y and x axis separately.</p>
 <p>In this example, <code>ymax=1</code>, <code>ymin=-1</code>, <code>xmin=-1</code>, <code>xmax=2</code>, and after imputing these parameters we can get the result of the function.</p>
-<div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">=</span> <span class="fu">image2data</span><span class="fu">::</span> <span class="fu"><a href="https://rdrr.io/pkg/image2data/man/scatter2data.html">scatter2data</a></span><span class="op">(</span><span class="st">'resources/image2data/test_plot.png'</span>,<span class="fl">1</span>,<span class="op">-</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p>To check the result, we plot the extracted data and origin data on the same scatter plot.</p>
-<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span>,y<span class="op">=</span><span class="va">Y</span>,color <span class="op">=</span> <span class="st">'origin data'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y<span class="op">=</span> <span class="va">data</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>,x <span class="op">=</span> <span class="va">data</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, color <span class="op">=</span> <span class="st">'extracted data'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -139,11 +144,11 @@
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">38</span> R Shiny and Interactive Map Tutorial</a></div>
-<div class="next"><a href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">40</span> Tutorial for the r graph gallery</a></div>
+<div class="prev"><a href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">41</span> R Shiny and Interactive Map Tutorial</a></div>
+<div class="next"><a href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">43</span> Tutorial for the r graph gallery</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#extract-data-from-scatterplot"><span class="header-section-number">39</span> Extract data from scatterplot</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#extract-data-from-scatterplot"><span class="header-section-number">42</span> Extract data from scatterplot</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -160,7 +165,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-13.</p>
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
