@@ -98,6 +98,7 @@ Imports:
     usdata,
     vcd,
     vcdExtra,
+    vioplot,
     viridis,
     wordcloud,
     wordcloud2,
