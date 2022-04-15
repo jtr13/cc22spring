@@ -85,6 +85,7 @@ Imports:
     scales,
     shiny,
     shinythemes,
+    sm,
     SnowballC,
     spData,
     stringr,
