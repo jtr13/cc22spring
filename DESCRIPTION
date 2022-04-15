@@ -90,6 +90,7 @@ Imports:
     SnowballC,
     spData,
     stringr,
+    survminer,
     TeachingDemos,
     tidyr,
     tidytext,
