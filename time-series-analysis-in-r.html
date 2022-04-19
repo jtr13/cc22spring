@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 32 Time Series Analysis in R | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Sebastian Carter library(stats) library(tidyverse) library(forecast) library(bayesforecast) library(ggplot2)  32.1 Introducing Time Series Time series data consists of observations collected over...">
-<meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 32 Time Series Analysis in R | Community Contributions STAT GR 5293">
+<title>Chapter 37 Time Series Analysis in R | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Sebastian Carter library(stats) library(tidyverse) library(forecast) library(bayesforecast) library(ggplot2)  37.1 Introducing Time Series Time series data consists of observations collected over...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Chapter 37 Time Series Analysis in R | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Sebastian Carter library(stats) library(tidyverse) library(forecast) library(bayesforecast) library(ggplot2)  32.1 Introducing Time Series Time series data consists of observations collected over...">
+<meta property="og:description" content="Sebastian Carter library(stats) library(tidyverse) library(forecast) library(bayesforecast) library(ggplot2)  37.1 Introducing Time Series Time series data consists of observations collected over...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 32 Time Series Analysis in R | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Sebastian Carter library(stats) library(tidyverse) library(forecast) library(bayesforecast) library(ggplot2)  32.1 Introducing Time Series Time series data consists of observations collected over...">
+<meta name="twitter:title" content="Chapter 37 Time Series Analysis in R | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Sebastian Carter library(stats) library(tidyverse) library(forecast) library(bayesforecast) library(ggplot2)  37.1 Introducing Time Series Time series data consists of observations collected over...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -70,36 +70,41 @@
 <li><a class="" href="dygraphs-package.html"><span class="header-section-number">17</span> dygraphs package</a></li>
 <li><a class="" href="data-visualization-course-cheatsheet.html"><span class="header-section-number">18</span> Data visualization course cheatsheet</a></li>
 <li><a class="" href="web-scraping-tables-tutorial.html"><span class="header-section-number">19</span> Web scraping tables tutorial</a></li>
+<li><a class="" href="basic-data-visualization-cheatsheet.html"><span class="header-section-number">20</span> Basic data visualization cheatsheet</a></li>
+<li><a class="" href="histogram-3.html"><span class="header-section-number">21</span> Histogram</a></li>
+<li><a class="" href="barplot.html"><span class="header-section-number">22</span> Barplot</a></li>
+<li><a class="" href="hexbin-binning.html"><span class="header-section-number">23</span> Hexbin Binning</a></li>
+<li><a class="" href="heatmap-3.html"><span class="header-section-number">24</span> Heatmap</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">20</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">21</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">22</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">23</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">24</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">25</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">26</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">27</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">28</span> R Shiny Map Tutorial</a></li>
-<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">29</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
-<li><a class="" href="wordcloud.html"><span class="header-section-number">30</span> wordcloud</a></li>
-<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">31</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="active" href="time-series-analysis-in-r.html"><span class="header-section-number">32</span> Time Series Analysis in R</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">33</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">34</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">35</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">36</span> Lecture Helper</a></li>
-<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">37</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">38</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">39</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">40</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">41</span> R Shiny and Interactive Map Tutorial</a></li>
-<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">42</span> Extract data from scatterplot</a></li>
-<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">43</span> Tutorial for the r graph gallery</a></li>
-<li><a class="" href="polar-line-plots.html"><span class="header-section-number">44</span> Polar Line Plots</a></li>
-<li><a class="" href="data-visualization-with-base-r-and-ggplot.html"><span class="header-section-number">45</span> Data visualization with base r and ggplot</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">25</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">26</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">27</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">28</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">29</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">30</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">31</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">32</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">33</span> R Shiny Map Tutorial</a></li>
+<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">34</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">35</span> wordcloud</a></li>
+<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">36</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="active" href="time-series-analysis-in-r.html"><span class="header-section-number">37</span> Time Series Analysis in R</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">38</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">39</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">40</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">41</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">42</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">43</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">44</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">45</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">46</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">47</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">48</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="polar-line-plots.html"><span class="header-section-number">49</span> Polar Line Plots</a></li>
+<li><a class="" href="data-visualization-with-base-r-and-ggplot.html"><span class="header-section-number">50</span> Data visualization with base r and ggplot</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">46</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">47</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">51</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">52</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -107,25 +112,25 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="time-series-analysis-in-r" class="section level1" number="32">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="time-series-analysis-in-r" class="section level1" number="37">
 <h1>
-<span class="header-section-number">32</span> Time Series Analysis in R<a class="anchor" aria-label="anchor" href="#time-series-analysis-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37</span> Time Series Analysis in R<a class="anchor" aria-label="anchor" href="#time-series-analysis-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Sebastian Carter</p>
-<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://pkg.robjhyndman.com/forecast/">forecast</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">bayesforecast</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
-<div id="introducing-time-series" class="section level2" number="32.1">
+<div id="introducing-time-series" class="section level2" number="37.1">
 <h2>
-<span class="header-section-number">32.1</span> Introducing Time Series<a class="anchor" aria-label="anchor" href="#introducing-time-series"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1</span> Introducing Time Series<a class="anchor" aria-label="anchor" href="#introducing-time-series"><i class="fas fa-link"></i></a>
 </h2>
 <p>Time series data consists of observations collected over a period of time. Often times with time series, observations are affected by the previous (or many preceding) points. For example, suppose you are collecting wind speed data. It is obvious that the wind speed at this current moment of time is dependent on the wind speed one minute ago. This characteristic makes time series analysis a unique area of study and requires us to build on our understanding and education in linear regression. In linear regression, we make the key assumption that error terms are independent. However, crucially, in time series data this is often not the case.</p>
-<div id="eda-of-time-series-data" class="section level3" number="32.1.1">
+<div id="eda-of-time-series-data" class="section level3" number="37.1.1">
 <h3>
-<span class="header-section-number">32.1.1</span> EDA of Time Series Data<a class="anchor" aria-label="anchor" href="#eda-of-time-series-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.1</span> EDA of Time Series Data<a class="anchor" aria-label="anchor" href="#eda-of-time-series-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Time series data often has a seasonal component, a trend component, and an error term. We are familiar with the linear regression model,
 <span class="math display">\[
@@ -141,24 +146,24 @@ Y_t = \text{seasonal}_t + \text{trend}_t + \epsilon_t
 \]</span></p>
 <p>In the above equation, we have denoted <span class="math inline">\(\{Y_t\}\)</span> to be the time series data of interest, say wind speed. Eventually, we will attempt to “de-trend” <span class="math inline">\(\{Y_t\}\)</span>, which essentially means removing the seasonal and trend component from the data. First, let’s examine methods to identify these components.</p>
 <p>We will use the <code>decompose</code> function, which is a very helpful tool for data scientists to conduct a quick analysis of seasonal and trend components of time series data.</p>
-<div id="example" class="section level4" number="32.1.1.1">
+<div id="example" class="section level4" number="37.1.1.1">
 <h4>
-<span class="header-section-number">32.1.1.1</span> Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.1.1</span> Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
 </h4>
 <p>In this example, we examine the maximum temperature in Boston per month. The first plot displays the measured data. The second plot displays the trend, which is typically calculated using a moving average. Next, the season trend is determined and displayed. The final plot displays the residuals, which is the data after subtracting the trend and seasonal components of the data.</p>
-<div class="sourceCode" id="cb358"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">BosTemp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"resources/timeseriesanalysis/boston_monthly_tmax_1998_2019.csv"</span><span class="op">)</span>
 
 <span class="va">BosTemp</span><span class="op">$</span><span class="va">DateTime</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">BosTemp</span><span class="op">$</span><span class="va">Date</span>, <span class="st">"%m/%d/%Y"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">BosTemp</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, frequency <span class="op">=</span> <span class="fl">12</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1998</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">decompose</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">autoplot</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
-<div id="important-data-wrangling" class="section level5" number="32.1.1.1.1">
+<div id="important-data-wrangling" class="section level5" number="37.1.1.1.1">
 <h5>
-<span class="header-section-number">32.1.1.1.1</span> Important Data Wrangling<a class="anchor" aria-label="anchor" href="#important-data-wrangling"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.1.1.1</span> Important Data Wrangling<a class="anchor" aria-label="anchor" href="#important-data-wrangling"><i class="fas fa-link"></i></a>
 </h5>
 <p>As with most data visualization tools, the <code><a href="https://rdrr.io/r/stats/decompose.html">decompose()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> functions take in a <code>ts</code> object. The <code>decompose</code> function will not accept a dataframe of time series data that we are familiar with. We must convert the dataframe into a time series object.</p>
 <p>Below is a preview of the data we have loaded.</p>
-<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">BosTemp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">DateTime</span>, <span class="va">Monthly.Average.Maximum</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>##     DateTime Monthly.Average.Maximum
 ## 1 1998-01-15                   39.71
@@ -169,7 +174,7 @@ Y_t = \text{seasonal}_t + \text{trend}_t + \epsilon_t
 ## 6 1998-06-15                   72.00</code></pre>
 <p>The <code>ts</code> function can be used to convert this dataframe into a time series object. The first argument in the <code>ts</code> function take the data (in vector or matrix form), the “start” argument takes the time of the first observation, and the frequency function takes the number of observations per unit of time. So, for this example, we have monthly data that starts in 1998, so <code>start = 1998</code> and <code>frequency = 12</code>.</p>
 <p>So, below is the Boston temperature data converted into a time series object, which will be accepted by <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code>.</p>
-<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">BosTemp_ts</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">BosTemp</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, frequency <span class="op">=</span> <span class="fl">12</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1998</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">BosTemp_ts</span>,<span class="fl">12</span><span class="op">*</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
 <pre><code>##        Jan   Feb   Mar   Apr   May   Jun   Jul   Aug   Sep   Oct   Nov   Dec
@@ -181,18 +186,18 @@ Y_t = \text{seasonal}_t + \text{trend}_t + \epsilon_t
 </div>
 </div>
 </div>
-<div id="autocorrelation-plot-acf" class="section level3" number="32.1.2">
+<div id="autocorrelation-plot-acf" class="section level3" number="37.1.2">
 <h3>
-<span class="header-section-number">32.1.2</span> Autocorrelation Plot (ACF)<a class="anchor" aria-label="anchor" href="#autocorrelation-plot-acf"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.2</span> Autocorrelation Plot (ACF)<a class="anchor" aria-label="anchor" href="#autocorrelation-plot-acf"><i class="fas fa-link"></i></a>
 </h3>
 <p>After we have de-trended the data, we want to examine the residuals in order to understand the error structure (and eventually be able to forecast). The Autocorrelation Plot (ACF) is a very important tool in time series EDA as it can give us insights into the error structure and help us determine an appropriate model. The ACF plot basically calculates and displays the correlation coefficient between a time series and its lagged values. For example, the lag 1 autocorrelation is the correlation between <span class="math inline">\(X_t\)</span> and <span class="math inline">\(X_{t-1}\)</span> for all <span class="math inline">\(t&gt;1\)</span>. Likewise, lag 2 autocorrelation is the autocorrelation between <span class="math inline">\(X_t\)</span> and <span class="math inline">\(X_{t-2}\)</span>, i.e. the correlation between the <span class="math inline">\(t^{th}\)</span> observation and the <span class="math inline">\({(t-2)}^{th}\)</span> observation.</p>
 <p>We will use the <code>ggacf</code> function within the <code>bayesforecast</code> package to create an autocorrelation plot (also known as a correlogram).</p>
-<div id="example-1" class="section level4" number="32.1.2.1">
+<div id="example-1" class="section level4" number="37.1.2.1">
 <h4>
-<span class="header-section-number">32.1.2.1</span> Example<a class="anchor" aria-label="anchor" href="#example-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.2.1</span> Example<a class="anchor" aria-label="anchor" href="#example-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>For iid error, we do not expect correlation between lags. Below is an acf plot of iid error. If multiple black lines cross the dashed blue line boundaries, we may reject the null hypothesis that the lags are uncorrelated.</p>
-<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>
 <span class="va">error</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
 <span class="va">Y</span> <span class="op">=</span> <span class="fl">2</span><span class="op">*</span><span class="va">t</span> <span class="op">+</span><span class="va">error</span> 
@@ -204,53 +209,53 @@ Y_t = \text{seasonal}_t + \text{trend}_t + \epsilon_t
 <span class="fu"><a href="https://rdrr.io/pkg/bayesforecast/man/ggacf.html">ggacf</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="example-2" class="section level4" number="32.1.2.2">
+<div id="example-2" class="section level4" number="37.1.2.2">
 <h4>
-<span class="header-section-number">32.1.2.2</span> Example<a class="anchor" aria-label="anchor" href="#example-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.2.2</span> Example<a class="anchor" aria-label="anchor" href="#example-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>Now, let’s examine a case where the errors are correlated, and demonstrate how the ACF plot is very useful in identifying this characteristic. Again, we will use the Boston temperature dataset.</p>
-<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/bayesforecast/man/ggacf.html">ggacf</a></span><span class="op">(</span><span class="va">BosTemp_ts</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Clearly, we observe a harmonic trend, since we have not removed the seasonal or trend components from the data. However, we can extract the de-trended time series data from the decompose function that we used earlier. The residuals look much more iid than before, and this is a good first step in modelling the time series data.</p>
-<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/bayesforecast/man/ggacf.html">ggacf</a></span><span class="op">(</span><span class="op">(</span><span class="va">BosTemp_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">decompose</span><span class="op">)</span><span class="op">$</span><span class="va">random</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="partial-autocorrelation-plot-pacf" class="section level3" number="32.1.3">
+<div id="partial-autocorrelation-plot-pacf" class="section level3" number="37.1.3">
 <h3>
-<span class="header-section-number">32.1.3</span> Partial Autocorrelation Plot (PACF)<a class="anchor" aria-label="anchor" href="#partial-autocorrelation-plot-pacf"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.3</span> Partial Autocorrelation Plot (PACF)<a class="anchor" aria-label="anchor" href="#partial-autocorrelation-plot-pacf"><i class="fas fa-link"></i></a>
 </h3>
 <p>The PACF is similar to the ACF plot in that it displays autocorrelation between observations and their lags, however the PACF removes the effects of other lags. Intuitively speaking, if observations are affected by the previous observation, we will see a high correlation coefficient at lag 1. However, thinking recursively, this will mean an observation is also affected by its lag 2 (i.e. the lag 1 of its lag 1). As a result, in the ACF plot, we will see a significant correlation coefficient at lag 2, and so forth (albeit more muted than lag 1). The PACF plot, however, eliminates the influence of other lags. So, for an AR(p) process, which is a time series model that basically determines a relationship between an observation and the previous p observations, we can use a PACF plot to determine the p. </p>
-<div id="example-3" class="section level4" number="32.1.3.1">
+<div id="example-3" class="section level4" number="37.1.3.1">
 <h4>
-<span class="header-section-number">32.1.3.1</span> Example<a class="anchor" aria-label="anchor" href="#example-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.3.1</span> Example<a class="anchor" aria-label="anchor" href="#example-3"><i class="fas fa-link"></i></a>
 </h4>
 <p>So, let’s use a dataset where we can bring together everything we have looked at so far – the decompose function, autoplot, the acf plot and finally the pacf – and then go a step further where we attempt to identify a suitable model using the acf/pacf plots.</p>
-<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">Ex_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"resources/timeseriesanalysis/TS_data.csv"</span><span class="op">)</span>
 
 <span class="va">Ex_data_ts</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">Ex_data</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, start <span class="op">=</span> <span class="fl">1900</span>, frequency <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/bayesforecast/man/ggacf.html">ggacf</a></span><span class="op">(</span><span class="va">Ex_data_ts</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">Ex_data_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/decompose.html">decompose</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-8-2.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/bayesforecast/man/ggacf.html">ggacf</a></span><span class="op">(</span><span class="op">(</span><span class="va">Ex_data_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/decompose.html">decompose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">random</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-8-3.png" width="672" style="display: block; margin: auto;"></div>
 <p>Based on the acf plot, we can definitely see that a AR(p) process is suitable, since the first few lags have high correlation coefficients. Now, let’s use a pacf plot to investigate further.</p>
-<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/bayesforecast/man/ggpacf.html">ggpacf</a></span><span class="op">(</span><span class="op">(</span><span class="va">Ex_data_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/decompose.html">decompose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">random</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Based on the plot above, we can estimate that an AR(2) or AR(3) model might be suitable, since the correlation coefficients get close to zero starting at around lag 3 and lag 4.</p>
 </div>
 </div>
-<div id="forecasting" class="section level3" number="32.1.4">
+<div id="forecasting" class="section level3" number="37.1.4">
 <h3>
-<span class="header-section-number">32.1.4</span> Forecasting<a class="anchor" aria-label="anchor" href="#forecasting"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.4</span> Forecasting<a class="anchor" aria-label="anchor" href="#forecasting"><i class="fas fa-link"></i></a>
 </h3>
 <p>Forecasting time series data is one of the most important aspects of time series analysis. In order to forecast, we ought to examine certain properties of the time series processes (such as AR, MA, and ARMA) that we believe estimate our data well. For reference, the AR(1), MA(1) and ARMA(1,1) models are written below, respectively.</p>
 <p><span class="math display">\[
@@ -265,12 +270,12 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
 <p><em>Causality and Invertibility</em> are essential characteristics in a time series process. Causality implies that the time series process can be estimated using past observations (as opposed to future observations) and invertibility means that the errors (see the <span class="math inline">\(Z_t\)</span> terms) can be represented by the past observations. Without getting into the mathematics behind it, causality can be determined by analyzing the roots of the <span class="math inline">\(X_t - \phi X_{t-1}\)</span> polynomial. If the absolute values of the roots are greater than 1, we say the process is causal.</p>
 <p>Similarly, invertibility can be determined by analysing the roots of the <span class="math inline">\(Z_t + \theta Z_{t-1}\)</span> polynomial. If the absolute values of the roots are greater than 1, we say the process is invertible.</p>
 <p>R has a very useful function that allows us to quickly and easily determine the roots and therefore examine the causality and invertibility of a time series process.</p>
-<div id="example-4" class="section level4" number="32.1.4.1">
+<div id="example-4" class="section level4" number="37.1.4.1">
 <h4>
-<span class="header-section-number">32.1.4.1</span> Example<a class="anchor" aria-label="anchor" href="#example-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.4.1</span> Example<a class="anchor" aria-label="anchor" href="#example-4"><i class="fas fa-link"></i></a>
 </h4>
 <p>Extending upon the data in the PACF example, we will determine the causality using the roots method. We can use the <code><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html">Arima()</a></code> function from the <code>forecast</code> package in order to model the data, and then the <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> function will visualise the unit circle and the <strong>inverse</strong> roots. <em>If the inverse roots are within the circle, the time series is causal.</em> Per the analysis we conducted using the PACF plot, we will use the AR(3) model on the data.</p>
-<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">Ex_data</span><span class="op">$</span><span class="va">X_1</span> <span class="op">=</span> <span class="cn">NA</span> 
 <span class="va">Ex_data</span><span class="op">$</span><span class="va">X_1</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">200</span><span class="op">]</span> <span class="op">=</span> <span class="va">Ex_data</span><span class="op">$</span><span class="va">X</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">199</span><span class="op">]</span>
 
@@ -304,21 +309,21 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
 ##   (3 observations deleted due to missingness)
 ## Multiple R-squared:  0.7362, Adjusted R-squared:  0.7321 
 ## F-statistic: 179.6 on 3 and 193 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">Ex_data_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html">Arima</a></span><span class="op">(</span>order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">autoplot</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="more-examples" class="section level4" number="32.1.4.2">
+<div id="more-examples" class="section level4" number="37.1.4.2">
 <h4>
-<span class="header-section-number">32.1.4.2</span> More examples<a class="anchor" aria-label="anchor" href="#more-examples"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.4.2</span> More examples<a class="anchor" aria-label="anchor" href="#more-examples"><i class="fas fa-link"></i></a>
 </h4>
 <p>In order to drive home this concept, we will simulate a a couple AR and ARMA processes and visualise their unit roots.</p>
-<div id="arma32" class="section level5" number="32.1.4.2.1">
+<div id="arma32" class="section level5" number="37.1.4.2.1">
 <h5>
-<span class="header-section-number">32.1.4.2.1</span> ARMA(3,2)<a class="anchor" aria-label="anchor" href="#arma32"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.4.2.1</span> ARMA(3,2)<a class="anchor" aria-label="anchor" href="#arma32"><i class="fas fa-link"></i></a>
 </h5>
-<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_ARMA_sim</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>,<span class="va">ma_coeff</span>,<span class="va">ar_coeff</span>,<span class="va">sigma</span><span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">n.start</span> <span class="op">&lt;-</span> <span class="va">n</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fl">.2</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fl">.2</span><span class="op">)</span><span class="op">*</span><span class="va">n</span><span class="op">)</span>
   <span class="va">burnin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fl">.20</span><span class="op">*</span><span class="va">n.start</span><span class="op">)</span>
@@ -338,11 +343,11 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
   <span class="fu"><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html">Arima</a></span><span class="op">(</span>order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">0</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">autoplot</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="ar2" class="section level5" number="32.1.4.2.2">
+<div id="ar2" class="section level5" number="37.1.4.2.2">
 <h5>
-<span class="header-section-number">32.1.4.2.2</span> AR(2)<a class="anchor" aria-label="anchor" href="#ar2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.4.2.2</span> AR(2)<a class="anchor" aria-label="anchor" href="#ar2"><i class="fas fa-link"></i></a>
 </h5>
-<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_AR_sim</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">=</span><span class="fl">189</span>, <span class="va">ar_coeff</span>,<span class="va">sigma</span><span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">n.start</span> <span class="op">&lt;-</span> <span class="va">n</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fl">.2</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fl">.2</span><span class="op">)</span><span class="op">*</span><span class="va">n</span><span class="op">)</span>
     <span class="va">burnin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fl">.20</span><span class="op">*</span><span class="va">n.start</span><span class="op">)</span>
@@ -359,19 +364,19 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="forecasting-functions" class="section level4" number="32.1.4.3">
+<div id="forecasting-functions" class="section level4" number="37.1.4.3">
 <h4>
-<span class="header-section-number">32.1.4.3</span> Forecasting Functions<a class="anchor" aria-label="anchor" href="#forecasting-functions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.4.3</span> Forecasting Functions<a class="anchor" aria-label="anchor" href="#forecasting-functions"><i class="fas fa-link"></i></a>
 </h4>
 <p>After conducting EDA and examining causality/invertibility, we can begin forecasting. R has a few functions which are very helpful in this area. The <code>forecast</code> package includes a function called <code>forecast</code> that takes a model as a parameter and extrapolates it to future time periods. The <code>ets</code> function below is an exponential smoothing model. The blue line represents the estimated value and the shaded purple areas are the confidence bands for that estimate.</p>
-<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">USAccDeaths</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://pkg.robjhyndman.com/forecast/reference/ets.html">ets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://pkg.robjhyndman.com/forecast/reference/forecast.html">forecast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can also use the <code>Arima</code> function to estimate an ARMA model and then use it to forecast future values. Using the ARIMA on the simulated AR(2) model we created earlier.</p>
-<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb388"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">ar_sim</span>, frequency <span class="op">=</span> <span class="fl">1</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1900</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html">Arima</a></span><span class="op">(</span>order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://pkg.robjhyndman.com/forecast/reference/forecast.html">forecast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -379,9 +384,9 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
 <div class="inline-figure"><img src="timeseriesanalysis_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
-<div id="recap" class="section level3" number="32.1.5">
+<div id="recap" class="section level3" number="37.1.5">
 <h3>
-<span class="header-section-number">32.1.5</span> Recap<a class="anchor" aria-label="anchor" href="#recap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.1.5</span> Recap<a class="anchor" aria-label="anchor" href="#recap"><i class="fas fa-link"></i></a>
 </h3>
 <p>The motivation for this project was to demonstrate how to conduct time series analyses in R in a straightforward and practical way. I wanted to extract the critical components of the theory behind time series analysis and apply it to real data. I tried to find a balance between highlighting mathematical equations and concepts, without getting lost in the weeds and straying from the practical applications. In this tutorial, I highlighted exploratory data analysis techniques, including utilising the acf and pacf plots, and decomposing the data into seasonal and trend components. Then, I explained methods to analyze the error structure of de-trended data, and highlighted a couple methods to forecast data in an suitable way. With more time and resources, I would further explore forecasting methods in R and expand on other characteristics of stationary time series data that are important to consider. Whilst I had a basic understanding of the fundamental time series concepts, this project strengthened my grasp of time series analysis and exposed me to practical methods to applying the theory in R. Additionally, I feel that creating this tutorial helped me better understand the theoretical concepts of time series and identify the significance (or the “so what”) of many of these theories. I found it helpful to connect the time series concepts to linear regression concepts that we have been trained in as statistics students. I came to realize how time series builds and expands on many of the concepts we are familiar with through our stats training so far.</p>
 
@@ -389,19 +394,19 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">31</span> Linear Modeling Using R via a Soccer Example</a></div>
-<div class="next"><a href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">33</span> Animation graphs in plot_ly and gganimate</a></div>
+<div class="prev"><a href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">36</span> Linear Modeling Using R via a Soccer Example</a></div>
+<div class="next"><a href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">38</span> Animation graphs in plot_ly and gganimate</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#time-series-analysis-in-r"><span class="header-section-number">32</span> Time Series Analysis in R</a></li>
+<li><a class="nav-link" href="#time-series-analysis-in-r"><span class="header-section-number">37</span> Time Series Analysis in R</a></li>
 <li>
-<a class="nav-link" href="#introducing-time-series"><span class="header-section-number">32.1</span> Introducing Time Series</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#eda-of-time-series-data"><span class="header-section-number">32.1.1</span> EDA of Time Series Data</a></li>
-<li><a class="nav-link" href="#autocorrelation-plot-acf"><span class="header-section-number">32.1.2</span> Autocorrelation Plot (ACF)</a></li>
-<li><a class="nav-link" href="#partial-autocorrelation-plot-pacf"><span class="header-section-number">32.1.3</span> Partial Autocorrelation Plot (PACF)</a></li>
-<li><a class="nav-link" href="#forecasting"><span class="header-section-number">32.1.4</span> Forecasting</a></li>
-<li><a class="nav-link" href="#recap"><span class="header-section-number">32.1.5</span> Recap</a></li>
+<a class="nav-link" href="#introducing-time-series"><span class="header-section-number">37.1</span> Introducing Time Series</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#eda-of-time-series-data"><span class="header-section-number">37.1.1</span> EDA of Time Series Data</a></li>
+<li><a class="nav-link" href="#autocorrelation-plot-acf"><span class="header-section-number">37.1.2</span> Autocorrelation Plot (ACF)</a></li>
+<li><a class="nav-link" href="#partial-autocorrelation-plot-pacf"><span class="header-section-number">37.1.3</span> Partial Autocorrelation Plot (PACF)</a></li>
+<li><a class="nav-link" href="#forecasting"><span class="header-section-number">37.1.4</span> Forecasting</a></li>
+<li><a class="nav-link" href="#recap"><span class="header-section-number">37.1.5</span> Recap</a></li>
 </ul>
 </li>
 </ul>
@@ -421,7 +426,7 @@ X_t - \phi X_{t-1} =  Z_t + \theta Z_{t-1} , Z_t  \sim WN(0,\sigma^2)
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-15.</p>
+    <p>"<strong>Community Contributions STAT GR 5293</strong>" was written by . It was last built on 2022-04-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

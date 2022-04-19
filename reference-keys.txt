@@ -131,6 +131,11 @@ basic-html-web-tags
 packages
 things-we-need
 web-scraping
+basic-data-visualization-cheatsheet
+histogram-3
+barplot
+hexbin-binning
+heatmap-3
 visualizing-geographical-time-series-data-with-messy-country-name
 data-reading
 data-processing
@@ -211,7 +216,7 @@ ggbiplot
 mosaic-plot-2
 base-r-mosaicplot-function
 vcd-package
-heatmap-3
+heatmap-4
 base-r-heatmap
 geom_tile
 data-processing-2
@@ -357,14 +362,14 @@ scatterplot-2
 jitter-plotline-plot
 box-plot-1
 pie-chart
-histogram-3
+histogram-4
 plotly
 basic-bar-chart
 interactive-boxplot
 dygraphs
 leaflet
 ggfortify
-heatmap-4
+heatmap-5
 scatterplot-3
 diagnostic-plots-for-linear-models-lm
 diagnostic-plots-with-generalized-linear-models-glm
@@ -386,7 +391,7 @@ motivation-5
 data-visualization-1
 scatterplot-4
 bar-plot-1
-histogram-4
+histogram-5
 data-transformation
 installation
 usage-4
@@ -412,7 +417,7 @@ chapter-10-tidying-data
 chapter-11-dependency-relationships
 interactive-plot
 dealing-with-overplotting
-heatmap-5
+heatmap-6
 density-estimate-contour
 chapter-12-continuous-categorical
 graphiical-data-analysis-with-r
@@ -475,7 +480,7 @@ stylize-tooltip-labels
 conclusionreview
 data-visualization-with-base-r-and-ggplot
 overview-1
-histogram-5
+histogram-6
 box-plot-2
 violin-plots
 ridgeline-plot-2
