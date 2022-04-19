@@ -3,7 +3,7 @@
 
 Yue Ma
 
-#	Histogram
+# Histogram
 A histogram represents the frequencies of values of a variable bucketed into ranges. Histogram is similar to bar chat but the difference is it groups the values into continuous ranges. Each bar in histogram represents the height of the number of values present in that range.
 
 ```{r}
