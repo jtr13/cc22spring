@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 29 Drawing Five Common Plots by ggplot2 | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Xirui Guo library(ggplot2) library(tidyverse) library(ggpubr) library(gridExtra) library(reshape2) library(Lock5withR) library(fivethirtyeight) library(RColorBrewer) library(plotly)  29.1...">
+<title>Chapter 25 Drawing Five Common Plots by ggplot2 | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Xirui Guo library(ggplot2) library(tidyverse) library(ggpubr) library(gridExtra) library(reshape2) library(Lock5withR) library(fivethirtyeight) library(RColorBrewer) library(plotly)  25.1...">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="Chapter 29 Drawing Five Common Plots by ggplot2 | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 25 Drawing Five Common Plots by ggplot2 | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Xirui Guo library(ggplot2) library(tidyverse) library(ggpubr) library(gridExtra) library(reshape2) library(Lock5withR) library(fivethirtyeight) library(RColorBrewer) library(plotly)  29.1...">
+<meta property="og:description" content="Xirui Guo library(ggplot2) library(tidyverse) library(ggpubr) library(gridExtra) library(reshape2) library(Lock5withR) library(fivethirtyeight) library(RColorBrewer) library(plotly)  25.1...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 29 Drawing Five Common Plots by ggplot2 | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Xirui Guo library(ggplot2) library(tidyverse) library(ggpubr) library(gridExtra) library(reshape2) library(Lock5withR) library(fivethirtyeight) library(RColorBrewer) library(plotly)  29.1...">
+<meta name="twitter:title" content="Chapter 25 Drawing Five Common Plots by ggplot2 | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Xirui Guo library(ggplot2) library(tidyverse) library(ggpubr) library(gridExtra) library(reshape2) library(Lock5withR) library(fivethirtyeight) library(RColorBrewer) library(plotly)  25.1...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -71,40 +71,36 @@
 <li><a class="" href="data-visualization-course-cheatsheet.html"><span class="header-section-number">18</span> Data visualization course cheatsheet</a></li>
 <li><a class="" href="web-scraping-tables-tutorial.html"><span class="header-section-number">19</span> Web scraping tables tutorial</a></li>
 <li><a class="" href="basic-data-visualization-cheatsheet.html"><span class="header-section-number">20</span> Basic data visualization cheatsheet</a></li>
-<li><a class="" href="histogram-3.html"><span class="header-section-number">21</span> Histogram</a></li>
-<li><a class="" href="barplot.html"><span class="header-section-number">22</span> Barplot</a></li>
-<li><a class="" href="hexbin-binning.html"><span class="header-section-number">23</span> Hexbin Binning</a></li>
-<li><a class="" href="heatmap-3.html"><span class="header-section-number">24</span> Heatmap</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">25</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">26</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">27</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">28</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="active" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">29</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">30</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">31</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">32</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">33</span> R Shiny Map Tutorial</a></li>
-<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">34</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
-<li><a class="" href="wordcloud.html"><span class="header-section-number">35</span> wordcloud</a></li>
-<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">36</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">37</span> Time Series Analysis in R</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">38</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">39</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">40</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">41</span> Lecture Helper</a></li>
-<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">42</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">43</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">44</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">45</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">46</span> R Shiny and Interactive Map Tutorial</a></li>
-<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">47</span> Extract data from scatterplot</a></li>
-<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">48</span> Tutorial for the r graph gallery</a></li>
-<li><a class="" href="polar-line-plots.html"><span class="header-section-number">49</span> Polar Line Plots</a></li>
-<li><a class="" href="data-visualization-with-base-r-and-ggplot.html"><span class="header-section-number">50</span> Data visualization with base r and ggplot</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">21</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">22</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">23</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">24</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="active" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">25</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">26</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">27</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">28</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">29</span> R Shiny Map Tutorial</a></li>
+<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">30</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">31</span> wordcloud</a></li>
+<li><a class="" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">32</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">33</span> Time Series Analysis in R</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">34</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">35</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">36</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">37</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">38</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">39</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">40</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">41</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">42</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">43</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">44</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="polar-line-plots.html"><span class="header-section-number">45</span> Polar Line Plots</a></li>
+<li><a class="" href="data-visualization-with-base-r-and-ggplot.html"><span class="header-section-number">46</span> Data visualization with base r and ggplot</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">51</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">52</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">47</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">48</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -112,9 +108,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="drawing-five-common-plots-by-ggplot2" class="section level1" number="29">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="drawing-five-common-plots-by-ggplot2" class="section level1" number="25">
 <h1>
-<span class="header-section-number">29</span> Drawing Five Common Plots by ggplot2<a class="anchor" aria-label="anchor" href="#drawing-five-common-plots-by-ggplot2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25</span> Drawing Five Common Plots by ggplot2<a class="anchor" aria-label="anchor" href="#drawing-five-common-plots-by-ggplot2"><i class="fas fa-link"></i></a>
 </h1>
 <p>Xirui Guo</p>
 <div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
@@ -127,15 +123,15 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rudeboybert/fivethirtyeight">fivethirtyeight</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></code></pre></div>
-<div id="motivation-2" class="section level2" number="29.1">
+<div id="motivation-2" class="section level2" number="25.1">
 <h2>
-<span class="header-section-number">29.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>The ggplot2 is a powerful and effective package for drawing plots. It has a lot of syntaxes to support people get the graphs they want. A good plot needs to clearly represent the information. Scatter plots, line plots, histograms, boxplots, and heatmaps are frequently used in daily life. This Markdown hopes to be a guide about how to quickly and suitably draw the above five plots by ggplot2.</p>
 </div>
-<div id="graph1-scatter-plot-geom_point" class="section level2" number="29.2">
+<div id="graph1-scatter-plot-geom_point" class="section level2" number="25.2">
 <h2>
-<span class="header-section-number">29.2</span> Graph1 scatter plot: geom_point<br><a class="anchor" aria-label="anchor" href="#graph1-scatter-plot-geom_point"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.2</span> Graph1 scatter plot: geom_point<br><a class="anchor" aria-label="anchor" href="#graph1-scatter-plot-geom_point"><i class="fas fa-link"></i></a>
 </h2>
 <p>Using data <code>mtcars</code><br>
 The main code for drawing scatter plot is geom_point; however, we usually don’t use it single because we need the plot shows more information and here are some syntaxes people use together with <code>geom_point</code>:<br><code>aes(size , color)</code>: sometimes it is effective, but people need to avoid showing too much information and making the graph hard to read..<br><code>alpha</code>: change the transparency of point.<br><code>geom_text</code>: add labels of each point.<br><code>geom_smooth</code>: show the regression line and correspond standard error boundary.<br></p>
@@ -150,9 +146,9 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, fill<span class="op">=</span><span class="st">"lightblue"</span>, se<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="5commongraphs_ggplot2_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="graph2-line-chart-geom_line" class="section level2" number="29.3">
+<div id="graph2-line-chart-geom_line" class="section level2" number="25.3">
 <h2>
-<span class="header-section-number">29.3</span> Graph2 line chart: geom_line<br><a class="anchor" aria-label="anchor" href="#graph2-line-chart-geom_line"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.3</span> Graph2 line chart: geom_line<br><a class="anchor" aria-label="anchor" href="#graph2-line-chart-geom_line"><i class="fas fa-link"></i></a>
 </h2>
 <p>People need to clarify the x-axis and y-axis and can use <code>group</code> to draw the line with different colors.</p>
 <div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
@@ -178,9 +174,9 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">variable</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="5commongraphs_ggplot2_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="graph3-box-plot-geom_boxplot" class="section level2" number="29.4">
+<div id="graph3-box-plot-geom_boxplot" class="section level2" number="25.4">
 <h2>
-<span class="header-section-number">29.4</span> Graph3 box plot: geom_boxplot<br><a class="anchor" aria-label="anchor" href="#graph3-box-plot-geom_boxplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.4</span> Graph3 box plot: geom_boxplot<br><a class="anchor" aria-label="anchor" href="#graph3-box-plot-geom_boxplot"><i class="fas fa-link"></i></a>
 </h2>
 <p>Using the Data: <em>StudentSurvey</em> in <strong>Lock5withR</strong> package(PSet1). Drawing a “simple” box-plot first:<br><code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>: simultaneously add the main title and axis labels</p>
 <div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
@@ -252,9 +248,9 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
 <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">ggarrange</a></span><span class="op">(</span><span class="va">p3_1</span>,<span class="va">p3_2</span>,<span class="va">p3_3</span>,<span class="va">p3_4</span>,<span class="va">p3_5</span>,<span class="va">p3_6</span>,nrow<span class="op">=</span><span class="fl">3</span>,ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="5commongraphs_ggplot2_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="graph4-histogram-geom_histogram" class="section level2" number="29.5">
+<div id="graph4-histogram-geom_histogram" class="section level2" number="25.5">
 <h2>
-<span class="header-section-number">29.5</span> Graph4 histogram: geom_histogram<br><a class="anchor" aria-label="anchor" href="#graph4-histogram-geom_histogram"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.5</span> Graph4 histogram: geom_histogram<br><a class="anchor" aria-label="anchor" href="#graph4-histogram-geom_histogram"><i class="fas fa-link"></i></a>
 </h2>
 <p>Using Data: <em>bad_drivers</em> in <strong>fivethirtyeight </strong> package. Common syntaxes with geom_histogram:<br><code>binwidth</code>: control the width of each bin.<br><code>fill</code>: the color of bin.<br><code>color</code>: the frame color of bin.<br><code>alpha</code>: control the transparency of the bin color.</p>
 <div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
@@ -275,9 +271,9 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="5commongraphs_ggplot2_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="graph5-heatmap-geom_tile" class="section level2" number="29.6">
+<div id="graph5-heatmap-geom_tile" class="section level2" number="25.6">
 <h2>
-<span class="header-section-number">29.6</span> Graph5 heatmap: geom_tile<a class="anchor" aria-label="anchor" href="#graph5-heatmap-geom_tile"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.6</span> Graph5 heatmap: geom_tile<a class="anchor" aria-label="anchor" href="#graph5-heatmap-geom_tile"><i class="fas fa-link"></i></a>
 </h2>
 <p>The data is from the class notes<br></p>
 <div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
@@ -318,13 +314,13 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
 <div id="htmlwidget-8241c3a1a5acc03cc4c3" style="width:672px;height:480px;" class="plotly html-widget"></div>
 <script type="application/json" data-for="htmlwidget-8241c3a1a5acc03cc4c3">{"x":{"data":[{"x":[1,2,3,4],"y":[1,2,3],"z":[[0.818181818181818,0.0909090909090909,0,0.409090909090909],[0.613636363636364,0.590909090909091,0.0454545454545455,0.454545454545455],[0.977272727272727,1,0.863636363636364,0.25]],"text":[["grade  first <br /> subject:  gym <br /> statescore:  92","grade  fourth <br /> subject:  gym <br /> statescore:  60","grade  second <br /> subject:  gym <br /> statescore:  56","grade  third <br /> subject:  gym <br /> statescore:  74"],["grade  first <br /> subject:  math <br /> statescore:  83","grade  fourth <br /> subject:  math <br /> statescore:  82","grade  second <br /> subject:  math <br /> statescore:  58","grade  third <br /> subject:  math <br /> statescore:  76"],["grade  first <br /> subject:  reading <br /> statescore:  99","grade  fourth <br /> subject:  reading <br /> statescore:  100","grade  second <br /> subject:  reading <br /> statescore:  94","grade  third <br /> subject:  reading <br /> statescore:  67"]],"colorscale":[[0,"#132B43"],[0.0454545454545455,"#16304A"],[0.0909090909090909,"#183652"],[0.25,"#22496C"],[0.409090909090909,"#2D5E88"],[0.454545454545455,"#306490"],[0.590909090909091,"#3977A9"],[0.613636363636364,"#3B7AAD"],[0.818181818181818,"#4996D3"],[0.863636363636364,"#4C9DDC"],[0.977272727272727,"#54AEF3"],[1,"#56B1F7"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[1],"name":"99_1518c9c71f083dfe8ec9ed79e2cd7777","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#132B43"],[0.00334448160535123,"#132B44"],[0.0066889632107023,"#132C44"],[0.0100334448160535,"#142C45"],[0.0133779264214048,"#142D45"],[0.0167224080267558,"#142D46"],[0.0200668896321071,"#142D46"],[0.0234113712374583,"#142E47"],[0.0267558528428093,"#152E47"],[0.0301003344481606,"#152F48"],[0.0334448160535116,"#152F48"],[0.0367892976588629,"#152F49"],[0.0401337792642141,"#153049"],[0.0434782608695652,"#16304A"],[0.0468227424749164,"#16304A"],[0.0501672240802676,"#16314B"],[0.0535117056856187,"#16314B"],[0.0568561872909699,"#16324C"],[0.0602006688963211,"#17324D"],[0.0635451505016722,"#17324D"],[0.0668896321070235,"#17334E"],[0.0702341137123745,"#17334E"],[0.0735785953177257,"#17344F"],[0.076923076923077,"#18344F"],[0.080267558528428,"#183450"],[0.0836120401337793,"#183550"],[0.0869565217391305,"#183551"],[0.0903010033444816,"#183651"],[0.0936454849498328,"#193652"],[0.096989966555184,"#193652"],[0.100334448160535,"#193753"],[0.103678929765886,"#193754"],[0.107023411371237,"#193854"],[0.110367892976589,"#1A3855"],[0.11371237458194,"#1A3955"],[0.117056856187291,"#1A3956"],[0.120401337792642,"#1A3956"],[0.123745819397993,"#1A3A57"],[0.127090301003344,"#1B3A57"],[0.130434782608696,"#1B3B58"],[0.133779264214047,"#1B3B59"],[0.137123745819398,"#1B3B59"],[0.140468227424749,"#1C3C5A"],[0.1438127090301,"#1C3C5A"],[0.147157190635451,"#1C3D5B"],[0.150501672240803,"#1C3D5B"],[0.153846153846154,"#1C3D5C"],[0.157190635451505,"#1D3E5C"],[0.160535117056856,"#1D3E5D"],[0.163879598662207,"#1D3F5D"],[0.167224080267559,"#1D3F5E"],[0.17056856187291,"#1D3F5F"],[0.173913043478261,"#1E405F"],[0.177257525083612,"#1E4060"],[0.180602006688963,"#1E4160"],[0.183946488294314,"#1E4161"],[0.187290969899666,"#1E4261"],[0.190635451505017,"#1F4262"],[0.193979933110368,"#1F4263"],[0.197324414715719,"#1F4363"],[0.20066889632107,"#1F4364"],[0.204013377926421,"#1F4464"],[0.207357859531773,"#204465"],[0.210702341137124,"#204465"],[0.214046822742475,"#204566"],[0.217391304347826,"#204566"],[0.220735785953177,"#214667"],[0.224080267558528,"#214668"],[0.22742474916388,"#214768"],[0.230769230769231,"#214769"],[0.234113712374582,"#214769"],[0.237458193979933,"#22486A"],[0.240802675585284,"#22486A"],[0.244147157190636,"#22496B"],[0.247491638795987,"#22496C"],[0.250836120401338,"#224A6C"],[0.254180602006689,"#234A6D"],[0.25752508361204,"#234A6D"],[0.260869565217391,"#234B6E"],[0.264214046822743,"#234B6E"],[0.267558528428094,"#244C6F"],[0.270903010033445,"#244C70"],[0.274247491638796,"#244C70"],[0.277591973244147,"#244D71"],[0.280936454849498,"#244D71"],[0.28428093645485,"#254E72"],[0.287625418060201,"#254E72"],[0.290969899665552,"#254F73"],[0.294314381270903,"#254F74"],[0.297658862876254,"#254F74"],[0.301003344481605,"#265075"],[0.304347826086957,"#265075"],[0.307692307692308,"#265176"],[0.311036789297659,"#265176"],[0.31438127090301,"#275277"],[0.317725752508361,"#275278"],[0.321070234113712,"#275278"],[0.324414715719064,"#275379"],[0.327759197324415,"#275379"],[0.331103678929766,"#28547A"],[0.334448160535117,"#28547B"],[0.337792642140468,"#28557B"],[0.34113712374582,"#28557C"],[0.344481605351171,"#28567C"],[0.347826086956522,"#29567D"],[0.351170568561873,"#29567D"],[0.354515050167224,"#29577E"],[0.357859531772575,"#29577F"],[0.361204013377927,"#2A587F"],[0.364548494983278,"#2A5880"],[0.367892976588629,"#2A5980"],[0.37123745819398,"#2A5981"],[0.374581939799331,"#2A5982"],[0.377926421404682,"#2B5A82"],[0.381270903010034,"#2B5A83"],[0.384615384615385,"#2B5B83"],[0.387959866220736,"#2B5B84"],[0.391304347826087,"#2C5C85"],[0.394648829431438,"#2C5C85"],[0.397993311036789,"#2C5D86"],[0.40133779264214,"#2C5D86"],[0.404682274247492,"#2C5D87"],[0.408026755852843,"#2D5E87"],[0.411371237458194,"#2D5E88"],[0.414715719063545,"#2D5F89"],[0.418060200668896,"#2D5F89"],[0.421404682274247,"#2E608A"],[0.424749163879599,"#2E608A"],[0.42809364548495,"#2E618B"],[0.431438127090301,"#2E618C"],[0.434782608695652,"#2E618C"],[0.438127090301003,"#2F628D"],[0.441471571906354,"#2F628D"],[0.444816053511706,"#2F638E"],[0.448160535117057,"#2F638F"],[0.451505016722408,"#30648F"],[0.454849498327759,"#306490"],[0.458193979933111,"#306590"],[0.461538461538462,"#306591"],[0.464882943143813,"#306592"],[0.468227424749164,"#316692"],[0.471571906354515,"#316693"],[0.474916387959866,"#316793"],[0.478260869565217,"#316794"],[0.481605351170569,"#326895"],[0.48494983277592,"#326895"],[0.488294314381271,"#326996"],[0.491638795986622,"#326996"],[0.494983277591973,"#326997"],[0.498327759197324,"#336A98"],[0.501672240802676,"#336A98"],[0.505016722408027,"#336B99"],[0.508361204013378,"#336B99"],[0.511705685618729,"#346C9A"],[0.51505016722408,"#346C9B"],[0.518394648829431,"#346D9B"],[0.521739130434783,"#346D9C"],[0.525083612040134,"#346E9D"],[0.528428093645485,"#356E9D"],[0.531772575250836,"#356E9E"],[0.535117056856187,"#356F9E"],[0.538461538461538,"#356F9F"],[0.54180602006689,"#3670A0"],[0.545150501672241,"#3670A0"],[0.548494983277592,"#3671A1"],[0.551839464882943,"#3671A1"],[0.555183946488294,"#3772A2"],[0.558528428093646,"#3772A3"],[0.561872909698997,"#3773A3"],[0.565217391304348,"#3773A4"],[0.568561872909699,"#3773A4"],[0.57190635451505,"#3874A5"],[0.575250836120401,"#3874A6"],[0.578595317725753,"#3875A6"],[0.581939799331104,"#3875A7"],[0.585284280936455,"#3976A8"],[0.588628762541806,"#3976A8"],[0.591973244147157,"#3977A9"],[0.595317725752508,"#3977A9"],[0.59866220735786,"#3978AA"],[0.602006688963211,"#3A78AB"],[0.605351170568562,"#3A79AB"],[0.608695652173913,"#3A79AC"],[0.612040133779264,"#3A79AC"],[0.615384615384615,"#3B7AAD"],[0.618729096989967,"#3B7AAE"],[0.622073578595318,"#3B7BAE"],[0.625418060200669,"#3B7BAF"],[0.62876254180602,"#3C7CB0"],[0.632107023411371,"#3C7CB0"],[0.635451505016723,"#3C7DB1"],[0.638795986622074,"#3C7DB1"],[0.642140468227425,"#3C7EB2"],[0.645484949832776,"#3D7EB3"],[0.648829431438127,"#3D7FB3"],[0.652173913043478,"#3D7FB4"],[0.65551839464883,"#3D7FB5"],[0.65886287625418,"#3E80B5"],[0.662207357859532,"#3E80B6"],[0.665551839464883,"#3E81B6"],[0.668896321070234,"#3E81B7"],[0.672240802675585,"#3F82B8"],[0.675585284280937,"#3F82B8"],[0.678929765886288,"#3F83B9"],[0.682274247491639,"#3F83BA"],[0.68561872909699,"#4084BA"],[0.688963210702341,"#4084BB"],[0.692307692307692,"#4085BB"],[0.695652173913043,"#4085BC"],[0.698996655518395,"#4086BD"],[0.702341137123746,"#4186BD"],[0.705685618729097,"#4186BE"],[0.709030100334448,"#4187BF"],[0.7123745819398,"#4187BF"],[0.715719063545151,"#4288C0"],[0.719063545150502,"#4288C1"],[0.722408026755853,"#4289C1"],[0.725752508361204,"#4289C2"],[0.729096989966555,"#438AC2"],[0.732441471571906,"#438AC3"],[0.735785953177257,"#438BC4"],[0.739130434782609,"#438BC4"],[0.74247491638796,"#438CC5"],[0.745819397993311,"#448CC6"],[0.749163879598662,"#448DC6"],[0.752508361204014,"#448DC7"],[0.755852842809365,"#448EC8"],[0.759197324414716,"#458EC8"],[0.762541806020067,"#458FC9"],[0.765886287625418,"#458FC9"],[0.769230769230769,"#458FCA"],[0.77257525083612,"#4690CB"],[0.775919732441471,"#4690CB"],[0.779264214046823,"#4691CC"],[0.782608695652174,"#4691CD"],[0.785953177257525,"#4792CD"],[0.789297658862877,"#4792CE"],[0.792642140468228,"#4793CF"],[0.795986622073579,"#4793CF"],[0.79933110367893,"#4894D0"],[0.802675585284281,"#4894D0"],[0.806020066889632,"#4895D1"],[0.809364548494983,"#4895D2"],[0.812709030100334,"#4896D2"],[0.816053511705686,"#4996D3"],[0.819397993311037,"#4997D4"],[0.822742474916388,"#4997D4"],[0.826086956521739,"#4998D5"],[0.829431438127091,"#4A98D6"],[0.832775919732442,"#4A99D6"],[0.836120401337793,"#4A99D7"],[0.839464882943144,"#4A9AD8"],[0.842809364548495,"#4B9AD8"],[0.846153846153846,"#4B9BD9"],[0.849498327759197,"#4B9BDA"],[0.852842809364548,"#4B9BDA"],[0.8561872909699,"#4C9CDB"],[0.859531772575251,"#4C9CDB"],[0.862876254180602,"#4C9DDC"],[0.866220735785953,"#4C9DDD"],[0.869565217391305,"#4D9EDD"],[0.872909698996656,"#4D9EDE"],[0.876254180602007,"#4D9FDF"],[0.879598662207358,"#4D9FDF"],[0.882943143812709,"#4DA0E0"],[0.88628762541806,"#4EA0E1"],[0.889632107023411,"#4EA1E1"],[0.892976588628763,"#4EA1E2"],[0.896321070234114,"#4EA2E3"],[0.899665551839465,"#4FA2E3"],[0.903010033444816,"#4FA3E4"],[0.906354515050168,"#4FA3E5"],[0.909698996655518,"#4FA4E5"],[0.91304347826087,"#50A4E6"],[0.916387959866221,"#50A5E7"],[0.919732441471572,"#50A5E7"],[0.923076923076923,"#50A6E8"],[0.926421404682274,"#51A6E8"],[0.929765886287625,"#51A7E9"],[0.933110367892977,"#51A7EA"],[0.936454849498328,"#51A8EA"],[0.939799331103679,"#52A8EB"],[0.94314381270903,"#52A9EC"],[0.946488294314381,"#52A9EC"],[0.949832775919733,"#52AAED"],[0.953177257525084,"#53AAEE"],[0.956521739130435,"#53ABEE"],[0.959866220735786,"#53ABEF"],[0.963210702341137,"#53ACF0"],[0.966555183946488,"#54ACF0"],[0.96989966555184,"#54ADF1"],[0.973244147157191,"#54ADF2"],[0.976588628762542,"#54AEF2"],[0.979933110367893,"#55AEF3"],[0.983277591973244,"#55AFF4"],[0.986622073578595,"#55AFF4"],[0.989966555183947,"#55B0F5"],[0.993311036789298,"#56B0F6"],[0.996655518394649,"#56B1F6"],[1,"#56B1F7"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"statescore","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["60","70","80","90","100"],"tickvals":[0.0909090909090909,0.318181818181818,0.545454545454545,0.772727272727273,1],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":66.4840182648402},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,4.6],"tickmode":"array","ticktext":["first","fourth","second","third"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["first","fourth","second","third"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"grade","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,3.6],"tickmode":"array","ticktext":["gym","math","reading"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["gym","math","reading"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"subject","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"52ec42897e11":{"x":{},"y":{},"fill":{},"text":{},"type":"heatmap"}},"cur_data":"52ec42897e11","visdat":{"52ec42897e11":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="effective-ways-for-showing-more-information" class="section level2" number="29.7">
+<div id="effective-ways-for-showing-more-information" class="section level2" number="25.7">
 <h2>
-<span class="header-section-number">29.7</span> Effective ways for showing more information<a class="anchor" aria-label="anchor" href="#effective-ways-for-showing-more-information"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.7</span> Effective ways for showing more information<a class="anchor" aria-label="anchor" href="#effective-ways-for-showing-more-information"><i class="fas fa-link"></i></a>
 </h2>
-<div id="way1-faceting" class="section level3" number="29.7.1">
+<div id="way1-faceting" class="section level3" number="25.7.1">
 <h3>
-<span class="header-section-number">29.7.1</span> Way1: Faceting<a class="anchor" aria-label="anchor" href="#way1-faceting"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.7.1</span> Way1: Faceting<a class="anchor" aria-label="anchor" href="#way1-faceting"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>faceting by single discrete variable：</li>
@@ -348,9 +344,9 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Year</span><span class="op">~</span><span class="va">Award</span>, scales<span class="op">=</span><span class="st">'free'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="5commongraphs_ggplot2_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
-<div id="way2-representing-multiple-charts-on-a-single-page" class="section level3" number="29.7.2">
+<div id="way2-representing-multiple-charts-on-a-single-page" class="section level3" number="25.7.2">
 <h3>
-<span class="header-section-number">29.7.2</span> Way2: Representing multiple charts on a single page<a class="anchor" aria-label="anchor" href="#way2-representing-multiple-charts-on-a-single-page"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.7.2</span> Way2: Representing multiple charts on a single page<a class="anchor" aria-label="anchor" href="#way2-representing-multiple-charts-on-a-single-page"><i class="fas fa-link"></i></a>
 </h3>
 <p>Using Data: <em>bad_drivers</em> with syntaxes grid.arrange()</p>
 <div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
@@ -376,22 +372,22 @@ The main code for drawing scatter plot is geom_point; however, we usually don’
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">28</span> A Brief Guide Through ggplot via Examples</a></div>
-<div class="next"><a href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">30</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></div>
+<div class="prev"><a href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">24</span> A Brief Guide Through ggplot via Examples</a></div>
+<div class="next"><a href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">26</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#drawing-five-common-plots-by-ggplot2"><span class="header-section-number">29</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="nav-link" href="#motivation-2"><span class="header-section-number">29.1</span> Motivation</a></li>
-<li><a class="nav-link" href="#graph1-scatter-plot-geom_point"><span class="header-section-number">29.2</span> Graph1 scatter plot: geom_point</a></li>
-<li><a class="nav-link" href="#graph2-line-chart-geom_line"><span class="header-section-number">29.3</span> Graph2 line chart: geom_line</a></li>
-<li><a class="nav-link" href="#graph3-box-plot-geom_boxplot"><span class="header-section-number">29.4</span> Graph3 box plot: geom_boxplot</a></li>
-<li><a class="nav-link" href="#graph4-histogram-geom_histogram"><span class="header-section-number">29.5</span> Graph4 histogram: geom_histogram</a></li>
-<li><a class="nav-link" href="#graph5-heatmap-geom_tile"><span class="header-section-number">29.6</span> Graph5 heatmap: geom_tile</a></li>
+<li><a class="nav-link" href="#drawing-five-common-plots-by-ggplot2"><span class="header-section-number">25</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="nav-link" href="#motivation-2"><span class="header-section-number">25.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#graph1-scatter-plot-geom_point"><span class="header-section-number">25.2</span> Graph1 scatter plot: geom_point</a></li>
+<li><a class="nav-link" href="#graph2-line-chart-geom_line"><span class="header-section-number">25.3</span> Graph2 line chart: geom_line</a></li>
+<li><a class="nav-link" href="#graph3-box-plot-geom_boxplot"><span class="header-section-number">25.4</span> Graph3 box plot: geom_boxplot</a></li>
+<li><a class="nav-link" href="#graph4-histogram-geom_histogram"><span class="header-section-number">25.5</span> Graph4 histogram: geom_histogram</a></li>
+<li><a class="nav-link" href="#graph5-heatmap-geom_tile"><span class="header-section-number">25.6</span> Graph5 heatmap: geom_tile</a></li>
 <li>
-<a class="nav-link" href="#effective-ways-for-showing-more-information"><span class="header-section-number">29.7</span> Effective ways for showing more information</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#way1-faceting"><span class="header-section-number">29.7.1</span> Way1: Faceting</a></li>
-<li><a class="nav-link" href="#way2-representing-multiple-charts-on-a-single-page"><span class="header-section-number">29.7.2</span> Way2: Representing multiple charts on a single page</a></li>
+<a class="nav-link" href="#effective-ways-for-showing-more-information"><span class="header-section-number">25.7</span> Effective ways for showing more information</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#way1-faceting"><span class="header-section-number">25.7.1</span> Way1: Faceting</a></li>
+<li><a class="nav-link" href="#way2-representing-multiple-charts-on-a-single-page"><span class="header-section-number">25.7.2</span> Way2: Representing multiple charts on a single page</a></li>
 </ul>
 </li>
 </ul>

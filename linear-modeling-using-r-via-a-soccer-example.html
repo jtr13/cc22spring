@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 36 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293</title>
-<meta name="description" content="Fahad Alkhaja  36.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
+<title>Chapter 32 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293</title>
+<meta name="description" content="Fahad Alkhaja  32.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="Chapter 36 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293">
+<meta property="og:title" content="Chapter 32 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Fahad Alkhaja  36.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
+<meta property="og:description" content="Fahad Alkhaja  32.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 36 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293">
-<meta name="twitter:description" content="Fahad Alkhaja  36.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
+<meta name="twitter:title" content="Chapter 32 Linear Modeling Using R via a Soccer Example | Community Contributions STAT GR 5293">
+<meta name="twitter:description" content="Fahad Alkhaja  32.1 Introduction The goal of this assignment and tutorial is to show how one can use linear models in R to describe trends and be used as a predictive measure of future...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -71,40 +71,36 @@
 <li><a class="" href="data-visualization-course-cheatsheet.html"><span class="header-section-number">18</span> Data visualization course cheatsheet</a></li>
 <li><a class="" href="web-scraping-tables-tutorial.html"><span class="header-section-number">19</span> Web scraping tables tutorial</a></li>
 <li><a class="" href="basic-data-visualization-cheatsheet.html"><span class="header-section-number">20</span> Basic data visualization cheatsheet</a></li>
-<li><a class="" href="histogram-3.html"><span class="header-section-number">21</span> Histogram</a></li>
-<li><a class="" href="barplot.html"><span class="header-section-number">22</span> Barplot</a></li>
-<li><a class="" href="hexbin-binning.html"><span class="header-section-number">23</span> Hexbin Binning</a></li>
-<li><a class="" href="heatmap-3.html"><span class="header-section-number">24</span> Heatmap</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">25</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
-<li><a class="" href="plotly-package.html"><span class="header-section-number">26</span> Plotly package</a></li>
-<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">27</span> Web Scraping Using BeautifulSoup in Python</a></li>
-<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">28</span> A Brief Guide Through ggplot via Examples</a></li>
-<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">29</span> Drawing Five Common Plots by ggplot2</a></li>
-<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">30</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
-<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">31</span> Twitter API guide in R</a></li>
-<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">32</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
-<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">33</span> R Shiny Map Tutorial</a></li>
-<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">34</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
-<li><a class="" href="wordcloud.html"><span class="header-section-number">35</span> wordcloud</a></li>
-<li><a class="active" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">36</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">37</span> Time Series Analysis in R</a></li>
-<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">38</span> Animation graphs in plot_ly and gganimate</a></li>
-<li><a class="" href="forest-plots.html"><span class="header-section-number">39</span> Forest Plots</a></li>
-<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">40</span> Differences between some packages of visualizaiton</a></li>
-<li><a class="" href="lecture-helper.html"><span class="header-section-number">41</span> Lecture Helper</a></li>
-<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">42</span> Basic introduction to tidyverse</a></li>
-<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">43</span> class_material_code_throughout_this_semester</a></li>
-<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">44</span> Calendar heat map tutorial</a></li>
-<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">45</span> Basic time series analysis and prediction</a></li>
-<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">46</span> R Shiny and Interactive Map Tutorial</a></li>
-<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">47</span> Extract data from scatterplot</a></li>
-<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">48</span> Tutorial for the r graph gallery</a></li>
-<li><a class="" href="polar-line-plots.html"><span class="header-section-number">49</span> Polar Line Plots</a></li>
-<li><a class="" href="data-visualization-with-base-r-and-ggplot.html"><span class="header-section-number">50</span> Data visualization with base r and ggplot</a></li>
+<li><a class="" href="visualizing-geographical-time-series-data-with-messy-country-name.html"><span class="header-section-number">21</span> Visualizing Geographical Time Series Data With Messy Country Name</a></li>
+<li><a class="" href="plotly-package.html"><span class="header-section-number">22</span> Plotly package</a></li>
+<li><a class="" href="web-scraping-using-beautifulsoup-in-python.html"><span class="header-section-number">23</span> Web Scraping Using BeautifulSoup in Python</a></li>
+<li><a class="" href="a-brief-guide-through-ggplot-via-examples.html"><span class="header-section-number">24</span> A Brief Guide Through ggplot via Examples</a></li>
+<li><a class="" href="drawing-five-common-plots-by-ggplot2.html"><span class="header-section-number">25</span> Drawing Five Common Plots by ggplot2</a></li>
+<li><a class="" href="compare-different-ways-of-plotting-biplot-mosaicplot-and-heatmap.html"><span class="header-section-number">26</span> Compare different ways of plotting Biplot, Mosaicplot, and Heatmap</a></li>
+<li><a class="" href="twitter-api-guide-in-r.html"><span class="header-section-number">27</span> Twitter API guide in R</a></li>
+<li><a class="" href="geographical-maps-packages-comparison-ggmap-vs.-ggplot-vs-tmap.html"><span class="header-section-number">28</span> Geographical Maps Packages Comparison: ggmap vs. ggplot vs tmap</a></li>
+<li><a class="" href="r-shiny-map-tutorial.html"><span class="header-section-number">29</span> R Shiny Map Tutorial</a></li>
+<li><a class="" href="neural-network-ploting-with-bp-algorithm-and-without-algorithm.html"><span class="header-section-number">30</span> Neural Network Ploting with BP Algorithm and without Algorithm</a></li>
+<li><a class="" href="wordcloud.html"><span class="header-section-number">31</span> wordcloud</a></li>
+<li><a class="active" href="linear-modeling-using-r-via-a-soccer-example.html"><span class="header-section-number">32</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="" href="time-series-analysis-in-r.html"><span class="header-section-number">33</span> Time Series Analysis in R</a></li>
+<li><a class="" href="animation-graphs-in-plot_ly-and-gganimate.html"><span class="header-section-number">34</span> Animation graphs in plot_ly and gganimate</a></li>
+<li><a class="" href="forest-plots.html"><span class="header-section-number">35</span> Forest Plots</a></li>
+<li><a class="" href="differences-between-some-packages-of-visualizaiton.html"><span class="header-section-number">36</span> Differences between some packages of visualizaiton</a></li>
+<li><a class="" href="lecture-helper.html"><span class="header-section-number">37</span> Lecture Helper</a></li>
+<li><a class="" href="basic-introduction-to-tidyverse.html"><span class="header-section-number">38</span> Basic introduction to tidyverse</a></li>
+<li><a class="" href="class_material_code_throughout_this_semester.html"><span class="header-section-number">39</span> class_material_code_throughout_this_semester</a></li>
+<li><a class="" href="calendar-heat-map-tutorial.html"><span class="header-section-number">40</span> Calendar heat map tutorial</a></li>
+<li><a class="" href="basic-time-series-analysis-and-prediction.html"><span class="header-section-number">41</span> Basic time series analysis and prediction</a></li>
+<li><a class="" href="r-shiny-and-interactive-map-tutorial.html"><span class="header-section-number">42</span> R Shiny and Interactive Map Tutorial</a></li>
+<li><a class="" href="extract-data-from-scatterplot.html"><span class="header-section-number">43</span> Extract data from scatterplot</a></li>
+<li><a class="" href="tutorial-for-the-r-graph-gallery.html"><span class="header-section-number">44</span> Tutorial for the r graph gallery</a></li>
+<li><a class="" href="polar-line-plots.html"><span class="header-section-number">45</span> Polar Line Plots</a></li>
+<li><a class="" href="data-visualization-with-base-r-and-ggplot.html"><span class="header-section-number">46</span> Data visualization with base r and ggplot</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">51</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">52</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">47</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">48</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -112,14 +108,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-modeling-using-r-via-a-soccer-example" class="section level1" number="36">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-modeling-using-r-via-a-soccer-example" class="section level1" number="32">
 <h1>
-<span class="header-section-number">36</span> Linear Modeling Using R via a Soccer Example<a class="anchor" aria-label="anchor" href="#linear-modeling-using-r-via-a-soccer-example"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32</span> Linear Modeling Using R via a Soccer Example<a class="anchor" aria-label="anchor" href="#linear-modeling-using-r-via-a-soccer-example"><i class="fas fa-link"></i></a>
 </h1>
 <p>Fahad Alkhaja</p>
-<div id="introduction-3" class="section level2" number="36.1">
+<div id="introduction-3" class="section level2" number="32.1">
 <h2>
-<span class="header-section-number">36.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>The goal of this assignment and tutorial is to show how one can use linear models
 in R to describe trends and be used as a predictive measure of future performance.</p>
@@ -134,9 +130,9 @@ scoring game such as soccer plays a big factor.</p>
 <p>Today, we will be exploring a more niche aspect of the expectations world in soccer.
 We will look to model the number of goals conceded based on some different parameters which include xGA expected goals against, or expected goals conceded, and some other defensive metrics such as Blocks, Tackles, and Pressures. This can help be a guide to see which factor is the most contributing to a team’s defensive record, in terms of goals conceded. Eventually this could be used to compare to that of the league table.</p>
 </div>
-<div id="data-loading" class="section level2" number="36.2">
+<div id="data-loading" class="section level2" number="32.2">
 <h2>
-<span class="header-section-number">36.2</span> Data Loading<a class="anchor" aria-label="anchor" href="#data-loading"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2</span> Data Loading<a class="anchor" aria-label="anchor" href="#data-loading"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Data used here is obtained directly from the FBref website under the Premier
 League 2021/22 season so far as of Mar 28, 2021 (1).</p>
@@ -148,9 +144,9 @@ League 2021/22 season so far as of Mar 28, 2021 (1).</p>
 <span class="va">defense</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"resources/linear_models_soccer_example/PL21-22_Defense.xlsx"</span>,skip <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co"># Squad Defensive Actions 2021-22 Premier League Table on FBRef</span></code></pre></div>
 </div>
-<div id="data-wrangling-1" class="section level2" number="36.3">
+<div id="data-wrangling-1" class="section level2" number="32.3">
 <h2>
-<span class="header-section-number">36.3</span> Data Wrangling<a class="anchor" aria-label="anchor" href="#data-wrangling-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3</span> Data Wrangling<a class="anchor" aria-label="anchor" href="#data-wrangling-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>We have to then clean and prepare the relevant data so we can come up with appropriate models.</p>
 <div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
@@ -205,9 +201,9 @@ League 2021/22 season so far as of Mar 28, 2021 (1).</p>
 ## #   Press_Def &lt;dbl&gt;, Press_Mid &lt;dbl&gt;, Press_Att &lt;dbl&gt;, Blocks &lt;dbl&gt;, Int &lt;dbl&gt;,
 ## #   Clr &lt;dbl&gt;, Err &lt;dbl&gt;</code></pre>
 </div>
-<div id="initial-model-fit-simple-linear-model-one-variable" class="section level2" number="36.4">
+<div id="initial-model-fit-simple-linear-model-one-variable" class="section level2" number="32.4">
 <h2>
-<span class="header-section-number">36.4</span> Initial Model Fit: Simple Linear Model (one variable)<a class="anchor" aria-label="anchor" href="#initial-model-fit-simple-linear-model-one-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.4</span> Initial Model Fit: Simple Linear Model (one variable)<a class="anchor" aria-label="anchor" href="#initial-model-fit-simple-linear-model-one-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now that we have cleaned the data to only the relevant defensive metrics that we
 will be exploring, we can get to work.</p>
@@ -273,9 +269,9 @@ including standard errors of such estimations.</p>
 <div class="inline-figure"><img src="linear_models_soccer_example_files/figure-html/model1%20plot-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>It is immediately clear that the simple model we ran is not sufficient, so how can we improve it?</p>
 </div>
-<div id="linear-model-removing-intercept-term" class="section level2" number="36.5">
+<div id="linear-model-removing-intercept-term" class="section level2" number="32.5">
 <h2>
-<span class="header-section-number">36.5</span> Linear Model: Removing Intercept Term<a class="anchor" aria-label="anchor" href="#linear-model-removing-intercept-term"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.5</span> Linear Model: Removing Intercept Term<a class="anchor" aria-label="anchor" href="#linear-model-removing-intercept-term"><i class="fas fa-link"></i></a>
 </h2>
 <p>First, we can get rid of the intercept because fundamentally in our problem here it does not make sense.</p>
 <p>Adding a -1 at the end of the formula gets rid of the intercept term.
@@ -329,9 +325,9 @@ such that formula = y ~ x - 1.</p>
 <img src="linear_models_soccer_example_files/figure-html/model2-nointercept-1.png" width="672" style="display: block; margin: auto;">
 The line does seem to fit the ideal model line very well. However, there are still alot of data points quite spread it. So it is definitely worth exploring more parameters to see which one best fits our current data.</div>
 </div>
-<div id="additional-linear-parameters-and-interactions" class="section level2" number="36.6">
+<div id="additional-linear-parameters-and-interactions" class="section level2" number="32.6">
 <h2>
-<span class="header-section-number">36.6</span> Additional Linear Parameters and Interactions<a class="anchor" aria-label="anchor" href="#additional-linear-parameters-and-interactions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.6</span> Additional Linear Parameters and Interactions<a class="anchor" aria-label="anchor" href="#additional-linear-parameters-and-interactions"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are several methods to do this. We can add more linear terms and have our pick from any of the defensive metrics we narrowed down earlier. In addition to adding more linear terms we can also add interaction terms and even if necessary higher order powered terms. Outlined below is how to do such a thing.</p>
 <p>Additional Linear Terms follow the formula outline earlier.</p>
@@ -386,9 +382,9 @@ While this may not be as easy to interpret and understand it becomes easier afte
 <p>To think of it in a simple manner, if we assume a %SuccPress of 0. Our model estimates the GA to be :
 GA = 1.248226(xGA) + 0.060517(Press_Att). This basically means that with a 0% success rate in pressing the number of goals you will concede (GA) is proportional to the number of Presses Attempted in the Attacking Third (assuming they were all unsuccessful). From this base model, we can observe that an increase in Pressure Success %, results in a decrease of our estimate of GA via the interaction term and the negative coefficient estimate for the %SuccPress parameter. From a soccer point of view, this makes sense because an increase in successful pressure% means the team wins the ball back more and thus a decrease in goals conceded (GA) when you win the ball back more often makes a lot of intuitive sense.</p>
 </div>
-<div id="grouped-parameters" class="section level2" number="36.7">
+<div id="grouped-parameters" class="section level2" number="32.7">
 <h2>
-<span class="header-section-number">36.7</span> Grouped Parameters<a class="anchor" aria-label="anchor" href="#grouped-parameters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.7</span> Grouped Parameters<a class="anchor" aria-label="anchor" href="#grouped-parameters"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also group some variables/parameters if we are interested in them as a grouped parameter.
 One method would be to create a new column in the table itself. The other method would be to use the formula as follows:</p>
@@ -434,15 +430,15 @@ One method would be to create a new column in the table itself. The other method
 <p>The model agreed with what we expected it to look like with the grouped variable having a negative coefficient meaning an increase in Defensive Activity (via these grouped values) results in lower Goals Against. While the coefficient seems very small the number of actions of this grouped variable is quite large that it does have an effect.</p>
 <p>It is important to note that this model does show xGA having a 1.399 which can result in an overestimation if we have (Blocks + Int + Clr + Tackles) = 0</p>
 </div>
-<div id="aic-akaike-information-criterion" class="section level2" number="36.8">
+<div id="aic-akaike-information-criterion" class="section level2" number="32.8">
 <h2>
-<span class="header-section-number">36.8</span> AIC : Akaike Information Criterion<a class="anchor" aria-label="anchor" href="#aic-akaike-information-criterion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.8</span> AIC : Akaike Information Criterion<a class="anchor" aria-label="anchor" href="#aic-akaike-information-criterion"><i class="fas fa-link"></i></a>
 </h2>
 <p>Alexandre Zajic says:
 “In plain words, AIC is a single number score that can be used to determine which of multiple models is most likely to be the best model for a given dataset. It estimates models relatively, meaning that AIC scores are only useful in comparison with other AIC scores for the same dataset. A lower AIC score is better.” (2)</p>
-<div id="optimum-model-selection" class="section level3" number="36.8.1">
+<div id="optimum-model-selection" class="section level3" number="32.8.1">
 <h3>
-<span class="header-section-number">36.8.1</span> Optimum Model Selection<a class="anchor" aria-label="anchor" href="#optimum-model-selection"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.8.1</span> Optimum Model Selection<a class="anchor" aria-label="anchor" href="#optimum-model-selection"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use the AIC as a metric to determine which model is the best for our dataset.</p>
 <p>To find the model with the optimum AIC, we can use a forward selection or a backward elimination algorithm. Sometimes one method misses the method with the lower AIC, so it is not necessarily repetitive to do both.</p>
@@ -664,21 +660,21 @@ One method would be to create a new column in the table itself. The other method
 ## F-statistic: 327.9 on 4 and 16 DF,  p-value: 3.958e-15</code></pre>
 </div>
 </div>
-<div id="final-model-choice" class="section level2" number="36.9">
+<div id="final-model-choice" class="section level2" number="32.9">
 <h2>
-<span class="header-section-number">36.9</span> Final Model Choice<a class="anchor" aria-label="anchor" href="#final-model-choice"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.9</span> Final Model Choice<a class="anchor" aria-label="anchor" href="#final-model-choice"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Final Model that was determined via the minimizing AIC method gave us:</p>
 </div>
-<div id="ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles" class="section level2" number="36.10">
+<div id="ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles" class="section level2" number="32.10">
 <h2>
-<span class="header-section-number">36.10</span> GA = 1.10645(xGA) - 1.87594 (%SuccPress) + 0.02890(Press_Att) + 0.04641(Tackles)<a class="anchor" aria-label="anchor" href="#ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.10</span> GA = 1.10645(xGA) - 1.87594 (%SuccPress) + 0.02890(Press_Att) + 0.04641(Tackles)<a class="anchor" aria-label="anchor" href="#ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can now use the model to estimate GA and compare the accuracy of our model to that of the actual GA.</p>
 </div>
-<div id="our-model-in-action" class="section level2" number="36.11">
+<div id="our-model-in-action" class="section level2" number="32.11">
 <h2>
-<span class="header-section-number">36.11</span> Our Model in Action<a class="anchor" aria-label="anchor" href="#our-model-in-action"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.11</span> Our Model in Action<a class="anchor" aria-label="anchor" href="#our-model-in-action"><i class="fas fa-link"></i></a>
 </h2>
 <div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">defense_stats_cleaned</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
@@ -701,9 +697,9 @@ One method would be to create a new column in the table itself. The other method
 <img src="linear_models_soccer_example_files/figure-html/new_GA_estimate-1.png" width="672" style="display: block; margin: auto;">
 Our Model GA mostly aligns with that of the xGA estimation. Our model’s points (red) are slightly more optimized around the perfect model line (xGA = GA) especially at the extremities where this is more discrepancy between our model’s points and the xGA points.</div>
 </div>
-<div id="references-4" class="section level2" number="36.12">
+<div id="references-4" class="section level2" number="32.12">
 <h2>
-<span class="header-section-number">36.12</span> References<a class="anchor" aria-label="anchor" href="#references-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.12</span> References<a class="anchor" aria-label="anchor" href="#references-4"><i class="fas fa-link"></i></a>
 </h2>
 <p>1 - <a href="https://fbref.com/en/comps/9/Premier-League-Stats" class="uri">https://fbref.com/en/comps/9/Premier-League-Stats</a>
 2 - <a href="https://towardsdatascience.com/introduction-to-aic-akaike-information-criterion-9c9ba1c96ced" class="uri">https://towardsdatascience.com/introduction-to-aic-akaike-information-criterion-9c9ba1c96ced</a></p>
@@ -711,26 +707,26 @@ Our Model GA mostly aligns with that of the xGA estimation. Our model’s points
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="wordcloud.html"><span class="header-section-number">35</span> wordcloud</a></div>
-<div class="next"><a href="time-series-analysis-in-r.html"><span class="header-section-number">37</span> Time Series Analysis in R</a></div>
+<div class="prev"><a href="wordcloud.html"><span class="header-section-number">31</span> wordcloud</a></div>
+<div class="next"><a href="time-series-analysis-in-r.html"><span class="header-section-number">33</span> Time Series Analysis in R</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#linear-modeling-using-r-via-a-soccer-example"><span class="header-section-number">36</span> Linear Modeling Using R via a Soccer Example</a></li>
-<li><a class="nav-link" href="#introduction-3"><span class="header-section-number">36.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#data-loading"><span class="header-section-number">36.2</span> Data Loading</a></li>
-<li><a class="nav-link" href="#data-wrangling-1"><span class="header-section-number">36.3</span> Data Wrangling</a></li>
-<li><a class="nav-link" href="#initial-model-fit-simple-linear-model-one-variable"><span class="header-section-number">36.4</span> Initial Model Fit: Simple Linear Model (one variable)</a></li>
-<li><a class="nav-link" href="#linear-model-removing-intercept-term"><span class="header-section-number">36.5</span> Linear Model: Removing Intercept Term</a></li>
-<li><a class="nav-link" href="#additional-linear-parameters-and-interactions"><span class="header-section-number">36.6</span> Additional Linear Parameters and Interactions</a></li>
-<li><a class="nav-link" href="#grouped-parameters"><span class="header-section-number">36.7</span> Grouped Parameters</a></li>
+<li><a class="nav-link" href="#linear-modeling-using-r-via-a-soccer-example"><span class="header-section-number">32</span> Linear Modeling Using R via a Soccer Example</a></li>
+<li><a class="nav-link" href="#introduction-3"><span class="header-section-number">32.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#data-loading"><span class="header-section-number">32.2</span> Data Loading</a></li>
+<li><a class="nav-link" href="#data-wrangling-1"><span class="header-section-number">32.3</span> Data Wrangling</a></li>
+<li><a class="nav-link" href="#initial-model-fit-simple-linear-model-one-variable"><span class="header-section-number">32.4</span> Initial Model Fit: Simple Linear Model (one variable)</a></li>
+<li><a class="nav-link" href="#linear-model-removing-intercept-term"><span class="header-section-number">32.5</span> Linear Model: Removing Intercept Term</a></li>
+<li><a class="nav-link" href="#additional-linear-parameters-and-interactions"><span class="header-section-number">32.6</span> Additional Linear Parameters and Interactions</a></li>
+<li><a class="nav-link" href="#grouped-parameters"><span class="header-section-number">32.7</span> Grouped Parameters</a></li>
 <li>
-<a class="nav-link" href="#aic-akaike-information-criterion"><span class="header-section-number">36.8</span> AIC : Akaike Information Criterion</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#optimum-model-selection"><span class="header-section-number">36.8.1</span> Optimum Model Selection</a></li></ul>
+<a class="nav-link" href="#aic-akaike-information-criterion"><span class="header-section-number">32.8</span> AIC : Akaike Information Criterion</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#optimum-model-selection"><span class="header-section-number">32.8.1</span> Optimum Model Selection</a></li></ul>
 </li>
-<li><a class="nav-link" href="#final-model-choice"><span class="header-section-number">36.9</span> Final Model Choice</a></li>
-<li><a class="nav-link" href="#ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles"><span class="header-section-number">36.10</span> GA = 1.10645(xGA) - 1.87594 (%SuccPress) + 0.02890(Press_Att) + 0.04641(Tackles)</a></li>
-<li><a class="nav-link" href="#our-model-in-action"><span class="header-section-number">36.11</span> Our Model in Action</a></li>
-<li><a class="nav-link" href="#references-4"><span class="header-section-number">36.12</span> References</a></li>
+<li><a class="nav-link" href="#final-model-choice"><span class="header-section-number">32.9</span> Final Model Choice</a></li>
+<li><a class="nav-link" href="#ga-1.10645xga---1.87594-succpress-0.02890press_att-0.04641tackles"><span class="header-section-number">32.10</span> GA = 1.10645(xGA) - 1.87594 (%SuccPress) + 0.02890(Press_Att) + 0.04641(Tackles)</a></li>
+<li><a class="nav-link" href="#our-model-in-action"><span class="header-section-number">32.11</span> Our Model in Action</a></li>
+<li><a class="nav-link" href="#references-4"><span class="header-section-number">32.12</span> References</a></li>
 </ul>
 
       <div class="book-extra">
