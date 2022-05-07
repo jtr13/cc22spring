@@ -1,0 +1,310 @@
+
+# Linear Modeling Using R via a Soccer Example
+
+Fahad Alkhaja
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(readxl)
+library(modelr)
+```
+
+## Introduction
+
+The goal of this assignment and tutorial is to show how one can use linear models 
+in R to describe trends and be used as a predictive measure of future performance.
+
+A commonly used model in the soccer world is that of xG, which roughly translates to
+the Expectation of a Goal being scored. $E(Goal) =$xG.
+
+It is based on a probabilistic measure being assigned to each shot taken where each
+shot has an xG value based on likelihood of scoring from where the shot was taken.
+The xG values are thus tallied for a team. Thus, comparing xG values for teams
+over the course of a game or year can serve as a good indication of team performance
+without results bias and excluding for the most part luck, which in a low 
+scoring game such as soccer plays a big factor.
+
+Today, we will be exploring a more niche aspect of the expectations world in soccer.
+We will look to model the number of goals conceded based on some different parameters which include xGA expected goals against, or expected goals conceded, and some other defensive metrics such as Blocks, Tackles, and Pressures. This can help be a guide to see which factor is the most contributing to a team's defensive record, in terms of goals conceded. Eventually this could be used to compare to that of the league table.
+
+## Data Loading
+
+The Data used here is obtained directly from the FBref website under the Premier
+League 2021/22 season so far as of Mar 28, 2021 (1).
+
+```{r datareading, message=FALSE}
+
+league_table <- read_xlsx("resources/linear_models_soccer_example/PL21-22_Points.xlsx",
+                          skip = 0) 
+# Squad Standard Stats 2021-22 Premier League Table on FBRef
+
+defense <- read_xlsx("resources/linear_models_soccer_example/PL21-22_Defense.xlsx",skip = 1)
+# Squad Defensive Actions 2021-22 Premier League Table on FBRef
+
+
+```
+
+## Data Wrangling
+
+We have to then clean and prepare the relevant data so we can come up with appropriate models.
+
+```{r datawrangle}
+
+league_table_2 <- league_table %>%
+  select(Rk:`xGD/90`) %>%
+  mutate(`xGA/90` = round(xGA/MP, 3),
+         PPG = round(Pts/MP, 3)) %>%
+  select(-c(W,D,L))
+
+defense_2 <- defense %>%
+  select(-(`# Pl`)) %>%
+  select(-(`TklW`:Past)) %>%
+  select(-(Sh:Pass)) %>%
+  rename(Tackles = `Tkl...4`,
+         Pressures = Press,
+         SuccPress = Succ,
+         `%SuccPress` = `%`,
+         Press_Def = `Def 3rd...16`,
+         Press_Mid = `Mid 3rd...17`,
+         Press_Att = `Att 3rd...18`) %>%
+  select(-c(`Tkl+Int`))
+  
+defense_stats_cleaned <- league_table_2 %>%
+  full_join(defense_2, by = "Squad") %>%
+  select(-c(`90s`, GF, GD, xG, xGD, `xGD/90`))
+
+defense_stats_cleaned
+
+```
+## Initial Model Fit: Simple Linear Model (one variable)
+
+Now that we have cleaned the data to only the relevant defensive metrics that we
+will be exploring, we can get to work.
+
+First we will attempt to fit a  linear model (lm) using only xGA to estimate xG.
+
+The "lm" function takes the "formula" argument in the form y~x such that it runs
+a linear regression with the equation $$ y = \beta_0 + \beta_1x$$.
+In the case of more parameters the equation takes the same linear form :
+$$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n$$.
+
+As seen below, the lm(...) function serves to find the best estimates for each $\beta$.
+Running the function summary(lm(...)) as such gives a much more detailed view 
+including standard errors of such estimations.
+
+
+
+```{r modelfit}
+
+# running lm on the model finds the best estimates for beta_0 (the intercept)
+# and beta_1 in this case.
+
+model_1 <- lm(formula = GA ~ xGA, data = defense_stats_cleaned)
+
+model_1
+
+summary_model_1 <- summary(model_1)
+
+summary(model_1)
+
+```
+We can see that the intercept has a large variation. Inherently also, the value does not make sense because teams starting with an xGA of 0 will have an estimated GA of around -13.
+
+We can also visualize this initial model with a simple scatter plot and a best fit line and an ideal model line, where GA = xGA, it is a perfect assumption.
+
+```{r model1 plot}
+
+defense_stats_cleaned %>%
+  ggplot(aes(xGA, GA)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x, aes(color = "GA = -13.005 + 1.360 xGA")) +
+  geom_abline(slope = 1, intercept = 0) +
+  theme_bw() +
+  labs(title = "Goals Conceded (GA) Estimated by xGA",
+       subtitle = "There is a lot of variance around the estimated best fit line.",
+       x = "xGA: Expected Goals Against",
+       y = "GA : Goals Against",
+       color = "") +
+  theme(legend.position = "bottom")
+
+
+
+```
+
+It is immediately clear that the simple model we ran is not sufficient, so how can we improve it?
+
+## Linear Model: Removing Intercept Term
+
+First, we can get rid of the intercept because fundamentally in our problem here it does not make sense.
+
+Adding a -1 at the end of the formula gets rid of the intercept term.
+such that formula = y ~ x - 1.
+
+```{r model2-nointercept}
+
+model_2 <- lm(formula = GA ~ xGA - 1, data = defense_stats_cleaned)
+
+model_2
+
+summary_model_2 <- summary(model_2)
+
+summary(model_2)
+
+defense_stats_cleaned %>%
+  ggplot(aes(xGA, GA)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x-1, aes(color = "GA = 1.042xGA")) +
+  geom_abline(slope = 1, intercept = 0) +
+  theme_bw() +
+  labs(title = "Goals Conceded (GA) Estimated by xGA",
+       subtitle = "The best-fit line (Red) and Perfect Model Line are now much closer.",
+       x = "xGA: Expected Goals Against",
+       y = "GA : Goals Against",
+       color = "") +
+  theme(legend.position = "bottom")
+
+```
+The line does seem to fit the ideal model line very well. However, there are still alot of data points quite spread it. So it is definitely worth exploring more parameters to see which one best fits our current data.
+
+
+## Additional Linear Parameters and Interactions
+
+There are several methods to do this. We can add more linear terms and have our pick from any of the defensive metrics we narrowed down earlier. In addition to adding more linear terms we can also add interaction terms and even if necessary higher order powered terms. Outlined below is how to do such a thing.
+
+Additional Linear Terms follow the formula outline earlier.
+
+$$y = \beta_0 + \beta_1x_1 + ... \beta_nx_n$$
+
+In R, this would be done by ```lm(y ~ x1 + ... + xn)```.
+
+For interaction terms, there are two operators that can be used.
+
+The " * " operator or ":" can be used.
+
+y ~ x1 + x2*x3 means y~ x1 + x2 + x3 + x2:x3 
+
+Mathematically, this translates to : 
+
+$$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_{2,3}x_2x_3$$
+For the next model, we will look at the xGA in additional to the successful pressure percentages of teams, the number of pressures in the attacking third (Press_Att) and the interaction between the successful pressure percentage and Press_Att.
+
+```{r model3interactions}
+
+model_3 <- lm(data = defense_stats_cleaned, formula = GA ~ xGA + `%SuccPress`*Press_Att  - 1)
+
+model_3
+
+summary_model_3 <- summary(model_3)
+
+summary_model_3
+
+```
+$$GA =  1.248226(xGA) -1.258805 (\%SuccPress) + 0.060517(Press_{Att}) - 0.001056(\%SuccPress)(Press_{Att}) $$
+While this may not be as easy to interpret and understand it becomes easier after running through an example.
+
+First, a negative coefficient means that an increase in that variable results in a decrease in our interested variable, in this case Goals Against (GA). The higher the Successful Press % (%SuccPress) the lower the GA in general. However, we also have an interaction term to consider. Since our interaction term is negative it means that we can't think of the Press_Att term as increasing to the estimated GA because it has a positive coefficient. We need to consider the interaction term between Press_Att and %SuccPress.
+
+To think of it in a simple manner, if we assume a %SuccPress of 0. Our model estimates the GA to be : 
+GA = 1.248226(xGA) + 0.060517(Press_Att). This basically means that with a 0% success rate in pressing the number of goals you will concede (GA) is proportional to the number of Presses Attempted in the Attacking Third (assuming they were all unsuccessful). From this base model, we can observe that an increase in Pressure Success %, results in a decrease of our estimate of GA via the interaction term and the negative coefficient estimate for the %SuccPress parameter. From a soccer point of view, this makes sense because an increase in successful pressure% means the team wins the ball back more and thus a decrease in goals conceded (GA) when you win the ball back more often makes a lot of intuitive sense.
+
+## Grouped Parameters
+
+We can also group some variables/parameters if we are interested in them as a grouped parameter.
+One method would be to create a new column in the table itself. The other method would be to use the formula as follows:
+
+Interested grouped variable: x1 + x2 + x3
+
+lm(formula = y ~ I(x1 + x2 + x3), data = data).
+
+Here we group Block, Interception(Int), Clearances (Clr), and Tackles which in the game of Soccer are all means of getting the ball back from the opponent and away from your goal which should decrease the Goals Against (GA).
+
+```{r model4 grouped}
+
+model_4 <- lm(formula = GA ~ xGA + I(Blocks + Int + Clr + Tackles ) - 1,
+              data = defense_stats_cleaned)
+
+model_4
+
+summary_model_4 <- summary(model_4)
+
+summary_model_4
+```
+The model agreed with what we expected it to look like with the grouped variable having a negative coefficient meaning an increase in Defensive Activity (via these grouped values) results in lower Goals Against. While the coefficient seems very small the number of actions of this grouped variable is quite large that it does have an effect. 
+
+It is important to note that this model does show xGA having a 1.399 which can result in an overestimation if we have (Blocks + Int + Clr + Tackles) = 0
+
+
+## AIC : Akaike Information Criterion
+
+Alexandre Zajic says: 
+"In plain words, AIC is a single number score that can be used to determine which of multiple models is most likely to be the best model for a given dataset. It estimates models relatively, meaning that AIC scores are only useful in comparison with other AIC scores for the same dataset. A lower AIC score is better." (2)
+
+### Optimum Model Selection
+
+We can use the AIC as a metric to determine which model is the best for our dataset.
+
+To find the model with the optimum AIC, we can use a forward selection  or a backward elimination algorithm. Sometimes one method misses the method with the lower AIC, so it is not necessarily repetitive to do both.
+
+
+```{r AIC}
+
+model_all <- lm(GA ~ xGA + `%SuccPress`*Press_Def + `%SuccPress`*Press_Mid + `%SuccPress`*Press_Att
+                + Tackles + Blocks + Int + Clr + Err - 1,
+                data=defense_stats_cleaned)
+model_0 <- lm(GA ~ xGA - 1, data=defense_stats_cleaned)
+
+scope <- list(lower=formula(model_0), upper=formula(model_all))
+
+forward_selection <- step(model_0, direction="forward", scope=scope)
+
+backward_elimination <- step(model_all, direction="backward", scope=scope)
+
+
+# Check if the AICs and models from both methods are the same
+extractAIC(forward_selection) == extractAIC(backward_elimination)
+
+summary(backward_elimination)
+
+```
+## Final Model Choice
+
+The Final Model that was determined via the minimizing AIC method gave us:
+
+## GA = 1.10645(xGA) - 1.87594 (%SuccPress) +  0.02890(Press_Att) + 0.04641(Tackles)
+
+We can now use the model to estimate GA and compare the accuracy of our model to that of the actual GA.
+
+## Our Model in Action
+
+```{r new_GA_estimate}
+
+
+defense_stats_cleaned %>%
+  mutate(modelGA = 1.10645*(xGA) - 1.87594*(`%SuccPress`) +  0.02890*(Press_Att) + 0.04641*(Tackles)) %>%
+  select(Rk, Squad, MP, GA, xGA, modelGA) %>%
+  mutate(model_xGA_diff = modelGA-xGA,
+         model_xGA_GA = modelGA-GA) %>%
+  ggplot() +
+  geom_point(aes(x = modelGA, y = GA, color = "Model GA")) +
+  geom_point(aes(x = xGA, y = GA, color = "xGA")) +
+  geom_abline(slope = 1, intercept = 0) +
+  theme_bw() +
+  labs(title = "Goals Conceded (GA) Estimated by xGA and Our Model",
+       subtitle = "Our Model mostly agrees with the xGA model in the middle sector.",
+       x = "Model GA or xGA",
+       y = "GA : Goals Against",
+       color = "") +
+  theme(legend.position = "bottom")
+
+
+```
+Our Model GA mostly aligns with that of the xGA estimation. Our model's points (red) are slightly more optimized around the perfect model line (xGA = GA) especially at the extremities where this is more discrepancy between our model's points and the xGA points.
+
+
+## References
+
+1 - https://fbref.com/en/comps/9/Premier-League-Stats
+2 - https://towardsdatascience.com/introduction-to-aic-akaike-information-criterion-9c9ba1c96ced
+
+
