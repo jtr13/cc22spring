@@ -1,0 +1,180 @@
+# How to Generate Word Clouds in R
+
+Jiaxin Yu and Victoria Meng
+
+## Introduction
+
+Common sources to generate a word cloud:
+  - an R object containing plain text 
+  - a txt file containing plain text (local or online hosted txt files)
+  - a URL of a web page 
+
+Main steps to generate world cloud in R:
+  - create a text file
+  - install and load the required R packages
+  - text mining
+  - build a term-document matrix
+  - then, generate the Word cloud!
+
+
+## Step1 - Install packages and load libraries
+
+- For text mining: install.packages("tm")  
+- For text stemming: install.packages("SnowballC")
+- To generate word-cloud:  install.packages("wordcloud") 
+- For color palettes: install.packages("RColorBrewer")
+
+```{r, echo = TRUE, message = FALSE}
+#packages.used=c("tm", "SnowballC", "wordcloud", "RColorBrewer", "wordcloud2", "devtools", 
+                #"dplyr", "tidytext", "stringr")
+# check packages that need to be installed.
+#packages.needed=setdiff(packages.used, 
+                        #intersect(installed.packages()[,1], 
+                                  #packages.used))
+# install additional packages
+#if(length(packages.needed)>0){
+  #install.packages(packages.needed, dependencies = TRUE,
+                   #repos='http://cran.us.r-project.org')}
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+library("dplyr")
+library("tidytext")
+library("stringr")
+library("wordcloud2")
+library(devtools)
+```
+
+
+## Step 2 - Retrieving the data and Text mining
+Here, we are using "Romeo and Juliet" as our data source. The following is the process of creating a sample word cloud based on "Romeo and Juliet". 
+
+
+```{r}
+# Read the text file from internet
+# Romeo and Juliet:
+filePath <- "http://www.gutenberg.org/cache/epub/1112/pg1112.txt"
+text <- readLines(filePath)
+
+# A Mid Summer Night's Dream:
+#  http://www.gutenberg.org/cache/epub/2242/pg2242.txt
+# The Merchant of Venice:
+#  http://www.gutenberg.org/cache/epub/2243/pg2243.txt
+
+# Load the data as a corpus
+
+docs <- Corpus(VectorSource(text))
+
+#Inspect the content of the document
+# inspect(docs)
+```
+
+Text Transformation: 
+```{r, echo = TRUE, message = FALSE}
+#Text transformation
+toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docs <- tm_map(docs, toSpace, "/")
+docs <- tm_map(docs, toSpace, "@")
+docs <- tm_map(docs, toSpace, "\\|")
+```
+
+Clean the text data:
+Cleaning is an essential step to take before you generate your wordcloud. Notice, for your analysis to bring useful insights, you might want to remove special characters, numbers or punctuation from your text. Additionally, you should remove common stop words in order to produce meaningful results and avoid the most common frequent words such as "I" or "the" to appear in the word cloud.
+Here, we convert the text to lower case, and remove numbers and punctuations from text, as well as stopwords and extra white spaces in the text. 
+
+```{r, echo = TRUE, message = FALSE}
+#Cleaning the text
+
+# Convert the text to lower case
+docs <- tm_map(docs, content_transformer(tolower))
+# Remove numbers
+docs <- tm_map(docs, removeNumbers)
+# Remove english common stopwords
+docs <- tm_map(docs, removeWords, stopwords("english"))
+# Remove your own stop word
+# specify your stopwords as a character vector
+docs <- tm_map(docs, removeWords, c(stopwords("SMART"), "thy", "thou", "thee", "the", "and", "but")) 
+# Remove punctuations
+docs <- tm_map(docs, removePunctuation)
+# Eliminate extra white spaces
+docs <- tm_map(docs, stripWhitespace)
+```
+
+
+## Step3 - Build a term-document matrix
+A dataframe containing each word in first column and frequency in the second column.
+
+```{r}
+dtm <- TermDocumentMatrix(docs,control = list(minWordLength = 1))
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, 10)
+```
+
+## Step4 - Generate the Word cloud ! 
+Here, we are using the wordcloud package which is the most classic way to generate a word cloud.
+```{r}
+set.seed(1234) # for reproducibility 
+wordcloud(words = d$word, freq = d$freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, scale = c(3.5, 0.25),
+          colors=brewer.pal(8, "Dark2"))
+```
+
+
+Notice: It may happen that your word cloud crops certain words or simply doesn’t show them. If this happens, make sure to add the argument scale=c(3.5,0.25) and play around with the numbers to make the word cloud fit.
+Another common mistake with word clouds is to show too many words that have little frequency. If this is the case, make sure to adjust the minimum frequency argument (min.freq=…) in order to render your word cloud more meaningful.
+
+
+The above word cloud is generated using "wordcloud" package, now, let us have some fun with the wordcloud2 package. The wordcloud2 package allow us to do some more advanced visualizations, for example, change the shape of the word cloud to a specific shape that you would like. 
+
+
+```{r}
+# Gives a proposed palette
+wordcloud2(data=d, size=1.6, color='random-dark')
+```
+
+```{r}
+# or a vector of colors. vector must be same length than input data
+wordcloud2(data = d, size=1.6, color=rep_len( c("green","blue"), nrow(demoFreq) ) )
+```
+
+```{r}
+# Change the background color
+wordcloud2(data = d, size=1.6, color='random-light', backgroundColor="black")
+```
+
+
+You can custom the wordcloud shape using the shape argument. Available shapes are:
+
+- circle
+- cardioid
+- diamond
+- triangle-forward
+- triangle
+- pentagon
+- star
+
+
+```{r}
+wordcloud2(data=d, size=0.3, shape = 'star')
+```
+
+
+
+Last but not the least, why should we use word clouds?
+
+Word clouds are particularly useful when it comes to visualize text data. They present text data in a clear and well-organized format, that of a cloud in which the size of the words depends on their respective frequencies. 
+Word clouds are handy for anyone wishing to communicate a basic insight based on the text data, for speech analysis or to analyse a conversation or reports. They are insightful in terms of getting the most frequent words used in the text as well as a combination of them. Visually engaging, word clouds allow us to draw several insights quickly, allowing for some flexibility in their interpretation. Their visual format stimulates us to think and draw the best insight depending on what we wish to analyse.
+
+
+
+
+## Reference
+
+[https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html#lettercloud-function](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html#lettercloud-function)
+[https://github.com/abhimotgi/dataslice/blob/master/R/Word%20Clouds%20in%20R.R](https://github.com/abhimotgi/dataslice/blob/master/R/Word%20Clouds%20in%20R.R)
+[https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a](https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a)
+[https://www.kaggle.com/datasets/dorianlazar/medium-articles-dataset](https://www.kaggle.com/datasets/dorianlazar/medium-articles-dataset)
+
