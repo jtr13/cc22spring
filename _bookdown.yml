@@ -30,6 +30,7 @@ rmd_files: [
   'course_cheatsheet.Rmd',
   'webscraping_table_xpath.Rmd', 
   'basic_visualization_cheatsheet.Rmd',
+  'ggplot2_cheatsheet.Rmd',
 
   # Part: Tutorials
   'visualizing_geographic_time_series_with_messy_country_name.Rmd',  # contains PART header
